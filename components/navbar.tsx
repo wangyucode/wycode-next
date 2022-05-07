@@ -21,8 +21,8 @@ export default function Navbar({ activeItem }) {
     return (
         <div className="w-full z-10 p-4 flex border-b justify-between">
             <Link href="/">
-                <a className='flex gap-x-2 text-lg font-semibold'>
-                    <Image src="/favicon.svg" width={24} height={24}></Image>
+                <a className='flex gap-x-2 text-xl font-semibold'>
+                    <Image src="/favicon.svg" width={28} height={28}></Image>
                     {SITE_NAME}
                 </a>
             </Link>

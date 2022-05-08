@@ -4,6 +4,7 @@ import { BeakerIcon, ClipboardListIcon, CogIcon, PencilIcon, SearchIcon, UserAdd
 
 import { SITE_NAME } from './layout';
 import NavItem from './nav-item';
+import ThemeSwitch from './theme-switch';
 
 
 export enum NavbarItems {
@@ -25,7 +26,7 @@ export default function Navbar({ activeItem }: {activeItem: NavbarItems}) {
     return (
         <div className="w-full z-10 p-4 flex border-b justify-between">
             <Link href="/">
-                <a className='flex gap-x-2 text-xl font-semibold items-center'>
+                <a className='flex gap-x-2 text-xl font-semibold items-center text-slate-900 hover:text-sky-500'>
                     <Image src="/favicon.svg" width={28} height={28}></Image>
                     {SITE_NAME}
                 </a>
@@ -40,8 +41,8 @@ export default function Navbar({ activeItem }: {activeItem: NavbarItems}) {
                         <li><NavItemAbout href="/lab" active={activeItem === NavbarItems.about} title="关于"/></li>
                     </ul>
                 </nav>
-                <span className='mr-4 my-auto'>主题</span>
-                <button>
+                <ThemeSwitch />
+                <button className='text-slate-700 hover:text-sky-500'>
                     <SearchIcon className='inline mr-1' height={15} width={15}/>
                     搜索
                 </button>

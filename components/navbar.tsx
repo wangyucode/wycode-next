@@ -1,9 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
-import { faPenToSquare, faClipboard } from '@fortawesome/free-regular-svg-icons'
-import { faFlask, faScrewdriverWrench, faUserPlus, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
+import { BeakerIcon, ClipboardListIcon, CogIcon, PencilIcon, SearchIcon, UserAddIcon } from '@heroicons/react/outline';
 
 import { SITE_NAME } from './layout';
 import NavItem from './nav-item';
@@ -17,11 +14,18 @@ export enum NavbarItems {
     about
 }
 
-export default function Navbar({ activeItem }) {
+export default function Navbar({ activeItem }: {activeItem: NavbarItems}) {
+
+    const NavItemBlog = NavItem(PencilIcon);
+    const NavItemLab = NavItem(BeakerIcon);
+    const NavItemClipboard = NavItem(ClipboardListIcon);
+    const NavItemAdmin = NavItem(CogIcon);
+    const NavItemAbout = NavItem(UserAddIcon);
+
     return (
         <div className="w-full z-10 p-4 flex border-b justify-between">
             <Link href="/">
-                <a className='flex gap-x-2 text-xl font-semibold'>
+                <a className='flex gap-x-2 text-xl font-semibold items-center'>
                     <Image src="/favicon.svg" width={28} height={28}></Image>
                     {SITE_NAME}
                 </a>
@@ -29,16 +33,16 @@ export default function Navbar({ activeItem }) {
             <div className='flex'>
                 <nav className='mr-4 pr-4 border-r m-auto'>
                     <ul className='md:flex md:space-x-4 items-center'>
-                        <li><NavItem href="/" icon={faPenToSquare} title="博客"/></li>
-                        <li><NavItem href="/lab" icon={faFlask} title="实验室"/></li>
-                        <li><NavItem href="/lab" icon={faClipboard} title="跨平台剪切板"/></li>
-                        <li><NavItem href="/lab" icon={faScrewdriverWrench} title="管理"/></li>
-                        <li><NavItem href="/lab" icon={faUserPlus} title="关于"/></li>
+                        <li><NavItemBlog active={activeItem === NavbarItems.blog} href="/" title="博客"/></li>
+                        <li><NavItemLab href="/lab" active={activeItem === NavbarItems.lab} title="实验室"/></li>
+                        <li><NavItemClipboard href="/lab" active={activeItem === NavbarItems.clipboard} title="跨平台剪切板"/></li>
+                        <li><NavItemAdmin href="/lab" active={activeItem === NavbarItems.admin} title="管理"/></li>
+                        <li><NavItemAbout href="/lab" active={activeItem === NavbarItems.about} title="关于"/></li>
                     </ul>
                 </nav>
                 <span className='mr-4 my-auto'>主题</span>
                 <button>
-                    <FontAwesomeIcon className='inline mr-1' icon={faMagnifyingGlass} height={15} width={15}/>
+                    <SearchIcon className='inline mr-1' height={15} width={15}/>
                     搜索
                 </button>
             </div>

@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { PropsWithChildren } from 'react';
 
-import Navbar, { NavbarItems } from './navbar';
+import Navbar, { NavbarItems } from './nav/navbar';
 
 export const SITE_NAME = '王郁的小站'
 const name = '王郁';

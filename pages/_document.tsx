@@ -1,20 +1,22 @@
-import { Html, Head, Main, NextScript } from 'next/document'
-import { useReducer } from 'react'
-import { Theme } from '../components/theme-switch'
+import classNames from 'classnames';
+import { Html, Head, Main, NextScript } from 'next/document';
+
+import { ThemeProvider, useTheme } from '../components/nav/theme-context';
+import { Theme } from '../components/nav/theme-switch';
 
 export default function Document() {
 
-    const initialTheme = localStorage.getItem('theme') === Theme.dark ? Theme.dark: Theme.light;
-    console.log(initialTheme);
-    // const [theme, dispatch] = useReducer(themeReducer, initialTheme)
+  // const theme = useTheme();
 
-    return (
-      <Html className=''>
+  return (
+    // <ThemeProvider>
+      <Html>
         <Head />
         <body>
           <Main />
           <NextScript />
         </body>
       </Html>
-    )
-  }
+    // </ThemeProvider>
+  )
+}

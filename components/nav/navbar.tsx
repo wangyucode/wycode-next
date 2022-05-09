@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { BeakerIcon, ClipboardListIcon, CogIcon, PencilIcon, SearchIcon, UserAddIcon } from '@heroicons/react/outline';
 
-import { SITE_NAME } from './layout';
+import { SITE_NAME } from '../layout';
 import NavItem from './nav-item';
 import ThemeSwitch from './theme-switch';
 
@@ -26,7 +26,7 @@ export default function Navbar({ activeItem }: {activeItem: NavbarItems}) {
     return (
         <div className="w-full z-10 p-4 flex border-b justify-between">
             <Link href="/">
-                <a className='flex gap-x-2 text-xl font-semibold items-center text-slate-900 hover:text-sky-500'>
+                <a className='flex gap-x-2 text-xl font-semibold items-center text-slate-900 hover:text-sky-500 dark:text-white'>
                     <Image src="/favicon.svg" width={28} height={28}></Image>
                     {SITE_NAME}
                 </a>
@@ -48,6 +48,5 @@ export default function Navbar({ activeItem }: {activeItem: NavbarItems}) {
                 </button>
             </div>
         </div>
-
     );
 }

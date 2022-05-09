@@ -37,7 +37,7 @@ export default function ThemeSwitch() {
     return (
         <button className='mr-4 my-auto border border-slate-500 rounded-xl w-9 p-px bg-slate-200'
             onClick={handleClick}>
-            <span className='flex dark:translate-x-4 transition-transform'>
+            <span className='flex dark:translate-x-4 transition-transform duration-200'>
                 {theme === Theme.light ?
                     <SunIcon height={16} width={16} className="bg-white rounded-full p-px text-amber-400" />
                     :

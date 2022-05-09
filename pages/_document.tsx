@@ -12,7 +12,7 @@ export default function Document() {
     // <ThemeProvider>
       <Html>
         <Head />
-        <body className='bg-white dark:bg-slate-900'>
+        <body className='bg-white dark:bg-slate-900 transition-colors duration-700'>
           <Main />
           <NextScript />
         </body>

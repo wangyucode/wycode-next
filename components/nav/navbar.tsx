@@ -26,7 +26,7 @@ export default function Navbar({ activeItem }: {activeItem: NavbarItems}) {
     return (
         <div className="w-full z-10 p-4 flex border-b justify-between">
             <Link href="/">
-                <a className='flex gap-x-2 text-xl font-semibold items-center text-slate-900 hover:text-sky-500 dark:text-white'>
+                <a className='flex gap-x-2 text-xl font-semibold items-center text-slate-900 hover:text-sky-500 dark:text-white transition-colors duration-700'>
                     <Image src="/favicon.svg" width={28} height={28}></Image>
                     {SITE_NAME}
                 </a>

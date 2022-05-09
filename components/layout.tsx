@@ -6,7 +6,6 @@ import { PropsWithChildren } from 'react';
 import Navbar, { NavbarItems } from './nav/navbar';
 
 export const SITE_NAME = '王郁的小站'
-const name = '王郁';
 
 interface HomeProps {
     home: boolean;
@@ -14,7 +13,7 @@ interface HomeProps {
 
 export default function Layout({ children, home }: PropsWithChildren<HomeProps>) {
     return (
-        <div>
+        <div className='text-slate-700 dark:text-slate-300'>
             <Head>
                 <link rel="shortcut icon" href="/favicon.svg" type="image/svg+xml" />
                 <title>{SITE_NAME}</title>
@@ -27,33 +26,10 @@ export default function Layout({ children, home }: PropsWithChildren<HomeProps>)
                 <meta name="twitter:card" content="summary_large_image" />
                 <link href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600|Open+Sans:400,600;display=swap" rel="stylesheet"></link>
             </Head>
-            <header>
+            <header className="fixed w-full z-10 p-4 border-b border-slate-900/10 dark:border-slate-300/10 transition-colors duration-700 backdrop-blur dark:bg-slate-900/50 bg-white/10">
                 <Navbar activeItem={NavbarItems.blog}/>
-                <Link href="/">
-                    <a>
-                        <Image
-                            priority
-                            src="/images/profile.jpg"
-                            height={108}
-                            width={108}
-                            alt={name}
-                        />
-                    </a>
-                </Link>
-                <h2>
-                    <Link href="/">
-                        <a>{name}</a>
-                    </Link>
-                </h2>
             </header>
             <main>{children}</main>
-            {!home && (
-                <div>
-                    <Link href="/">
-                        <a>← Back to home</a>
-                    </Link>
-                </div>
-            )}
         </div>
     );
 }

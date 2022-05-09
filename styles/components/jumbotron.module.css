@@ -1,0 +1,11 @@
+span {
+    text-shadow: none;
+}
+
+.dark .welcome {
+    text-shadow: 0 0 8px black;
+}
+
+.welcome {
+    text-shadow: 0 0 8px white;
+}

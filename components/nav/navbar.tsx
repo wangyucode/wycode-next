@@ -24,15 +24,15 @@ export default function Navbar({ activeItem }: {activeItem: NavbarItems}) {
     const NavItemAbout = NavItem(UserAddIcon);
 
     return (
-        <div className="w-full z-10 p-4 flex border-b justify-between">
+        <div className="flex justify-between">
             <Link href="/">
                 <a className='flex gap-x-2 text-xl font-semibold items-center text-slate-900 hover:text-sky-500 dark:text-white transition-colors duration-700'>
                     <Image src="/favicon.svg" width={28} height={28}></Image>
                     {SITE_NAME}
                 </a>
             </Link>
-            <div className='flex'>
-                <nav className='mr-4 pr-4 border-r m-auto'>
+            <div className='flex text-slate-900 dark:text-slate-50'>
+                <nav className='mr-4 pr-4 border-r m-auto border-slate-900/10 dark:border-slate-300/10 transition-colors duration-700'>
                     <ul className='md:flex md:space-x-4 items-center'>
                         <li><NavItemBlog active={activeItem === NavbarItems.blog} href="/" title="博客"/></li>
                         <li><NavItemLab href="/lab" active={activeItem === NavbarItems.lab} title="实验室"/></li>
@@ -42,7 +42,7 @@ export default function Navbar({ activeItem }: {activeItem: NavbarItems}) {
                     </ul>
                 </nav>
                 <ThemeSwitch />
-                <button className='text-slate-700 hover:text-sky-500'>
+                <button className='hover:text-sky-500'>
                     <SearchIcon className='inline mr-1' height={15} width={15}/>
                     搜索
                 </button>

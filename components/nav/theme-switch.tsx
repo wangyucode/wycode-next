@@ -26,22 +26,22 @@ export default function ThemeSwitch() {
         setClass(storedTheme);
     }
 
-    function setClass(theme: Theme){
-        if(theme === Theme.dark){
+    function setClass(theme: Theme) {
+        if (theme === Theme.dark) {
             document.documentElement.classList.add(Theme.dark);
-        }else{
+        } else {
             document.documentElement.classList.remove(Theme.dark);
         }
     }
 
     return (
-        <button className='mr-4 my-auto border border-slate-500 rounded-xl w-10 p-px bg-slate-200'
+        <button className='mr-4 my-auto border border-slate-500 rounded-xl w-9 p-px bg-slate-200'
             onClick={handleClick}>
-            <span className={classNames('flex', { 'flex-row-reverse': theme === Theme.dark })}>
+            <span className='flex dark:translate-x-4 transition-transform'>
                 {theme === Theme.light ?
-                    <SunIcon height={18} width={18} className="bg-white rounded-full p-px text-amber-400" />
+                    <SunIcon height={16} width={16} className="bg-white rounded-full p-px text-amber-400" />
                     :
-                    <MoonIcon height={18} width={18} className="bg-slate-900 rounded-full p-px text-amber-400" />
+                    <MoonIcon height={16} width={16} className="bg-slate-900 rounded-full p-px text-amber-400" />
                 }
             </span>
         </button>

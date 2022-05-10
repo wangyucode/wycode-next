@@ -1,5 +1,5 @@
 import { createContext, Dispatch, PropsWithChildren, useContext, useReducer } from 'react';
-import { Theme } from './theme-switch';
+import { Theme } from '../theme-switch';
 
 export const ThemeContext = createContext(Theme.light);
 export const ThemeDispatchContext = createContext<any>(null);

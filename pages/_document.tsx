@@ -2,7 +2,7 @@
 import { Html, Head, Main, NextScript } from 'next/document';
 
 import { ThemeProvider, useTheme } from '../components/nav/theme-context';
-import { Theme } from '../components/nav/theme-switch';
+import { Theme } from '../components/theme-switch';
 
 export default function Document() {
 

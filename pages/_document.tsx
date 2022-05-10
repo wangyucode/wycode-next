@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+
 import { Html, Head, Main, NextScript } from 'next/document';
 
 import { ThemeProvider, useTheme } from '../components/nav/theme-context';

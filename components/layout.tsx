@@ -1,17 +1,11 @@
 import Head from 'next/head';
-import Image from 'next/image';
-import Link from 'next/link';
 import { PropsWithChildren } from 'react';
 
 import Navbar, { NavbarItems } from './nav/navbar';
 
 export const SITE_NAME = '王郁的小站'
 
-interface HomeProps {
-    home: boolean;
-}
-
-export default function Layout({ children, home }: PropsWithChildren<HomeProps>) {
+export default function Layout({ children }: any) {
     return (
         <div className='text-slate-700 dark:text-slate-300'>
             <Head>
@@ -26,10 +20,10 @@ export default function Layout({ children, home }: PropsWithChildren<HomeProps>)
                 <meta name="twitter:card" content="summary_large_image" />
                 <link href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600|Open+Sans:400,600;display=swap" rel="stylesheet"></link>
             </Head>
-            <header className="fixed w-full z-10 p-4 border-b border-slate-900/10 dark:border-slate-300/10 transition-colors duration-700 backdrop-blur dark:bg-slate-900/50 bg-white/10">
-                <Navbar activeItem={NavbarItems.blog}/>
+            <header className="fixed top-0 h-16 w-full z-10 p-4 border-b border-slate-900/10 dark:border-slate-300/10 transition-colors duration-700 backdrop-blur dark:bg-slate-900/50 bg-white/10">
+                <Navbar activeItem={NavbarItems.blog} />
             </header>
-            <main>{children}</main>
+            <main className='pt-16'>{children}</main>
         </div>
     );
 }

@@ -1,12 +1,12 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { BeakerIcon, ClipboardListIcon, CogIcon, MenuIcon, PencilIcon, SearchIcon, SunIcon, UserAddIcon } from '@heroicons/react/outline';
+import { BeakerIcon, ClipboardListIcon, CogIcon, PencilIcon, UserAddIcon } from '@heroicons/react/outline';
 
 import { SITE_NAME } from '../layout';
 import NavItem from './nav-item';
 import ThemeSwitch from '../theme-switch';
-import { Fragment, useState } from 'react';
 import MobileNav from './mobile-nav';
+import Search from '../search';
 
 
 export enum NavbarItems {
@@ -44,10 +44,7 @@ export default function Navbar({ activeItem }: { activeItem: NavbarItems }) {
                     </ul>
                 </nav>
                 <ThemeSwitch classes="hidden md:inline mr-4" />
-                <button className='mr-4 md:mr-0 dark:hover:bg-white/5 hover:bg-black/5 px-2 py-1 rounded-md'>
-                    <SearchIcon className='inline mr-1 h-6 w-6 md:w-4 md:h-4' height={16} width={16} />
-                    <span className='hidden md:inline'>搜索</span>
-                </button>
+                <Search />
                 <MobileNav activeItem={activeItem} />
             </div>
         </div>

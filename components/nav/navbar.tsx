@@ -34,7 +34,7 @@ export default function Navbar({ activeItem }: { activeItem: NavbarItems }) {
                 </a>
             </Link>
             <div className='flex text-slate-900 dark:text-slate-50'>
-                <nav className='hidden md:flex mr-4 pr-4 border-r m-auto border-slate-900/10 dark:border-slate-300/10 transition-colors duration-700'>
+                <nav className='hidden md:flex mr-4 pr-4 border-r m-auto border-slate-900/10 dark:border-slate-300/10'>
                     <ul className='flex space-x-1 items-center'>
                         <li><NavItemBlog active={activeItem === NavbarItems.blog} href="/" title="博客" /></li>
                         <li><NavItemLab href="/lab" active={activeItem === NavbarItems.lab} title="实验室" /></li>

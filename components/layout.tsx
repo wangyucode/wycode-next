@@ -43,6 +43,10 @@ export default function Layout({ children }: any) {
                 <Navbar activeItem={NavbarItems.blog} />
             </header>
             <main className='pt-16'>{children}</main>
+            <footer className='flex justify-center items-center mt-8 h-10 border-t border-slate-900/10 dark:border-slate-300/10 text-sm'>
+                <a href="http://beian.miit.gov.cn" target="_blank" className='mr-2 px-2 border-r border-slate-900/10 dark:border-slate-300/10 hover:text-sky-500'>陕ICP备15011477号</a>
+                <span>©wycode.cn 2015-2022 All Right Reserved</span>
+            </footer>
         </div>
     );
 }

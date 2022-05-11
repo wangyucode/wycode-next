@@ -1,11 +1,12 @@
+import Link from 'next/link';
+import ArticleItem from '../components/article/article-item';
 import { Jumbotron } from '../components/jumbotron';
 import Layout from '../components/layout';
 
 import { getSortedPosts, Post } from '../utils/posts';
 
 export async function getStaticProps() {
-  const allPosts = getSortedPosts();
-  console.log(allPosts);
+  const allPosts = await getSortedPosts();
   return {
     props: {
       allPosts,
@@ -19,19 +20,9 @@ export default function Home({ allPosts }: { allPosts: Post[] }) {
       <Jumbotron />
       <section>
         <ul className="">
-          {allPosts.map(({ id, data: {date, title, categories, tags} }) => (
-            <li className="" key={id}>
-              <article>
-                <>
-                  {title}
-                  <br />
-                  {categories}
-                  <br />
-                  {tags?.join(', ')}
-                  <br />
-                  {date}
-                </>
-              </article>
+          {allPosts.map(post => (
+            <li className="" key={post.id}>
+              <ArticleItem post={post} withExcerpt/>
             </li>
           ))}
         </ul>

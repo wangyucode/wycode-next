@@ -19,7 +19,7 @@ export default function Search() {
             <button
                 type="button"
                 onClick={openModal}
-                className='mr-4 md:mr-0 dark:hover:bg-white/5 hover:bg-black/5 px-2 py-1 rounded-md'
+                className='mr-4 md:mr-0 dark:hover:bg-white/5 hover:bg-black/5 px-2 py-1 rounded-md flex items-center'
             >
                 <SearchIcon className='inline mr-1 h-6 w-6 md:w-4 md:h-4' />
                 <span className='hidden md:inline'>搜索</span>

@@ -1,46 +1,40 @@
 import { Jumbotron } from '../components/jumbotron';
 import Layout from '../components/layout';
 
-export default function Home() {
+import { getSortedPosts, Post } from '../utils/posts';
+
+export async function getStaticProps() {
+  const allPosts = getSortedPosts();
+  console.log(allPosts);
+  return {
+    props: {
+      allPosts,
+    },
+  };
+}
+
+export default function Home({ allPosts }: { allPosts: Post[] }) {
   return (
     <Layout blog>
-      <Jumbotron/>
+      <Jumbotron />
       <section>
-        <p>[Your Self Introduction]</p>
-        <p>
-          (This is a sample website - you’ll be building a site like this on{' '}
-          <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
-        </p>
-        <p>[Your Self Introduction]</p>
-        <p>
-          (This is a sample website - you’ll be building a site like this on{' '}
-          <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
-        </p>
-        <p>[Your Self Introduction]</p>
-        <p>
-          (This is a sample website - you’ll be building a site like this on{' '}
-          <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
-        </p>
-        <p>[Your Self Introduction]</p>
-        <p>
-          (This is a sample website - you’ll be building a site like this on{' '}
-          <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
-        </p>
-        <p>[Your Self Introduction]</p>
-        <p>
-          (This is a sample website - you’ll be building a site like this on{' '}
-          <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
-        </p>
-        <p>[Your Self Introduction]</p>
-        <p>
-          (This is a sample website - you’ll be building a site like this on{' '}
-          <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
-        </p>
-        <p>[Your Self Introduction]</p>
-        <p>
-          (This is a sample website - you’ll be building a site like this on{' '}
-          <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
-        </p>
+        <ul className="">
+          {allPosts.map(({ id, data: {date, title, categories, tags} }) => (
+            <li className="" key={id}>
+              <article>
+                <>
+                  {title}
+                  <br />
+                  {categories}
+                  <br />
+                  {tags?.join(', ')}
+                  <br />
+                  {date}
+                </>
+              </article>
+            </li>
+          ))}
+        </ul>
       </section>
     </Layout>
   );

@@ -42,11 +42,13 @@ export default function Layout({ children }: any) {
             <header className={`fixed top-0 h-16 w-full z-10 p-4 border-b border-slate-900/10 dark:border-slate-300/10 transition-colors duration-700 dark:bg-slate-900/50 bg-white/10 ${isOpaque && 'backdrop-blur'}`}>
                 <Navbar activeItem={NavbarItems.blog} />
             </header>
-            <main className='pt-16'>{children}</main>
-            <footer className='flex justify-center items-center h-10 border-t border-slate-900/10 dark:border-slate-300/10 text-sm fixed bottom-0 left-0 right-0'>
-                <a href="http://beian.miit.gov.cn" target="_blank" className='mr-2 px-2 border-r border-slate-900/10 dark:border-slate-300/10 hover:text-sky-500'>陕ICP备15011477号</a>
-                <span>©wycode.cn 2015-2022 All Right Reserved</span>
-            </footer>
+            <main className='pt-16 pb-10 min-h-screen relative'>
+                {children}
+                <footer className='flex justify-center items-center h-10 border-t border-slate-900/10 dark:border-slate-300/10 text-sm absolute inset-x-0 bottom-0'>
+                    <a href="http://beian.miit.gov.cn" target="_blank" className='mr-2 px-2 border-r border-slate-900/10 dark:border-slate-300/10 hover:text-sky-500'>陕ICP备15011477号</a>
+                    <span>©wycode.cn 2015-2022 All Right Reserved</span>
+                </footer>
+            </main>
         </div>
     );
 }

@@ -4,7 +4,9 @@ import matter from 'gray-matter';
 import moment from 'moment';
 import { remark } from 'remark';
 import html from 'remark-html';
+import { rehype } from 'rehype';
 
+const addClasses = require('rehype-add-classes');
 const postsDirectory = path.join(process.cwd(), 'posts');
 
 export interface Post {
@@ -37,8 +39,23 @@ export async function getSortedPosts(): Promise<Post[]> {
     const processor = remark().use(html);
     const processedExcerpt = await processor.process(matterResult.excerpt || '');
     const processedContent = await processor.process(matterResult.content);
-    const excerptHtml = processedExcerpt.toString();
-    const contentHtml = processedContent.toString();
+
+    const classProcessor = rehype()
+    .data('settings', { fragment: true })
+    .use(addClasses, {
+        'img': 'mx-auto max-h-80 max-w-[90%]',
+        'p': 'mb-4',
+        'blockquote': 'px-4 border-l-4 border-slate-500 text-slate-500',
+        'blockquote > p': 'indent-0',
+        'h2': 'text-xl font-bold mb-4 pb-4 border-b border-slate-900/10 dark:border-slate-300/10',
+        'h3': 'text-lg font-bold mb-4',
+        'code': 'px-1 py-0.5 mx-1 bg-slate-200 text-slate-800 dark:text-slate-200 dark:bg-slate-700 rounded-md text-sm font-mono',
+        'pre': 'mb-4 p-4 bg-slate-200 dark:bg-slate-700 rounded-md overflow-auto',
+        'pre > code': '!p-0 !m-0 w-full'
+    });
+
+    const excerptHtml = classProcessor.processSync(processedExcerpt).toString();
+    const contentHtml = classProcessor.processSync(processedContent).toString();
     // Combine the data with the id
     return {
       id: `${matterResult.data.date}-${file}`,

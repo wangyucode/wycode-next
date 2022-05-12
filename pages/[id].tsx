@@ -15,20 +15,22 @@ export default function PostDetail(
     }: { post: Post }
 ) {
     return (
-    <Layout>
-        <Head>
-            <title>{`${SITE_NAME} | ${title}`}</title>
-            {tags && <meta name="keywords" content={tags.join(' ')} />}
-            {excerpt && <meta name="description" content={excerpt} />}
-        </Head>
-        <article className='p-4'>
-            <h1 className="text-2xl text-center font-semibold">{title}</h1>
-            <span className="flex items-center"><CalendarIcon className="inline mr-1" height={20} width={20} />{date}</span>
-            <span className="flex items-center"><ArchiveIcon className="inline mr-1" height={20} width={20} />{categories}</span>
-            {tags && <span className="flex items-center"><TagIcon className="inline mr-1" height={20} width={20} />{tags.join(', ')}</span>}
-            <div className="mt-2" dangerouslySetInnerHTML={{ __html: contentHtml }} />
-        </article>
-    </Layout>
+        <Layout>
+            <Head>
+                <title>{`${SITE_NAME} | ${title}`}</title>
+                {tags && <meta name="keywords" content={tags.join(' ')} />}
+                {excerpt && <meta name="description" content={excerpt} />}
+            </Head>
+            <article className='p-4'>
+                <h1 className="text-2xl text-slate-800 dark:text-slate-200 font-extrabold text-center">{title}</h1>
+                <div className="flex justify-between">
+                    <span className="flex items-center"><CalendarIcon className="inline mr-1" height={20} width={20} />{date}</span>
+                    <span className="flex items-center"><ArchiveIcon className="inline mr-1" height={20} width={20} />{categories}</span>
+                </div>
+                {tags && <span className="flex items-center"><TagIcon className="inline mr-1" height={20} width={20} />{tags.join(', ')}</span>}
+                <div className="mt-8" dangerouslySetInnerHTML={{ __html: contentHtml }} />
+            </article>
+        </Layout>
     );
 }
 

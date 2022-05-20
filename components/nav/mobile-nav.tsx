@@ -2,7 +2,7 @@ import { Fragment, useState } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { MenuIcon, SunIcon, XIcon } from "@heroicons/react/outline";
 
-import ThemeSwitch from "../theme-switch";
+import ThemeSwitch from "./theme-switch";
 import { NavItemAbout, NavItemAdmin, NavItemBlog, NavItemClipboard, NavItemLab } from "./navbar";
 
 export default function MobileNav() {

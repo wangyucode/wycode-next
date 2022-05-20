@@ -16,12 +16,12 @@ export async function getStaticProps() {
 
 export default function Home({ allPosts }: { allPosts: Post[] }) {
   return (
-    <Layout blog>
+    <Layout>
       <Jumbotron />
       <div className="px-4 flex flex-col lg:flex-row max-w-7xl mx-auto">
         <ul className="min-w-0">
           {allPosts.map(post => (
-            <li className="border-b last:border-0 border-slate-900/10 dark:border-slate-300/10 py-4 max-w-full" key={post.id}>
+            <li className="border-b last:border-0 border-slate-700/30 dark:border-slate-300/30 py-4 max-w-full" key={post.id}>
               <ArticleItem post={post} withExcerpt/>
             </li>
           ))}

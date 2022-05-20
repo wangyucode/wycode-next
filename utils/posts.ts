@@ -47,7 +47,7 @@ export async function getSortedPosts(): Promise<Post[]> {
         'p': 'mb-4',
         'blockquote': 'px-4 border-l-4 border-slate-500 text-slate-500',
         'blockquote > p': 'indent-0',
-        'h2': 'text-xl font-bold mb-4 pb-4 border-b border-slate-900/10 dark:border-slate-300/10',
+        'h2': 'text-xl font-bold mb-4 pb-4 border-b border-slate-700/30 dark:border-slate-300/30',
         'h3': 'text-lg font-bold mb-4',
         'code': 'px-1 py-0.5 mx-1 bg-slate-200 text-slate-800 dark:text-slate-200 dark:bg-slate-700 rounded-md text-sm font-mono',
         'pre': 'mb-4 p-4 bg-slate-200 dark:bg-slate-700 rounded-md overflow-auto max-w-full',

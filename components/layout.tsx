@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
 
-import Navbar, { NavbarItems } from './nav/navbar';
+import Navbar from './nav/navbar';
 
 export const SITE_NAME = '王郁的小站'
 
@@ -38,13 +38,13 @@ export default function Layout({ children }: any) {
                 <meta name="og:title" content={SITE_NAME} />
                 <meta name="twitter:card" content="summary_large_image" />
             </Head>
-            <header className={`fixed flex justify-center top-0 h-16 w-full z-10 p-4 border-b border-slate-900/10 dark:border-slate-300/10 transition-colors duration-700 dark:bg-slate-900/50 bg-white/10 ${isOpaque && 'backdrop-blur'}`}>
+            <header className={`fixed flex justify-center top-0 h-16 w-full z-10 p-4 border-b border-slate-700/30 dark:border-slate-300/30 transition-colors duration-700 dark:bg-slate-900/50 bg-white/10 ${isOpaque && 'backdrop-blur'}`}>
                 <Navbar/>
             </header>
             <main className='pt-16 pb-10 min-h-screen relative'>
                 {children}
-                <footer className='flex flex-col md:flex-row justify-center items-center py-2 border-t border-slate-900/10 dark:border-slate-300/10 text-xs md:text-sm absolute inset-x-0 bottom-0'>
-                    <a href="http://beian.miit.gov.cn" target="_blank" className='md:mr-2 md:pr-2 md:border-r border-slate-900/10 dark:border-slate-300/10 hover:text-sky-500'>陕ICP备15011477号</a>
+                <footer className='flex flex-col md:flex-row justify-center items-center py-2 border-t border-slate-700/30 dark:border-slate-300/30 text-xs md:text-sm absolute inset-x-0 bottom-0'>
+                    <a href="http://beian.miit.gov.cn" target="_blank" className='md:mr-2 md:pr-2 md:border-r border-slate-700/30 dark:border-slate-300/30 hover:text-sky-500'>陕ICP备15011477号</a>
                     <span>©wycode.cn 2015-2022 All Right Reserved</span>
                 </footer>
             </main>

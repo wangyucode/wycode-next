@@ -1,8 +1,9 @@
 import Head from 'next/head';
 import { CalendarIcon, ArchiveIcon, TagIcon } from "@heroicons/react/outline";
 
-import Layout, { SITE_NAME } from '../components/layout';
+import Layout from '../components/layout';
 import { getAllPostIds, getPost, Post } from '../utils/posts';
+import {SITE_NAME} from "./_document";
 
 export default function PostDetail(
     {

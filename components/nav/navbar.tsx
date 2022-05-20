@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { BeakerIcon, ClipboardListIcon, CogIcon, PencilIcon, UserAddIcon } from '@heroicons/react/outline';
 
-import { SITE_NAME } from '../layout';
+import { SITE_NAME } from '../../pages/_document';
 import NavItem from './nav-item';
 import ThemeSwitch from './theme-switch';
 import MobileNav from './mobile-nav';
@@ -24,8 +24,6 @@ export const NavItemAdmin = NavItem(CogIcon);
 export const NavItemAbout = NavItem(UserAddIcon);
 
 export default function Navbar() {
-
-
 
     return (
         <div className="flex grow justify-between max-w-7xl">

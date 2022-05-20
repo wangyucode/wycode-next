@@ -20,9 +20,11 @@ export default function ThemeSwitch({ classes }: any) {
     }
 
     function getStoredTheme() {
-        const storedTheme = localStorage.getItem('theme') === Theme.dark ? Theme.dark : Theme.light;
-        setTheme(storedTheme);
-        setClass(storedTheme);
+        const perferDarkTheme = localStorage.getItem('theme') === Theme.dark ||
+            (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)'));
+        const perferredTheme = perferDarkTheme ? Theme.dark : Theme.light;
+        setTheme(perferredTheme);
+        setClass(perferredTheme);
     }
 
     function setClass(theme: Theme) {

@@ -2,9 +2,9 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import moment from 'moment';
-import { remark } from 'remark';
+import {remark} from 'remark';
 import html from 'remark-html';
-import { rehype } from 'rehype';
+import {rehype} from 'rehype';
 
 const addClasses = require('rehype-add-classes');
 const postsDirectory = path.join(process.cwd(), 'posts');
@@ -50,8 +50,8 @@ export async function getSortedPosts(): Promise<Post[]> {
         'h2': 'text-xl font-bold mb-4 pb-4 border-b border-slate-900/10 dark:border-slate-300/10',
         'h3': 'text-lg font-bold mb-4',
         'code': 'px-1 py-0.5 mx-1 bg-slate-200 text-slate-800 dark:text-slate-200 dark:bg-slate-700 rounded-md text-sm font-mono',
-        'pre': 'mb-4 p-4 bg-slate-200 dark:bg-slate-700 rounded-md overflow-auto',
-        'pre > code': '!p-0 !m-0 w-full'
+        'pre': 'mb-4 p-4 bg-slate-200 dark:bg-slate-700 rounded-md overflow-auto max-w-full',
+        'pre > code': '!p-0 !m-0'
     });
 
     const excerptHtml = classProcessor.processSync(processedExcerpt).toString();
@@ -104,6 +104,5 @@ export async function getAllPostIds() {
 
 export async function getPost(id: string) {
   const allPosts = await getSortedPosts();
-  const post = allPosts.find(it => it.id === id);
-  return post;
+  return allPosts.find(it => it.id === id);
 }

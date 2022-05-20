@@ -26,7 +26,7 @@ export const NavItemAbout = NavItem(UserAddIcon);
 export default function Navbar({ activeItem }: { activeItem: NavbarItems }) {
 
     return (
-        <div className="flex justify-between my-auto">
+        <div className="flex grow justify-between max-w-7xl">
             <Link href="/">
                 <a className='flex gap-x-2 text-xl font-semibold items-center text-slate-900 hover:text-sky-500 dark:text-white'>
                     <Image src="/favicon.svg" width={28} height={28}></Image>

@@ -3,6 +3,7 @@ import { Jumbotron } from '../components/jumbotron';
 import Layout from '../components/layout';
 
 import { getSortedPosts, Post } from '../utils/posts';
+import Hot from "../components/aside/hot";
 
 export async function getStaticProps() {
   const allPosts = await getSortedPosts();
@@ -25,8 +26,8 @@ export default function Home({ allPosts }: { allPosts: Post[] }) {
             </li>
           ))}
         </ul>
-        <aside className="basis-96 shrink-0 bg-amber-600 md:ml-8">
-          <div>热门文章</div>
+        <aside className="lg:basis-72 lg:shrink-0 lg:ml-16">
+          <Hot allPosts={allPosts}/>
         </aside>
       </div>
     </Layout>

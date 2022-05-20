@@ -7,6 +7,7 @@ import NavItem from './nav-item';
 import ThemeSwitch from '../theme-switch';
 import MobileNav from './mobile-nav';
 import Search from '../search';
+import {useRouter} from "next/router";
 
 
 export enum NavbarItems {
@@ -23,7 +24,9 @@ export const NavItemClipboard = NavItem(ClipboardListIcon);
 export const NavItemAdmin = NavItem(CogIcon);
 export const NavItemAbout = NavItem(UserAddIcon);
 
-export default function Navbar({ activeItem }: { activeItem: NavbarItems }) {
+export default function Navbar() {
+
+
 
     return (
         <div className="flex grow justify-between max-w-7xl">
@@ -36,16 +39,16 @@ export default function Navbar({ activeItem }: { activeItem: NavbarItems }) {
             <div className='flex text-slate-900 dark:text-slate-50'>
                 <nav className='hidden md:flex mr-4 pr-4 border-r m-auto border-slate-900/10 dark:border-slate-300/10'>
                     <ul className='flex space-x-1 items-center'>
-                        <li><NavItemBlog active={activeItem === NavbarItems.blog} href="/" title="博客" /></li>
-                        <li><NavItemLab href="/lab" active={activeItem === NavbarItems.lab} title="实验室" /></li>
-                        <li><NavItemClipboard href="/lab" active={activeItem === NavbarItems.clipboard} title="跨平台剪切板" /></li>
-                        <li><NavItemAdmin href="/lab" active={activeItem === NavbarItems.admin} title="管理" /></li>
-                        <li><NavItemAbout href="/lab" active={activeItem === NavbarItems.about} title="关于" /></li>
+                        <li><NavItemBlog href="/" title="博客" /></li>
+                        <li><NavItemLab href="/lab.html" title="实验室" /></li>
+                        <li><NavItemClipboard href="/lab" title="跨平台剪切板" /></li>
+                        <li><NavItemAdmin href="/lab" title="管理" /></li>
+                        <li><NavItemAbout href="/lab" title="关于" /></li>
                     </ul>
                 </nav>
                 <ThemeSwitch classes="hidden md:inline mr-4" />
                 <Search />
-                <MobileNav activeItem={activeItem} />
+                <MobileNav />
             </div>
         </div>
     );

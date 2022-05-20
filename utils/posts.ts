@@ -79,20 +79,6 @@ export async function getSortedPosts(): Promise<Post[]> {
 
 export async function getAllPostIds() {
   const allPosts = await getSortedPosts();
-
-  // Returns an array that looks like this:
-  // [
-  //   {
-  //     params: {
-  //       id: 'ssg-ssr'
-  //     }
-  //   },
-  //   {
-  //     params: {
-  //       id: 'pre-rendering'
-  //     }
-  //   }
-  // ]
   return allPosts.map((post) => {
     return {
       params: {

@@ -10,7 +10,7 @@ export default function Document() {
 
   return (
     // <ThemeProvider>
-      <Html>
+      <Html lang="zh-CN">
         <Head />
         <body className='bg-white dark:bg-slate-900 transition-colors duration-700'>
           <Main />

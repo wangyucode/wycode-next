@@ -39,7 +39,7 @@ export default function Layout({ children }: any) {
                 <meta name="twitter:card" content="summary_large_image" />
             </Head>
             <header className={`fixed flex justify-center top-0 h-16 w-full z-10 p-4 border-b border-slate-900/10 dark:border-slate-300/10 transition-colors duration-700 dark:bg-slate-900/50 bg-white/10 ${isOpaque && 'backdrop-blur'}`}>
-                <Navbar activeItem={NavbarItems.blog} />
+                <Navbar/>
             </header>
             <main className='pt-16 pb-10 min-h-screen relative'>
                 {children}

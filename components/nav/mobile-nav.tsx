@@ -3,9 +3,9 @@ import { Menu, Transition } from "@headlessui/react";
 import { MenuIcon, SunIcon, XIcon } from "@heroicons/react/outline";
 
 import ThemeSwitch from "../theme-switch";
-import { NavbarItems, NavItemAbout, NavItemAdmin, NavItemBlog, NavItemClipboard, NavItemLab } from "./navbar";
+import { NavItemAbout, NavItemAdmin, NavItemBlog, NavItemClipboard, NavItemLab } from "./navbar";
 
-export default function MobileNav({ activeItem }: any) {
+export default function MobileNav() {
 
     const [menuOpen, setMenuOpen] = useState(false);
 
@@ -37,11 +37,11 @@ export default function MobileNav({ activeItem }: any) {
             >
                 <nav className="absolute w-48 p-4 right-0 mt-2 bg-white rounded-lg border shadow-lg border-slate-900/10 dark:border-slate-300/10 dark:bg-slate-800 transition-colors duration-700">
                     <Menu.Items as='ul'>
-                        <Menu.Item as='li' className="mb-1"><NavItemBlog active={activeItem === NavbarItems.blog} href="/" title="博客" /></Menu.Item>
-                        <Menu.Item as='li' className="mb-1"><NavItemLab href="/lab" active={activeItem === NavbarItems.lab} title="实验室" /></Menu.Item>
-                        <Menu.Item as='li' className="mb-1"><NavItemClipboard href="/lab" active={activeItem === NavbarItems.clipboard} title="跨平台剪切板" /></Menu.Item>
-                        <Menu.Item as='li' className="mb-1"><NavItemAdmin href="/lab" active={activeItem === NavbarItems.admin} title="管理" /></Menu.Item>
-                        <Menu.Item as='li' className="mb-1"><NavItemAbout href="/lab" active={activeItem === NavbarItems.about} title="关于" /></Menu.Item>
+                        <Menu.Item as='li' className="mb-1"><NavItemBlog href="/" title="博客" /></Menu.Item>
+                        <Menu.Item as='li' className="mb-1"><NavItemLab href="/lab" title="实验室" /></Menu.Item>
+                        <Menu.Item as='li' className="mb-1"><NavItemClipboard href="/lab" title="跨平台剪切板" /></Menu.Item>
+                        <Menu.Item as='li' className="mb-1"><NavItemAdmin href="/lab" title="管理" /></Menu.Item>
+                        <Menu.Item as='li' className="mb-1"><NavItemAbout href="/lab" title="关于" /></Menu.Item>
                         <div className='flex justify-between px-2 pt-2 border-t'><span><SunIcon className='mr-1 inline' height={15} width={15} />主题</span><ThemeSwitch /></div>
                     </Menu.Items>
                 </nav>

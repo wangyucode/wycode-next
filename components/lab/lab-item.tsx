@@ -2,15 +2,19 @@ import Image from "next/image";
 import LibLink from "./lab-link";
 import BannerMsg from "./banner-msg";
 
-export default function LabItem({title, detail, img, link, github, deprecated}: any) {
+export default function LabItem({large, title, detail, img1, img2, link, github, deprecated}: any) {
+    const col = large ? ' col-span-2': ''
     return (
-        <div className={"border rounded p-2 border-slate-700/30 dark:border-slate-300/30"}>
+        <div className={`border rounded p-2 border-slate-700/30 dark:border-slate-300/30${col}`}>
             <h2 className="text-lg font-semibold">{title}</h2>
-            {deprecated && <BannerMsg msg={deprecated}/>}
+            {deprecated && <BannerMsg type="error" msg={deprecated}/>}
             <p className="mb-2">{detail}</p>
             {link && <LibLink href={link}/>}
             {github && <LibLink href={github}/>}
-            {img && <Image src={img} layout="responsive"/>}
+            <div className="flex gap-1">
+                {img1 && <Image src={img1}/>}
+                {img2 && <Image src={img2}/>}
+            </div>
         </div>
     );
 }

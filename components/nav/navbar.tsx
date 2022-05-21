@@ -8,15 +8,6 @@ import ThemeSwitch from './theme-switch';
 import MobileNav from './mobile-nav';
 import Search from './search';
 
-
-export enum NavbarItems {
-    blog,
-    lab,
-    clipboard,
-    admin,
-    about
-}
-
 export const NavItemBlog = NavItem(PencilIcon);
 export const NavItemLab = NavItem(BeakerIcon);
 export const NavItemClipboard = NavItem(ClipboardListIcon);

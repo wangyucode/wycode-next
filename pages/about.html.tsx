@@ -8,7 +8,7 @@ import {useState} from "react";
 
 export default function About() {
 
-    const [hidden, setHidden] = useState('');
+    const [hidden, setHidden] = useState(' hidden');
 
     return (
         <Layout>

@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 import Layout from "../components/layout";
-import BannerMsg from "../components/lab/banner-msg";
+import BannerMsg from "../components/banner-msg";
 import clipboardImg from "../public/lab/clipboard.jpg";
 import {ArrowLeftIcon, SearchIcon} from "@heroicons/react/outline";
 import {useState} from "react";
@@ -85,22 +85,22 @@ export default function Clipboard() {
     function QueryForm() {
         return (
             <>
-                <BannerMsg type="info" msg="跨平台剪切板2.0已上线，获取新版查询码请扫描下方小程序码，查看属于自己的剪切板！"/>
-                <Image src={clipboardImg}/>
-                {error && <BannerMsg type="error" msg={error}/>}
-                <form className="mt-2" onSubmit={query}>
+                <form className="w-full sm:w-96 flex flex-col" onSubmit={query}>
+                    <BannerMsg type="info" msg="跨平台剪切板2.0已上线，获取新版查询码请扫描下方小程序码，查看属于自己的剪切板！"/>
+                    <div className="mx-auto"><Image src={clipboardImg}/></div>
+                    {error && <BannerMsg type="error" msg={error}/>}
                     <input type="text"
                            autoFocus
                            maxLength={5}
                            disabled={loading}
-                           className="px-4 py-2 dark:bg-slate-800 rounded-l border border-slate-700/30 dark:border-slate-300/30 focus-visible:outline-0 focus-visible:ring-2"
+                           className="px-4 py-2 dark:bg-slate-800 rounded border border-slate-700/30 dark:border-slate-300/30 focus-visible:outline-0 focus-visible:ring-2"
                            onChange={changeKey}
                            value={key}
                            placeholder="查询码（在小程序获得）"/>
                     <button
                         type="submit"
                         disabled={loading}
-                        className="px-4 py-2 rounded-r border border-slate-700/30 disabled:bg-slate-500 disabled:active:ring-0 dark:border-slate-300/30 text-slate-100 bg-sky-600 hover:bg-sky-700 active:ring-2">
+                        className="px-4 py-2 mt-2 rounded border border-slate-700/30 disabled:bg-slate-500 disabled:active:ring-0 dark:border-slate-300/30 text-slate-100 bg-sky-600 hover:bg-sky-700 active:ring-2">
                         <SearchIcon className="w-4 inline mr-1"/>查询
                     </button>
                 </form>
@@ -111,7 +111,8 @@ export default function Clipboard() {
     function ResultForm() {
         return (
             <>
-                <form className="w-full md:w-3/4" onSubmit={save}>
+                <form className="w-full sm:w-96 md:w-[32rem] lg:w-[56rem]" onSubmit={save}>
+
                     <textarea
                         className="block h-96 w-full py-2 px-4 border dark:bg-slate-800 bg-slate-200 rounded border-slate-700/30 dark:border-slate-300/30"
                         disabled={loading}
@@ -127,6 +128,7 @@ export default function Clipboard() {
                            onChange={changeRemark}
                            value={remark}
                            placeholder="备注"/>
+                    {error && <BannerMsg type="error" msg={error}/>}
                     <button
                         type="submit"
                         disabled={loading}
@@ -146,7 +148,7 @@ export default function Clipboard() {
 
     return (
         <Layout>
-            <div className="p-4 max-w-7xl flex flex-col items-center">
+            <div className="p-4 max-w-7xl mx-auto flex flex-col items-center">
                 {showResult ? <ResultForm/> : <QueryForm/>}
             </div>
         </Layout>

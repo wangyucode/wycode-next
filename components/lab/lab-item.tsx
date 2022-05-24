@@ -1,6 +1,6 @@
 import Image from "next/image";
 import LibLink from "./lab-link";
-import BannerMsg from "./banner-msg";
+import BannerMsg from "../banner-msg";
 
 export default function LabItem({large, title, detail, img1, img2, link, github, deprecated}: any) {
     const col = large ? ' col-span-2': ''

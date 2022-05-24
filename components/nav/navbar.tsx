@@ -25,7 +25,7 @@ export default function Navbar() {
                 </a>
             </Link>
             <div className='flex text-slate-900 dark:text-slate-50'>
-                <nav className='hidden md:flex mr-4 pr-4 border-r m-auto border-slate-700/30 dark:border-slate-300/30'>
+                <nav className='hidden md:flex mr-4 pr-2 border-r m-auto border-slate-700/30 dark:border-slate-300/30'>
                     <ul className='flex space-x-1 items-center'>
                         <li><NavItemBlog href="/" title="博客" /></li>
                         <li><NavItemLab href="/lab.html" title="实验室" /></li>

@@ -8,7 +8,6 @@ export default function Document() {
   return (
       <Html lang="zh-CN">
         <Head>
-            <title>{SITE_NAME}</title>
             <link rel="shortcut icon" href="/favicon.svg" type="image/svg+xml" />
             <meta name="description" content={`欢迎光临${SITE_NAME}`} />
             <meta

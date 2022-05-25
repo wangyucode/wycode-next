@@ -29,8 +29,8 @@ export default function Layout({ children }: any) {
             </header>
             <main className='pt-16 pb-10 min-h-screen relative'>
                 {children}
-                <footer className='flex flex-col md:flex-row justify-center items-center py-2 border-t border-slate-700/30 dark:border-slate-300/30 text-xs md:text-sm absolute inset-x-0 bottom-0'>
-                    <a href="http://beian.miit.gov.cn" target="_blank" className='md:mr-2 md:pr-2 md:border-r border-slate-700/30 dark:border-slate-300/30 hover:text-sky-500'>陕ICP备15011477号</a>
+                <footer className='absolute bottom-0 right-0 left-0 flex flex-col md:flex-row justify-center items-center py-2 border-t border-slate-700/30 dark:border-slate-300/30 text-xs md:text-sm'>
+                    <a href="https://beian.miit.gov.cn" target="_blank" className='md:mr-2 md:pr-2 md:border-r border-slate-700/30 dark:border-slate-300/30 hover:text-sky-500'>陕ICP备15011477号</a>
                     <span>©wycode.cn 2015-2022 All Right Reserved</span>
                 </footer>
             </main>

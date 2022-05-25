@@ -22,7 +22,7 @@ export default function PostDetail(
                 {tags && <meta name="keywords" content={tags.join(' ')} />}
                 {excerpt && <meta name="description" content={excerpt} />}
             </Head>
-            <article className='p-4'>
+            <article className='p-4 max-w-7xl mx-auto'>
                 <h1 className="text-2xl text-slate-800 dark:text-slate-200 font-extrabold text-center">{title}</h1>
                 <div className="flex justify-between">
                     <span className="flex items-center"><CalendarIcon className="inline mr-1" height={20} width={20} />{date}</span>

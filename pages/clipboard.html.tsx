@@ -5,6 +5,7 @@ import BannerMsg from "../components/banner-msg";
 import clipboardImg from "../public/lab/clipboard.jpg";
 import {ArrowLeftIcon, SearchIcon} from "@heroicons/react/outline";
 import {useState} from "react";
+import Comments from "../components/comment/comments";
 
 export default function Clipboard() {
 
@@ -93,7 +94,7 @@ export default function Clipboard() {
                            autoFocus
                            maxLength={5}
                            disabled={loading}
-                           className="px-4 py-2 dark:bg-slate-800 rounded border border-slate-700/30 dark:border-slate-300/30 focus-visible:outline-0 focus-visible:ring-2"
+                           className="px-4 py-2 bg-slate-500/5 rounded border border-slate-700/30 dark:border-slate-300/30 focus-visible:outline-0 focus-visible:ring-2"
                            onChange={changeKey}
                            value={key}
                            placeholder="查询码（在小程序获得）"/>
@@ -114,7 +115,7 @@ export default function Clipboard() {
                 <form className="w-full sm:w-96 md:w-[32rem] lg:w-[56rem]" onSubmit={save}>
 
                     <textarea
-                        className="block h-96 w-full py-2 px-4 border dark:bg-slate-800 bg-slate-200 rounded border-slate-700/30 dark:border-slate-300/30"
+                        className="block h-96 w-full py-2 px-4 border bg-slate-500/5 rounded border-slate-700/30 dark:border-slate-300/30"
                         disabled={loading}
                         value={content}
                         onChange={changeContent}
@@ -124,7 +125,7 @@ export default function Clipboard() {
                     <input type="text"
                            maxLength={1024}
                            disabled={loading}
-                           className="block w-full mt-2 px-4 py-2 dark:bg-slate-800 bg-slate-200 rounded border border-slate-700/30 dark:border-slate-300/30 focus-visible:outline-0 focus-visible:ring-2"
+                           className="block w-full mt-2 px-4 py-2 bg-slate-500/5 rounded border border-slate-700/30 dark:border-slate-300/30 focus-visible:outline-0 focus-visible:ring-2"
                            onChange={changeRemark}
                            value={remark}
                            placeholder="备注"/>
@@ -150,6 +151,7 @@ export default function Clipboard() {
         <Layout>
             <div className="p-4 max-w-7xl mx-auto flex flex-col items-center">
                 {showResult ? <ResultForm/> : <QueryForm/>}
+                <Comments />
             </div>
         </Layout>
     );

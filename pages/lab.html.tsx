@@ -12,6 +12,7 @@ import chat1Img from "../public/lab/chat1.png";
 import chat2Img from "../public/lab/chat2.png";
 import bike1Img from "../public/lab/bike1.png";
 import bike2Img from "../public/lab/bike2.png";
+import Comments from "../components/comment/comments";
 
 export default function Lab() {
     return (
@@ -44,6 +45,7 @@ export default function Lab() {
                 <LabItem title="Wengine"
                          github="https://github.com/wangyucode/Wengine-android"
                          detail="Wengine是一款轻量级Android游戏引擎，使用纯Java开发，对Android开发者友好，可以用极少的代码实现一些简单的小游戏，目前有5款demo，打砖块，天天跑酷，FlappyBird，打飞机，蛇蛇大作战"/>
+                <div className="sm:col-span-2 md:col-span-3 lg:col-span-4"><Comments/></div>
             </div>
         </Layout>
     );

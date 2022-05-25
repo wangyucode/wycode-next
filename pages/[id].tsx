@@ -4,6 +4,7 @@ import { CalendarIcon, ArchiveIcon, TagIcon } from "@heroicons/react/outline";
 import Layout from '../components/layout';
 import { getAllPostIds, getPost, Post } from '../utils/posts';
 import {SITE_NAME} from "./_document";
+import Comments from "../components/comment/comments";
 
 export default function PostDetail(
     {
@@ -22,15 +23,18 @@ export default function PostDetail(
                 {tags && <meta name="keywords" content={tags.join(' ')} />}
                 {excerpt && <meta name="description" content={excerpt} />}
             </Head>
-            <article className='p-4 max-w-7xl mx-auto'>
-                <h1 className="text-2xl text-slate-800 dark:text-slate-200 font-extrabold text-center">{title}</h1>
-                <div className="flex justify-between">
-                    <span className="flex items-center"><CalendarIcon className="inline mr-1" height={20} width={20} />{date}</span>
-                    <span className="flex items-center"><ArchiveIcon className="inline mr-1" height={20} width={20} />{categories}</span>
-                </div>
-                {tags && <span className="flex items-center"><TagIcon className="inline mr-1" height={20} width={20} />{tags.join(', ')}</span>}
-                <div className="mt-8" dangerouslySetInnerHTML={{ __html: contentHtml }} />
-            </article>
+            <div className="p-4 max-w-7xl mx-auto">
+                <article className=''>
+                    <h1 className="text-2xl text-slate-800 dark:text-slate-200 font-extrabold text-center">{title}</h1>
+                    <div className="flex justify-between">
+                        <span className="flex items-center"><CalendarIcon className="inline mr-1" height={20} width={20} />{date}</span>
+                        <span className="flex items-center"><ArchiveIcon className="inline mr-1" height={20} width={20} />{categories}</span>
+                    </div>
+                    {tags && <span className="flex items-center"><TagIcon className="inline mr-1" height={20} width={20} />{tags.join(', ')}</span>}
+                    <div className="mt-8" dangerouslySetInnerHTML={{ __html: contentHtml }} />
+                </article>
+                <Comments/>
+            </div>
         </Layout>
     );
 }

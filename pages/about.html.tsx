@@ -5,6 +5,7 @@ import {MailIcon} from "@heroicons/react/outline";
 import WechatIcon from "../components/svg/wechat";
 import wechatQr from "../public/about/wechat.jpg";
 import {useState} from "react";
+import Comments from "../components/comment/comments";
 
 export default function About() {
 
@@ -22,11 +23,12 @@ export default function About() {
                        onMouseEnter={() => setHidden('')}
                        onMouseLeave={() => setHidden(' hidden')}>
                         <WechatIcon className="w-5 inline mr-1"/>
-                        <div className={`relative inline${hidden}`}><span className="w-32 absolute top-6 -left-6"><Image
-                            src={wechatQr}/></span></div>
+                        <span className={`relative inline${hidden}`}><span className="w-32 absolute top-6 -left-6"><Image
+                            src={wechatQr}/></span></span>
                         微信
                     </a>
                 </p>
+                <Comments/>
             </div>
         </Layout>
     );

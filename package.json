@@ -3,7 +3,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "export": "next export"
   },
   "dependencies": {
     "@headlessui/react": "^1.6.1",
@@ -16,7 +17,8 @@
     "rehype": "^12.0.1",
     "rehype-add-classes": "^1.0.0",
     "remark": "^14.0.2",
-    "remark-html": "^15.0.1"
+    "remark-html": "^15.0.1",
+    "sharp": "^0.30.5"
   },
   "devDependencies": {
     "@types/node": "^17.0.31",

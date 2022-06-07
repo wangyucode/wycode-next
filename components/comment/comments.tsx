@@ -114,7 +114,7 @@ export default function Comments() {
             <input placeholder="邮箱（不会被公开）"
                    value={email}
                    onChange={onChangeEmail}
-                   className="flex-1 px-4 py-2 bg-slate-500/5 border rounded-l focus-visible:outline-0 focus-visible:ring-2 border-slate-700/30 dark:border-slate-300/30"/>
+                   className="grow min-w-0 px-4 py-2 bg-slate-500/5 border rounded-l focus-visible:outline-0 focus-visible:ring-2 border-slate-700/30 dark:border-slate-300/30"/>
             <button
                 onClick={handleReply}
                 disabled={loading}

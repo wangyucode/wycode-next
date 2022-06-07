@@ -118,7 +118,7 @@ export default function Comments() {
             <button
                 onClick={handleReply}
                 disabled={loading}
-                className="flex items-center px-4 py-2 bg-sky-600 disabled:bg-slate-500 hover:bg-sky-700 rounded-r text-slate-100 active:ring-2 disabled:active:ring-0 border-slate-700/30 dark:border-slate-300/30">
+                className="flex items-center min-w-max px-4 py-2 bg-sky-600 disabled:bg-slate-500 hover:bg-sky-700 rounded-r text-slate-100 active:ring-2 disabled:active:ring-0 border-slate-700/30 dark:border-slate-300/30">
                 <ReplyIcon className="w-4 inline mr-1"/>回复
             </button>
         </div>

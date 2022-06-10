@@ -1,12 +1,12 @@
-import { MoonIcon, SunIcon } from "@heroicons/react/solid";
-import { useEffect, useState } from "react";
+import {MoonIcon, SunIcon} from "@heroicons/react/solid";
+import {useEffect, useState} from "react";
 
 export enum Theme {
     light = 'light',
     dark = 'dark'
 }
 
-export default function ThemeSwitch({ classes }: any) {
+export default function ThemeSwitch({classes}: any) {
 
     const [theme, setTheme] = useState(Theme.light);
 
@@ -20,11 +20,11 @@ export default function ThemeSwitch({ classes }: any) {
     }
 
     function getStoredTheme() {
-        const perferDarkTheme = localStorage.getItem('theme') === Theme.dark ||
+        const preferDarkTheme = localStorage.getItem('theme') === Theme.dark ||
             (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)'));
-        const perferredTheme = perferDarkTheme ? Theme.dark : Theme.light;
-        setTheme(perferredTheme);
-        setClass(perferredTheme);
+        const preferredTheme = preferDarkTheme ? Theme.dark : Theme.light;
+        setTheme(preferredTheme);
+        setClass(preferredTheme);
     }
 
     function setClass(theme: Theme) {
@@ -36,13 +36,14 @@ export default function ThemeSwitch({ classes }: any) {
     }
 
     return (
-        <button className={`my-auto border border-slate-500 hover:border-sky-500 rounded-xl w-9 p-px bg-slate-300/50 dark:bg-slate-600/50 duration-200 ${classes}`}
+        <button
+            className={`my-auto border border-slate-500 hover:border-sky-500 rounded-xl w-9 p-px bg-slate-300/50 dark:bg-slate-600/50 duration-200 ${classes}`}
             onClick={handleClick}>
-            <span className='flex dark:translate-x-4 transition-transform duration-200'>
+            <span className='block w-min dark:translate-x-4 transition-transform duration-200'>
                 {theme === Theme.light ?
-                    <SunIcon height={16} width={16} className="bg-white rounded-full p-px text-amber-400" />
+                    <SunIcon height={16} width={16} className="bg-white rounded-full p-px text-amber-400"/>
                     :
-                    <MoonIcon height={16} width={16} className="bg-slate-900 rounded-full p-px text-amber-400" />
+                    <MoonIcon height={16} width={16} className="bg-slate-900 rounded-full p-px text-amber-400"/>
                 }
             </span>
         </button>

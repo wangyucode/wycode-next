@@ -9,6 +9,8 @@ import {rehype} from 'rehype';
 const addClasses = require('rehype-add-classes');
 const postsDirectory = path.join(process.cwd(), 'posts');
 
+let cachedPosts: Post[];
+
 export interface Post {
     id: string,
     file: string,
@@ -20,6 +22,7 @@ export interface Post {
 }
 
 export async function getSortedPosts(): Promise<Post[]> {
+    if(cachedPosts) return cachedPosts;
     // Get file names under /posts
     const fileNames = fs.readdirSync(postsDirectory);
     const allPosts: Post[] = await Promise.all(fileNames.map(async (fileName) => {
@@ -66,7 +69,7 @@ export async function getSortedPosts(): Promise<Post[]> {
         };
     }));
     // Sort posts by date
-    return allPosts.sort(({data: {date: a}}, {data: {date: b}}) => {
+    cachedPosts = allPosts.sort(({data: {date: a}}, {data: {date: b}}) => {
         if (a < b) {
             return 1;
         } else if (a > b) {
@@ -75,6 +78,19 @@ export async function getSortedPosts(): Promise<Post[]> {
             return 0;
         }
     });
+    return cachedPosts;
+}
+
+export async function getPagedPosts(page: number, size: number): Promise<Post[]> {
+    const allPosts = await getSortedPosts();
+    const start  = (page-1)*size;
+    const end = start+ size;
+    return allPosts.slice(start, end);
+}
+
+export async function getPageCount(size: number): Promise<number>{
+    const allPosts = await getSortedPosts();
+    return Math.ceil(allPosts.length / size);
 }
 
 export async function getAllPostIds() {

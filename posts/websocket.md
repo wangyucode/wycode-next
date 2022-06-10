@@ -8,7 +8,7 @@ tags:
 categories: Back-end
 ---
 
-![chat](/img/chat/chat.png)
+![chat](/lab/chat2.png)
 
 有时候就想和其他人安全地聊个天，它需要有这些特征：
 

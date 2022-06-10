@@ -93,7 +93,7 @@ export default function Comments() {
             .finally(()=>setLoading(false));
     }
 
-    return (<div className="flex flex-col border-t w-full border-slate-700/30 dark:border-slate-300/30 mt-8 p-4">
+    return (<div className="flex flex-col border-t w-full border-slate-700/30 dark:border-slate-300/30 mt-4 pt-4">
         {comments.length ? comments.map((comment: any) => <Comment key={comment._id}
                                                                    setReplying={setReplying} {...comment}/>) :
             <p className="text-slate-500 text-center">暂无评论</p>}

@@ -42,7 +42,6 @@ export async function getStaticProps({params}: any) {
     const page = Number.parseInt(params.page);
     const posts = await getPagedPosts(page, PAGE_SIZE);
     const total = await getPageCount(PAGE_SIZE);
-    console.log('getStaticProps->', posts, total)
     return {
         props: {posts, page,total},
     };

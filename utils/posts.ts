@@ -46,7 +46,7 @@ export async function getSortedPosts(): Promise<Post[]> {
         const classProcessor = rehype()
             .data('settings', {fragment: true})
             .use(addClasses, {
-                'img': 'mx-auto max-h-80 max-w-[90%]',
+                'img': 'mx-auto max-h-80',
                 'p': 'mb-4',
                 'blockquote': 'px-4 border-l-4 border-slate-500 text-slate-500',
                 'blockquote > p': 'indent-0',

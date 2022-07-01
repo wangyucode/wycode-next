@@ -25,7 +25,6 @@ export default function Lab() {
                 <LabItem title="DOTA2英雄技能物品天梯助手" img1={dotaImg} detail="玩DOTA2，查英雄，查物品，查赛事，查天梯排行就看DOTA2英雄技能物品天梯助手"/>
                 <LabItem title="谁是卧底发牌员" large img1={dealer1Img} img2={dealer2Img}
                          deprecated="暂停维护"
-                         link="https://wycode.cn/dealer/"
                          github="https://github.com/wangyucode/dealer" detail="线下聚会必备，只需要一个网页链接就能一起玩..."/>
                 <LabItem title="Websocket聊天室" large img1={chat1Img} img2={chat2Img}
                          deprecated="暂停维护"

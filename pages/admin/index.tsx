@@ -1,7 +1,8 @@
-import Layout from "../components/layout";
-import {ChevronDoubleLeftIcon, ChevronDoubleRightIcon, PresentationChartBarIcon} from "@heroicons/react/outline";
 import React, {useEffect, useState} from "react";
-import NavItemWithIcon from "../components/nav/nav-item";
+import {ChevronDoubleLeftIcon, ChevronDoubleRightIcon, PresentationChartBarIcon} from "@heroicons/react/outline";
+
+import Layout from "../../components/layout";
+import NavItemWithIcon from "../../components/nav/nav-item";
 
 export default function Admin() {
 
@@ -20,6 +21,7 @@ export default function Admin() {
             <div className="h-content w-full flex">
                 <aside
                     className={`relative h-full ${openMenu?'w-64 p-4':'w-14 p-2'} flex flex-col gap-2 border-r border-slate-700/30 dark:border-slate-300/30 transition-all`}>
+                    <NavItemDashboard href="/admin" title={openMenu?'Dashboard':''}/>
                     <NavItemDashboard href="/admin" title={openMenu?'Dashboard':''}/>
                     <button
                         onClick={toggleOpen}

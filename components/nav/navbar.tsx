@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { BeakerIcon, ClipboardListIcon, CogIcon, PencilIcon, UserAddIcon } from '@heroicons/react/outline';
+import { BeakerIcon, ClipboardListIcon, CogIcon, PencilIcon} from '@heroicons/react/outline';
 
 import { SITE_NAME } from '../../pages/_document';
 import NavItem from './nav-item';
@@ -12,7 +12,6 @@ export const NavItemBlog = NavItem(PencilIcon);
 export const NavItemLab = NavItem(BeakerIcon);
 export const NavItemClipboard = NavItem(ClipboardListIcon);
 export const NavItemAdmin = NavItem(CogIcon);
-export const NavItemAbout = NavItem(UserAddIcon);
 
 export default function Navbar() {
 
@@ -29,9 +28,8 @@ export default function Navbar() {
                     <ul className='flex space-x-1 items-center'>
                         <li><NavItemBlog href="/" title="博客" /></li>
                         <li><NavItemLab href="/lab.html" title="实验室" /></li>
-                        <li><NavItemClipboard href="/clipboard.html" title="跨平台剪切板" /></li>
+                        <li><NavItemClipboard href="/clipboard.html" title="剪切板" /></li>
                         <li><NavItemAdmin href="/admin" title="管理" /></li>
-                        <li><NavItemAbout href="/about.html" title="关于" /></li>
                     </ul>
                 </nav>
                 <ThemeSwitch classes="hidden md:inline mr-4" />

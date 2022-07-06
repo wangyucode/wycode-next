@@ -1,34 +1,14 @@
-import Layout from "../components/layout";
-import {ChevronDoubleLeftIcon, ChevronDoubleRightIcon, PresentationChartBarIcon} from "@heroicons/react/outline";
-import React, {useEffect, useState} from "react";
-import NavItemWithIcon from "../components/nav/nav-item";
+import React from "react";
+
+import Layout from "../../components/layout";
+import AdminSideBar from "../../components/admin-side-bar/admin-side-bar";
 
 export default function Admin() {
-
-    const NavItemDashboard = NavItemWithIcon(PresentationChartBarIcon);
-
-    const [openMenu, setOpenMenu] = useState(true);
-
-    useEffect(() => setOpenMenu(window.innerWidth > 768), [])
-
-    function toggleOpen() {
-        setOpenMenu(!openMenu);
-    }
 
     return (
         <Layout>
             <div className="h-content w-full flex">
-                <aside
-                    className={`relative h-full ${openMenu?'w-64 p-4':'w-14 p-2'} flex flex-col gap-2 border-r border-slate-700/30 dark:border-slate-300/30 transition-all`}>
-                    <NavItemDashboard href="/admin" title={openMenu?'Dashboard':''}/>
-                    <button
-                        onClick={toggleOpen}
-                        className="absolute inset-x-0 flex items-center justify-center bottom-0 p-2 border-t border-slate-700/30 dark:border-slate-300/30">
-                        {openMenu ? <ChevronDoubleLeftIcon className="w-5 inline"/> :
-                            <ChevronDoubleRightIcon className="w-5 inline"/>
-                        }
-                    </button>
-                </aside>
+                <AdminSideBar/>
                 <main className="flex-1 p-2 md:p-4 flex">
                     <div className="h-fit border rounded p-2 border-slate-700/30 dark:border-slate-300/30">
                         <h2 className="font-semibold pb-2 mb-2 border-b border-slate-700/30 dark:border-slate-300/30">Build

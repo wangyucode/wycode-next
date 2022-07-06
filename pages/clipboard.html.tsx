@@ -101,7 +101,7 @@ export default function Clipboard() {
                     <button
                         type="submit"
                         disabled={loading}
-                        className="px-4 py-2 mt-2 rounded border border-slate-700/30 disabled:bg-slate-500 disabled:active:ring-0 dark:border-slate-300/30 text-slate-100 bg-sky-600 hover:bg-sky-700 active:ring-2">
+                        className="px-4 py-2 mt-2 rounded border border-slate-700/30 disabled:bg-slate-500 disabled:active:ring-0 dark:border-slate-300/30 text-slate-100 bg-sky-600 hover:bg-sky-500 active:ring-2">
                         <SearchIcon className="w-4 inline mr-1"/>查询
                     </button>
                 </form>
@@ -133,13 +133,13 @@ export default function Clipboard() {
                     <button
                         type="submit"
                         disabled={loading}
-                        className="px-4 py-2 w-full block mt-2 rounded border border-slate-700/30 disabled:bg-slate-500 disabled:active:ring-0 dark:border-slate-300/30 text-slate-100 bg-green-600 hover:bg-green-700 active:ring-2">
+                        className="px-4 py-2 w-full block mt-2 rounded border border-slate-700/30 disabled:bg-slate-500 disabled:active:ring-0 dark:border-slate-300/30 text-slate-100 bg-green-600 hover:bg-green-500 active:ring-2">
                         <SearchIcon className="w-4 inline mr-1"/>保存
                     </button>
                     <button
                         disabled={loading}
                         onClick={onClickReturn}
-                        className="px-4 py-2 w-full mt-2 rounded border border-slate-700/30 disabled:bg-slate-500 disabled:active:ring-0 dark:border-slate-300/30 text-slate-100 bg-sky-600 hover:bg-sky-700 active:ring-2">
+                        className="px-4 py-2 w-full mt-2 rounded border border-slate-700/30 disabled:bg-slate-500 disabled:active:ring-0 dark:border-slate-300/30 text-slate-100 bg-sky-600 hover:bg-sky-500 active:ring-2">
                         <ArrowLeftIcon className="w-4 inline mr-1"/>返回
                     </button>
                 </form>

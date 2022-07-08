@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { BeakerIcon, ClipboardListIcon, CogIcon, PencilIcon} from '@heroicons/react/outline';
+import { useRouter } from 'next/router';
+import { BeakerIcon, ClipboardListIcon, CogIcon, PencilIcon, UserAddIcon} from '@heroicons/react/outline';
 
 import { SITE_NAME } from '../../pages/_document';
 import NavItem from './nav-item';
@@ -12,8 +13,13 @@ export const NavItemBlog = NavItem(PencilIcon);
 export const NavItemLab = NavItem(BeakerIcon);
 export const NavItemClipboard = NavItem(ClipboardListIcon);
 export const NavItemAdmin = NavItem(CogIcon);
+export const NavItemAbout = NavItem(UserAddIcon);
 
 export default function Navbar() {
+
+    const router = useRouter();
+
+    const isBlog = /^\/(page\/[0-9]+)?$/.test(router.asPath);
 
     return (
         <div className="flex grow justify-between max-w-7xl">
@@ -30,10 +36,11 @@ export default function Navbar() {
                         <li><NavItemLab href="/lab.html" title="实验室" /></li>
                         <li><NavItemClipboard href="/clipboard.html" title="剪切板" /></li>
                         <li><NavItemAdmin href="/admin" title="管理" /></li>
+                        <li><NavItemAbout href="/about.html" title="关于" /></li>
                     </ul>
                 </nav>
                 <ThemeSwitch classes="hidden md:inline mr-4" />
-                <Search />
+                {isBlog && <Search />}
                 <MobileNav />
             </div>
         </div>

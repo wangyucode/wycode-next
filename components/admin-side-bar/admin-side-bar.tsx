@@ -23,7 +23,6 @@ export default function AdminSideBar() {
     function toggleOpen() {
         setMenuStatus(!appState.openMenu);
     }
-    
 
     return (
         <aside

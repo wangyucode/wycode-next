@@ -1,10 +1,10 @@
 import Image from "next/image";
 
 import Layout from "../components/layout";
-import {MailIcon} from "@heroicons/react/outline";
+import { MailIcon, UserAddIcon } from "@heroicons/react/outline";
 import WechatIcon from "../components/svg/wechat";
 import wechatQr from "../public/about/wechat.jpg";
-import {useState} from "react";
+import { useState } from "react";
 import Comments from "../components/comment/comments";
 
 export default function About() {
@@ -14,21 +14,16 @@ export default function About() {
     return (
         <Layout>
             <div className="p-4 max-w-7xl mx-auto flex flex-col items-center">
-                <p className="w-full">
-                    合作请发送
+                <div className="my-4">
+                    <h2 className="text-lg font-semibold">
+                        <MailIcon className="w-6 inline mr-1" />合作请发送邮件：</h2>
                     <a href="mailto:wangyu@wycode.cn" title="wangyu@wycode.cn"
-                       className="font-semibold mx-1 text-sky-500 hover:text-sky-400"><MailIcon
-                        className="w-5 inline mr-1"/>邮件</a>或添加
-                    <a href="#" className="font-semibold mx-1 text-green-500 hover:text-green-400"
-                       onMouseEnter={() => setHidden('')}
-                       onMouseLeave={() => setHidden(' hidden')}>
-                        <WechatIcon className="w-5 inline mr-1"/>
-                        <span className={`relative inline${hidden}`}><span className="w-32 absolute top-6 -left-6"><Image
-                            src={wechatQr}/></span></span>
-                        微信
-                    </a>
-                </p>
-                <Comments/>
+                        className="font-semibold text-sky-500 hover:text-sky-400">wangyu@wycode.cn</a>
+                    <h2 className="text-lg font-semibold mt-4">
+                        <WechatIcon className="w-5 inline mr-1 text-green-500" />或添加微信：</h2>
+                    <div className="w-48 mt-2"><Image src={wechatQr} /></div>
+                </div>
+                <Comments />
             </div>
         </Layout>
     );

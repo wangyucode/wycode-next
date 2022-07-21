@@ -2,10 +2,11 @@ import ArticleItem from '../components/article/article-item';
 import { Jumbotron } from '../components/jumbotron';
 import Layout from '../components/layout';
 
-import {getPageCount, getPagedPosts, Post} from '../utils/posts';
+import { getPageCount, getPagedPosts, Post } from '../utils/posts';
 import Hot from "../components/aside/hot";
 import Pager from '../components/pager';
 import About from '../components/aside/about';
+import Highlight from '../components/highlight';
 
 export const PAGE_SIZE = 5;
 
@@ -28,16 +29,17 @@ export default function Home({ posts, pageCount }: { posts: Post[], pageCount: n
         <ul className="min-w-0">
           {posts.map(post => (
             <li className="border-b last:border-0 border-slate-700/30 dark:border-slate-300/30 py-4 max-w-full" key={post.id}>
-              <ArticleItem post={post} withExcerpt/>
+              <ArticleItem post={post} withExcerpt />
             </li>
           ))}
-          <Pager page={1} total={pageCount}/>
+          <Pager page={1} total={pageCount} />
         </ul>
         <aside className="lg:basis-72 lg:shrink-0 lg:ml-16">
-          <Hot/>
-          <About/>
+          <Hot />
+          <About />
         </aside>
       </div>
+      <Highlight/>
     </Layout>
   );
 }

@@ -1,5 +1,7 @@
+import {useContext, useEffect, useState} from "react";
 import {MoonIcon, SunIcon} from "@heroicons/react/solid";
-import {useEffect, useState} from "react";
+
+import { ACTIONS, AppDispatcherContext } from "../app-context";
 
 export enum Theme {
     light = 'light',
@@ -10,21 +12,27 @@ export default function ThemeSwitch({classes}: any) {
 
     const [theme, setTheme] = useState(Theme.light);
 
+    const dispatch = useContext(AppDispatcherContext);
+
     useEffect(getStoredTheme, []);
 
     function handleClick() {
         const currentTheme = theme === Theme.light ? Theme.dark : Theme.light
-        setTheme(currentTheme);
+        changeTheme(currentTheme);
         localStorage.setItem('theme', currentTheme);
-        setClass(currentTheme);
     }
 
     function getStoredTheme() {
-        const preferDarkTheme = localStorage.getItem('theme') === Theme.dark ||
-            (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)'));
+        const preferDarkTheme = localStorage.theme === Theme.dark ||
+            (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
         const preferredTheme = preferDarkTheme ? Theme.dark : Theme.light;
-        setTheme(preferredTheme);
-        setClass(preferredTheme);
+        changeTheme(preferredTheme);
+    }
+
+    function changeTheme(theme: Theme){
+        setTheme(theme);
+        setClass(theme);
+        dispatch({type: ACTIONS.CHANGE_THEME, payload: theme});
     }
 
     function setClass(theme: Theme) {

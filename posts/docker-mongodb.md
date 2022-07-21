@@ -18,10 +18,10 @@ categories: Back-end
 备份MongoDB有多种方法，其中比较简单的就是使用`mongodump`。
 
 ```bash
-docker exec -i <IMAGE_NAME> mongodump -d <DATABASE> --archive > ./mongo/collections.archive
+docker exec -i <CONTAINER_NAME> mongodump -d <DATABASE> --archive > ./mongo/collections.archive
 ```
 
-- 以上命令会将`<IMAGE_NAME>`容器中的`<DATABASE>`数据库dump到host机器的`collections.archive`文件中。
+- 以上命令会将`<CONTAINER_NAME>`容器中的`<DATABASE>`数据库dump到host机器的`collections.archive`文件中。
 - `--archive`会dump所有`collection`到一个文件。
 - `mongodump`命令不提供目标路径的话会将dump结果输出到标准输出，这里使用`>`重定向输出到host的文件。
 
@@ -30,7 +30,7 @@ docker exec -i <IMAGE_NAME> mongodump -d <DATABASE> --archive > ./mongo/collecti
 这里使用host机器上的`collections.archive`文件进行还原。
 
 ```bash
-docker exec -i <IMAGE_NAME> mongorestore --archive < ./mongo/collections.archive
+docker exec -i <CONTAINER_NAME> mongorestore --archive < ./mongo/collections.archive
 ```
 
 - `--archive`模式导出的备份文件还原时必须也要加上`--archive`

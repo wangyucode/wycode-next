@@ -3,17 +3,18 @@ import {ChevronDoubleLeftIcon, ChevronDoubleRightIcon, PresentationChartBarIcon}
 
 import NavItemWithIcon from "../../components/nav/nav-item";
 import MongoDBIcon from "../svg/mongodb";
-import { AppStateContext } from "../../pages/_app";
+import { ACTIONS, AppDispatcherContext, AppStateContext } from "../app-context";
 
 export default function AdminSideBar() {
 
     const NavItemDashboard = NavItemWithIcon(PresentationChartBarIcon);
     const NavItemMongo = NavItemWithIcon(MongoDBIcon);
 
-    const {appState, dispatch} = useContext(AppStateContext);
+    const appState = useContext(AppStateContext);
+    const dispatch = useContext(AppDispatcherContext);
 
     function setMenuStatus(open: boolean) {
-        dispatch({type: 'toggleMenu', payload: open});
+        dispatch({type: ACTIONS.TOGGLE_MENU, payload: open});
     }
 
     useEffect(() => {

@@ -3,8 +3,10 @@ import { CalendarIcon, ArchiveIcon, TagIcon } from "@heroicons/react/outline";
 
 import Layout from '../components/layout';
 import { getAllPostIds, getPost, Post } from '../utils/posts';
-import {SITE_NAME} from "./_document";
+import { SITE_NAME } from "./_document";
 import Comments from "../components/comment/comments";
+import Script from 'next/script';
+import Highlight from '../components/highlight';
 
 export default function PostDetail(
     {
@@ -33,8 +35,9 @@ export default function PostDetail(
                     {tags && <span className="flex items-center"><TagIcon className="inline mr-1" height={20} width={20} />{tags.join(', ')}</span>}
                     <div className="mt-8" dangerouslySetInnerHTML={{ __html: contentHtml }} />
                 </article>
-                <Comments/>
+                <Comments />
             </div>
+            <Highlight/>
         </Layout>
     );
 }

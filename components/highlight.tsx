@@ -20,7 +20,9 @@ export default function Highlight() {
                 <link rel="stylesheet" href={styleLink} />
             </Head>
             <Script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.6.0/build/highlight.min.js"
-                onLoad={() => hljs.highlightAll()} />
+                onLoad={() =>
+                    // @ts-ignore
+                    hljs.highlightAll()} />
         </>
     );
 }

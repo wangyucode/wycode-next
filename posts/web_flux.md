@@ -7,7 +7,7 @@ tags:
 - WebFlux
 - Java
 - Kotlin
-categories: Back-end
+categories: Backend
 ---
 
 ![Spring Boot](/images/20180720_diagram-boot-reactor.svg)

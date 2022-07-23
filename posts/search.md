@@ -7,7 +7,7 @@ tags:
 - Ajax
 - Hexo
 - Bootstrap
-categories: Front-end
+categories: Frontend
 ---
 
 > 本文介绍如何利用`hexo-generator-search`插件为Hexo博客添加本地全文搜索

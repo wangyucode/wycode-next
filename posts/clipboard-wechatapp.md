@@ -4,7 +4,7 @@ date: 2018-2-13 13:12:33
 tags:
 - Wechat
 - JavaScript
-categories: Front-end
+categories: Frontend
 ---
 
 ![React](/images/20180213_clipboard.jpg)

@@ -5,7 +5,7 @@ tags:
 - Linux
 - Docker
 - Spring Boot
-categories: Back-end
+categories: Backend
 ---
 
 ![docker](https://d1q6f0aelx0por.cloudfront.net/product-logos/644d2f15-c5db-4731-a353-ace6235841fa-registry.png)

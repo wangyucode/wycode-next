@@ -4,7 +4,7 @@ date: 2019-7-25 18:35:54
 tags:
 - Flutter
 - Dart
-categories: Front-end
+categories: Frontend
 ---
 
 ![flutter](https://flutter.dev/assets/flutter-lockup-4cb0ee072ab312e59784d9fbf4fb7ad42688a7fdaea1270ccf6bbf4f34b7e03f.svg)

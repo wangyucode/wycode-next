@@ -5,7 +5,7 @@ tags:
 - Kotlin
 - Spring
 - Java
-categories: Back-end
+categories: Backend
 ---
 
 ![email](https://cms-assets.tutsplus.com/uploads/users/23/posts/26357/preview_image/professional-email-signature-icon.jpg)

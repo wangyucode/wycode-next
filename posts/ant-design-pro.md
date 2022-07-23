@@ -6,7 +6,7 @@ tags:
 - JavaScript
 - NodeJS
 - React
-categories: Front-end
+categories: Frontend
 ---
 
 ![ant-design](https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg)

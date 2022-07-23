@@ -7,7 +7,7 @@ tags:
 - Kotlin
 - Spring
 - Swagger
-categories: Back-end
+categories: Backend
 ---
 
 ![swagger](https://swagger.io/swagger/media/assets/images/swagger_logo.svg)

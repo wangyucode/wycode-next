@@ -5,7 +5,7 @@ tags:
 - HTML
 - CSS
 - JavaScript
-categories: Front-end
+categories: Frontend
 ---
 
 > Hexo 默认对于代码高亮的处理过于粗暴，改变了其原有的`<pre><code>`标签形式，而且并没有达到良好的效果，所以尝试自己添加语法高亮功能。此文档也适用于其它HTML文档中代码的语法高亮显示。

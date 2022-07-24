@@ -2,7 +2,7 @@ import ArticleItem from '../components/article/article-item';
 import { Jumbotron } from '../components/jumbotron';
 import Layout from '../components/layout';
 
-import { getPageCount, getPagedPosts, Post } from '../utils/posts';
+import { getPageCount, getPagedPosts, getPostTitles, Post } from '../utils/posts';
 import Hot from "../components/aside/hot";
 import Pager from '../components/pager';
 import About from '../components/aside/about';
@@ -13,15 +13,17 @@ export const PAGE_SIZE = 5;
 export async function getStaticProps() {
   const posts = await getPagedPosts(1, PAGE_SIZE);
   const pageCount = await getPageCount(PAGE_SIZE);
+  const postTitles = await getPostTitles();
   return {
     props: {
       posts,
-      pageCount
+      pageCount,
+      postTitles
     },
   };
 }
 
-export default function Home({ posts, pageCount }: { posts: Post[], pageCount: number }) {
+export default function Home({ posts, pageCount, postTitles }: { posts: Post[], pageCount: number, postTitles: any[]}) {
   return (
     <Layout>
       <Jumbotron />
@@ -35,11 +37,11 @@ export default function Home({ posts, pageCount }: { posts: Post[], pageCount: n
           <Pager page={1} total={pageCount} />
         </ul>
         <aside className="lg:basis-72 lg:shrink-0 lg:ml-16">
-          <Hot />
+          <Hot postTitles={postTitles} />
           <About />
         </aside>
       </div>
-      <Highlight/>
+      <Highlight />
     </Layout>
   );
 }

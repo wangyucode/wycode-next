@@ -5,7 +5,6 @@ import Layout from '../components/layout';
 import { getAllPostIds, getPost, Post } from '../utils/posts';
 import { SITE_NAME } from "./_document";
 import Comments from "../components/comment/comments";
-import Script from 'next/script';
 import Highlight from '../components/highlight';
 
 export default function PostDetail(

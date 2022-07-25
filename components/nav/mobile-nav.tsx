@@ -4,6 +4,7 @@ import {MenuIcon, SunIcon, XIcon} from "@heroicons/react/outline";
 
 import ThemeSwitch from "./theme-switch";
 import {NavItemAbout, NavItemAdmin, NavItemBlog, NavItemClipboard, NavItemLab} from "./navbar";
+import { MenuLinks } from "../types";
 
 export default function MobileNav() {
 
@@ -33,12 +34,11 @@ export default function MobileNav() {
                         <nav
                             className="absolute w-48 p-4 right-0 mt-2 bg-white rounded-lg border shadow-lg border-slate-900/10 dark:border-slate-300/10 dark:bg-slate-800 transition-colors duration-700">
                             <Menu.Items as='ul'>
-                                <Menu.Item as='li' className="mb-1"><NavItemBlog href="/" title="博客"/></Menu.Item>
-                                <Menu.Item as='li' className="mb-1"><NavItemLab href="/lab.html" title="实验室"/></Menu.Item>
-                                <Menu.Item as='li' className="mb-1"><NavItemClipboard href="/clipboard.html"
-                                                                                      title="剪切板"/></Menu.Item>
-                                <Menu.Item as='li' className="mb-1"><NavItemAdmin href="/admin" title="管理"/></Menu.Item>
-                                <Menu.Item as='li' className="mb-1"><NavItemAbout href="/about.html" title="关于"/></Menu.Item>
+                                <Menu.Item as='li' className="mb-1"><NavItemBlog href={MenuLinks.HOME} title="博客"/></Menu.Item>
+                                <Menu.Item as='li' className="mb-1"><NavItemLab href={MenuLinks.LAB} title="实验室"/></Menu.Item>
+                                <Menu.Item as='li' className="mb-1"><NavItemClipboard href={MenuLinks.CLIPBOARD} title="剪切板"/></Menu.Item>
+                                <Menu.Item as='li' className="mb-1"><NavItemAdmin href={MenuLinks.ADMIN} title="管理"/></Menu.Item>
+                                <Menu.Item as='li' className="mb-1"><NavItemAbout href={MenuLinks.ABOUT} title="关于"/></Menu.Item>
                                 <div className='flex justify-between px-2 pt-2 border-t'><span><SunIcon
                                     className='mr-1 inline' height={15} width={15}/>主题</span><ThemeSwitch/></div>
                             </Menu.Items>

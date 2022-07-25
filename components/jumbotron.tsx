@@ -1,5 +1,6 @@
 import Image from 'next/image';
-import {SITE_NAME} from "../pages/_document";
+
+import { SITE_NAME } from './types';
 
 export function Jumbotron() {
     return (

@@ -6,7 +6,7 @@ tags:
 - JWT
 - JSON
 - OAuth
-categories: Back-end
+categories: Backend
 ---
 
 为使用前后端分离的后端管理框架做准备，使用JWT目前看来是最佳选择。

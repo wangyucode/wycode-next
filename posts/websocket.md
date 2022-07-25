@@ -5,7 +5,7 @@ tags:
 - WebSocket
 - Spring Boot
 - Kotlin
-categories: Back-end
+categories: Backend
 ---
 
 ![chat](/lab/chat2.png)

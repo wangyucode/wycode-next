@@ -3,7 +3,7 @@ title:  数据结构与算法学习笔记01
 date: 2018-3-14 20:41:04
 tags:
 - C
-categories: Data Structures and Algorithms
+categories: Computer Science
 ---
 
 

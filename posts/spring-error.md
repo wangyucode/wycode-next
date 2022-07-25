@@ -5,7 +5,7 @@ tags:
 - Java
 - Kotlin
 - Spring
-categories: Back-end
+categories: Backend
 ---
 
 ![springboot](/images/20180623_springboot.jpg)

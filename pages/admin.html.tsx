@@ -1,7 +1,7 @@
 import React from "react";
 
-import Layout from "../../components/layout";
-import AdminSideBar from "../../components/admin-side-bar/admin-side-bar";
+import Layout from "../components/layout";
+import AdminSideBar from "../components/admin-side-bar/admin-side-bar";
 
 export default function Admin() {
 

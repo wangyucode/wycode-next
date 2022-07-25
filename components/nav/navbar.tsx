@@ -3,11 +3,11 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { BeakerIcon, ClipboardListIcon, CogIcon, PencilIcon, UserAddIcon} from '@heroicons/react/outline';
 
-import { SITE_NAME } from '../../pages/_document';
 import NavItem from './nav-item';
 import ThemeSwitch from './theme-switch';
 import MobileNav from './mobile-nav';
 import Search from './search';
+import { MenuLinks, SITE_NAME } from '../types';
 
 export const NavItemBlog = NavItem(PencilIcon);
 export const NavItemLab = NavItem(BeakerIcon);
@@ -32,11 +32,11 @@ export default function Navbar() {
             <div className='flex text-slate-900 dark:text-slate-50'>
                 <nav className='hidden md:flex mr-4 pr-2 border-r m-auto border-slate-700/30 dark:border-slate-300/30'>
                     <ul className='flex space-x-1 items-center'>
-                        <li><NavItemBlog href="/" title="博客" /></li>
-                        <li><NavItemLab href="/lab.html" title="实验室" /></li>
-                        <li><NavItemClipboard href="/clipboard.html" title="剪切板" /></li>
-                        <li><NavItemAdmin href="/admin" title="管理" /></li>
-                        <li><NavItemAbout href="/about.html" title="关于" /></li>
+                        <li><NavItemBlog href={MenuLinks.HOME} title="博客" /></li>
+                        <li><NavItemLab href={MenuLinks.LAB} title="实验室" /></li>
+                        <li><NavItemClipboard href={MenuLinks.CLIPBOARD} title="剪切板" /></li>
+                        <li><NavItemAdmin href={MenuLinks.ADMIN} title="管理" /></li>
+                        <li><NavItemAbout href={MenuLinks.ABOUT} title="关于" /></li>
                     </ul>
                 </nav>
                 <ThemeSwitch classes="hidden md:inline mr-4" />

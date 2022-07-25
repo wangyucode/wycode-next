@@ -6,7 +6,7 @@ tags:
 - JavaScript
 - Linux
 - Ubuntu
-categories: Front-end
+categories: Frontend
 ---
 
 ## Linux平台

@@ -4,7 +4,7 @@ date: 2018-1-6 14:41:14
 tags:
 - React
 - JavaScript
-categories: Front-end
+categories: Frontend
 ---
 
 ![React](/images/20180213_react.png)

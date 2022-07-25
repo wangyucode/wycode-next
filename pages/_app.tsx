@@ -3,8 +3,8 @@ import type { AppProps } from 'next/app'
 import Head from "next/head";
 
 import '../styles/global.css';
-import { SITE_NAME } from "./_document";
 import { AppDispatcherContext, AppStateContext, INITIAL_APP_STATE, reducer } from '../components/app-context';
+import { SITE_NAME } from '../components/types';
 
 export default function App({ Component, pageProps }: AppProps) {
 

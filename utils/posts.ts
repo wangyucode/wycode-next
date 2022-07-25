@@ -61,7 +61,7 @@ export async function getSortedPosts(): Promise<Post[]> {
         const contentHtml = classProcessor.processSync(processedContent).toString();
         // Combine the data with the id
         return {
-            id: `${matterResult.data.date}-${file}`,
+            id: file,
             file: fileName,
             excerptHtml,
             contentHtml,
@@ -93,7 +93,7 @@ export async function getPageCount(size: number): Promise<number>{
     return Math.ceil(allPosts.length / size);
 }
 
-export async function getAllPostIds() {
+export async function getAllPostIds(): Promise<{params: {id: string}}[]> {
     const allPosts = await getSortedPosts();
     return allPosts.map((post) => {
         return {
@@ -104,7 +104,12 @@ export async function getAllPostIds() {
     });
 }
 
-export async function getPost(id: string) {
+export async function getPost(id: string): Promise<Post | undefined> {
     const allPosts = await getSortedPosts();
     return allPosts.find(it => it.id === id);
+}
+
+export async function getPostTitles(): Promise<any[]> {
+    const allPosts = await getSortedPosts();
+    return allPosts.map((post) => [post.id, post.data.title]);
 }

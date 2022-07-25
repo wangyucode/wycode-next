@@ -14,7 +14,6 @@ export default function Hot({ postTitles }: { postTitles: any[] }) {
                 if (res.success) {
                     const titleMap = new Map<string, string>(postTitles);
                     res.payload.map((post: any) => {
-                        if(post._id === 'ant-design-pro.html') post.pre_monthly = 100;
                         return post.title = titleMap.get(post._id);
                     });
                     console.log('get hot blog->', res);

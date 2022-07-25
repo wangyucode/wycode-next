@@ -4,6 +4,7 @@ import {ChevronDoubleLeftIcon, ChevronDoubleRightIcon, PresentationChartBarIcon}
 import NavItemWithIcon from "../../components/nav/nav-item";
 import MongoDBIcon from "../svg/mongodb";
 import { ACTIONS, AppDispatcherContext, AppStateContext } from "../app-context";
+import { MenuLinks } from "../types";
 
 export default function AdminSideBar() {
 
@@ -28,8 +29,8 @@ export default function AdminSideBar() {
     return (
         <aside
             className={`relative h-full ${appState.openMenu ? 'w-64 p-4' : 'w-14 p-2'} flex flex-col gap-2 border-r border-slate-700/30 dark:border-slate-300/30 transition-all`}>
-            <NavItemDashboard href="/admin" title={appState.openMenu ? 'Dashboard' : ''} />
-            <NavItemMongo href="/admin/mongo" title={appState.openMenu ? 'MongoDB' : ''} />
+            <NavItemDashboard href={MenuLinks.ADMIN} title={appState.openMenu ? 'Dashboard' : ''} />
+            <NavItemMongo href={MenuLinks.MONGO} title={appState.openMenu ? 'MongoDB' : ''} />
             <button
                 onClick={toggleOpen}
                 className="absolute inset-x-0 flex items-center justify-center bottom-0 p-2 border-t border-slate-700/30 dark:border-slate-300/30">

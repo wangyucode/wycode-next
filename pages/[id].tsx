@@ -3,9 +3,9 @@ import { CalendarIcon, ArchiveIcon, TagIcon } from "@heroicons/react/outline";
 
 import Layout from '../components/layout';
 import { getAllPostIds, getPost, Post } from '../utils/posts';
-import { SITE_NAME } from "./_document";
 import Comments from "../components/comment/comments";
 import Highlight from '../components/highlight';
+import { SITE_NAME } from '../components/types';
 
 export default function PostDetail(
     {

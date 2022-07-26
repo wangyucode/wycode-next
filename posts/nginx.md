@@ -4,7 +4,7 @@ date: 2018-6-23 15:12:33
 tags:
 - Linux
 - NGINX
-categories: Linux
+category: Linux
 ---
 
 ![NGINX](https://nginx.org/nginx.png)

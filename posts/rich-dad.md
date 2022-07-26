@@ -2,7 +2,7 @@
 title: 《富爸爸，穷爸爸》热门标注
 date: 2019-7-26 15:26:05
 tags:
-categories: Story
+category: Story
 ---
 
 ![rich-dad](https://images-cn.ssl-images-amazon.com/images/I/51mZHfA%2B-6L._SX351_BO1,204,203,200_.jpg)

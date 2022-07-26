@@ -6,7 +6,7 @@ tags:
 - React Native
 - React
 - iOS
-categories: Frontend
+category: Frontend
 ---
 
 ![React](/images/20180213_react.png)

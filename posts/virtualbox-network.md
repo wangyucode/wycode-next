@@ -3,7 +3,7 @@ title: VirtualBox的虚拟机网络配置
 date: 2019-9-20 14:32:06
 tags:
 - VirtualBox
-categories: Linux
+category: Linux
 ---
 
 ![virtual-box](https://www.virtualbox.org/graphics/vbox_logo2_gradient.png)

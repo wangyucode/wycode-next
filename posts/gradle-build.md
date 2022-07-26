@@ -4,7 +4,7 @@ date: 2017-9-4 15:53:38
 tags:
 - Gradle
 - Android
-categories: Android
+category: Android
 ---
 
 > 构建变体是 Gradle 按照特定规则集合进行打包，以生成适应不同需求的Apk包。

@@ -5,7 +5,7 @@ tags:
 - Unity
 - CSharp
 - JSON
-categories: Unity
+category: Unity
 ---
 
 > JSON是一种应用广泛的数据交换格式。可用于和Web服务器交互，以及用于对象序列化。Unity使用`JsonUtility`类提供JSON文本和对象互转。

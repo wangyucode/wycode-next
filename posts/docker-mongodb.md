@@ -4,7 +4,7 @@ date: 2020-12-5 12:46:45
 tags:
 - Docker
 - MongoDB
-categories: Backend
+category: Backend
 ---
 
 ![MongoDB](/images/20201204_mongodb.svg)

@@ -4,7 +4,7 @@ date: 2017-7-12 09:17:17
 tags:
 - Unity
 - HTTP
-categories: Unity
+category: Unity
 ---
 
 > Unity推荐使用`UnityWebRequest`替代原有`WWW`类做网络请求，`UnityWebRequest`提供了非常简单的方法请求RESTful接口。

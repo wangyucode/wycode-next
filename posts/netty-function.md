@@ -4,7 +4,7 @@ date: 2018-10-23 15:14:34
 tags:
 - Netty
 - HTTP
-categories: Backend
+category: Backend
 ---
 
 ![流程](/images/20181023_liucheng.jpg "流程")

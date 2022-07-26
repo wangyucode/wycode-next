@@ -7,7 +7,7 @@ tags:
 - Spring
 - JPA
 - Hibernate
-categories: Backend
+category: Backend
 ---
 
 ![网易云音乐](https://image.woshipm.com/wp-files/2018/04/QFTkYSkExyHKCzhTTl7V.jpg)

@@ -2,7 +2,7 @@
 title: 我为什么开始写博客了？
 date: 2017-6-8 12:15:53
 tags: 
-categories: Story
+category: Story
 ---
 
 

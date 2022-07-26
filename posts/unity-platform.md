@@ -4,7 +4,7 @@ date: 2017-6-27 10:30:04
 tags: 
 - Unity
 - CSharp
-categories: Unity
+category: Unity
 ---
 
 > Unity 平台的判断包含编译时判断和运行时判断，总结如下：

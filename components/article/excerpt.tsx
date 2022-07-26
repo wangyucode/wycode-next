@@ -1,3 +1,4 @@
+import { ArrowsExpandIcon } from "@heroicons/react/outline";
 import Link from "next/link";
 
 export default function Excerpt({excerptHtml, contentHtml, id}: any) {
@@ -5,7 +6,11 @@ export default function Excerpt({excerptHtml, contentHtml, id}: any) {
         excerptHtml ? (
                 <>
                     <div className="mt-4 max-w-full" dangerouslySetInnerHTML={{__html: excerptHtml}}/>
-                    <Link href={`/${id}`}><a className="mt-2 font-semibold text-sky-500 hover:text-sky-400 w-fit">展开全文...</a></Link>
+                    <Link href={`/${id}`}><a className="mt-2 font-semibold text-sky-500 hover:text-sky-400 w-fit">
+                        <ArrowsExpandIcon className="inline mr-1 h-5 mb-0.5"/>
+                        展开全文...
+                        </a>
+                    </Link>
                 </>
             )
             :

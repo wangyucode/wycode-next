@@ -3,7 +3,7 @@ title: 实现内网穿透的最新姿势
 date: 2019-9-2 12:15:50
 tags:
 - Linux
-categories: Linux
+category: Linux
 ---
 
 ![Network](https://www.howtogeek.com/thumbcache/2/200/b47f24b18abd7d5411b75447849e04ff/wp-content/uploads/2017/03/why-is-a-network-tunnel-called-a-tunnel-00.jpg)

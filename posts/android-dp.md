@@ -4,7 +4,7 @@ date: 2017-9-4 16:46:17
 tags:
 - Android
 - Material Design
-categories: Android
+category: Android
 ---
 
 > 有关dpi、dp、px、sp、设计规范等等。

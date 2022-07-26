@@ -6,7 +6,7 @@ tags:
 - Dart
 - Android
 - iOS
-categories: Android
+category: Android
 ---
 
 ![Flutter](https://flutter.cn/favicon.ico)

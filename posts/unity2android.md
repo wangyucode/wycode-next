@@ -4,7 +4,7 @@ date: 2017-7-26 10:18:07
 tags: 
 - Android
 - Unity
-categories: Unity
+category: Unity
 ---
 
 > 在某些情况下，我们需要使用原生代码来做一些事，比如集成一些第三方原生SDK，

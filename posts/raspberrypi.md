@@ -4,7 +4,7 @@ date: 2019-8-7 10:11:15
 tags:
 - RaspberryPi
 - Linux
-categories: Linux
+category: Linux
 ---
 
 开启吃派之旅！

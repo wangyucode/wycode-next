@@ -5,7 +5,7 @@ tags:
 - Spring
 - JPA
 - Java
-categories: Backend
+category: Backend
 ---
 
 > JPA是Java Persistence API的简称是Java的ORM规范，实现这个规范的有著名的Hibernate等ORM框架。JDK 5.0注解或XML描述对象－关系表的映射关系，并将运行期的实体对象持久化到数据库中。

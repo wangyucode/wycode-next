@@ -5,7 +5,7 @@ tags:
 - Angular
 - TypeScript
 - HTML
-categories: Frontend
+category: Frontend
 ---
 
 > Angular框架的整体思路，很像Spring这样的后台框架。一层层的分解、解耦，天下框架莫不如此。

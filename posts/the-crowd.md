@@ -2,7 +2,7 @@
 title: 《乌合之众：大众心理研究》热门标注
 date: 2021-7-22 18:17:40
 tags:
-categories: Story
+category: Story
 ---
 
 ![The Crowd](https://p1.qhimg.com/t016f1e762c0161d220.jpg)

@@ -4,7 +4,7 @@ date: 2018-3-8 20:41:04
 tags:
 - OpenCV
 - Java
-categories: AI
+category: AI
 ---
 
 ![OpenCV](/images/20180308_OpenCV.png)

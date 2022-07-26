@@ -4,7 +4,7 @@ date: 2018-10-16 12:48:43
 tags:
 - Netty
 - HTTP
-categories: Backend
+category: Backend
 ---
 
 ![Netty](https://issues.jboss.org/secure/attachment/12345694/netty_logo_600px.png)

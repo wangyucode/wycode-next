@@ -5,21 +5,12 @@ import {format} from 'date-fns';
 import {remark} from 'remark';
 import html from 'remark-html';
 import {rehype} from 'rehype';
+import {CategoryPath, Post } from '../components/types';
 
 const addClasses = require('rehype-add-classes');
 const postsDirectory = path.join(process.cwd(), 'posts');
 
 let cachedPosts: Post[];
-
-export interface Post {
-    id: string,
-    file: string,
-    content: string,
-    data: { [key: string]: any }
-    excerpt?: string,
-    contentHtml: string,
-    excerptHtml: string
-}
 
 export async function getSortedPosts(): Promise<Post[]> {
     if(cachedPosts) return cachedPosts;
@@ -93,12 +84,12 @@ export async function getPageCount(size: number): Promise<number>{
     return Math.ceil(allPosts.length / size);
 }
 
-export async function getAllPostIds(): Promise<{params: {id: string}}[]> {
+export async function getAllPostIds(): Promise<{params: {pid: string}}[]> {
     const allPosts = await getSortedPosts();
     return allPosts.map((post) => {
         return {
             params: {
-                id: post.id,
+                pid: post.id,
             },
         };
     });
@@ -111,5 +102,25 @@ export async function getPost(id: string): Promise<Post | undefined> {
 
 export async function getPostTitles(): Promise<any[]> {
     const allPosts = await getSortedPosts();
-    return allPosts.map((post) => [post.id, post.data.title]);
+    return allPosts.map(post => [post.id, post.data.title]);
+}
+
+export async function getCategories(): Promise<any[]> {
+    const allPosts = await getSortedPosts();
+    const categories: CategoryPath[] = [];
+    allPosts.forEach(post => {
+        const category = categories.find(c => c.params.name === post.data.category);
+        if (category) {
+            category.params.count++;
+        } else {
+            categories.push({ params:{ name: post.data.category, count: 1, cid: post.data.category.replaceAll(" ", "-").toLowerCase()}});
+        }
+    });
+    categories.sort((a, b) => b.params.count - a.params.count);
+    return categories;
+}
+
+export async function getPostsByCategory(cid: string): Promise<Post[]> {
+    const allPosts = await getSortedPosts();
+    return allPosts.filter(post => post.data.category.replaceAll(" ", "-").toLowerCase() === cid);
 }

@@ -5,7 +5,7 @@ tags:
 - RaspberryPi
 - Linux
 - Python
-categories: Linux
+category: Linux
 ---
 
 因为最近要出门一段时间，鱼缸没人照顾，树莓派的第一个实用需求出现了。

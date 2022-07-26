@@ -3,7 +3,7 @@ title: 使用Vue搭建一个后台管理系统
 date: 2017-11-16 17:23:20
 tags:
 - Vue
-categories: Frontend
+category: Frontend
 ---
 >选择往往比努力更加重要。
 

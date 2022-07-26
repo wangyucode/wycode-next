@@ -5,7 +5,7 @@ tags:
 - HTML
 - CSS
 - JavaScript
-categories: Frontend
+category: Frontend
 ---
 
 ## 解决方案

@@ -2,7 +2,7 @@
 title: 用数学期望计算《和平精英》特斯拉（玛莎拉蒂）到底要多少钱？
 date: 2020-7-24 19:51:18
 tags: 
-categories: Story
+category: Story
 ---
 
 ![tesela](https://game.gtimg.cn/images/gp/ingame/a20200724tslcar/intor_6.png)

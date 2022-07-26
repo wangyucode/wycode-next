@@ -25,10 +25,10 @@ export default function Hot({ postTitles }: { postTitles: any[] }) {
     return (
         <div className="my-4 p-2 border rounded border-slate-700/30 dark:border-slate-300/30">
             <h2 className="pb-1 mb-1 text-lg font-semibold border-b border-slate-700/30 dark:border-slate-300/30"><FireIcon className="inline h-5" /> 热门文章</h2>
-            <ul className="">
+            <ul>
                 {posts.map(({ url, _id, title, monthly, pre_monthly}) => (
-                    <li key={_id} className="mt-2">
-                        <Link href={url}><a className="hover:text-sky-400 text-sm">{title}
+                    <li key={_id}>
+                        <Link href={url}><a className="hover:text-sky-400 text-sm">• {title}
                         {
                             monthly > pre_monthly ? <TrendingUpIcon className="ml-1 inline h-4 text-red-600"/> : <TrendingDownIcon className="ml-1 inline h-4 text-green-600"/>
                         }</a></Link>

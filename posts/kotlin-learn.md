@@ -3,7 +3,7 @@ title: Kotlin入门
 date: 2017-7-27 13:19:47
 tags:
 - Kotlin
-categories: Languages
+category: Languages
 ---
 
 > 在Google I/O 2017上Google正式宣布Kotlin成为Android开发的官方新语言，Kotlin得到了Google的背书，随着Android O和Android Studio3.0的正式发布，Kotlin语言的春天可能马上就要来临了。

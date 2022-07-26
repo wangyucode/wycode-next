@@ -4,7 +4,7 @@ date: 2017-6-21 16:24:38
 tags: 
 - Linux
 - vi
-categories: Linux
+category: Linux
 ---
 
 ## vi特性

@@ -3,7 +3,7 @@ title: OAuth2.0四种模式完整时序图
 date: 2019-6-14 10:16:28
 tags:
 - OAuth
-categories: Backend
+category: Backend
 ---
 
 关于认证和授权，最权威的流程就是`OAuth2.0`了，涵盖了用户认证授权的方方面面，现代的大型网站几乎都是基于`Oauth2.0`协议开发认证鉴权功能。
@@ -12,5 +12,5 @@ categories: Backend
 
 <!--more-->
 
-<img src="/images/20190614_oauth.png" alt="OAuth" style="width: 100%;height:auto;max-width: none;max-height: none;"/>
+![OAuth](/images/20190614_oauth.png)
 

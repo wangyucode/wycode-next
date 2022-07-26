@@ -3,7 +3,7 @@ title: 自定义形状波浪进度
 date: 2017-7-24 12:41:59
 tags:
 - Android
-categories: Android
+category: Android
 ---
 
 > 今天碰到个需求，要求以波浪进度填充自定义透明形状，废话不多说，直接上最终效果图

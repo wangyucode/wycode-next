@@ -4,7 +4,7 @@ date: 2017-7-11 10:31:27
 tags:
 - Spring
 - Java
-categories: Backend
+category: Backend
 ---
 
 > Spring框架在运行时会自动查找`application.properties`配置文件，在这个文件中进行项目相关配置属性，例如数据库地址密码等。当然也支持自定义属性。

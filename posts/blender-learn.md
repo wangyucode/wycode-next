@@ -3,7 +3,7 @@ title: Blender建模入门
 date: 2017-7-18 17:53:34
 tags:
 - Blender
-categories: 3D
+category: 3D
 ---
 
 > Blender 是一款开源的跨平台全能三维动画制作软件，永久免费。

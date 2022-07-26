@@ -1,5 +1,23 @@
 export const SITE_NAME = '王郁的小站';
 
+export interface Post {
+    id: string,
+    file: string,
+    content: string,
+    data: { [key: string]: any }
+    excerpt?: string,
+    contentHtml: string,
+    excerptHtml: string
+}
+
+export interface CategoryPath {
+    params: {
+        cid: string,
+        name: string,
+        count: number
+    }
+}
+
 export enum MenuLinks {
     HOME = '/',
     LAB = '/lab.html',

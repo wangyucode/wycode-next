@@ -2,21 +2,16 @@ import Head from 'next/head';
 import { CalendarIcon, ArchiveIcon, TagIcon } from "@heroicons/react/outline";
 
 import Layout from '../components/layout';
-import { getAllPostIds, getPost, Post } from '../utils/posts';
+import { getAllPostIds, getPost} from '../utils/posts';
 import Comments from "../components/comment/comments";
 import Highlight from '../components/highlight';
-import { SITE_NAME } from '../components/types';
+import { Post, SITE_NAME } from '../components/types';
+import Link from 'next/link';
 
-export default function PostDetail(
-    {
-        post:
-        {
-            data: { date, title, categories, tags },
-            contentHtml,
-            excerpt
-        }
-    }: { post: Post }
-) {
+export default function PostDetail({post}: { post: Post }) {
+    const { id, data: { date, title, category, tags }, excerpt, contentHtml } = post;
+    const cid = post.data.category.replaceAll(" ", "-").toLowerCase();
+
     return (
         <Layout>
             <Head>
@@ -25,11 +20,11 @@ export default function PostDetail(
                 {excerpt && <meta name="description" content={excerpt} />}
             </Head>
             <div className="p-4 max-w-7xl mx-auto">
-                <article className=''>
+                <article>
                     <h1 className="text-2xl text-slate-800 dark:text-slate-200 font-extrabold text-center">{title}</h1>
                     <div className="flex justify-between">
                         <span className="flex items-center"><CalendarIcon className="inline mr-1" height={20} width={20} />{date}</span>
-                        <span className="flex items-center"><ArchiveIcon className="inline mr-1" height={20} width={20} />{categories}</span>
+                        <Link href={`/category/${cid}`}><a className="hover:text-sky-400 text-sm"><ArchiveIcon className="inline mr-1 h-5 mb-0.5"/>{category}</a></Link>
                     </div>
                     {tags && <span className="flex items-center"><TagIcon className="inline mr-1" height={20} width={20} />{tags.join(', ')}</span>}
                     <div className="mt-8" dangerouslySetInnerHTML={{ __html: contentHtml }} />
@@ -50,7 +45,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }: any) {
-    const post = await getPost(params.id);
+    const post = await getPost(params.pid);
     return {
         props: { post },
     };

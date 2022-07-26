@@ -1,9 +1,10 @@
 import Layout from '../../components/layout';
-import { getPageCount, getPagedPosts, Post } from "../../utils/posts";
+import { getPageCount, getPagedPosts} from "../../utils/posts";
 import { PAGE_SIZE } from "../index";
 import ArticleItem from "../../components/article/article-item";
 import Pager from "../../components/pager";
 import Highlight from '../../components/highlight';
+import { Post } from '../../components/types';
 
 export default function Page({ posts, page, total }: { posts: Post[], page: number, total: number }) {
     return (

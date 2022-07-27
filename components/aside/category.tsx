@@ -1,8 +1,8 @@
 import { ArchiveIcon } from "@heroicons/react/outline";
 import Link from "next/link";
-import { CategoryPath } from "../types";
+import { CategoryTagPath } from "../types";
 
-export default function CategoryComponent({ categories }: { categories: CategoryPath[] }) {
+export default function CategoryComponent({ categories }: { categories: CategoryTagPath[] }) {
     return (
         <div className="my-4 p-2 border rounded border-slate-700/30 dark:border-slate-300/30">
             <h2 className="pb-1 mb-1 text-lg font-semibold border-b border-slate-700/30 dark:border-slate-300/30">

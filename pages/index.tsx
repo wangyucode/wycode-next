@@ -2,13 +2,14 @@ import ArticleItem from '../components/article/article-item';
 import { Jumbotron } from '../components/jumbotron';
 import Layout from '../components/layout';
 
-import { getCategories, getPageCount, getPagedPosts, getPostTitles} from '../utils/posts';
+import { getCategories, getPageCount, getPagedPosts, getPostTitles, getTags} from '../utils/posts';
 import Hot from "../components/aside/hot";
 import Pager from '../components/pager';
 import About from '../components/aside/about';
 import Highlight from '../components/highlight';
 import { Post } from '../components/types';
 import CategoryComponent from '../components/aside/category';
+import Tags from '../components/aside/tag';
 
 export const PAGE_SIZE = 5;
 
@@ -17,17 +18,19 @@ export async function getStaticProps() {
   const pageCount = await getPageCount(PAGE_SIZE);
   const postTitles = await getPostTitles();
   const categories = await getCategories();
+  const tags = await getTags();
   return {
     props: {
       posts,
       pageCount,
       postTitles,
-      categories
+      categories,
+      tags
     },
   };
 }
 
-export default function Home({ posts, pageCount, postTitles, categories }: any) {
+export default function Home({ posts, pageCount, postTitles, categories, tags }: any) {
   return (
     <Layout>
       <Jumbotron />
@@ -43,6 +46,7 @@ export default function Home({ posts, pageCount, postTitles, categories }: any) 
         <aside className="lg:basis-72 lg:shrink-0 lg:ml-16">
           <Hot postTitles={postTitles} />
           <CategoryComponent categories={categories}/>
+          <Tags tags={tags} />
           <About />
         </aside>
       </div>

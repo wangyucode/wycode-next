@@ -17,7 +17,7 @@ export default function Hot({ postTitles }: { postTitles: any[] }) {
                         return post.title = titleMap.get(post._id);
                     });
                     console.log('get hot blog->', res);
-                    setPosts(res.payload);
+                    setPosts(res.payload.filter((post : any) => !!post.title));
                 }
             });
     }, []);

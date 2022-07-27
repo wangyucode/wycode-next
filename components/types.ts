@@ -10,7 +10,7 @@ export interface Post {
     excerptHtml: string
 }
 
-export interface CategoryPath {
+export interface CategoryTagPath {
     params: {
         cid: string,
         name: string,

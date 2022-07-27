@@ -5,7 +5,7 @@ import {format} from 'date-fns';
 import {remark} from 'remark';
 import html from 'remark-html';
 import {rehype} from 'rehype';
-import {CategoryPath, Post } from '../components/types';
+import {CategoryTagPath, Post } from '../components/types';
 
 const addClasses = require('rehype-add-classes');
 const postsDirectory = path.join(process.cwd(), 'posts');
@@ -105,9 +105,9 @@ export async function getPostTitles(): Promise<any[]> {
     return allPosts.map(post => [post.id, post.data.title]);
 }
 
-export async function getCategories(): Promise<any[]> {
+export async function getCategories(): Promise<CategoryTagPath[]> {
     const allPosts = await getSortedPosts();
-    const categories: CategoryPath[] = [];
+    const categories: CategoryTagPath[] = [];
     allPosts.forEach(post => {
         const category = categories.find(c => c.params.name === post.data.category);
         if (category) {
@@ -123,4 +123,28 @@ export async function getCategories(): Promise<any[]> {
 export async function getPostsByCategory(cid: string): Promise<Post[]> {
     const allPosts = await getSortedPosts();
     return allPosts.filter(post => post.data.category.replaceAll(" ", "-").toLowerCase() === cid);
+}
+
+export async function getTags(): Promise<CategoryTagPath[]> {
+    const allPosts = await getSortedPosts();
+    const tags: CategoryTagPath[] = [];
+    allPosts.forEach(post => {
+        if(post.data.tags){
+            post.data.tags.forEach((postTag: string) => {
+                const tag = tags.find(t => t.params.name === postTag);
+                if (tag) {
+                    tag.params.count++;
+                } else {
+                    tags.push({ params:{ name: postTag, count: 1, cid: postTag.replaceAll(" ", "-").toLowerCase()}});
+                }
+            });
+        }
+    });
+    tags.sort((a, b) => a.params.cid < b.params.cid ? -1 : 1);
+    return tags;
+}
+
+export async function getPostsByTag(cid: string): Promise<Post[]> {
+    const allPosts = await getSortedPosts();
+    return allPosts.filter(post => post.data.tags && post.data.tags.some((tag: string) => tag.replaceAll(" ", "-").toLowerCase() === cid));
 }

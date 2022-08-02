@@ -3,7 +3,7 @@ import Script from "next/script";
 import { useContext, useEffect } from "react";
 
 import { AppStateContext } from "./app-context";
-import { Theme } from "./nav/theme-switch";
+import { Theme } from "./types";
 
 export default function Highlight() {
 

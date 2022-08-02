@@ -1,5 +1,10 @@
 export const SITE_NAME = '王郁的小站';
 
+export enum Theme {
+    light = 'light',
+    dark = 'dark'
+}
+
 export interface Post {
     id: string,
     file: string,

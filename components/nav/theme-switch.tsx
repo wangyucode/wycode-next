@@ -2,11 +2,7 @@ import {useContext, useEffect, useState} from "react";
 import {MoonIcon, SunIcon} from "@heroicons/react/solid";
 
 import { ACTIONS, AppDispatcherContext } from "../app-context";
-
-export enum Theme {
-    light = 'light',
-    dark = 'dark'
-}
+import { Theme } from "../types";
 
 export default function ThemeSwitch({classes}: any) {
 

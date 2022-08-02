@@ -1,6 +1,5 @@
 import { createContext, Dispatch } from "react";
-
-import { Theme } from "./nav/theme-switch";
+import { Theme } from "./types";
 
 export const INITIAL_APP_STATE: AppState = { openMenu: undefined, theme: Theme.light };
 

@@ -4,17 +4,23 @@ import Layout from "../components/layout";
 import BannerMsg from "../components/banner-msg";
 import clipboardImg from "../public/lab/clipboard.jpg";
 import { ArrowLeftIcon, SearchIcon } from "@heroicons/react/outline";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Comments from "../components/comment/comments";
+import { KeyCode } from "../components/types";
 
 export default function Clipboard() {
 
+    const queryRef = useRef<HTMLInputElement>(null);
     const [showResult, setShowResult] = useState(false);
     const [content, setContent] = useState('');
     const [remark, setRemark] = useState('');
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
     const [key, setKey] = useState('');
+
+    useEffect(() => {
+        queryRef?.current?.focus();
+    },[]);
 
     function query(event: any) {
         event.preventDefault();
@@ -83,11 +89,17 @@ export default function Clipboard() {
         setShowResult(false);
     }
 
+    function onKeyUpQuery(event: any) {
+        if(event.keyCode === KeyCode.Enter){
+            query(event);
+        }
+    }
+
     return (
         <Layout>
             <div className="p-4 max-w-7xl mx-auto flex flex-col items-center">
                 {showResult ? (
-                    <form className="w-full sm:w-96 md:w-[32rem] lg:w-[56rem]" onSubmit={save}>
+                    <div className="w-full sm:w-96 md:w-[32rem] lg:w-[56rem]">
                         <textarea
                             className="block h-96 w-full py-2 px-4 border bg-slate-500/5 rounded border-slate-700/30 dark:border-slate-300/30"
                             disabled={loading}
@@ -105,7 +117,7 @@ export default function Clipboard() {
                             placeholder="备注" />
                         {error && <BannerMsg type="error" msg={error} />}
                         <button
-                            type="submit"
+                            onClick={save}
                             disabled={loading}
                             className="px-4 py-2 w-full block mt-2 rounded border border-slate-700/30 disabled:bg-slate-500 disabled:active:ring-0 dark:border-slate-300/30 text-slate-100 bg-green-600 hover:bg-green-500 active:ring-2">
                             <SearchIcon className="w-4 inline mr-1" />保存
@@ -116,9 +128,9 @@ export default function Clipboard() {
                             className="px-4 py-2 w-full mt-2 rounded border border-slate-700/30 disabled:bg-slate-500 disabled:active:ring-0 dark:border-slate-300/30 text-slate-100 bg-sky-600 hover:bg-sky-500 active:ring-2">
                             <ArrowLeftIcon className="w-4 inline mr-1" />返回
                         </button>
-                    </form>
+                    </div>
                 ) : (
-                    <form className="w-full sm:w-96 flex flex-col" onSubmit={query}>
+                    <div className="w-full sm:w-96 flex flex-col">
                         <BannerMsg type="info" msg="跨平台剪切板2.0已上线，获取新版查询码请扫描下方小程序码，查看属于自己的剪切板！" />
                         <div className="mx-auto"><Image src={clipboardImg} /></div>
                         {error && <BannerMsg type="error" msg={error} />}
@@ -128,15 +140,17 @@ export default function Clipboard() {
                             disabled={loading}
                             className="px-4 py-2 bg-slate-500/5 rounded border border-slate-700/30 dark:border-slate-300/30 focus-visible:outline-0 focus-visible:ring-2"
                             onChange={changeKey}
+                            onKeyUp={onKeyUpQuery}
                             value={key}
+                            ref={queryRef}
                             placeholder="查询码（在小程序获得）" />
                         <button
-                            type="submit"
+                            onClick={query}
                             disabled={loading}
                             className="px-4 py-2 mt-2 rounded border border-slate-700/30 disabled:bg-slate-500 disabled:active:ring-0 dark:border-slate-300/30 text-slate-100 bg-sky-600 hover:bg-sky-500 active:ring-2">
                             <SearchIcon className="w-4 inline mr-1" />查询
                         </button>
-                    </form>
+                    </div>
                 )}
                 <Comments />
             </div>

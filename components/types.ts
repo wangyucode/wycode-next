@@ -15,6 +15,16 @@ export interface Post {
     excerptHtml: string
 }
 
+export interface Access{
+    _id: string;
+    daily: number;
+    weekly: number;
+    monthly: number;
+    pre_daily: number;
+    pre_weekly: number;
+    pre_monthly: number;
+}
+
 export interface CategoryTagPath {
     params: {
         cid: string,

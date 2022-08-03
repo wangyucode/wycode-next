@@ -31,3 +31,8 @@ export enum MenuLinks {
     MONGO = '/admin/mongo.html',
     ABOUT = '/about.html',
 }
+
+
+export enum KeyCode{
+    Enter = 13,
+}

@@ -1,6 +1,8 @@
 import { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { SearchIcon, XIcon } from "@heroicons/react/outline";
+import { Hits, SearchBox } from "react-instantsearch-hooks-web";
+import Hit from "./hit";
 
 export default function Search() {
 
@@ -42,7 +44,8 @@ export default function Search() {
                         >
                             <Dialog.Panel className="relative mx-auto mt-16 max-w-xl p-4 rounded-xl bg-white dark:bg-slate-900">
                                 <Dialog.Title as="h1" className="text-lg">搜索</Dialog.Title>
-                                正在施工...
+                                <SearchBox />
+                                <Hits hitComponent={Hit} />
                                 <button className='absolute right-4 top-4 p-1 rounded-md dark:hover:bg-white/5 hover:bg-black/5' onClick={closeModal}><XIcon height={24} width={24} /></button>
                             </Dialog.Panel>
                         </Transition.Child>

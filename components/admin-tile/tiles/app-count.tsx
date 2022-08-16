@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import ReactECharts from 'echarts-for-react';
 import * as echarts from 'echarts/core';
 import {
@@ -18,7 +18,6 @@ echarts.use([
 import AdminTile from "../admin-tile";
 import { Access } from "../../types";
 import { AppStateContext } from "../../app-context";
-import { he } from "date-fns/locale";
 
 export const AppCount = AdminTile(function () {
 

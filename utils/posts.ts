@@ -6,7 +6,7 @@ import {remark} from 'remark';
 import html from 'remark-html';
 import {rehype} from 'rehype';
 import {CategoryTagPath, Post } from '../components/types.js';
-import addClass from 'rehype-add-classes/dist/add-classes.cjs.js';
+import addClass from './index.mjs';
 
 const postsDirectory = path.join(process.cwd(), 'posts');
 
@@ -36,7 +36,7 @@ export async function getSortedPosts(): Promise<Post[]> {
 
         const classProcessor = rehype()
             .data('settings', {fragment: true})
-            .use(addClass, {
+            .use(addClass as any, {
                 'img': 'mx-auto max-h-80',
                 'p': 'mb-4',
                 'blockquote': 'px-4 border-l-4 border-slate-500 text-slate-500',

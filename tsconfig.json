@@ -13,13 +13,15 @@
     "noEmit": true,
     "incremental": true,
     "esModuleInterop": true,
-    "module": "NodeNext",
+    "module": "esnext",
     "moduleResolution": "NodeNext",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve"
   },
-  "ts-node": {"esm": true},
+  "ts-node": {
+    "esm": true
+  },
   "include": [
     "next-env.d.ts",
     "**/*.ts",

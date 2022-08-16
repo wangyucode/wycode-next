@@ -2,8 +2,6 @@
 import { Html, Main, Head, NextScript } from 'next/document';
 import { SITE_NAME } from '../components/types';
 
-
-
 export default function Document() {
 
   return (

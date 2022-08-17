@@ -1,12 +1,4 @@
-// const withTM = require('next-transpile-modules')(['echarts','zrender']);
-// module.exports = withTM({
-//     images: {
-//         domains: ['api.dujin.org']
-//     },
-// });
-
 import withTmInitializer from 'next-transpile-modules';
-
 const withTM = withTmInitializer(['echarts','zrender']);
 
 /**

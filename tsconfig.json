@@ -14,10 +14,13 @@
     "incremental": true,
     "esModuleInterop": true,
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "NodeNext",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve"
+  },
+  "ts-node": {
+    "esm": true
   },
   "include": [
     "next-env.d.ts",

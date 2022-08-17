@@ -6,7 +6,7 @@ import { BeakerIcon, ClipboardListIcon, CogIcon, PencilIcon, UserAddIcon} from '
 import NavItem from './nav-item';
 import ThemeSwitch from './theme-switch';
 import MobileNav from './mobile-nav';
-import Search from './search';
+import Search from './search/search';
 import { MenuLinks, SITE_NAME } from '../types';
 
 export const NavItemBlog = NavItem(PencilIcon);

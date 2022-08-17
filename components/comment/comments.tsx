@@ -61,7 +61,7 @@ export default function Comments() {
             app,
             topic,
             content,
-            fromUserName: email,
+            user: email,
             to: replying ? {
                 user: replying.user,
                 content: replying.content
@@ -77,10 +77,10 @@ export default function Comments() {
                     setContent('');
                     setReplying(null);
                     comment._id = res.payload;
-                    let username = comment.fromUserName.charAt(0);
-                    const atIndex = comment.fromUserName.lastIndexOf('@');
+                    let username = comment.user.charAt(0);
+                    const atIndex = comment.user.lastIndexOf('@');
                     username += new Array(atIndex).fill('*').join('');
-                    username += comment.fromUserName.substring(atIndex);
+                    username += comment.user.substring(atIndex);
                     comment.user = username;
                     comment.createTime = new Date();
                     setComments([...comments, comment])

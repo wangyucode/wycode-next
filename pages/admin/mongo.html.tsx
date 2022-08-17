@@ -2,7 +2,6 @@ import React from "react";
 
 import Layout from "../../components/layout";
 import AdminSideBar from "../../components/admin-side-bar/admin-side-bar";
-import { useRouter } from "next/router";
 
 export default function AdminMongo() {
 

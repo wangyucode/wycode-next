@@ -2,13 +2,12 @@
 import { Html, Main, Head, NextScript } from 'next/document';
 import { SITE_NAME } from '../components/types';
 
-
-
 export default function Document() {
 
   return (
       <Html lang="zh-CN">
         <Head>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <link rel="shortcut icon" href="/favicon.svg" type="image/svg+xml" />
             <meta name="description" content={`欢迎光临${SITE_NAME}`} />
             <meta

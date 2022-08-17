@@ -1,6 +1,8 @@
 import { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { SearchIcon, XIcon } from "@heroicons/react/outline";
+import { Hits, SearchBox } from "react-instantsearch-hooks-web";
+import Hit from "./hit";
 
 export default function Search() {
 
@@ -41,11 +43,21 @@ export default function Search() {
                             leaveTo="opacity-0 scale-95"
                         >
                             <Dialog.Panel className="relative mx-auto mt-16 max-w-xl p-4 rounded-xl bg-white dark:bg-slate-900">
-                                <Dialog.Title as="h1" className="text-lg">搜索</Dialog.Title>
-                                正在施工...
-                                <button className='absolute right-4 top-4 p-1 rounded-md dark:hover:bg-white/5 hover:bg-black/5' onClick={closeModal}><XIcon height={24} width={24} /></button>
+                                <SearchBox
+                                    placeholder="搜索博客"
+                                    resetIconComponent={()=><></>}
+                                    classNames={{
+                                        root: 'pb-4 border-b border-slate-700/30 dark:border-slate-300/30',
+                                        form: 'relative mr-12',
+                                        input: 'w-full p-2 pl-8 rounded border outline-offset-0 border-slate-700/30 dark:border-slate-300/30',
+                                        submit: 'absolute left-2 top-3',
+                                        submitIcon: 'w-4 h-4 dark:fill-slate-50 dark:stroke-slate-50',
+                                        loadingIndicator: 'absolute right-8 top-3 dark:stroke-slate-50'
+                                    }} />
+                                <Hits hitComponent={Hit} />
+                                <button className='absolute right-4 top-4 p-2 rounded-md dark:hover:bg-white/5 hover:bg-black/5' onClick={closeModal}><XIcon height={24} width={24} /></button>
                             </Dialog.Panel>
-                        </Transition.Child>
+                        </Transition.Child> 
                     </div>
                 </Dialog>
             </Transition>

@@ -3,7 +3,7 @@ import algoliasearch from 'algoliasearch';
 
 export async function send() {
   const posts = await getSortedPosts();
-  // ts-ignore
+  // @ts-ignore
   const client = algoliasearch.default('0UX0P1HN6Y', process.argv[2]);
 
   const index = client.initIndex('wycode');

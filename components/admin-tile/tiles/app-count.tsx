@@ -65,6 +65,6 @@ export const AppCount = AdminTile(function () {
             option={option}
             theme={theme}
             style={{ height: '192px' }}
-            className="w-48 h-48" />
+            className="w-48" />
     )
 });

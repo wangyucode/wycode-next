@@ -13,7 +13,6 @@ export default function Clipboard() {
     const queryRef = useRef<HTMLInputElement>(null);
     const [showResult, setShowResult] = useState(false);
     const [content, setContent] = useState('');
-    const [remark, setRemark] = useState('');
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
     const [key, setKey] = useState('');
@@ -36,7 +35,6 @@ export default function Clipboard() {
                 if (res && res.success) {
                     setShowResult(true);
                     setContent(res.payload.content);
-                    setRemark(res.payload.tips);
                 } else {
                     setError('查询码不正确！');
                 }
@@ -50,8 +48,7 @@ export default function Clipboard() {
         setLoading(true);
         const data = {
             _id: key,
-            content,
-            tips: remark
+            content
         };
         fetch('https://wycode.cn/node/clipboard', {
             method: 'POST',
@@ -81,10 +78,6 @@ export default function Clipboard() {
         setContent(event.target.value);
     }
 
-    function changeRemark(event: any) {
-        setRemark(event.target.value);
-    }
-
     function onClickReturn() {
         setShowResult(false);
     }
@@ -108,13 +101,6 @@ export default function Clipboard() {
                             maxLength={5000}
                             autoFocus
                         />
-                        <input type="text"
-                            maxLength={1024}
-                            disabled={loading}
-                            className="block w-full mt-2 px-4 py-2 bg-slate-500/5 rounded border border-slate-700/30 dark:border-slate-300/30 focus-visible:outline-0 focus-visible:ring-2"
-                            onChange={changeRemark}
-                            value={remark}
-                            placeholder="备注" />
                         {error && <BannerMsg type="error" msg={error} />}
                         <button
                             onClick={save}

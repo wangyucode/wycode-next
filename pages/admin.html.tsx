@@ -18,6 +18,7 @@ export default function Admin() {
                     <AccessRecord title="Access Records"/>
                     <AppCount title="API Access"/>
                     <BuildStatus title="Build Status"/>
+                    <AccessErrors title="Invalid Access"/>
                 </main>
             </div>
         </Layout>

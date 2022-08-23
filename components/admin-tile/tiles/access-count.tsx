@@ -20,7 +20,7 @@ export const AccessCount = AdminTile(function () {
     }, []);
 
     return (
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col">
             <p>昨日：{access.daily}
                 {
                     access.daily > access.pre_daily ?
@@ -30,6 +30,9 @@ export const AccessCount = AdminTile(function () {
             </p>
             <p>上周：{access.pre_weekly}</p>
             <p>上月：{access.pre_monthly}</p>
+            <p>去年：{access.pre_yearly}</p>
+            <p>今年：{access.yearly}</p>
+            <p>累计：{access.total}</p>
         </div>
     )
 });

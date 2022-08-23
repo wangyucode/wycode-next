@@ -6,6 +6,7 @@ import { BuildStatus } from "../components/admin-tile/tiles/build-status";
 import { AccessCount } from "../components/admin-tile/tiles/access-count";
 import { AppCount } from "../components/admin-tile/tiles/app-count";
 import { AccessRecord } from "../components/admin-tile/tiles/access-record";
+import { AccessErrors } from "../components/admin-tile/tiles/access-errors";
 
 export default function Admin() {
 
@@ -13,7 +14,7 @@ export default function Admin() {
         <Layout>
             <div className="h-content w-full flex">
                 <AdminSideBar />
-                <main className="flex p-4 gap-2 flex-wrap overflow-auto">
+                <main className="flex h-fit p-4 gap-2 flex-wrap overflow-auto">
                     <AccessCount title="All Access"/>
                     <AccessRecord title="Access Records"/>
                     <AppCount title="API Access"/>

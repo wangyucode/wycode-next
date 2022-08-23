@@ -12,7 +12,7 @@ export default function Admin() {
 
     return (
         <Layout>
-            <div className="h-content w-full flex">
+            <div className="relative h-content w-full">
                 <AdminSideBar />
                 <main className="flex h-fit p-4 gap-2 flex-wrap overflow-auto">
                     <AccessCount title="All Access"/>

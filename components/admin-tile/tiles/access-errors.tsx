@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { TrendingDownIcon, TrendingUpIcon } from "@heroicons/react/solid";
-import { format } from "date-fns/esm";
+import { format } from "date-fns";
 
 import AdminTile from "../admin-tile";
 
@@ -20,7 +20,7 @@ export const AccessErrors = AdminTile(function () {
     }, []);
 
     return (
-        <table className="">
+        <table className="border border-slate-700/30 dark:border-slate-300/30">
             <tr>
                 <th>IP</th>
                 <th>Status</th>
@@ -29,12 +29,12 @@ export const AccessErrors = AdminTile(function () {
                 <th>Time</th>
             </tr>
             {errors.map((err: any) => (
-                <tr>
-                    <td>{err.ip}</td>
-                    <td>{err.status}</td>
-                    <td>{err.request}</td>
-                    <td>{err.agent}</td>
-                    <td>{format(new Date(err.time), 'yyyy-MM-dd HH:mm:ss')}</td>
+                <tr className="text-sm">
+                    <td className="px-2">{err.ip}</td>
+                    <td className="px-2">{err.status}</td>
+                    <td className="px-2 break-all">{err.request}</td>
+                    <td className="px-2 break-all">{err.agent}</td>
+                    <td className="px-2 w-40">{format(new Date(err.time), 'yyyy-MM-dd HH:mm:ss')}</td>
                 </tr>
             ))}
         </table>

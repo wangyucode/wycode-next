@@ -12,15 +12,15 @@ export default function Admin() {
 
     return (
         <Layout>
-            <div className="relative h-content w-full">
+            <div className="absolute inset-x-0 top-16 bottom-10 flex">
                 <AdminSideBar />
-                <main className="flex h-fit p-4 gap-2 flex-wrap overflow-auto">
-                    <AccessCount title="All Access"/>
-                    <AccessRecord title="Access Records"/>
-                    <AppCount title="API Access"/>
-                    <BuildStatus title="Build Status"/>
+                <div className="p-4 flex-grow overflow-auto flex flex-wrap gap-2">
+                    <AccessCount title="All Access" />
+                    <AccessRecord title="Access Records" />
+                    <AppCount title="API Access" />
+                    <BuildStatus title="Build Status" />
                     <AccessErrors title="Invalid Access"/>
-                </main>
+                </div>
             </div>
         </Layout>
     );

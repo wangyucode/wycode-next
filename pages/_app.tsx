@@ -18,6 +18,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <>
             <Head>
                 <title>{SITE_NAME}</title>
+                <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             </Head>
             <InstantSearch searchClient={searchClient} indexName="wycode">
                 <AppStateContext.Provider value={appState}>

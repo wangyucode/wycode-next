@@ -10,6 +10,7 @@ import Highlight from '../components/highlight';
 import { Post } from '../components/types';
 import CategoryComponent from '../components/aside/category';
 import Tags from '../components/aside/tag';
+import Ad from '../components/aside/ad';
 
 export const PAGE_SIZE = 5;
 
@@ -48,6 +49,7 @@ export default function Home({ posts, pageCount, postTitles, categories, tags }:
           <CategoryComponent categories={categories}/>
           <Tags tags={tags} />
           <About />
+          <Ad />
         </aside>
       </div>
       <Highlight />

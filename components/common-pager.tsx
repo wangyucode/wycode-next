@@ -12,16 +12,16 @@ export default function CommonPager({ page, size, total, maxElement, onChange }:
     const pages = []
     for (let i = left; i < right; i++) {
         const pageElement = i === page ?
-            <span className="px-2 py-1 rounded-md bg-black/20 dark:bg-white/20">{i + 1}</span> :
+            <span key={i} className="px-2 py-1 rounded-md bg-black/20 dark:bg-white/20">{i + 1}</span> :
             <button key={i} className="px-2 py-1 rounded-md text-sky-600 hover:text-sky-400" onClick={() => onChange(i)}>{i + 1}</button>
         pages.push(pageElement);
     }
     if (left > 0) {
-        left > 1 && pages.unshift(<span className="px-2 py-1">...</span>); // add ... if start page is 2
+        left > 1 && pages.unshift(<span key="left-dot" className="px-2 py-1">...</span>); // add ... if start page is 2
         pages.unshift(<button key={0} className="px-2 py-1 rounded-md text-sky-600 hover:text-sky-400" onClick={() => onChange(0)}>{1}</button>);
     }
     if (right < pageCount) {
-        right < pageCount - 1 && pages.push(<span className="px-2 py-1">...</span>);
+        right < pageCount - 1 && pages.push(<span key="right-dot" className="px-2 py-1">...</span>);
         pages.push(<button key={pageCount} className="px-2 py-1 rounded-md text-sky-600 hover:text-sky-400" onClick={() => onChange(pageCount - 1)}>{pageCount}</button>);
     }
 

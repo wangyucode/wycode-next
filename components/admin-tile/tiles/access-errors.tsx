@@ -45,7 +45,7 @@ export const AccessErrors = AdminTile(function () {
                 </thead>
                 <tbody>
                     {errors.map((err: any, index: number) => (
-                        <tr className={`text-xs ${index % 2 === 0 ? 'bg-slate-100 dark:bg-slate-800' : 'bg-slate-200 dark:bg-slate-700'}`}>
+                        <tr key={index} className={`text-xs ${index % 2 === 0 ? 'bg-slate-100 dark:bg-slate-800' : 'bg-slate-200 dark:bg-slate-700'}`}>
                             <td className="px-2 py-1 text-center">{err.ip}</td>
                             <td className="px-2 py-1 text-center break-words">{err.status}</td>
                             <td className="px-2 py-1 break-words" style={{ maxWidth: '300px' }}>{err.request}</td>

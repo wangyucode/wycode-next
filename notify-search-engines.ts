@@ -5,4 +5,4 @@ export async function notify() {
     console.log('google->', await fetch('http://www.google.com/webmasters/sitemaps/ping?sitemap=https://wycode.cn/sitemap.xml'));
 }
 
-notify();
+// notify();

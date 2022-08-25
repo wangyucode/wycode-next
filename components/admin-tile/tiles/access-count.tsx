@@ -30,8 +30,6 @@ export const AccessCount = AdminTile(function () {
             </p>
             <p>上周：{access.pre_weekly}</p>
             <p>上月：{access.pre_monthly}</p>
-            <p>去年：{access.pre_yearly}</p>
-            <p>今年：{access.yearly}</p>
             <p>累计：{access.total}</p>
         </div>
     )

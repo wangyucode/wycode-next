@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { TrendingDownIcon, TrendingUpIcon } from "@heroicons/react/solid";
+import { ArrowTrendingDownIcon, ArrowTrendingUpIcon } from "@heroicons/react/24/solid";
 
 import AdminTile from "../admin-tile";
 import { Access } from "../../types";
@@ -20,16 +20,17 @@ export const AccessCount = AdminTile(function () {
     }, []);
 
     return (
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col">
             <p>昨日：{access.daily}
                 {
                     access.daily > access.pre_daily ?
-                        <TrendingUpIcon className="ml-1 inline h-4 text-red-600" /> :
-                        <TrendingDownIcon className="ml-1 inline h-4 text-green-600" />
+                        <ArrowTrendingUpIcon className="ml-1 inline h-4 text-red-600" /> :
+                        <ArrowTrendingDownIcon className="ml-1 inline h-4 text-green-600" />
                 }
             </p>
             <p>上周：{access.pre_weekly}</p>
             <p>上月：{access.pre_monthly}</p>
+            <p>累计：{access.total}</p>
         </div>
     )
 });

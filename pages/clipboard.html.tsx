@@ -3,7 +3,7 @@ import Image from "next/image";
 import Layout from "../components/layout";
 import BannerMsg from "../components/banner-msg";
 import clipboardImg from "../public/lab/clipboard.jpg";
-import { ArrowLeftIcon, SearchIcon } from "@heroicons/react/outline";
+import { ArrowLeftIcon, MagnifyingGlassIcon, CheckIcon } from "@heroicons/react/24/outline";
 import { useEffect, useRef, useState } from "react";
 import Comments from "../components/comment/comments";
 import { KeyCode } from "../components/types";
@@ -106,7 +106,7 @@ export default function Clipboard() {
                             onClick={save}
                             disabled={loading}
                             className="px-4 py-2 w-full block mt-2 rounded border border-slate-700/30 disabled:bg-slate-500 disabled:active:ring-0 dark:border-slate-300/30 text-slate-100 bg-green-600 hover:bg-green-500 active:ring-2">
-                            <SearchIcon className="w-4 inline mr-1" />保存
+                            <CheckIcon className="w-4 inline mr-1" />保存
                         </button>
                         <button
                             disabled={loading}
@@ -134,7 +134,7 @@ export default function Clipboard() {
                             onClick={query}
                             disabled={loading}
                             className="px-4 py-2 mt-2 rounded border border-slate-700/30 disabled:bg-slate-500 disabled:active:ring-0 dark:border-slate-300/30 text-slate-100 bg-sky-600 hover:bg-sky-500 active:ring-2">
-                            <SearchIcon className="w-4 inline mr-1" />查询
+                            <MagnifyingGlassIcon className="w-4 inline mr-1" />查询
                         </button>
                     </div>
                 )}

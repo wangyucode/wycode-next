@@ -1,7 +1,7 @@
 import {format, formatDistanceToNow} from "date-fns";
 import {zhCN} from "date-fns/locale";
-import {ReplyIcon, ThumbUpIcon, UserCircleIcon} from "@heroicons/react/outline";
-import {ThumbUpIcon as ThumbUpSolidIcon} from "@heroicons/react/solid";
+import {PaperAirplaneIcon, HandThumbUpIcon, UserCircleIcon} from "@heroicons/react/24/outline";
+import {HandThumbUpIcon as ThumbUpSolidIcon} from "@heroicons/react/24/solid";
 import {useState} from "react";
 import {app, key} from "./comments";
 import {useRouter} from "next/router";
@@ -60,12 +60,12 @@ export default function Comment({_id, user, content, to, createTime, like, setRe
                     {isLike ?
                         <ThumbUpSolidIcon className="w-4 inline mr-1"/>
                         :
-                        <ThumbUpIcon className="w-4 inline mr-1"/>
+                        <HandThumbUpIcon className="w-4 inline mr-1"/>
                     }
                     {likeCount}</button>
                 <button className="flex items-center px-2 rounded text-sky-500 hover:text-sky-400 focus:ring-2"
                         onClick={handleReply}>
-                    <ReplyIcon className="w-4 inline mr-1"/>回复
+                    <PaperAirplaneIcon className="w-4 inline mr-1"/>回复
                 </button>
             </div>
             {

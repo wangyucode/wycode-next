@@ -6,19 +6,21 @@ import { BuildStatus } from "../components/admin-tile/tiles/build-status";
 import { AccessCount } from "../components/admin-tile/tiles/access-count";
 import { AppCount } from "../components/admin-tile/tiles/app-count";
 import { AccessRecord } from "../components/admin-tile/tiles/access-record";
+import { AccessErrors } from "../components/admin-tile/tiles/access-errors";
 
 export default function Admin() {
 
     return (
         <Layout>
-            <div className="h-content w-full flex">
+            <div className="absolute inset-x-0 top-16 bottom-10 flex">
                 <AdminSideBar />
-                <main className="flex p-4 gap-2 flex-wrap overflow-auto">
-                    <AccessCount title="All Access"/>
-                    <AccessRecord title="Access Records"/>
-                    <AppCount title="API Access"/>
-                    <BuildStatus title="Build Status"/>
-                </main>
+                <div className="p-4 flex-grow overflow-auto flex flex-wrap gap-2">
+                    <AccessCount title="All Access" />
+                    <AccessRecord title="Access Records" />
+                    <AppCount title="API Access" />
+                    <BuildStatus title="Build Status" />
+                    <AccessErrors title="Invalid Access"/>
+                </div>
             </div>
         </Layout>
     );

@@ -1,6 +1,6 @@
 import { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import { SearchIcon, XIcon } from "@heroicons/react/outline";
+import { MagnifyingGlassIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Hits, SearchBox } from "react-instantsearch-hooks-web";
 import Hit from "./hit";
 
@@ -23,7 +23,7 @@ export default function Search() {
                 onClick={openModal}
                 className='mr-4 md:mr-0 dark:hover:bg-white/5 hover:bg-black/5 px-2 py-1 rounded-md flex items-center'
             >
-                <SearchIcon className='inline mr-1 h-6 w-6 md:w-4 md:h-4' />
+                <MagnifyingGlassIcon className='inline mr-1 h-6 w-6 md:w-4 md:h-4' />
                 <span className='hidden md:inline'>搜索</span>
             </button>
             <Transition appear show={isOpenMobileNav} as={Fragment}>
@@ -55,7 +55,7 @@ export default function Search() {
                                         loadingIndicator: 'absolute right-8 top-3 dark:stroke-slate-50'
                                     }} />
                                 <Hits hitComponent={Hit} />
-                                <button className='absolute right-4 top-4 p-2 rounded-md dark:hover:bg-white/5 hover:bg-black/5' onClick={closeModal}><XIcon height={24} width={24} /></button>
+                                <button className='absolute right-4 top-4 p-2 rounded-md dark:hover:bg-white/5 hover:bg-black/5' onClick={closeModal}><XMarkIcon height={24} width={24} /></button>
                             </Dialog.Panel>
                         </Transition.Child> 
                     </div>

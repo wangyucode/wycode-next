@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import { BeakerIcon, ClipboardListIcon, CogIcon, PencilIcon, UserAddIcon} from '@heroicons/react/outline';
+import { BeakerIcon, ClipboardDocumentIcon, CogIcon, PencilIcon, UserPlusIcon} from '@heroicons/react/24/outline';
 
 import NavItem from './nav-item';
 import ThemeSwitch from './theme-switch';
@@ -11,9 +11,9 @@ import { MenuLinks, SITE_NAME } from '../types';
 
 export const NavItemBlog = NavItem(PencilIcon);
 export const NavItemLab = NavItem(BeakerIcon);
-export const NavItemClipboard = NavItem(ClipboardListIcon);
+export const NavItemClipboard = NavItem(ClipboardDocumentIcon);
 export const NavItemAdmin = NavItem(CogIcon);
-export const NavItemAbout = NavItem(UserAddIcon);
+export const NavItemAbout = NavItem(UserPlusIcon);
 
 export default function Navbar() {
 

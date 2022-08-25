@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 import Layout from "../components/layout";
-import { MailIcon, UserAddIcon } from "@heroicons/react/outline";
+import { EnvelopeIcon } from "@heroicons/react/24/outline";
 import WechatIcon from "../components/svg/wechat";
 import wechatQr from "../public/about/wechat.jpg";
 import { useState } from "react";
@@ -16,7 +16,7 @@ export default function About() {
             <div className="p-4 max-w-7xl mx-auto flex flex-col items-center">
                 <div className="my-4">
                     <h2 className="text-lg font-semibold">
-                        <MailIcon className="w-6 inline mr-1" />合作请发送邮件：</h2>
+                        <EnvelopeIcon className="w-6 inline mr-1" />合作请发送邮件：</h2>
                     <a href="mailto:wangyu@wycode.cn" title="wangyu@wycode.cn"
                         className="font-semibold text-sky-500 hover:text-sky-400">wangyu@wycode.cn</a>
                     <h2 className="text-lg font-semibold mt-4">

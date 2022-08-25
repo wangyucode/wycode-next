@@ -23,6 +23,7 @@ export interface Access{
     pre_daily: number;
     pre_weekly: number;
     pre_monthly: number;
+    total: number;
 }
 
 export interface CategoryTagPath {

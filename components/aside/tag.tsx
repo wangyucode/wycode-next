@@ -1,4 +1,4 @@
-import { TagIcon } from "@heroicons/react/outline";
+import { TagIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { CategoryTagPath } from "../types";
 

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, Dispatch } from "react";
-import { ChevronDoubleLeftIcon, ChevronDoubleRightIcon, PresentationChartBarIcon } from "@heroicons/react/outline";
+import { ChevronDoubleLeftIcon, ChevronDoubleRightIcon, PresentationChartBarIcon } from "@heroicons/react/24/outline";
 
 import NavItemWithIcon from "../../components/nav/nav-item";
 import MongoDBIcon from "../svg/mongodb";

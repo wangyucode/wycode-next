@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import {TagIcon } from "@heroicons/react/outline";
+import {TagIcon} from "@heroicons/react/24/outline";
 
 import Layout from '../../components/layout';
 import { Post, SITE_NAME } from '../../components/types';

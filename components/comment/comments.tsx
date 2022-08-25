@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import {useRouter} from "next/router";
-import {ReplyIcon, XIcon} from "@heroicons/react/outline";
+import {PaperAirplaneIcon, XMarkIcon} from "@heroicons/react/24/outline";
 import Comment from "./comment";
 import BannerMsg from "../banner-msg";
 
@@ -101,7 +101,7 @@ export default function Comments() {
             <p className="flex mt-2 px-2 py-1 border-l-4 border-sky-500 bg-sky-100 transition-colors duration-700 dark:bg-sky-900 text-sm">
                 <span className="mr-1 text-sky-400">@{replying.user}</span>
                 <span className="flex-1">{replying.content}</span>
-                <button onClick={() => setReplying(null)}><XIcon className="w-4 inline"/></button>
+                <button onClick={() => setReplying(null)}><XMarkIcon className="w-4 inline"/></button>
             </p>}
         {error && <BannerMsg type="error" msg={error}/>}
         {info && <BannerMsg msg={info}/>}
@@ -119,7 +119,7 @@ export default function Comments() {
                 onClick={handleReply}
                 disabled={loading}
                 className="flex items-center min-w-max px-4 py-2 bg-sky-600 disabled:bg-slate-500 hover:bg-sky-500 rounded-r text-slate-100 active:ring-2 disabled:active:ring-0 border-slate-700/30 dark:border-slate-300/30">
-                <ReplyIcon className="w-4 inline mr-1"/>回复
+                <PaperAirplaneIcon className="w-4 inline mr-1"/>回复
             </button>
         </div>
     </div>);

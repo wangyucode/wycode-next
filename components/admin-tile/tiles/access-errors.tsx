@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { TrendingDownIcon, TrendingUpIcon } from "@heroicons/react/solid";
 import { format } from "date-fns";
 
 import AdminTile from "../admin-tile";
@@ -49,17 +48,16 @@ export const AccessErrors = AdminTile(function () {
                         <tr className={`text-xs ${index % 2 === 0 ? 'bg-slate-100 dark:bg-slate-800' : 'bg-slate-200 dark:bg-slate-700'}`}>
                             <td className="px-2 py-1 text-center">{err.ip}</td>
                             <td className="px-2 py-1 text-center break-words">{err.status}</td>
-                            <td className="px-2 py-1 break-words" style={{maxWidth: '300px'}}>{err.request}</td>
-                            <td className="px-2 py-1" style={{maxWidth: '500px'}}>{err.agent}</td>
-                            <td className="px-2 py-1" style={{ minWidth: '84px' }}>{format(new Date(err.time), 'yyyy-MM-dd HH:mm:ss')}</td>
+                            <td className="px-2 py-1 break-words" style={{ maxWidth: '300px' }}>{err.request}</td>
+                            <td className="px-2 py-1" style={{ maxWidth: '500px' }}>{err.agent}</td>
+                            <td className="px-2 py-1" style={{ minWidth: '88px' }}>{format(new Date(err.time), 'yyyy-MM-dd HH:mm:ss')}</td>
                         </tr>
                     ))}
                 </tbody>
             </table>
-            <div className="relative">
-                <p className="absolute text-xs top-2">showing {SIZE} of {pagination.total} rows.</p>
-                <CommonPager maxElement={10} onChange={getErrors} {...pagination} />
-            </div>
+            <p className="text-xs">showing {errors.length} of {pagination.total} rows.</p>
+            <CommonPager maxElement={10} onChange={getErrors} {...pagination} />
+
         </>
     )
 });

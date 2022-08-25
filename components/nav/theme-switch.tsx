@@ -1,5 +1,5 @@
 import {useContext, useEffect, useState} from "react";
-import {MoonIcon, SunIcon} from "@heroicons/react/solid";
+import {MoonIcon, SunIcon} from "@heroicons/react/24/solid";
 
 import { ACTIONS, AppDispatcherContext } from "../app-context";
 import { Theme } from "../types";

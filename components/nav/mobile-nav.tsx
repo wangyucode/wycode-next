@@ -1,6 +1,6 @@
 import {Fragment} from "react";
 import {Menu, Transition} from "@headlessui/react";
-import {MenuIcon, SunIcon, XIcon} from "@heroicons/react/outline";
+import {Bars3Icon, SunIcon, XMarkIcon} from "@heroicons/react/24/outline";
 
 import ThemeSwitch from "./theme-switch";
 import {NavItemAbout, NavItemAdmin, NavItemBlog, NavItemClipboard, NavItemLab} from "./navbar";
@@ -10,16 +10,16 @@ export default function MobileNav() {
 
     return (
         <Menu as="div" className="relative md:hidden">
-            {({open}) => (
+            {({open}: any) => (
                 <>
                     <Menu.Button
                         className="dark:hover:bg-white/5 hover:bg-black/5 px-2 py-1 rounded-md"
                     >
                         {
                             open ?
-                                <XIcon className='h-6 w-6' height={16} width={16}></XIcon>
+                                <XMarkIcon className='w-6'/>
                                 :
-                                <MenuIcon className='h-6 w-6' height={16} width={16}/>
+                                <Bars3Icon className='w-6'/>
                         }
                     </Menu.Button>
                     <Transition

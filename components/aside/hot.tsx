@@ -1,5 +1,5 @@
 
-import { FireIcon, TrendingDownIcon, TrendingUpIcon } from "@heroicons/react/solid";
+import { FireIcon, ArrowTrendingDownIcon, ArrowTrendingUpIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -30,7 +30,7 @@ export default function Hot({ postTitles }: { postTitles: any[] }) {
                     <li key={_id}>
                         <Link href={url}><a className="hover:text-sky-400 text-sm">• {title}
                         {
-                            monthly > pre_monthly ? <TrendingUpIcon className="ml-1 inline h-4 text-red-600"/> : <TrendingDownIcon className="ml-1 inline h-4 text-green-600"/>
+                            monthly > pre_monthly ? <ArrowTrendingUpIcon className="ml-1 inline h-4 text-red-600"/> : <ArrowTrendingDownIcon className="ml-1 inline h-4 text-green-600"/>
                         }</a></Link>
                     </li>
                 ))}

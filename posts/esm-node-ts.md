@@ -1,6 +1,6 @@
 ---
 title: esModule + NodeJS + TypeScript 的工程配置
-date: 22022-9-22 13:35:29
+date: 2022-9-22 13:35:29
 tags:
 - JavaScript
 - TypeScript

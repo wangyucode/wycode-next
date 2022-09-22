@@ -1,11 +1,11 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import {format} from 'date-fns';
-import {remark} from 'remark';
+import { format } from 'date-fns';
+import { remark } from 'remark';
 import html from 'remark-html';
-import {rehype} from 'rehype';
-import {CategoryTagPath, Post } from '../components/types.js';
+import { rehype } from 'rehype';
+import { CategoryTagPath, Post } from '../components/types.js';
 import addClass from './index.mjs';
 
 const postsDirectory = path.join(process.cwd(), 'posts');
@@ -13,7 +13,7 @@ const postsDirectory = path.join(process.cwd(), 'posts');
 let cachedPosts: Post[];
 
 export async function getSortedPosts(): Promise<Post[]> {
-    if(cachedPosts) return cachedPosts;
+    if (cachedPosts) return cachedPosts;
     // Get file names under /posts
     const fileNames = fs.readdirSync(postsDirectory);
     const allPosts: Post[] = await Promise.all(fileNames.map(async (fileName) => {
@@ -25,7 +25,7 @@ export async function getSortedPosts(): Promise<Post[]> {
         const fileContents = fs.readFileSync(fullPath, 'utf8');
 
         // Use gray-matter to parse the post metadata section
-        const matterResult = matter(fileContents, {excerpt_separator: '<!--more-->'});
+        const matterResult = matter(fileContents, { excerpt_separator: '<!--more-->' });
 
         matterResult.data.date = format(matterResult.data.date, 'yyyy-MM-dd');
 
@@ -35,7 +35,7 @@ export async function getSortedPosts(): Promise<Post[]> {
         const processedContent = await processor.process(matterResult.content);
 
         const classProcessor = rehype()
-            .data('settings', {fragment: true})
+            .data('settings', { fragment: true })
             .use(addClass as any, {
                 'img': 'mx-auto max-h-80',
                 'p': 'mb-4',
@@ -60,7 +60,7 @@ export async function getSortedPosts(): Promise<Post[]> {
         };
     }));
     // Sort posts by date
-    cachedPosts = allPosts.sort(({data: {date: a}}, {data: {date: b}}) => {
+    cachedPosts = allPosts.sort(({ data: { date: a } }, { data: { date: b } }) => {
         if (a < b) {
             return 1;
         } else if (a > b) {
@@ -74,17 +74,17 @@ export async function getSortedPosts(): Promise<Post[]> {
 
 export async function getPagedPosts(page: number, size: number): Promise<Post[]> {
     const allPosts = await getSortedPosts();
-    const start  = (page-1)*size;
-    const end = start+ size;
+    const start = (page - 1) * size;
+    const end = start + size;
     return allPosts.slice(start, end);
 }
 
-export async function getPageCount(size: number): Promise<number>{
+export async function getPageCount(size: number): Promise<number> {
     const allPosts = await getSortedPosts();
     return Math.ceil(allPosts.length / size);
 }
 
-export async function getAllPostIds(): Promise<{params: {pid: string}}[]> {
+export async function getAllPostIds(): Promise<{ params: { pid: string } }[]> {
     const allPosts = await getSortedPosts();
     return allPosts.map((post) => {
         return {
@@ -113,7 +113,7 @@ export async function getCategories(): Promise<CategoryTagPath[]> {
         if (category) {
             category.params.count++;
         } else {
-            categories.push({ params:{ name: post.data.category, count: 1, cid: post.data.category.replaceAll(" ", "-").toLowerCase()}});
+            categories.push({ params: { name: post.data.category, count: 1, cid: post.data.category.replaceAll(" ", "-").toLowerCase() } });
         }
     });
     categories.sort((a, b) => b.params.count - a.params.count);
@@ -129,13 +129,13 @@ export async function getTags(): Promise<CategoryTagPath[]> {
     const allPosts = await getSortedPosts();
     const tags: CategoryTagPath[] = [];
     allPosts.forEach(post => {
-        if(post.data.tags){
+        if (post.data.tags) {
             post.data.tags.forEach((postTag: string) => {
                 const tag = tags.find(t => t.params.name === postTag);
                 if (tag) {
                     tag.params.count++;
                 } else {
-                    tags.push({ params:{ name: postTag, count: 1, cid: postTag.replaceAll(" ", "-").toLowerCase()}});
+                    tags.push({ params: { name: postTag, count: 1, cid: postTag.replaceAll(" ", "-").toLowerCase() } });
                 }
             });
         }

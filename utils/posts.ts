@@ -3,6 +3,7 @@ import path from 'path';
 import matter from 'gray-matter';
 import { format } from 'date-fns';
 import { remark } from 'remark';
+import remarkGfm from 'remark-gfm'
 import html from 'remark-html';
 import { rehype } from 'rehype';
 import { CategoryTagPath, Post } from '../components/types.js';
@@ -30,7 +31,9 @@ export async function getSortedPosts(): Promise<Post[]> {
         matterResult.data.date = format(matterResult.data.date, 'yyyy-MM-dd');
 
         // Use remark to convert markdown into HTML string
-        const processor = remark().use(html);
+        const processor = remark()
+            .use(html, {sanitize: false})
+            .use(remarkGfm);
         const processedExcerpt = await processor.process(matterResult.excerpt || '');
         const processedContent = await processor.process(matterResult.content);
 
@@ -45,7 +48,11 @@ export async function getSortedPosts(): Promise<Post[]> {
                 'h3': 'text-lg font-bold mb-4',
                 'code': 'px-1 py-0.5 mx-1 bg-slate-200 text-slate-800 dark:text-slate-200 dark:bg-slate-700 rounded-md text-sm font-mono',
                 'pre': 'mb-4 p-4 bg-slate-200 dark:bg-slate-700 rounded-md overflow-auto max-w-full',
-                'pre > code': '!p-0 !m-0'
+                'pre > code': '!p-0 !m-0',
+                'td,th': 'px-2 border border-slate-700/30 dark:border-slate-300/30',
+                'thead': 'bg-sky-200 dark:bg-sky-900',
+                'table': 'mb-4',
+                'tbody > tr': 'odd:bg-slate-200 odd:dark:bg-slate-800 even:bg-slate-300 even:dark:bg-slate-700'
             });
 
         const excerptHtml = classProcessor.processSync(processedExcerpt).toString();

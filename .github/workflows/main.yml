@@ -27,7 +27,28 @@ jobs:
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
             ${{ runner.os }}-
+      - name: build
+        run: npm build
+      
+      - name: export
+        run: npm run export
 
-      - name: Send
-        run: |
-          npm run algolia ${{ secrets.ALGOLIA_KEY }}
+      - name: Send posts to algolia
+        run: npm run algolia ${{ secrets.ALGOLIA_KEY }}
+      
+      - name: Upload to server
+        uses: wangyucode/sftp-upload-action@v1.4.5
+        with:
+          host: 'wycode.cn'
+          privateKey: ${{ secrets.SERVER_KEY }}
+          localDir: 'out'
+          remoteDir: '/data/nginx/www/wycode/'
+
+      - name: Deploy to Github pages
+        uses: crazy-max/ghaction-github-pages@v2.1.3
+        with:
+          repo: wangyucode/wangyucode.github.io
+          target_branch: master
+          build_dir: out
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

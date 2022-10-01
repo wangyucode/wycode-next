@@ -10,7 +10,7 @@ category: Frontend
 
 ![nodejs](https://www.w3cschool.cn/attachments/image/20170808/1502178281486445.png)
 
-JavaScript的模块化方案经历了长时间的发展，最终于2015年在ES6实现了语言层面的标准化，即esModule（以下简称esm）, JS社区开始拥抱，现在很多npm包仅采用esm发布。
+JavaScript的模块化方案经历了长时间的发展，最终于2015年在ES6实现了语言层面的标准化，即esModule（以下简称esm）, 现在JS社区开始拥抱esm，很多npm包仅采用esm发布。
 
 而NodeJS一直依赖采用CommonJS的模块化方案，在最近发布的版本中也开始支持ems, 由于巨大的历史包袱，NodeJS并没有抛弃CommonJS，所以在NodeJS中实际支持两种模块化方式，esm和CommonJS.
 

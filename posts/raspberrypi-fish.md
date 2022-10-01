@@ -21,7 +21,7 @@ category: Linux
 
 树莓派的一个强大功能是沿着电路板顶部边缘的一排`GPIO`（general-purpose input/output）引脚。 树莓派4B板上有一排40针GPIO接头。
 
-![GPIO](https://www.raspberrypi.org/documentation/usage/gpio/images/gpio-numbers-pi2.png)
+![GPIO](https://technicalustad.com/wp-content/uploads/2018/02/Raspberry-Pi-GPIO-Explained.png)
 
 主板上有两个5V引脚和两个3V3引脚，以及一些不可配置的接地引脚（0V）。 其余引脚均为通用3V3引脚，意味着输出设置为3V3，输入为3V3容差。
 

@@ -1,11 +1,9 @@
-import Image from 'next/image';
-
 import { SITE_NAME } from './types';
 
 export function Jumbotron() {
     return (
         <div className="relative h-48 md:h-96">
-            <Image src="https://api.dujin.org/bing/1920.php" layout="fill" objectFit="cover"/>
+            <img className="w-full h-full object-cover" src="https://api.dujin.org/bing/1920.php"/>
             <div
                 className="absolute inset-0 text-center flex justify-center gap-y-4 text-slate-900 dark:text-slate-200">
                 <div

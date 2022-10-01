@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { BeakerIcon, ClipboardDocumentIcon, CogIcon, PencilIcon, UserPlusIcon} from '@heroicons/react/24/outline';
 
@@ -25,7 +24,7 @@ export default function Navbar() {
         <div className="flex grow justify-between max-w-7xl">
             <Link href="/">
                 <a className='flex gap-x-2 text-xl font-semibold items-center text-slate-900 hover:text-sky-500 dark:text-white'>
-                    <Image src="/favicon.svg" width={28} height={28}></Image>
+                    <img src="/favicon.svg" width={28} height={28}></img>
                     {SITE_NAME}
                 </a>
             </Link>

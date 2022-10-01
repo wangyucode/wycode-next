@@ -1,7 +1,4 @@
-import Image from "next/image";
 import { UserPlusIcon,EnvelopeIcon } from "@heroicons/react/24/outline";
-
-import wechatQr from "../../public/about/wechat.jpg";
 
 export default function About() {
     return (
@@ -11,7 +8,7 @@ export default function About() {
             <a href="mailto:wangyu@wycode.cn" title="wangyu@wycode.cn"
                        className="font-semibold text-sky-500 hover:text-sky-400"><EnvelopeIcon
                         className="inline h-5 mr-1"/>wangyu@wycode.cn</a>
-            <div className="w-56 mt-2"><Image  src={wechatQr}/></div>
+            <div className="w-56 mt-2"><img src="about/wechat.jpg"/></div>
         </div>
     );
 }

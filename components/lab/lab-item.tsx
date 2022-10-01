@@ -1,4 +1,3 @@
-import Image from "next/image";
 import LibLink from "./lab-link";
 import BannerMsg from "../banner-msg";
 
@@ -12,8 +11,8 @@ export default function LabItem({large, title, detail, img1, img2, link, github,
             {link && <LibLink href={link}/>}
             {github && <LibLink href={github}/>}
             <div className="flex gap-1 justify-center">
-                {img1 && <Image src={img1}/>}
-                {img2 && <Image src={img2}/>}
+                {img1 && <img src={img1}/>}
+                {img2 && <img src={img2}/>}
             </div>
         </div>
     );

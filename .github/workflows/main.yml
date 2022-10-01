@@ -1,8 +1,8 @@
-name: Sending Data to Algolia
+name: Main site
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   workflow_dispatch:
 
 jobs:
@@ -42,6 +42,7 @@ jobs:
           host: 'wycode.cn'
           privateKey: ${{ secrets.SERVER_KEY }}
           localDir: 'out'
+          dryRun: false
           remoteDir: '/data/nginx/www/wycode/'
 
       - name: Deploy to Github pages

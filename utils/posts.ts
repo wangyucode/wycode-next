@@ -19,7 +19,7 @@ export async function getSortedPosts(): Promise<Post[]> {
     const fileNames = fs.readdirSync(postsDirectory);
     const allPosts: Post[] = await Promise.all(fileNames.map(async (fileName) => {
         // Replace ".md" from file name to get id
-        const file = fileName.replace(/\.md$/, '.html');
+        const file = fileName.replace(/\.md$/, '');
 
         // Read markdown file as string
         const fullPath = path.join(postsDirectory, fileName);

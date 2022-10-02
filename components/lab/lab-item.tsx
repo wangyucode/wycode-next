@@ -11,8 +11,8 @@ export default function LabItem({large, title, detail, img1, img2, link, github,
             {link && <LibLink href={link}/>}
             {github && <LibLink href={github}/>}
             <div className="flex gap-1 justify-center">
-                {img1 && <img src={img1}/>}
-                {img2 && <img src={img2}/>}
+                {img1 && <div className="relative"><img className="" src={img1}/></div>}
+                {img2 && <div className="relative"><img className="" src={img2}/></div>}
             </div>
         </div>
     );

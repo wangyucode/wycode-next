@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import { BeakerIcon, ClipboardDocumentIcon, CogIcon, PencilIcon, UserPlusIcon} from '@heroicons/react/24/outline';
 
 import NavItem from './nav-item';
@@ -15,10 +14,6 @@ export const NavItemAdmin = NavItem(CogIcon);
 export const NavItemAbout = NavItem(UserPlusIcon);
 
 export default function Navbar() {
-
-    const router = useRouter();
-
-    const isBlog = /^\/(page\/[0-9]+)?$/.test(router.asPath);
 
     return (
         <div className="flex grow justify-between max-w-7xl">
@@ -39,7 +34,7 @@ export default function Navbar() {
                     </ul>
                 </nav>
                 <ThemeSwitch classes="hidden md:inline mr-4" />
-                {isBlog && <Search />}
+                <Search />
                 <MobileNav />
             </div>
         </div>

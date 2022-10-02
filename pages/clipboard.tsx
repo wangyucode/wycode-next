@@ -1,7 +1,8 @@
+import { useEffect, useRef, useState } from "react";
+import { ArrowLeftIcon, MagnifyingGlassIcon, CheckIcon } from "@heroicons/react/24/outline";
+
 import Layout from "../components/layout";
 import BannerMsg from "../components/banner-msg";
-import { ArrowLeftIcon, MagnifyingGlassIcon, CheckIcon } from "@heroicons/react/24/outline";
-import { useEffect, useRef, useState } from "react";
 import Comments from "../components/comment/comments";
 import { KeyCode } from "../components/types";
 

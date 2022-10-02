@@ -42,6 +42,7 @@ export async function getSortedPosts(): Promise<Post[]> {
             .use(addClass as any, {
                 'img': 'mx-auto max-h-80',
                 'p': 'mb-4',
+                'a': 'text-sky-500 hover:text-sky-400',
                 'blockquote': 'px-4 border-l-4 border-slate-500 text-slate-500',
                 'blockquote > p': 'indent-0',
                 'h2': 'text-xl font-bold mb-4 pb-4 border-b border-slate-700/30 dark:border-slate-300/30',

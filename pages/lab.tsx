@@ -19,7 +19,7 @@ export default function Lab() {
                     deprecated="暂停维护"
                     github="https://github.com/wangyucode/chatroom-angular-antdesign-websocket-stomp"
                     detail="基于Websocket和STOMP协议的网页聊天室，无需注册，完全匿名，聊天记录自动清除，邀请码定时刷新，短线自动重连：" />
-                <LabItem title="西安公共自行车" large img1="lab/bike1.png" img2="lab/bike2.png" link="https://wycode.cn/lib/bike.apk"
+                <LabItem title="西安公共自行车" large img1="lab/bike1.png" img2="lab/bike2.png" link="https://wycode.cn/lab/bike.apk"
                     github="https://github.com/wangyucode/XiAnBike"
                     detail="开源、纯净、无广告；省电、安全、不推送；适配安卓2.3至安卓7.1的纯净版西安自行车网点查询来了，还你一个简单纯净的出行APP，立即下载：" />
 

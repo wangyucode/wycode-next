@@ -36,11 +36,11 @@ export interface CategoryTagPath {
 
 export enum MenuLinks {
     HOME = '/',
-    LAB = '/lab',
-    CLIPBOARD = '/clipboard',
-    ADMIN = '/admin',
-    MONGO = '/admin/mongo',
-    ABOUT = '/about',
+    LAB = '/lab.html',
+    CLIPBOARD = '/clipboard.html',
+    ADMIN = '/admin.html',
+    MONGO = '/admin/mongo.html',
+    ABOUT = '/about.html',
 }
 
 

@@ -9,7 +9,7 @@ tags:
 category: Android
 ---
 
-![Flutter](https://flutter.cn/favicon.ico)
+![Flutter](https://blog.scottlogic.com/bquinn/assets/Flutter_logo_text.png)
 
 > Flutter是由Google开发的开源的跨平台应用开发框架，支持Android、iOS开发，能够开发媲美原生的高性能应用。按照2019年的开发路线图，Flutter即将支持Web和桌面端应用的开发。这篇文章带你领略Flutter的魅力。
 
@@ -33,7 +33,7 @@ Flutter的优势在于，它完全抛弃了使用原生UI，而是从底层2D渲
 
 ## Flutter技术架构
 
-![Flutter技术架构](https://flutter.cn/images/arch-overview/archdiagram.png)
+![Flutter技术架构](https://docs.flutter.dev/assets/images/docs/arch-overview/archdiagram.png)
 
 ## 关于环境搭建
 

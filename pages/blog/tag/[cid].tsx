@@ -1,10 +1,10 @@
 import Head from 'next/head';
+import Link from 'next/link';
 import {TagIcon} from "@heroicons/react/24/outline";
 
-import Layout from '../../components/layout';
-import { Post, SITE_NAME } from '../../components/types';
-import {getPostsByTag, getTags } from '../../utils/posts';
-import Link from 'next/link';
+import Layout from '../../../components/layout';
+import { Post, SITE_NAME } from '../../../components/types';
+import {getPostsByTag, getTags } from '../../../utils/posts';
 
 export default function TagPage({ posts, cid }: { posts: Post[], cid: string}) {
     const tag = posts[0].data.tags.find((t: string) => t.replaceAll(" ", "-").toLowerCase() === cid);
@@ -22,7 +22,7 @@ export default function TagPage({ posts, cid }: { posts: Post[], cid: string}) {
                 <ul>
                     {posts.map(({ id, data: { title } }) => (
                         <li key={id}>
-                            <Link href={`/${id}.html`}><a className="hover:text-sky-400 text-sm">• {title}</a></Link>
+                            <Link href={`/blog/${id}`}><a className="hover:text-sky-400 text-sm">• {title}</a></Link>
                         </li>
                     ))}
                 </ul>

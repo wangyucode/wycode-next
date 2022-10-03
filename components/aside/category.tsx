@@ -1,5 +1,5 @@
-import { ArchiveBoxIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
+import { ArchiveBoxIcon } from "@heroicons/react/24/outline";
 import { CategoryTagPath } from "../types";
 
 export default function CategoryComponent({ categories }: { categories: CategoryTagPath[] }) {
@@ -10,7 +10,7 @@ export default function CategoryComponent({ categories }: { categories: Category
             <ul>
                 {categories.map(({ params: { name, count, cid } }) => (
                     <li key={cid}>
-                        <Link href={`/category/${cid}`}><a className="hover:text-sky-400 text-sm">{name}
+                        <Link href={`/blog/category/${cid}`}><a className="hover:text-sky-400 text-sm">{name}
                             <span className="px-1 py-0.5 ml-2 rounded bg-black/20 dark:bg-white/20">{count}</span></a></Link>
                     </li>
                 ))}

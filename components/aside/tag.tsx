@@ -1,5 +1,6 @@
-import { TagIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
+import { TagIcon } from "@heroicons/react/24/outline";
+
 import { CategoryTagPath } from "../types";
 
 const TAG_COLORS = [
@@ -32,7 +33,7 @@ function Tag({name, count, cid}: {name: string, count: number, cid: string}) {
     const size = 6+count*2;
     return (
         <li >
-            <Link href={`/tag/${cid}`}><a style={{fontSize: `${size}px`, lineHeight: `${size}px`}} className={`px-1 py-0.5 rounded ${color} hover:bg-black/20 hover:dark:bg-white/20 text-sm`}>{name}({count})</a></Link>
+            <Link href={`/blog/tag/${cid}`}><a style={{fontSize: `${size}px`, lineHeight: `${size}px`}} className={`px-1 py-0.5 rounded ${color} hover:bg-black/20 hover:dark:bg-white/20 text-sm`}>{name}({count})</a></Link>
         </li>
     );
 }

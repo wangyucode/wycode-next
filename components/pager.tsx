@@ -1,11 +1,11 @@
 import Link from "next/link";
 
 export default function Pager({page, total}: any) {
-    const previous = page === 2 ? '/' : `/page/${page - 1}`;
-    const next = `/page/${page + 1}`;
+    const previous = page === 2 ? '/' : `/blog/page/${page - 1}`;
+    const next = `/blog/page/${page + 1}`;
     const links = ['/'];
     for (let i = 2; i <= total; i++) {
-        links.push(`/page/${i}`)
+        links.push(`/blog/page/${i}`)
     }
     return (
         <div className="flex justify-center items-center py-2 flex-wrap">

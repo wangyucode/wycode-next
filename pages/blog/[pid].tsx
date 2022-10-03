@@ -1,12 +1,12 @@
 import Head from 'next/head';
+import Link from 'next/link';
 import { CalendarIcon, ArchiveBoxIcon, TagIcon } from "@heroicons/react/24/outline";
 
-import Layout from '../components/layout';
-import { getAllPostIds, getPost} from '../utils/posts';
-import Comments from "../components/comment/comments";
-import Highlight from '../components/highlight';
-import { Post, SITE_NAME } from '../components/types';
-import Link from 'next/link';
+import Layout from '../../components/layout';
+import { getAllPostIds, getPost} from '../../utils/posts';
+import Comments from "../../components/comment/comments";
+import Highlight from '../../components/highlight';
+import { Post, SITE_NAME } from '../../components/types';
 
 export default function PostDetail({post}: { post: Post }) {
     const { id, data: { date, title, category, tags }, excerpt, contentHtml } = post;
@@ -24,7 +24,7 @@ export default function PostDetail({post}: { post: Post }) {
                     <h1 className="text-2xl text-slate-800 dark:text-slate-200 font-extrabold text-center">{title}</h1>
                     <div className="flex justify-between">
                         <span className="flex items-center"><CalendarIcon className="inline mr-1" height={20} width={20} />{date}</span>
-                        <Link href={`/category/${cid}`}><a className="hover:text-sky-400 text-sm"><ArchiveBoxIcon className="inline mr-1 h-5 mb-0.5"/>{category}</a></Link>
+                        <Link href={`/blog/category/${cid}`}><a className="hover:text-sky-400 text-sm"><ArchiveBoxIcon className="inline mr-1 h-5 mb-0.5"/>{category}</a></Link>
                     </div>
                     {tags && <span className="flex items-center"><TagIcon className="inline mr-1" height={20} width={20} />{tags.join(', ')}</span>}
                     <div className="mt-8" dangerouslySetInnerHTML={{ __html: contentHtml }} />

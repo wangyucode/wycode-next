@@ -1,10 +1,10 @@
 import Head from 'next/head';
+import Link from 'next/link';
 import {ArchiveBoxIcon} from "@heroicons/react/24/outline";
 
-import Layout from '../../components/layout';
-import { Post, SITE_NAME } from '../../components/types';
-import { getCategories, getPostsByCategory } from '../../utils/posts';
-import Link from 'next/link';
+import Layout from '../../../components/layout';
+import { Post, SITE_NAME } from '../../../components/types';
+import { getCategories, getPostsByCategory } from '../../../utils/posts';
 
 export default function CategoryPage({ posts }: { posts: Post[] }) {
     const category = posts[0].data.category;
@@ -22,7 +22,7 @@ export default function CategoryPage({ posts }: { posts: Post[] }) {
                 <ul>
                     {posts.map(({ id, data: { title } }) => (
                         <li key={id}>
-                            <Link href={`/${id}.html`}><a className="hover:text-sky-400 text-sm">• {title}</a></Link>
+                            <Link href={`/blog/${id}`}><a className="hover:text-sky-400 text-sm">• {title}</a></Link>
                         </li>
                     ))}
                 </ul>

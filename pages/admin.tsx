@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import Layout from "../components/layout";
 import AdminSideBar from "../components/admin-side-bar/admin-side-bar";
@@ -10,13 +10,26 @@ import { AccessErrors } from "../components/admin-tile/tiles/access-errors";
 
 export default function Admin() {
 
+    const [data, setData] = useState({records:[]});
+
+    useEffect(() => {
+        fetch('https://wycode.cn/node/analysis/records')
+            .then(res => res.json())
+            .then(res => {
+                console.log('records->', res);
+                if (res.success) {
+                    setData(res.payload);
+                }
+            });
+    }, []);
+
     return (
         <Layout>
             <div className="absolute inset-x-0 top-16 bottom-10 flex">
                 <AdminSideBar />
                 <div className="p-4 flex-grow overflow-auto flex flex-wrap gap-2">
-                    <AccessCount title="All Access" />
-                    <AccessRecord title="Access Records" />
+                    <AccessCount title="All Access" data={data} />
+                    <AccessRecord title="Access Records" data={data.records} />
                     <AppCount title="API Access" />
                     <BuildStatus title="Build Status" />
                     <AccessErrors title="Invalid Access"/>

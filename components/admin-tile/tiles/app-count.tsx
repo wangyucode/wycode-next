@@ -21,7 +21,7 @@ import { AppStateContext } from "../../app-context";
 
 export const AppCount = AdminTile(function () {
 
-    const { theme } = useContext(AppStateContext);
+    const { theme } = useContext<any>(AppStateContext);
 
     const [option, setOption] = useState({});
 
@@ -31,7 +31,7 @@ export const AppCount = AdminTile(function () {
             .then(res => {
                 console.log('apps->', res, theme);
                 if (res.success) {
-                    const data = res.payload.map((app: Access) => ({ value: app.pre_monthly, name: app._id }));
+                    const data = res.payload.map((app: Access) => ({ value: app.weekly, name: app._id }));
                     setOption({
                         backgroundColor: 'transparent',
                         tooltip: {

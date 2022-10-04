@@ -116,7 +116,7 @@ export default function Clipboard() {
                 ) : (
                     <div className="w-full sm:w-96 flex flex-col">
                         <BannerMsg type="info" msg="跨平台剪切板2.0已上线，获取新版查询码请扫描下方小程序码，查看属于自己的剪切板！" />
-                        <div className="mx-auto"><img src="lab/clipboard.jpg"/></div>
+                        <div className="mx-auto my-4"><img src="lab/clipboard.jpg"/></div>
                         {error && <BannerMsg type="error" msg={error} />}
                         <input type="text"
                             autoFocus

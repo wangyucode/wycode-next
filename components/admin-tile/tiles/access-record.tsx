@@ -18,73 +18,68 @@ echarts.use([
 import AdminTile from "../admin-tile";
 import { AppStateContext } from "../../app-context";
 
-export const AccessRecord = AdminTile(function () {
-
-    const { theme } = useContext(AppStateContext);
-
-    const [option, setOption] = useState({});
-
-    useEffect(() => {
-        fetch('https://wycode.cn/node/analysis/records')
-            .then(res => res.json())
-            .then(res => {
-                console.log('records->', res);
-                if (res.success) {
-                    const dates: string[] = [];
-                    const pv: number[] = [];
-                    const uv: number[] = [];
-                    res.payload.records.forEach((record: any) => {
-                        dates.push(record.date);
-                        pv.push(record.pv);
-                        uv.push(record.uv);
-                    });
-                    setOption({
-                        backgroundColor: 'transparent',
-                        tooltip: {
-                            trigger: 'axis',
-                            axisPointer: {
-                                type: 'cross',
-                                label: {
-                                    backgroundColor: '#6a7985'
-                                }
-                            }
-                        },
-                        grid: {
-                            top: '3%',
-                            left: '3%',
-                            right: '4%',
-                            bottom: '3%',
-                            containLabel: true
-                        },
-                        xAxis: {
-                            data: dates,
-                            boundaryGap: false,
-                            axisLabel: {
-                                rotate: 60
-                            }
-                        },
-                        yAxis: {
-                            type: 'value'
-                        },
-                        series: [
-                            {
-                                data: pv,
-                                name: 'pv',
-                                type: 'line',
-                                areaStyle: {}
-                            },
-                            {
-                                data: uv,
-                                name: 'uv',
-                                type: 'line',
-                                areaStyle: {}
-                            },
-
-                        ]
-                    });
+export const AccessRecord = AdminTile(function ({ data }: { data: []}) {
+    const { theme } = useContext<{ theme: string }>(AppStateContext);
+    const dates: string[] = [];
+    const pv: number[] = [];
+    const uv: number[] = [];
+    const fv: number[] = [];
+    data.forEach((record: any) => {
+        dates.push(record.date);
+        pv.push(record.pv);
+        uv.push(record.uv);
+        fv.push(record.fv || 0);
+    });
+    const option = {
+        backgroundColor: 'transparent',
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'cross',
+                label: {
+                    backgroundColor: '#6a7985'
                 }
-            });
-    }, []);
+            }
+        },
+        grid: {
+            top: '3%',
+            left: '0',
+            right: '3%',
+            bottom: 0,
+            containLabel: true
+        },
+        xAxis: {
+            data: dates,
+            boundaryGap: false,
+            axisLabel: {
+                rotate: 60,
+                interval: 0
+            }
+        },
+        yAxis: {
+            type: 'value'
+        },
+        series: [
+            {
+                data: pv,
+                name: 'pv',
+                type: 'line',
+                areaStyle: {}
+            },
+            {
+                data: uv,
+                name: 'uv',
+                type: 'line',
+                areaStyle: {}
+            },
+            {
+                data: fv,
+                name: 'fv',
+                type: 'line',
+                areaStyle: {}
+            },
+        ]
+    };
 
     return (
         <ReactECharts

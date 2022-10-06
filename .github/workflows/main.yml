@@ -59,4 +59,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.REPO_PUSH_TOKEN }}
 
       - name: Send Email
-        run: curl https://wycode.cn/node/mail?k=${{secrets.MAIL_TOKEN}}s=next-frontend%20deployed&c=deployed%20successfully
+        run: curl https://wycode.cn/node/mail?k=${{secrets.MAIL_TOKEN}}&s=next-frontend%20deployed&c=deployed%20successfully

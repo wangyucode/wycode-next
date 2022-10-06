@@ -8,7 +8,7 @@ export default function About() {
             <a href="mailto:wangyu@wycode.cn" title="wangyu@wycode.cn"
                        className="font-semibold text-sky-500 hover:text-sky-400"><EnvelopeIcon
                         className="inline h-5 mr-1"/>wangyu@wycode.cn</a>
-            <div className="w-56 mt-2"><img src="about/wechat.jpg"/></div>
+            <div className="w-56 mt-2"><img src="/about/wechat.jpg"/></div>
         </div>
     );
 }

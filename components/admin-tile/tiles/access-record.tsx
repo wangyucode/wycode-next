@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import ReactECharts from 'echarts-for-react';
 import * as echarts from 'echarts/core';
 import {
@@ -17,9 +17,10 @@ echarts.use([
 
 import AdminTile from "../admin-tile";
 import { AppStateContext } from "../../app-context";
+import { Theme } from "../../types";
 
 export const AccessRecord = AdminTile(function ({ data }: { data: []}) {
-    const { theme } = useContext<{ theme: string }>(AppStateContext);
+    const { theme } = useContext<{ theme: Theme }>(AppStateContext);
     const dates: string[] = [];
     const pv: number[] = [];
     const uv: number[] = [];

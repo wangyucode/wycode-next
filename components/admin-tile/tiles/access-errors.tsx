@@ -36,11 +36,11 @@ export const AccessErrors = AdminTile(function () {
                 </colgroup>
                 <thead className="text-xs bg-sky-200 dark:bg-sky-900">
                     <tr>
-                        <th>IP</th>
+                        <th className="p-2">IP</th>
                         <th className="p-2">Status</th>
-                        <th>Request</th>
-                        <th>Agent</th>
-                        <th style={{ minWidth: '60px' }}>Time</th>
+                        <th className="p-2">Request</th>
+                        <th className="p-2">Agent</th>
+                        <th className="p-2" style={{ minWidth: '60px' }}>Time</th>
                     </tr>
                 </thead>
                 <tbody>

@@ -41,7 +41,7 @@ jobs:
         run: npm run algolia ${{ secrets.ALGOLIA_KEY }}
       
       - name: Upload to server
-        uses: wangyucode/sftp-upload-action@v1.4.5
+        uses: wangyucode/sftp-upload-action@v1.4.8
         with:
           host: 'wycode.cn'
           privateKey: ${{ secrets.SERVER_KEY }}
@@ -59,4 +59,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.REPO_PUSH_TOKEN }}
 
       - name: Send Email
-        run: curl https://wycode.cn/node/mail?k=${{secrets.MAIL_TOKEN}}&s=next-frontend%20deployed&c=deployed%20successfully
+        run: |
+          curl -i -X POST \
+            -H "Content-Type:application/json" \
+            -d \
+            '{"key": "${{ secrets.MAIL_TOKEN }}","subject":"Frontend Build","content":"frontend deployed","to": ["wangyu@wycode.cn"]}' \
+            'https://wycode.cn/node/mail'

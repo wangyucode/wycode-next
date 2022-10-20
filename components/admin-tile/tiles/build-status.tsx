@@ -17,10 +17,10 @@ export const BuildStatus = AdminTile(function () {
                     src="https://github.com/wangyucode/puppeteer-crawler/actions/workflows/leagues.yml/badge.svg"
                     alt="League" />
             </a>
-            <a href="https://github.com/wangyucode/puppeteer-crawler/actions/workflows/match.yml">
+            <a href="https://github.com/wangyucode/puppeteer-crawler/actions/workflows/team.yml">
                 <img
-                    src="https://github.com/wangyucode/puppeteer-crawler/actions/workflows/match.yml/badge.svg"
-                    alt="Match" />
+                    src="https://github.com/wangyucode/puppeteer-crawler/actions/workflows/team.yml/badge.svg"
+                    alt="Team" />
             </a>
             <a href="https://github.com/wangyucode/puppeteer-crawler/actions/workflows/news.yml/badge.svg">
                 <img

@@ -31,5 +31,5 @@ yarn-error.log*
 
 .idea
 
-public/robots.txt
-public/sitemap.xml
+/public/robots.txt
+/public/sitemap.xml

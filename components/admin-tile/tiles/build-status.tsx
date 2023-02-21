@@ -8,9 +8,9 @@ export const BuildStatus = AdminTile(function () {
                     src="https://github.com/wangyucode/node-backend/actions/workflows/main.yml/badge.svg"
                     alt="node-backend" />
             </a>
-            <a href="https://github.com/wangyucode/node-proxy/actions/workflows/main.yml">
-                <img src="https://github.com/wangyucode/node-proxy/actions/workflows/main.yml/badge.svg"
-                    alt="node-proxy" />
+            <a href="https://github.com/wangyucode/wycode-next/actions/workflows/main.yml">
+                <img src="https://github.com/wangyucode/wycode-next/actions/workflows/main.yml/badge.svg"
+                    alt="wycode-next" />
             </a>
             <a href="https://github.com/wangyucode/puppeteer-crawler/actions/workflows/leagues.yml">
                 <img

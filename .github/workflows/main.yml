@@ -41,12 +41,13 @@ jobs:
         run: npm run algolia ${{ secrets.ALGOLIA_KEY }}
       
       - name: Upload to server
-        uses: wangyucode/sftp-upload-action@v2.0.0
+        uses: wangyucode/sftp-upload-action@v2.0.2
         with:
           host: 'wycode.cn'
           privateKey: ${{ secrets.SERVER_KEY }}
           localDir: 'out'
           dryRun: false
+          compress: true
           remoteDir: '/root/data/nginx/www/wycode/'
           removeExtraFilesOnServer: true
 

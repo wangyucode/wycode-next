@@ -30,7 +30,7 @@
   "devDependencies": {
     "@types/node": "^17.0.45",
     "@types/react": "^18.0.28",
-    "autoprefixer": "^10.4.7",
+    "autoprefixer": "^10.4.13",
     "next-sitemap": "^3.1.21",
     "next-transpile-modules": "^9.0.0",
     "node-fetch": "^3.2.10",

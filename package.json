@@ -6,7 +6,7 @@
     "start": "next start",
     "export": "next export",
     "algolia": "ts-node algolia",
-    "postbuild": "next-sitemap && ts-node notify-search-engines"
+    "postbuild": "next-sitemap"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.12",
@@ -28,7 +28,6 @@
     "gray-matter": "^4.0.3",
     "hast-util-select": "^5.0.5",
     "next-sitemap": "^3.1.54",
-    "node-fetch": "^3.3.0",
     "postcss": "^8.4.21",
     "rehype": "^12.0.1",
     "remark": "^14.0.2",

@@ -24,7 +24,7 @@ export default function PostDetail({post}: { post: Post }) {
                     <h1 className="text-2xl text-slate-800 dark:text-slate-200 font-extrabold text-center">{title}</h1>
                     <div className="flex justify-between">
                         <span className="flex items-center"><CalendarIcon className="inline mr-1" height={20} width={20} />{date}</span>
-                        <Link href={`/blog/category/${cid}`}><a className="hover:text-sky-400 text-sm"><ArchiveBoxIcon className="inline mr-1 h-5 mb-0.5"/>{category}</a></Link>
+                        <Link href={`/blog/category/${cid}`} className="hover:text-sky-400 text-sm"><ArchiveBoxIcon className="inline mr-1 h-5 mb-0.5"/>{category}</Link>
                     </div>
                     {tags && <span className="flex items-center"><TagIcon className="inline mr-1" height={20} width={20} />{tags.join(', ')}</span>}
                     <div className="mt-8" dangerouslySetInnerHTML={{ __html: contentHtml }} />

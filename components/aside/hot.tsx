@@ -28,10 +28,10 @@ export default function Hot({ postTitles }: { postTitles: any[] }) {
             <ul>
                 {posts.map(({ url, _id, title, daily, pre_daily}) => (
                     <li key={_id}>
-                        <Link href={url}><a className="hover:text-sky-400 text-sm">• {title}
+                        <Link href={url} className="hover:text-sky-400 text-sm">• {title}
                         {
                             daily > pre_daily ? <ArrowTrendingUpIcon className="ml-1 inline h-4 text-red-600"/> : <ArrowTrendingDownIcon className="ml-1 inline h-4 text-green-600"/>
-                        }</a></Link>
+                        }</Link>
                     </li>
                 ))}
             </ul>

@@ -19,7 +19,7 @@ export default function Comment({_id, user, content, to, createTime, like, setRe
     const [isLike, setIsLike] = useState(false);
     const [likeCount, setLikeCount] = useState(like);
 
-    const topic = useRouter().asPath.match(/.*\/([\w-]+)\/$/)[1];
+    const topic = useRouter().asPath.match(/.*\/([\w-]+)$/)[1];
 
     function handleLike() {
         if (isLike) {

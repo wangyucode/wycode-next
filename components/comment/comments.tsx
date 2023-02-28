@@ -9,7 +9,7 @@ export const app = 'wycode'
 
 export default function Comments() {
 
-    const topic = useRouter().asPath.match(/.*\/([\w-]+)\/$/)[1];
+    const topic = useRouter().asPath.match(/.*\/([\w-]+)$/)[1];
     const [replying, setReplying] = useState<any>(null);
     const [comments, setComments] = useState<any[]>([]);
     const [content, setContent] = useState('');

@@ -10,8 +10,8 @@ export default function CategoryComponent({ categories }: { categories: Category
             <ul>
                 {categories.map(({ params: { name, count, cid } }) => (
                     <li key={cid}>
-                        <Link href={`/blog/category/${cid}`}><a className="hover:text-sky-400 text-sm">{name}
-                            <span className="px-1 py-0.5 ml-2 rounded bg-black/20 dark:bg-white/20">{count}</span></a></Link>
+                        <Link href={`/blog/category/${cid}`} className="hover:text-sky-400 text-sm">{name}
+                            <span className="px-1 py-0.5 ml-2 rounded bg-black/20 dark:bg-white/20">{count}</span></Link>
                     </li>
                 ))}
             </ul>

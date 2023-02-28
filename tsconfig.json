@@ -29,7 +29,7 @@
     "**/*.ts",
     "**/*.tsx",
     "**/*.cts"
-  ],
+, "notify-search-engines.mts"  ],
   "exclude": [
     "node_modules"
   ]

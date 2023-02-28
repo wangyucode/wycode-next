@@ -1,6 +1,6 @@
 ---
 title: ChatGPT是如何被训练出来的
-date: 2022-9-29 14:41:30
+date: 2022-12-1 14:41:30
 tags:
 - ChatGPT
 category: AI

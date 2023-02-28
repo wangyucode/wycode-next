@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { BeakerIcon, ClipboardDocumentIcon, CogIcon, PencilIcon, UserPlusIcon} from '@heroicons/react/24/outline';
+import { BeakerIcon, ClipboardDocumentIcon, CogIcon, PencilIcon, UserPlusIcon } from '@heroicons/react/24/outline';
 
 import NavItem from './nav-item';
 import ThemeSwitch from './theme-switch';
@@ -17,11 +17,9 @@ export default function Navbar() {
 
     return (
         <div className="flex grow justify-between max-w-7xl">
-            <Link href="/">
-                <a className='flex gap-x-2 text-xl font-semibold items-center text-slate-900 hover:text-sky-500 dark:text-white'>
-                    <img src="/favicon.svg" width={28} height={28}></img>
-                    {SITE_NAME}
-                </a>
+            <Link href="/" className='flex gap-x-2 text-xl font-semibold items-center text-slate-900 hover:text-sky-500 dark:text-white'>
+                <img src="/favicon.svg" width={28} height={28}></img>
+                {SITE_NAME}
             </Link>
             <div className='flex text-slate-900 dark:text-slate-50'>
                 <nav className='hidden md:flex mr-4 pr-2 border-r m-auto border-slate-700/30 dark:border-slate-300/30'>

@@ -19,7 +19,7 @@ import AdminTile from "../admin-tile";
 import { AppStateContext } from "../../app-context";
 import { Theme } from "../../types";
 
-export const AccessRecord = AdminTile(function ({ data }: { data: []}) {
+export const AccessRecord = AdminTile(function ({ data }: { data: [] }) {
     const { theme } = useContext<{ theme: Theme }>(AppStateContext);
     const dates: string[] = [];
     const pv: number[] = [];

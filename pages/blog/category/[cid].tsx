@@ -22,7 +22,7 @@ export default function CategoryPage({ posts }: { posts: Post[] }) {
                 <ul>
                     {posts.map(({ id, data: { title } }) => (
                         <li key={id}>
-                            <Link href={`/blog/${id}`}><a className="hover:text-sky-400 text-sm">• {title}</a></Link>
+                            <Link href={`/blog/${id}`} className="hover:text-sky-400 text-sm">• {title}</Link>
                         </li>
                     ))}
                 </ul>

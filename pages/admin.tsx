@@ -27,9 +27,9 @@ export default function Admin() {
         <Layout>
             <div className="absolute inset-x-0 top-16 bottom-10 flex">
                 <AdminSideBar />
-                <div className="p-4 flex-grow overflow-auto flex flex-wrap gap-2">
-                    <AccessCount title="All Access" data={data} />
+                <div className="p-4 flex-grow overflow-auto flex flex-wrap gap-2 relative">
                     <AccessRecord title="Access Records" data={data.records} />
+                    <AccessCount title="All Access" data={data} />
                     <AppCount title="API Access" />
                     <BuildStatus title="Build Status" />
                     <AccessErrors title="Invalid Access"/>

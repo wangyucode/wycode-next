@@ -14,7 +14,7 @@ export default function ArticleItem({ post, withExcerpt }: { post: Post, withExc
             <h2 className="text-2xl text-slate-800 dark:text-slate-200 font-extrabold hover:text-sky-500 mb-1"><Link href={`/blog/${id}`}>{title}</Link></h2>
             <div className="flex justify-between">
                 <span className="flex items-center"><CalendarIcon className="inline mr-1 h-5"/>{date}</span>
-                <Link href={`/blog/category/${cid}`}><a className="hover:text-sky-400 text-sm"><ArchiveBoxIcon className="inline mr-1 h-5 mb-0.5"/>{category}</a></Link>
+                <Link href={`/blog/category/${cid}`} className="hover:text-sky-400 text-sm"><ArchiveBoxIcon className="inline mr-1 h-5 mb-0.5"/>{category}</Link>
             </div>
             {tags && <span className="flex items-center"><TagIcon className="inline mr-1 h-5" />{tags.join(', ')}</span>}
             {withExcerpt && <Excerpt excerptHtml={excerptHtml} id={id} contentHtml={contentHtml}/>}

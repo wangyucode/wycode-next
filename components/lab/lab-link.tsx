@@ -13,7 +13,7 @@ export default function LibLink({href}: any) {
                     {href}
                 </a>
                 :
-                <Link href={href}><a className="text-sky-600 hover:text-sky-400 block break-all mb-2"><LinkIcon className="w-4 inline mr-1"/>{href.substring(1)}</a></Link>
+                <Link href={href} className="text-sky-600 hover:text-sky-400 block break-all mb-2"><LinkIcon className="w-4 inline mr-1"/>{href.substring(1)}</Link>
             }
         </>
     );

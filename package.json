@@ -6,7 +6,7 @@
     "start": "next start",
     "export": "next export",
     "algolia": "ts-node algolia",
-    "postbuild": "next-sitemap --config next-sitemap.config.cjs && ts-node notify-search-engines"
+    "postbuild": "next-sitemap && ts-node notify-search-engines"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.12",

@@ -21,15 +21,12 @@
     "isolatedModules": true,
     "jsx": "preserve"
   },
-  "ts-node": {
-    "esm": true
-  },
   "include": [
-    "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "**/*.cts"
-, "notify-search-engines.mts"  ],
+    "**/*.cts",
+    "**/*.mjs"
+  ],
   "exclude": [
     "node_modules"
   ]

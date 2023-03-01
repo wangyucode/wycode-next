@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { CalendarIcon, ArchiveBoxIcon, TagIcon } from "@heroicons/react/24/outline";
 
 import Layout from '../../components/layout';
-import { getAllPostIds, getPost} from '../../utils/posts';
+import { getAllPostIds, getPost} from '../../utils/posts.mjs';
 import Comments from "../../components/comment/comments";
 import Highlight from '../../components/highlight';
 import { Post, SITE_NAME } from '../../components/types';

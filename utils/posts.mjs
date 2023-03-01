@@ -6,18 +6,17 @@ import { remark } from 'remark';
 import remarkGfm from 'remark-gfm'
 import html from 'remark-html';
 import { rehype } from 'rehype';
-import { CategoryTagPath, Post } from '../components/types.js';
-import addClass from './index.mjs';
+import addClass from './add-class.mjs';
 
 const postsDirectory = path.join(process.cwd(), 'posts');
 
-let cachedPosts: Post[];
+let cachedPosts;
 
-export async function getSortedPosts(): Promise<Post[]> {
+export async function getSortedPosts() {
     if (cachedPosts) return cachedPosts;
     // Get file names under /posts
     const fileNames = fs.readdirSync(postsDirectory);
-    const allPosts: Post[] = await Promise.all(fileNames.map(async (fileName) => {
+    const allPosts = await Promise.all(fileNames.map(async (fileName) => {
         // Replace ".md" from file name to get id
         const file = fileName.replace(/\.md$/, '');
 
@@ -32,27 +31,29 @@ export async function getSortedPosts(): Promise<Post[]> {
 
         // Use remark to convert markdown into HTML string
         const processor = remark()
-            .use(html, {sanitize: false})
+            .use(html, { sanitize: false })
             .use(remarkGfm);
         const processedExcerpt = await processor.process(matterResult.excerpt || '');
         const processedContent = await processor.process(matterResult.content);
 
         const classProcessor = rehype()
             .data('settings', { fragment: true })
-            .use(addClass as any, {
+            .use(addClass, {
                 'img': 'mx-auto max-h-80',
-                'p': 'mb-4',
+                'h2,h3,p,table,ol,ul,pre': 'mb-4',
+                'ul': 'list-disc',
+                'ol': 'list-decimal',
+                'li': 'ml-8',
                 'a': 'text-sky-500 hover:text-sky-400',
                 'blockquote': 'px-4 border-l-4 border-slate-500 text-slate-500',
                 'blockquote > p': 'indent-0',
-                'h2': 'text-xl font-bold mb-4 pb-4 border-b border-slate-700/30 dark:border-slate-300/30',
-                'h3': 'text-lg font-bold mb-4',
+                'h2': 'text-xl font-bold pb-4 border-b border-slate-700/30 dark:border-slate-300/30',
+                'h3': 'text-lg font-bold',
                 'code': 'px-1 py-0.5 mx-1 bg-slate-200 text-slate-800 dark:text-slate-200 dark:bg-slate-700 rounded-md text-sm font-mono',
-                'pre': 'mb-4 p-4 bg-slate-200 dark:bg-slate-700 rounded-md overflow-auto max-w-full',
+                'pre': 'p-4 bg-slate-200 dark:bg-slate-700 rounded-md overflow-auto max-w-full',
                 'pre > code': '!p-0 !m-0',
                 'td,th': 'px-2 border border-slate-700/30 dark:border-slate-300/30',
                 'thead': 'bg-sky-200 dark:bg-sky-900',
-                'table': 'mb-4',
                 'tbody > tr': 'odd:bg-slate-200 odd:dark:bg-slate-800 even:bg-slate-300 even:dark:bg-slate-700'
             });
 
@@ -80,19 +81,19 @@ export async function getSortedPosts(): Promise<Post[]> {
     return cachedPosts;
 }
 
-export async function getPagedPosts(page: number, size: number): Promise<Post[]> {
+export async function getPagedPosts(page, size) {
     const allPosts = await getSortedPosts();
     const start = (page - 1) * size;
     const end = start + size;
     return allPosts.slice(start, end);
 }
 
-export async function getPageCount(size: number): Promise<number> {
+export async function getPageCount(size) {
     const allPosts = await getSortedPosts();
     return Math.ceil(allPosts.length / size);
 }
 
-export async function getAllPostIds(): Promise<{ params: { pid: string } }[]> {
+export async function getAllPostIds() {
     const allPosts = await getSortedPosts();
     return allPosts.map((post) => {
         return {
@@ -103,19 +104,19 @@ export async function getAllPostIds(): Promise<{ params: { pid: string } }[]> {
     });
 }
 
-export async function getPost(id: string): Promise<Post | undefined> {
+export async function getPost(id) {
     const allPosts = await getSortedPosts();
     return allPosts.find(it => it.id === id);
 }
 
-export async function getPostTitles(): Promise<any[]> {
+export async function getPostTitles() {
     const allPosts = await getSortedPosts();
     return allPosts.map(post => [post.id, post.data.title]);
 }
 
-export async function getCategories(): Promise<CategoryTagPath[]> {
+export async function getCategories() {
     const allPosts = await getSortedPosts();
-    const categories: CategoryTagPath[] = [];
+    const categories = [];
     allPosts.forEach(post => {
         const category = categories.find(c => c.params.name === post.data.category);
         if (category) {
@@ -128,17 +129,17 @@ export async function getCategories(): Promise<CategoryTagPath[]> {
     return categories;
 }
 
-export async function getPostsByCategory(cid: string): Promise<Post[]> {
+export async function getPostsByCategory(cid) {
     const allPosts = await getSortedPosts();
     return allPosts.filter(post => post.data.category.replaceAll(" ", "-").toLowerCase() === cid);
 }
 
-export async function getTags(): Promise<CategoryTagPath[]> {
+export async function getTags() {
     const allPosts = await getSortedPosts();
-    const tags: CategoryTagPath[] = [];
+    const tags = [];
     allPosts.forEach(post => {
         if (post.data.tags) {
-            post.data.tags.forEach((postTag: string) => {
+            post.data.tags.forEach((postTag) => {
                 const tag = tags.find(t => t.params.name === postTag);
                 if (tag) {
                     tag.params.count++;
@@ -152,7 +153,7 @@ export async function getTags(): Promise<CategoryTagPath[]> {
     return tags;
 }
 
-export async function getPostsByTag(cid: string): Promise<Post[]> {
+export async function getPostsByTag(cid) {
     const allPosts = await getSortedPosts();
-    return allPosts.filter(post => post.data.tags && post.data.tags.some((tag: string) => tag.replaceAll(" ", "-").toLowerCase() === cid));
+    return allPosts.filter(post => post.data.tags && post.data.tags.some((tag) => tag.replaceAll(" ", "-").toLowerCase() === cid));
 }

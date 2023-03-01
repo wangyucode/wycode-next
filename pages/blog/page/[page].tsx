@@ -1,5 +1,5 @@
 import Layout from '../../../components/layout';
-import { getPageCount, getPagedPosts} from "../../../utils/posts";
+import { getPageCount, getPagedPosts} from "../../../utils/posts.mjs";
 import { PAGE_SIZE } from "../../index";
 import ArticleItem from "../../../components/article/article-item";
 import Pager from "../../../components/pager";

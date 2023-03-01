@@ -4,7 +4,7 @@ import {ArchiveBoxIcon} from "@heroicons/react/24/outline";
 
 import Layout from '../../../components/layout';
 import { Post, SITE_NAME } from '../../../components/types';
-import { getCategories, getPostsByCategory } from '../../../utils/posts';
+import { getCategories, getPostsByCategory } from '../../../utils/posts.mjs';
 
 export default function CategoryPage({ posts }: { posts: Post[] }) {
     const category = posts[0].data.category;

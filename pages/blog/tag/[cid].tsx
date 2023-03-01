@@ -4,7 +4,7 @@ import {TagIcon} from "@heroicons/react/24/outline";
 
 import Layout from '../../../components/layout';
 import { Post, SITE_NAME } from '../../../components/types';
-import {getPostsByTag, getTags } from '../../../utils/posts';
+import {getPostsByTag, getTags } from '../../../utils/posts.mjs';
 
 export default function TagPage({ posts, cid }: { posts: Post[], cid: string}) {
     const tag = posts[0].data.tags.find((t: string) => t.replaceAll(" ", "-").toLowerCase() === cid);

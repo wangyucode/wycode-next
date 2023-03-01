@@ -2,7 +2,7 @@ import ArticleItem from '../components/article/article-item';
 import { Jumbotron } from '../components/jumbotron';
 import Layout from '../components/layout';
 
-import { getCategories, getPageCount, getPagedPosts, getPostTitles, getTags} from '../utils/posts';
+import { getCategories, getPageCount, getPagedPosts, getPostTitles, getTags} from '../utils/posts.mjs';
 import Hot from "../components/aside/hot";
 import Pager from '../components/pager';
 import About from '../components/aside/about';

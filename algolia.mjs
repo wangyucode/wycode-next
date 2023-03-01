@@ -1,7 +1,7 @@
-import {getSortedPosts} from './utils/posts.js';
+import { getSortedPosts } from './utils/posts.mjs';
 import algoliasearch from 'algoliasearch';
 
-export async function send() {
+async function send() {
   const posts = await getSortedPosts();
   // @ts-ignore
   const client = algoliasearch.default('0UX0P1HN6Y', process.argv[2]);
@@ -12,7 +12,7 @@ export async function send() {
   posts.forEach((post) => index.saveObject({ ...post, objectID: post.id }));
   index
     .search('angular')
-    .then(({ hits }: any) => console.log(hits[0]))
+    .then(({ hits }) => console.log(hits[0]))
     .catch(console.error);
 }
 

@@ -67,3 +67,5 @@ jobs:
             -d \
             '{"key": "${{ secrets.MAIL_TOKEN }}","subject":"Frontend Build","content":"frontend deployed","to": ["wangyu@wycode.cn"]}' \
             'https://wycode.cn/node/mail'
+      - name: Notify Google
+        run: curl http://www.google.com/webmasters/sitemaps/ping?sitemap=https://wycode.cn/sitemap.xml

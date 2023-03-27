@@ -14,7 +14,7 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@v2.1.5
         with: 
-          node-version: '16'
+          node-version: '18'
       - name: Cache node modules
         uses: actions/cache@v2
         env:
@@ -67,3 +67,5 @@ jobs:
             -d \
             '{"key": "${{ secrets.MAIL_TOKEN }}","subject":"Frontend Build","content":"frontend deployed","to": ["wangyu@wycode.cn"]}' \
             'https://wycode.cn/node/mail'
+      - name: Notify Google
+        run: curl http://www.google.com/webmasters/sitemaps/ping?sitemap=https://wycode.cn/sitemap.xml

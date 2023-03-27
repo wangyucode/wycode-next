@@ -9,25 +9,25 @@
     "postbuild": "next-sitemap"
   },
   "dependencies": {
-    "@headlessui/react": "^1.7.12",
+    "@headlessui/react": "^1.7.13",
     "@heroicons/react": "^2.0.16",
-    "echarts": "^5.4.1",
+    "echarts": "^5.4.2",
     "echarts-for-react": "^3.0.2",
-    "next": "^13.2.1",
+    "next": "^13.2.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-instantsearch-hooks-web": "^6.31.1"
+    "react-instantsearch-hooks-web": "^6.42.0"
   },
   "devDependencies": {
     "@types/node": "^17.0.45",
-    "@types/react": "^18.0.28",
+    "@types/react": "^18.0.29",
     "@types/react-dom": "^18.0.11",
-    "algoliasearch": "^4.14.3",
+    "algoliasearch": "^4.16.0",
     "autoprefixer": "^10.4.13",
     "date-fns": "^2.28.0",
     "gray-matter": "^4.0.3",
     "hast-util-select": "^5.0.5",
-    "next-sitemap": "^3.1.54",
+    "next-sitemap": "^3.1.55",
     "postcss": "^8.4.21",
     "rehype": "^12.0.1",
     "remark": "^14.0.2",

@@ -8,7 +8,7 @@ export default function Lab() {
             <div
                 className="p-4 flex flex-col sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 grid-flow-row-dense max-w-7xl mx-auto">
                 <LabItem title="3D滚蛋吧" img1="/lab/roll.jpg" detail="微信扫一扫，一起来玩滚蛋吧，看谁滚的远...😂" />
-                <LabItem title="跨平台剪切板" img1="/lab/clipboard.jpg" link="/clipboard.html"
+                <LabItem title="跨平台剪切板" img1="/lab/clipboard.jpg" link="/clipboard"
                     detail="跨平台跨网络发送文字，保存信息？最简单的方式：使用 跨平台剪切板 即可：" />
                 <LabItem title="DOTA2英雄技能物品天梯助手" img1="/lab/dota.jpg" detail="玩DOTA2，查英雄，查物品，查赛事，查天梯排行就看DOTA2英雄技能物品天梯助手" deprecated="已下架 2022年11月"/>
                 <LabItem title="暗黑破坏神不朽小助手" img1="/lab/diablo.jpg" detail="玩暗黑，查询职业、技能、物品、怪物、宝石、套装、传奇装备。" />

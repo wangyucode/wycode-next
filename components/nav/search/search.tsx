@@ -3,6 +3,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import { MagnifyingGlassIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Hits, SearchBox } from "react-instantsearch-hooks-web";
 import Hit from "./hit";
+import { useRouter } from "next/router";
 
 export default function Search() {
 
@@ -15,6 +16,10 @@ export default function Search() {
     function openModal() {
         setIsOpenMobileNav(true);
     }
+
+    useRouter().events.on('routeChangeComplete', () => {
+        closeModal();
+    });
 
     return (
         <>
@@ -54,7 +59,7 @@ export default function Search() {
                                         submitIcon: 'w-4 h-4 dark:fill-slate-50 dark:stroke-slate-50',
                                         loadingIndicator: 'absolute right-8 top-3 dark:stroke-slate-50'
                                     }} />
-                                <Hits hitComponent={Hit} />
+                                <Hits hitComponent={Hit}/>
                                 <button className='absolute right-4 top-4 p-2 rounded-md dark:hover:bg-white/5 hover:bg-black/5' onClick={closeModal}><XMarkIcon height={24} width={24} /></button>
                             </Dialog.Panel>
                         </Transition.Child> 

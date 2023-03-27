@@ -2,7 +2,7 @@ import {LinkIcon} from "@heroicons/react/24/outline";
 import Link from "next/link";
 import GithubIcon from "../svg/github";
 
-export default function LibLink({href}: any) {
+export default function AppLink({href}: any) {
     const external: boolean = href.startsWith('http');
     const github: boolean = href.startsWith('https://github.com');
     return (
@@ -13,7 +13,7 @@ export default function LibLink({href}: any) {
                     {href}
                 </a>
                 :
-                <Link href={href} className="text-sky-600 hover:text-sky-400 block break-all mb-2"><LinkIcon className="w-4 inline mr-1"/>{href.substring(1)}</Link>
+                <Link href={href} className="text-sky-600 hover:text-sky-400 block break-all mb-2"><LinkIcon className="w-4 inline mr-1"/>{href.replace(/.*\//, '')}</Link>
             }
         </>
     );

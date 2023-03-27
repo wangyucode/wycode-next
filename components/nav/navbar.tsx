@@ -29,9 +29,9 @@ export default function Navbar() {
                 <nav className='hidden md:flex mr-4 pr-2 border-r m-auto border-slate-700/30 dark:border-slate-300/30'>
                     <ul className='flex space-x-1 items-center'>
                         <li><NavItemBlog href={MenuLinks.HOME} title="博客" /></li>
-                        <li><NavItemAdmin href={MenuLinks.ADMIN} title="实验室" /></li>
+                        <li><NavItemAdmin href={MenuLinks.LAB} title="实验室" /></li>
                         <li><NavItemClipboard href={MenuLinks.CLIPBOARD} title="剪切板" /></li>
-                        <li><NavItemLab href={MenuLinks.LAB} title="小程序" /></li>
+                        <li><NavItemLab href={MenuLinks.APP} title="小程序" /></li>
                         <li><NavItemAbout href={MenuLinks.ABOUT} title="关于" /></li>
                     </ul>
                 </nav>

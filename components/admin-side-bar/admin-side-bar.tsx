@@ -29,7 +29,7 @@ export default function AdminSideBar() {
     return (
         <aside
             className={`${appState.openMenu ? 'w-64 p-4' : 'w-14 p-2'} h-full flex flex-col gap-2 relative border-r border-slate-700/30 dark:border-slate-300/30 transition-all`}>
-                <NavItemDashboard href={MenuLinks.ADMIN} title={appState.openMenu ? 'Dashboard' : ''} />
+                <NavItemDashboard href={MenuLinks.LAB} title={appState.openMenu ? 'Dashboard' : ''} />
                 <NavItemMongo href={MenuLinks.MONGO} title={appState.openMenu ? 'MongoDB' : ''} />
             <button
                 onClick={toggleOpen}

@@ -88,6 +88,6 @@ export const AccessRecord = AdminTile(function ({ data }: { data: [] }) {
             option={option}
             theme={theme}
             style={{ height: '192px' }}
-            className="w-[256px] sm:w-[384px] md:w-[512px]" />
+            className="w-[310px] sm:w-[384px] md:w-[512px]" />
     )
 });

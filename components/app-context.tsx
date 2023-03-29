@@ -1,15 +1,13 @@
 import { createContext, Dispatch } from "react";
 import { Theme } from "./types";
 
-export const INITIAL_APP_STATE: AppState = { openMenu: undefined, theme: Theme.light };
+export const INITIAL_APP_STATE: AppState = { theme: Theme.light };
 
 export enum ACTIONS {
-    TOGGLE_MENU,
     CHANGE_THEME
 };
 
 export interface AppState {
-    openMenu?: boolean;
     theme: Theme
 }
 
@@ -20,8 +18,6 @@ export interface AppAction {
 
 export function reducer(state: AppState, action: AppAction): AppState {
     switch (action.type) {
-        case ACTIONS.TOGGLE_MENU:
-            return { ...state, openMenu: action.payload };
         case ACTIONS.CHANGE_THEME:
             return { ...state, theme: action.payload };
         default:

@@ -1,12 +1,9 @@
 import { Menu, Transition } from "@headlessui/react";
 import {
   BeakerIcon,
-  ChevronDownIcon,
-  PresentationChartLineIcon,
+  ChevronDownIcon
 } from "@heroicons/react/24/outline";
-import Link from "next/link";
 import { useRouter } from "next/router";
-import MongoDBIcon from "../svg/mongodb";
 import { MenuLinks } from "../types";
 import { NavItemLabAccess, NavItemLabMongo } from "./navbar";
 

@@ -1,6 +1,5 @@
-import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
-import { Bars3Icon, BeakerIcon, ChevronDownIcon, SunIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import { Bars3Icon, SunIcon, XMarkIcon } from "@heroicons/react/24/outline";
 
 import ThemeSwitch from "./theme-switch";
 import {
@@ -8,9 +7,9 @@ import {
   NavItemApps,
   NavItemBlog,
   NavItemClipboard,
-  NavItemLabAccess,
 } from "./navbar";
 import { MenuLinks } from "../types";
+import MobileNavItemLab from "./mobile-nav-item-lab";
 
 export default function MobileNav() {
   return (
@@ -35,10 +34,7 @@ export default function MobileNav() {
                 <Menu.Item as="li" className="mb-1">
                   <NavItemBlog href={MenuLinks.HOME} title="博客" />
                 </Menu.Item>
-                <div className="flex items-center mb-1"><BeakerIcon className="mr-1 w-5 h-5" />实验室<ChevronDownIcon className="ml-1 w-5 h-5" /></div>
-                <Menu.Item as="li" className="mb-1 ml-4">
-                  <NavItemLabAccess href={MenuLinks.LAB} title="实验室" />
-                </Menu.Item>
+                <MobileNavItemLab/>
                 <Menu.Item as="li" className="mb-1">
                   <NavItemClipboard href={MenuLinks.CLIPBOARD} title="剪切板" />
                 </Menu.Item>
@@ -48,7 +44,7 @@ export default function MobileNav() {
                 <Menu.Item as="li" className="mb-1">
                   <NavItemAbout href={MenuLinks.ABOUT} title="关于" />
                 </Menu.Item>
-                <div className="flex justify-between px-2 pt-2 border-t">
+                <div className="flex justify-between px-2 pt-2 border-t border-slate-700/30 dark:border-slate-300/30">
                   <span>
                     <SunIcon
                       className="mr-1 inline"

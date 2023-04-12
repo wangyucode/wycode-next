@@ -1,12 +1,9 @@
 import Layout from "../components/layout";
 import { EnvelopeIcon } from "@heroicons/react/24/outline";
 import WechatIcon from "../components/svg/wechat";
-import { useState } from "react";
 import Comments from "../components/comment/comments";
 
 export default function About() {
-
-    const [hidden, setHidden] = useState(' hidden');
 
     return (
         <Layout>

@@ -16,9 +16,11 @@ import Search from "./search/search";
 import { MenuLinks, SITE_NAME } from "../types";
 import NavItemLab from "./nav-item-lab";
 import MongoDBIcon from "../svg/mongodb";
+import SwaggerIcon from "../svg/swagger";
 
 export const NavItemBlog = NavItem(PencilIcon);
 export const NavItemLabAccess = NavItem(PresentationChartLineIcon);
+export const NavItemLabSwagger = NavItem(SwaggerIcon);
 export const NavItemLabMongo = NavItem(MongoDBIcon);
 export const NavItemClipboard = NavItem(ClipboardDocumentIcon);
 export const NavItemApps = NavItem(Squares2X2Icon);

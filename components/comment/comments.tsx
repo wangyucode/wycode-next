@@ -33,7 +33,7 @@ export default function Comments() {
     useEffect(() => {
         const storedEmail = localStorage.getItem('wycode.username');
         if (storedEmail) setEmail(storedEmail);
-        fetch(`https://wycode.cn/node/comments?a=${app}&k=${key}&t=${topic}`)
+        fetch(`https://wycode.cn/api/v1/comment?a=${app}&k=${key}&t=${topic}`)
             .then((res) => res.json())
             .then(res => {
                 console.log('query->', res);

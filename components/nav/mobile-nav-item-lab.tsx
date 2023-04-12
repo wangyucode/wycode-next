@@ -5,7 +5,7 @@ import {
 } from "@heroicons/react/24/outline";
 import { useRouter } from "next/router";
 import { MenuLinks } from "../types";
-import { NavItemLabAccess, NavItemLabMongo } from "./navbar";
+import { NavItemLabAccess, NavItemLabMongo, NavItemLabSwagger } from "./navbar";
 
 export default function MobileNavItemLab() {
   const path = useRouter().asPath;
@@ -41,6 +41,9 @@ export default function MobileNavItemLab() {
             <Disclosure.Panel className="pt-1">
               <Menu.Item as="li" className="mb-1">
                 <NavItemLabAccess href={MenuLinks.LAB} title="访问统计" />
+              </Menu.Item>
+              <Menu.Item as="li">
+                <NavItemLabSwagger href={MenuLinks.SWAGGER} title="SwaggerUI" />
               </Menu.Item>
               <Menu.Item as="li">
                 <NavItemLabMongo href={MenuLinks.MONGO} title="MongoDB" />

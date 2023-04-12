@@ -9,7 +9,7 @@ category: Frontend
 
 ![quic](https://quic.nginx.org/static/img/quic.svg)
 
-基于UDP的HTTP/3协议规范[RFC 9114](https://datatracker.ietf.org/doc/html/rfc9114)于2022年6月发表。而HTTP/2协议规范[RFC 7540](https://httpwg.org/specs/rfc7540.html)于2015年5月发表。
+基于UDP的HTTP/3协议规范[RFC 9114](https://datatracker.ietf.org/doc/html/rfc9114)于2022年6月发表。而HTTP/2协议规范[RFC 7540](https://httpwg.org/specs/rfc7540.html)早在2015年5月发表。但是仍然有很多网站在使用更加古老的HTTP1.1。
 
 HTTP/2通过多路复用（multiplexing）和头部压缩，能够有效降低延迟。同时还提供了不同于`WebScoket`协议的服务端推送的新方法。
 

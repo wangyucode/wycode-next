@@ -11,7 +11,7 @@ export default function Admin() {
   const [data, setData] = useState({ records: [] });
 
   useEffect(() => {
-    fetch("https://wycode.cn/node/analysis/records")
+    fetch("https://wycode.cn/api/v1/analysis/records")
       .then((res) => res.json())
       .then((res) => {
         console.log("records->", res);

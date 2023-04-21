@@ -1,37 +1,39 @@
 import React, { useEffect, useState } from "react";
 
 import Layout from "../components/layout";
-import { BuildStatus } from "../components/admin-tile/tiles/build-status";
-import { AccessCount } from "../components/admin-tile/tiles/access-count";
-import { AppCount } from "../components/admin-tile/tiles/app-count";
-import { AccessRecord } from "../components/admin-tile/tiles/access-record";
-import { AccessErrors } from "../components/admin-tile/tiles/access-errors";
+import PageProgress from "../components/page-progress";
 
-export default function Admin() {
-  const [data, setData] = useState({ records: [] });
+export default function Lab() {
+  const [url, setUrl] = useState(null);
+  const [progress, setProgress] = useState(1);
+  const [progressCallback, setProgressCallback] = useState(1);
 
   useEffect(() => {
-    fetch("https://wycode.cn/api/v1/analysis/records")
+    fetch("https://wycode.cn/api/v1/analysis/dashboard")
       .then((res) => res.json())
       .then((res) => {
-        console.log("records->", res);
+        console.log("dashboard->", res);
         if (res.success) {
-          setData(res.payload);
+          setProgress(60);
+          setUrl(res.payload);
         }
       });
   }, []);
 
+  const onLoad = () => {
+    setProgress(90);
+  };
+
   return (
     <Layout>
-      <div className="absolute inset-x-0 top-16 bottom-10 flex">
-        <div className="p-4 md:p-6 flex-grow overflow-auto flex flex-wrap gap-2 relative lg:justify-center items-start">
-          <AccessRecord title="Access Records" data={data.records} />
-          <AccessCount title="All Access" data={data} />
-          <AppCount title="API Access" />
-          <BuildStatus title="Build Status" />
-          <AccessErrors title="Invalid Access" />
-        </div>
-      </div>
+      <PageProgress initialProgress={progress} onProgress={setProgressCallback} />
+      {url && (
+        <iframe
+          className={`h-content w-full ${progressCallback < 100 ? "hidden" : ""}`}
+          src={url}
+          onLoad={onLoad}
+        />
+      )}
     </Layout>
   );
 }

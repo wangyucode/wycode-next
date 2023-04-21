@@ -40,7 +40,7 @@ export default function MobileNavItemLab() {
           >
             <Disclosure.Panel className="pt-1">
               <Menu.Item as="li" className="mb-1">
-                <NavItemLabAccess href={MenuLinks.LAB} title="访问统计" />
+                <NavItemLabAccess href={MenuLinks.LAB} title="Dashboard" />
               </Menu.Item>
               <Menu.Item as="li">
                 <NavItemLabSwagger href={MenuLinks.SWAGGER} title="SwaggerUI" />

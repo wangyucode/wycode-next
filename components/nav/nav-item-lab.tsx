@@ -32,7 +32,7 @@ export default function NavItemLab() {
       >
         <Menu.Items className="flex flex-col gap-1 absolute p-2 mt-2 bg-white rounded-lg border shadow-lg border-slate-900/10 dark:border-slate-300/10 dark:bg-slate-800 transition-colors duration-700">
           <Menu.Item>
-            <NavItemLabAccess href={MenuLinks.LAB} title="访问统计" />
+            <NavItemLabAccess href={MenuLinks.LAB} title="Dashboard" />
           </Menu.Item>
           <Menu.Item>
             <NavItemLabSwagger href={MenuLinks.SWAGGER} title="SwaggerUI" />

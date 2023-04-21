@@ -39,7 +39,7 @@ export default function MobileNav() {
                   <NavItemClipboard href={MenuLinks.CLIPBOARD} title="剪切板" />
                 </Menu.Item>
                 <Menu.Item as="li" className="mb-1">
-                  <NavItemApps href={MenuLinks.APP} title="小程序" />
+                  <NavItemApps href={MenuLinks.APP} title="在线项目" />
                 </Menu.Item>
                 <Menu.Item as="li" className="mb-1">
                   <NavItemAbout href={MenuLinks.ABOUT} title="关于" />

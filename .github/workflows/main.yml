@@ -65,7 +65,7 @@ jobs:
           curl -i -X POST \
             -H "Content-Type:application/json" \
             -d \
-            '{"key": "${{ secrets.MAIL_TOKEN }}","subject":"Frontend Build","content":"frontend deployed","to": ["wangyu@wycode.cn"]}' \
-            'https://wycode.cn/node/mail'
+            '{"key": "${{ secrets.MAIL_TOKEN }}","subject":"Frontend Build","content":"frontend deployed","to": "wangyu@wycode.cn"}' \
+            'https://wycode.cn/api/v1/email'
       - name: Notify Google
         run: curl http://www.google.com/webmasters/sitemaps/ping?sitemap=https://wycode.cn/sitemap.xml

@@ -26,7 +26,7 @@ export default function Clipboard() {
             return;
         }
         setLoading(true);
-        fetch(`https://wycode.cn/node/clipboard/${key}`)
+        fetch(`https://wycode.cn/api/v1/clipboard/${key}`)
             .then((res) => res.json())
             .then(res => {
                 console.log('query->', res);
@@ -48,7 +48,7 @@ export default function Clipboard() {
             _id: key,
             content
         };
-        fetch('https://wycode.cn/node/clipboard', {
+        fetch('https://wycode.cn/api/v1/clipboard', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)

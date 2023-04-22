@@ -5,8 +5,8 @@ import {
   ClipboardDocumentIcon,
   PencilIcon,
   PresentationChartLineIcon,
+  PuzzlePieceIcon,
   Squares2X2Icon,
-  UserPlusIcon,
 } from "@heroicons/react/24/outline";
 
 import NavItem from "./nav-item";
@@ -24,7 +24,7 @@ export const NavItemLabSwagger = NavItem(SwaggerIcon);
 export const NavItemLabMongo = NavItem(MongoDBIcon);
 export const NavItemClipboard = NavItem(ClipboardDocumentIcon);
 export const NavItemApps = NavItem(Squares2X2Icon);
-export const NavItemAbout = NavItem(UserPlusIcon);
+export const NavItemSkills = NavItem(PuzzlePieceIcon);
 
 export default function Navbar() {
   const path = useRouter().asPath;
@@ -52,10 +52,10 @@ export default function Navbar() {
               <NavItemClipboard href={MenuLinks.CLIPBOARD} title="剪切板" />
             </li>
             <li>
-              <NavItemApps href={MenuLinks.APP} title="小程序" />
+              <NavItemApps href={MenuLinks.APP} title="项目" />
             </li>
             <li>
-              <NavItemAbout href={MenuLinks.ABOUT} title="关于" />
+              <NavItemSkills href={MenuLinks.SKILLS} title="技能树" />
             </li>
           </ul>
         </nav>

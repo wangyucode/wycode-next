@@ -13,13 +13,14 @@ export default function Hot({ postTitles }: { postTitles: any[] }) {
     fetch("https://wycode.cn/api/v1/analysis/blogs")
       .then((res) => res.json())
       .then((res) => {
+        console.log("get hot blog->", res);
         if (res.success) {
           const titleMap = new Map<string, string>(postTitles);
           res.payload.map((post: any) => {
-            return post.title = titleMap.get(post._id.substring(5));
+            return post.title = titleMap.get(post.key);
           });
-          console.log("get hot blog->", res);
-          setPosts(res.payload.filter((post: any) => !!post.title));
+          
+          setPosts(res.payload);
         }
       });
   }, []);
@@ -27,14 +28,14 @@ export default function Hot({ postTitles }: { postTitles: any[] }) {
   return (
     <div className="my-4 p-2 border rounded border-slate-700/30 dark:border-slate-300/30">
       <h2 className="pb-1 mb-1 text-lg font-semibold border-b border-slate-700/30 dark:border-slate-300/30">
-        <FireIcon className="inline h-5" /> 热门文章
+        <FireIcon className="inline h-5" /> 热门文章TOP10 (weekly)
       </h2>
       <ul>
-        {posts.map(({ url, _id, title, daily, pre_daily }) => (
-          <li key={_id}>
-            <Link href={url} className="hover:text-sky-400 text-sm">
+        {posts.map(({ key, title, pv1, pv2 }) => (
+          <li key={key}>
+            <Link href={`/blog/${key}`} className="hover:text-sky-400 text-sm">
               • {title}
-              {daily >= pre_daily
+              {pv2 >= pv1
                 ? (
                   <ArrowTrendingUpIcon className="ml-1 inline h-4 text-red-600" />
                 )

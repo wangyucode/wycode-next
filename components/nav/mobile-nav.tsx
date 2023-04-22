@@ -3,10 +3,10 @@ import { Bars3Icon, SunIcon, XMarkIcon } from "@heroicons/react/24/outline";
 
 import ThemeSwitch from "./theme-switch";
 import {
-  NavItemAbout,
   NavItemApps,
   NavItemBlog,
   NavItemClipboard,
+  NavItemSkills,
 } from "./navbar";
 import { MenuLinks } from "../types";
 import MobileNavItemLab from "./mobile-nav-item-lab";
@@ -39,10 +39,10 @@ export default function MobileNav() {
                   <NavItemClipboard href={MenuLinks.CLIPBOARD} title="剪切板" />
                 </Menu.Item>
                 <Menu.Item as="li" className="mb-1">
-                  <NavItemApps href={MenuLinks.APP} title="在线项目" />
+                  <NavItemApps href={MenuLinks.APP} title="项目" />
                 </Menu.Item>
                 <Menu.Item as="li" className="mb-1">
-                  <NavItemAbout href={MenuLinks.ABOUT} title="关于" />
+                  <NavItemSkills href={MenuLinks.SKILLS} title="技能树" />
                 </Menu.Item>
                 <div className="flex justify-between px-2 pt-2 border-t border-slate-700/30 dark:border-slate-300/30">
                   <span>

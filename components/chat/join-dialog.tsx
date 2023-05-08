@@ -1,10 +1,26 @@
 import { Dialog, Transition } from "@headlessui/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function JoinChatDialog(
-  { open, onJoin }: { open: boolean; onJoin: (key: string) => void },
+  { open, hasError, onJoin, onCreate }: {
+    open: boolean;
+    hasError: boolean;
+    onJoin: (key: string) => void;
+    onCreate: () => void;
+  },
 ) {
   const [key, setKey] = useState("");
+  const [hasErrorRing, setHasErrorRing] = useState(false);
+
+  useEffect(() => {
+    if (hasError) {
+      setHasErrorRing(true);
+      setKey("");
+      setTimeout(() => {
+        setHasErrorRing(false);
+      }, 1000);
+    }
+  }, [hasError]);
 
   const onClickJoin = () => {
     onJoin(key);
@@ -35,11 +51,15 @@ export default function JoinChatDialog(
 
             <div className="mt-2 flex gap-2">
               <input
-                className="grow px-2 py-1 rounded border border-slate-700/30 dark:border-slate-300/30 focus-visible:outline-0 focus-visible:ring-2"
+                className={`${
+                  hasErrorRing ? "ring-red-500 ring-2 " : ""
+                }grow px-2 py-1 rounded border border-slate-700/30 dark:border-slate-300/30 focus-visible:outline-0 focus-visible:ring-2`}
                 placeholder="房间号"
                 maxLength={4}
                 value={key}
-                onChange={(e) => setKey(e.target.value)}
+                onChange={(e) => {
+                  setKey(e.target.value);
+                }}
               />
               <button
                 className="px-2 py-1 rounded border border-slate-700/30 disabled:bg-slate-500 disabled:active:ring-0 dark:border-slate-300/30 text-slate-100 bg-sky-600 hover:bg-sky-500 active:ring-2"
@@ -54,11 +74,11 @@ export default function JoinChatDialog(
               <div className="grow h-px bg-slate-700/30 dark:bg-slate-300/30" />
             </div>
             <button
-                className="w-full px-2 py-1 rounded border border-slate-700/30 disabled:bg-slate-500 disabled:active:ring-0 dark:border-slate-300/30 text-slate-100 bg-sky-600 hover:bg-sky-500 active:ring-2"
-                onClick={onClickJoin}
-              >
-                创建房间
-              </button>
+              className="w-full px-2 py-1 rounded border border-slate-700/30 disabled:bg-slate-500 disabled:active:ring-0 dark:border-slate-300/30 text-slate-100 bg-sky-600 hover:bg-sky-500 active:ring-2"
+              onClick={onCreate}
+            >
+              创建房间
+            </button>
           </Dialog.Panel>
         </Transition.Child>
       </Dialog>

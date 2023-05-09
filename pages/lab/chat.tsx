@@ -5,14 +5,16 @@ import JoinChatDialog from "../../components/chat/join-dialog";
 import Messages, { Message, MessageType } from "../../components/chat/messages";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 
+let ws;
+let heartbeat;
+
 export default function Chat() {
   const [isDialogOpen, setIsDialogOpen] = useState(true);
   const [messages, setMessages] = useState([]);
+  const [message, setMessage] = useState("");
   const [roomId, setRoomId] = useState("");
   let [playerCount, setPlayerCount] = useState(0);
   const [hasError, setHasError] = useState(false);
-  let ws;
-  let heartbeat;
 
   useEffect(() => {
     return () => {
@@ -37,10 +39,10 @@ export default function Chat() {
         msg.content = `${msg.content.id}号玩家 加入了房间`;
         setPlayerCount(++playerCount);
         messages.push(msg);
-        setMessages(messages);
+        setMessages([...messages]);
       } else {
         messages.push(msg);
-        setMessages(messages);
+        setMessages([...messages]);
       }
     };
     ws.onclose = () => {
@@ -63,6 +65,12 @@ export default function Chat() {
     setupListeners();
   };
 
+  const send = () => {
+    if (!message) return;
+    ws.send(JSON.stringify({ type: MessageType.TEXT, content: message }));
+    setMessage("");
+  };
+
   return (
     <Layout>
       <div className="flex flex-col p-4 mx-auto w-full max-w-3xl h-content gap-2">
@@ -82,13 +90,27 @@ export default function Chat() {
           <Messages messages={messages} />
         </div>
         <div className="relative w-full">
-          <input className="block w-full h-12 pl-3 pr-12 border bg-slate-500/5 rounded border-slate-700/30 dark:border-slate-300/30" />
-          <button className="absolute right-3 bottom-3 hover:text-slate-800 dark:hover:text-white hover:scale-110 transition-transform">
+          <input
+            className="block w-full h-12 pl-3 pr-12 border bg-slate-500/5 rounded border-slate-700/30 dark:border-slate-300/30"
+            value={message}
+            onChange={(e) => {
+              setMessage(e.target.value);
+            }}
+          />
+          <button
+            className="absolute right-3 bottom-3 hover:text-slate-800 dark:hover:text-white hover:scale-110 transition-transform"
+            onClick={send}
+          >
             <PaperAirplaneIcon className="w-6" />
           </button>
         </div>
       </div>
-      <JoinChatDialog open={isDialogOpen} onJoin={onJoin} onCreate={onCreate} hasError={hasError}/>
+      <JoinChatDialog
+        open={isDialogOpen}
+        onJoin={onJoin}
+        onCreate={onCreate}
+        hasError={hasError}
+      />
     </Layout>
   );
 }

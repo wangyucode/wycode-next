@@ -13,13 +13,14 @@ export default function Chat() {
   const [messages, setMessages] = useState([]);
   const [message, setMessage] = useState("");
   const [roomId, setRoomId] = useState("");
+  let [userId, setUserId] = useState("");
   let [playerCount, setPlayerCount] = useState(0);
   const [hasError, setHasError] = useState(false);
 
   useEffect(() => {
     return () => {
       ws?.close();
-      heartbeat?.clearInterval();
+      clearInterval(heartbeat);
     };
   }, []);
 
@@ -40,7 +41,12 @@ export default function Chat() {
         setPlayerCount(++playerCount);
         messages.push(msg);
         setMessages([...messages]);
+      } else if (msg.type === MessageType.WELCOME) {
+        userId = msg.content;
+        setUserId(msg.content);
+        localStorage.setItem("chat-uid", msg.content);
       } else {
+        if(msg.sender === userId) msg.isSelf = true;
         messages.push(msg);
         setMessages([...messages]);
       }
@@ -80,6 +86,7 @@ export default function Chat() {
               <>
                 <span>房间号：{roomId}</span>
                 <span>玩家数量：{playerCount}</span>
+                <span>你是：{userId}号</span>
                 <button className="px-2 py-1 rounded border border-slate-700/30 disabled:bg-slate-500 disabled:active:ring-0 dark:border-slate-300/30 text-slate-100 bg-sky-600 hover:bg-sky-500 active:ring-2">
                   <XMarkIcon className="w-6" />
                 </button>

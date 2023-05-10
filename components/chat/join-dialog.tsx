@@ -45,8 +45,8 @@ export default function JoinChatDialog(
         >
           <Dialog.Panel className="w-full max-w-md p-4 overflow-hidden bg-white rounded-lg border shadow-lg border-slate-900/10 dark:border-slate-300/10 dark:bg-slate-800">
             <ul className="text-left text-sm">
-              <li>💡 请输入房间号加入聊天室</li>
-              <li>🔒 所有人退出房间后, 聊天记录自动清空</li>
+              <li>💡 请输入房间号加入房间</li>
+              <li>🔒 所有人退出房间后, 记录会被清理</li>
             </ul>
 
             <div className="mt-2 flex gap-2">

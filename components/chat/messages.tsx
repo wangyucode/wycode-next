@@ -1,9 +1,10 @@
 import { ServerStackIcon } from "@heroicons/react/24/outline";
+import { format, parseISO } from "date-fns";
 
 export interface Message {
   type: MessageType;
   content?: any;
-  time?: Date;
+  time?: string;
   sender?: string | number;
   isSelf?: boolean;
 }
@@ -15,6 +16,7 @@ export enum MessageType {
   JOIN = "join",
   RECONNECT = "reconnect",
   LEAVE = "leave",
+  OFFLINE = "offline",
   ERROR = "error",
   CREATED = "created",
   WELCOME = "welcome",
@@ -23,33 +25,51 @@ export enum MessageType {
 export default function Messages({ messages }: { messages: Message[] }) {
   return (
     <>
-      {messages.map((message, i) => <Message key={i} message={message} />)}
+      {messages.map((message, i) => (
+        <Message key={i} message={message} lastMessage={messages[i - 1]} />
+      ))}
     </>
   );
 }
 
-function Message({ message }: { message: Message }) {
+function Message(
+  { message, lastMessage }: { message: Message; lastMessage?: Message },
+) {
   const isSystem = message.sender === "system";
-  const hue = isSystem ? 0 : Number.parseInt(message.sender) * 29;
+  const hue = isSystem ? 0 : Number.parseInt(message.sender as string) * 29;
+  const lastSentTime = parseISO(lastMessage?.time)?.getTime() || 0;
+  const time = parseISO(message.time).getTime() - lastSentTime > 1000 * 60
+    ? format(parseISO(message.time) , "HH:mm")
+    : null;
   return (
-    <div
-      className={`flex gap-2 mt-2 ${message.isSelf ? "flex-row-reverse" : "flex-row"}`}
-    >
+    <>
+      {time && (
+        <p className="text-center text-xs">
+          {time}
+        </p>
+      )}
       <div
-        className="h-8 w-8 p-1 rounded-lg bg-sky-600 text-center text-white"
-        style={hue ? { backgroundColor: `hsl(${hue}, 60%, 40%)` } : {}}
+        className={`flex gap-2 mt-2 ${
+          message.isSelf ? "flex-row-reverse" : "flex-row"
+        }`}
       >
-        {isSystem
-          ? <ServerStackIcon className="h-full w-full" />
-          : (
-            <span className="h-full w-full text-white font-bold">
-              {message.sender}
-            </span>
-          )}
+        <div
+          className="h-8 w-8 shrink-0 p-1 rounded-lg bg-sky-600 text-center text-white"
+          style={hue ? { backgroundColor: `hsl(${hue}, 60%, 40%)` } : {}}
+        >
+          {isSystem
+            ? <ServerStackIcon className="h-full w-full" />
+            : (
+              <span className="h-full w-full text-white font-bold">
+                {message.sender}
+              </span>
+            )}
+        </div>
+        <p className="px-2 py-1 break-all bg-white rounded-lg border border-slate-900/10 dark:border-slate-300/10 dark:bg-slate-800">
+          {message.content}
+        </p>
+        <div className="w-8 shrink-0"></div>
       </div>
-      <p className="px-2 py-1 bg-white rounded-lg border border-slate-900/10 dark:border-slate-300/10 dark:bg-slate-800">
-        {message.content}
-      </p>
-    </div>
+    </>
   );
 }

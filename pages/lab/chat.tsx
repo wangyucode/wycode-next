@@ -42,7 +42,7 @@ export default function Chat() {
     ws.onopen = () => {
       heartbeat = setInterval(() => {
         ws.send(JSON.stringify({ type: "ping" }));
-      }, 5000);
+      }, 20 * 1000);
     };
     ws.onmessage = (e) => {
       const msg: Message = JSON.parse(e.data);
@@ -54,20 +54,24 @@ export default function Chat() {
       } else if (msg.type === MessageType.JOIN) {
         msg.content = `${msg.content}号玩家 加入了房间`;
         setPlayerCount((pc) => pc + 1);
-        setMessages(m => [...m, msg]);
+        setMessages((m) => [...m, msg]);
       } else if (msg.type === MessageType.RECONNECT) {
         msg.content = `${msg.content}号玩家 重新加入了房间`;
-        setMessages(m => [...m, msg]);
+        setMessages((m) => [...m, msg]);
       } else if (msg.type === MessageType.LEAVE) {
         msg.content = `${msg.content}号玩家 离开了房间`;
         setPlayerCount((pc) => pc - 1);
-        setMessages(m => [...m, msg]);
+        setMessages((m) => [...m, msg]);
+      } else if (msg.type === MessageType.OFFLINE) {
+        msg.content = `${msg.content}号玩家掉线被踢出房间`;
+        setPlayerCount((pc) => pc - 1);
+        setMessages((m) => [...m, msg]);
       } else if (msg.type === MessageType.WELCOME) {
         setUserId(msg.content);
         localStorage.setItem("chat-uid", msg.content);
       } else {
         if (msg.sender == localStorage.getItem("chat-uid")) msg.isSelf = true;
-        setMessages(m => [...m, msg]);
+        setMessages((m) => [...m, msg]);
       }
     };
     ws.onclose = () => {
@@ -98,7 +102,9 @@ export default function Chat() {
   const reconnect = () => {
     const rid = localStorage.getItem("chat-rid");
     const uid = localStorage.getItem("chat-uid");
-    ws = new WebSocket(`ws://localhost:8083/api/v1/ws/join?type=1&rid=${rid}&uid=${uid}`);
+    ws = new WebSocket(
+      `ws://localhost:8083/api/v1/ws/join?type=1&rid=${rid}&uid=${uid}`,
+    );
     setupListeners();
     setIsReconnectDialogOpen(false);
   };
@@ -123,24 +129,23 @@ export default function Chat() {
   return (
     <Layout>
       <div className="flex flex-col p-4 mx-auto w-full max-w-3xl h-content gap-2">
-        <div className="grow">
-          <div className="flex gap-2 justify-between border-b pb-2 border-slate-700/30 dark:border-slate-300/30">
-            {roomId
-              ? (
-                <>
-                  <span>房间号：{roomId}</span>
-                  <span>玩家数量：{playerCount}</span>
-                  <span>你是：{userId}号</span>
-                  <button
-                    className="px-2 py-1 rounded border border-slate-700/30 disabled:bg-slate-500 disabled:active:ring-0 dark:border-slate-300/30 text-slate-100 bg-sky-600 hover:bg-sky-500 active:ring-2"
-                    onClick={leave}
-                  >
-                    <XMarkIcon className="w-6" />
-                  </button>
-                </>
-              )
-              : (
-                <>
+        <div className="flex gap-2 justify-between border-b pb-2 border-slate-700/30 dark:border-slate-300/30">
+          {roomId
+            ? (
+              <>
+                <span>房间号：{roomId}</span>
+                <span>玩家数量：{playerCount}</span>
+                <span>你是：{userId}号</span>
+                <button
+                  className="px-2 py-1 rounded border border-slate-700/30 disabled:bg-slate-500 disabled:active:ring-0 dark:border-slate-300/30 text-slate-100 bg-sky-600 hover:bg-sky-500 active:ring-2"
+                  onClick={leave}
+                >
+                  <XMarkIcon className="w-6" />
+                </button>
+              </>
+            )
+            : (
+              <>
                 <span className="grow">未加入房间</span>
                 <button
                   className="px-2 py-1 rounded border border-slate-700/30 disabled:bg-slate-500 disabled:active:ring-0 dark:border-slate-300/30 text-slate-100 bg-sky-600 hover:bg-sky-500 active:ring-2"
@@ -148,10 +153,10 @@ export default function Chat() {
                 >
                   加入
                 </button>
-                </>
-              )}
-          </div>
-
+              </>
+            )}
+        </div>
+        <div className="grow overflow-y-auto">
           <Messages messages={messages} />
         </div>
         <div className="relative w-full">

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 
 import {
+  ChatBubbleLeftRightIcon,
   ClipboardDocumentIcon,
   PencilIcon,
   PresentationChartLineIcon,
@@ -19,6 +20,7 @@ import MongoDBIcon from "../svg/mongodb";
 import SwaggerIcon from "../svg/swagger";
 
 export const NavItemBlog = NavItem(PencilIcon);
+export const NavItemLabChat = NavItem(ChatBubbleLeftRightIcon);
 export const NavItemLabAccess = NavItem(PresentationChartLineIcon);
 export const NavItemLabSwagger = NavItem(SwaggerIcon);
 export const NavItemLabMongo = NavItem(MongoDBIcon);

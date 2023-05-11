@@ -7,6 +7,8 @@ import Modal from "../../components/modal";
 import JoinDialog from "../../components/chat/join-dialog";
 import ReconnectDialog from "../../components/chat/reconnect-dialog";
 
+const SERVER = "wss://wycode.cn";
+// const SERVER = "ws://localhost:8083";
 let ws;
 let heartbeat;
 
@@ -88,13 +90,13 @@ export default function Chat() {
 
   const onJoin = (key) => {
     if (!key) return;
-    ws = new WebSocket(`ws://localhost:8083/api/v1/ws/join?type=1&rid=${key}`);
+    ws = new WebSocket(`${SERVER}/api/v1/ws/join?type=1&rid=${key}`);
     setupListeners();
     setIsJoinDialogOpen(false);
   };
 
   const onCreate = () => {
-    ws = new WebSocket("ws://localhost:8083/api/v1/ws/create?type=1");
+    ws = new WebSocket(`${SERVER}/api/v1/ws/create?type=1`);
     setupListeners();
     setIsJoinDialogOpen(false);
   };
@@ -103,7 +105,7 @@ export default function Chat() {
     const rid = localStorage.getItem("chat-rid");
     const uid = localStorage.getItem("chat-uid");
     ws = new WebSocket(
-      `ws://localhost:8083/api/v1/ws/join?type=1&rid=${rid}&uid=${uid}`,
+      `${SERVER}/api/v1/ws/join?type=1&rid=${rid}&uid=${uid}`,
     );
     setupListeners();
     setIsReconnectDialogOpen(false);

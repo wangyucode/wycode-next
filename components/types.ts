@@ -39,6 +39,7 @@ export enum MenuLinks {
     APP = '/apps',
     CLIPBOARD = '/clipboard',
     LAB = '/lab',
+    CHAT = '/lab/chat',
     SWAGGER = '/lab/swagger-ui',
     MONGO = '/lab/mongo',
     SKILLS = '/skills',

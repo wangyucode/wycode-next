@@ -1,18 +1,19 @@
 import { Disclosure, Menu, Transition } from "@headlessui/react";
-import {
-  BeakerIcon,
-  ChevronRightIcon
-} from "@heroicons/react/24/outline";
+import { BeakerIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
 import { useRouter } from "next/router";
 import { MenuLinks } from "../types";
-import { NavItemLabAccess, NavItemLabMongo, NavItemLabSwagger } from "./navbar";
+import { NavItemLabAccess, NavItemLabChat, NavItemLabMongo, NavItemLabSwagger } from "./navbar";
 
 export default function MobileNavItemLab() {
   const path = useRouter().asPath;
   const buttonActive = path.startsWith("/lab");
 
   return (
-    <Disclosure defaultOpen={true} as="div" className="mb-1 rounded-md border border-slate-900/10 dark:border-slate-300/10">
+    <Disclosure
+      defaultOpen={true}
+      as="div"
+      className="mb-1 rounded-md border border-slate-900/10 dark:border-slate-300/10"
+    >
       {({ open }) => (
         <>
           <Disclosure.Button
@@ -39,6 +40,9 @@ export default function MobileNavItemLab() {
             leaveTo="transform scale-y-0 -translate-y-1/2 opacity-0"
           >
             <Disclosure.Panel className="pt-1">
+              <Menu.Item as="li" className="mb-1">
+                <NavItemLabChat href={MenuLinks.CHAT} title="Websocket" />
+              </Menu.Item>
               <Menu.Item as="li" className="mb-1">
                 <NavItemLabAccess href={MenuLinks.LAB} title="Dashboard" />
               </Menu.Item>

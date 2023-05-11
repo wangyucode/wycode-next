@@ -15,10 +15,8 @@ export default function Apps() {
                 <App title="谁是卧底发牌员" large img1="/apps/dealer1.png" img2="/apps/dealer2.png"
                     deprecated="暂停维护"
                     github="https://github.com/wangyucode/dealer" detail="线下聚会必备，只需要一个网页链接就能一起玩..." />
-                <App title="Websocket聊天室" large img1="/apps/chat1.png" img2="/apps/chat2.png"
-                    deprecated="暂停维护"
-                    github="https://github.com/wangyucode/chatroom-angular-antdesign-websocket-stomp"
-                    detail="基于Websocket和STOMP协议的网页聊天室，无需注册，完全匿名，聊天记录自动清除，邀请码定时刷新，短线自动重连：" />
+                <App title="Websocket聊天室" large img1="/apps/chat1.png" img2="/apps/chat2.png" link="/lab/chat"
+                    detail="基于Websocket的网页聊天室，无需注册，完全匿名，清理记录，掉线重连：" />
                 <App title="西安公共自行车" large img1="/apps/bike1.png" img2="/apps/bike2.png" link="/apps/bike.apk"
                     github="https://github.com/wangyucode/XiAnBike"
                     detail="开源、纯净、无广告；省电、安全、不推送；适配安卓2.3至安卓7.1的纯净版西安自行车网点查询来了，还你一个简单纯净的出行APP，立即下载：" />
@@ -33,7 +31,7 @@ export default function Apps() {
                     detail="记录宝宝成长，上传云相册永不丢失，分享给宝宝的亲友们，即可共同查看和管理宝宝照片。也可以用于情侣，家人，同学共同维护的私人云相册。" />
                 <App title="Wengine"
                     github="https://github.com/wangyucode/Wengine-android"
-                    detail="Wengine是一款轻量级Android游戏引擎，使用纯Java开发，对Android开发者友好，可以用极少的代码实现一些简单的小游戏，目前有5款demo，打砖块，天天跑酷，FlappyBird，打飞机，蛇蛇大作战" />
+                    detail="Wengine是一款轻量级Android游戏引擎，使用纯Java开发，可以用极少的代码实现一些简单的小游戏，目前有5款demo，打砖块，天天跑酷，FlappyBird，打飞机，蛇蛇大作战" />
                 <div className="sm:col-span-2 md:col-span-3 lg:col-span-4"><Comments /></div>
             </div>
         </Layout>

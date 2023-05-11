@@ -6,7 +6,7 @@ export default function ReconnectDialog(
   return (
     <>
       <ul className="text-left text-sm">
-        <li>💡 你是 {rid} 号房间的 {uid} 号玩家，是否重连？</li>
+        <li>💡 你是 {rid} 号房间的 {uid} 号玩家，是否尝试重连？</li>
       </ul>
       <button
         className="w-full mt-2 px-2 py-1 rounded border border-slate-700/30 disabled:bg-slate-500 disabled:active:ring-0 dark:border-slate-300/30 text-slate-100 bg-sky-600 hover:bg-sky-500 active:ring-2"

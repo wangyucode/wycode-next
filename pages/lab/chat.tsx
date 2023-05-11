@@ -1,13 +1,11 @@
 import { useEffect, useState } from "react";
 import Layout from "../../components/layout";
 import { PaperAirplaneIcon } from "@heroicons/react/24/solid";
-import ChatDialog from "../../components/chat/join-dialog";
 import Messages, { Message, MessageType } from "../../components/chat/messages";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import Modal from "../../components/modal";
 import JoinDialog from "../../components/chat/join-dialog";
 import ReconnectDialog from "../../components/chat/reconnect-dialog";
-import { ca } from "date-fns/locale";
 
 let ws;
 let heartbeat;
@@ -17,9 +15,9 @@ export default function Chat() {
   const [isReconnectDialogOpen, setIsReconnectDialogOpen] = useState(false);
   const [messages, setMessages] = useState([]);
   const [message, setMessage] = useState("");
-  let [roomId, setRoomId] = useState("");
-  let [userId, setUserId] = useState("");
-  let [playerCount, setPlayerCount] = useState(0);
+  const [roomId, setRoomId] = useState("");
+  const [userId, setUserId] = useState(0);
+  const [playerCount, setPlayerCount] = useState(0);
   const [hasError, setHasError] = useState(false);
 
   useEffect(() => {
@@ -51,27 +49,25 @@ export default function Chat() {
       console.log(msg);
       if (msg.type === MessageType.PONG) {
       } else if (msg.type === MessageType.CREATED) {
-        roomId = msg.content;
         setRoomId(msg.content);
+        localStorage.setItem("chat-rid", msg.content);
       } else if (msg.type === MessageType.JOIN) {
         msg.content = `${msg.content}号玩家 加入了房间`;
-        setPlayerCount(++playerCount);
-        messages.push(msg);
-        setMessages([...messages]);
+        setPlayerCount((pc) => pc + 1);
+        setMessages(m => [...m, msg]);
+      } else if (msg.type === MessageType.RECONNECT) {
+        msg.content = `${msg.content}号玩家 重新加入了房间`;
+        setMessages(m => [...m, msg]);
       } else if (msg.type === MessageType.LEAVE) {
         msg.content = `${msg.content}号玩家 离开了房间`;
-        setPlayerCount(--playerCount);
-        messages.push(msg);
-        setMessages([...messages]);
+        setPlayerCount((pc) => pc - 1);
+        setMessages(m => [...m, msg]);
       } else if (msg.type === MessageType.WELCOME) {
-        userId = msg.content;
         setUserId(msg.content);
-        localStorage.setItem("chat-rid", roomId);
         localStorage.setItem("chat-uid", msg.content);
       } else {
-        if (msg.sender === userId) msg.isSelf = true;
-        messages.push(msg);
-        setMessages([...messages]);
+        if (msg.sender == localStorage.getItem("chat-uid")) msg.isSelf = true;
+        setMessages(m => [...m, msg]);
       }
     };
     ws.onclose = () => {
@@ -79,6 +75,7 @@ export default function Chat() {
       clearInterval(heartbeat);
       setHasError(true);
       setRoomId("");
+      setUserId(0);
       setPlayerCount(0);
       setMessages([]);
       showDialog();
@@ -87,7 +84,7 @@ export default function Chat() {
 
   const onJoin = (key) => {
     if (!key) return;
-    ws = new WebSocket(`ws://localhost:8083/api/v1/ws/join?type=1&id=${key}`);
+    ws = new WebSocket(`ws://localhost:8083/api/v1/ws/join?type=1&rid=${key}`);
     setupListeners();
     setIsJoinDialogOpen(false);
   };
@@ -99,6 +96,11 @@ export default function Chat() {
   };
 
   const reconnect = () => {
+    const rid = localStorage.getItem("chat-rid");
+    const uid = localStorage.getItem("chat-uid");
+    ws = new WebSocket(`ws://localhost:8083/api/v1/ws/join?type=1&rid=${rid}&uid=${uid}`);
+    setupListeners();
+    setIsReconnectDialogOpen(false);
   };
 
   const cancel = () => {
@@ -123,19 +125,31 @@ export default function Chat() {
       <div className="flex flex-col p-4 mx-auto w-full max-w-3xl h-content gap-2">
         <div className="grow">
           <div className="flex gap-2 justify-between border-b pb-2 border-slate-700/30 dark:border-slate-300/30">
-            {roomId && (
-              <>
-                <span>房间号：{roomId}</span>
-                <span>玩家数量：{playerCount}</span>
-                <span>你是：{userId}号</span>
+            {roomId
+              ? (
+                <>
+                  <span>房间号：{roomId}</span>
+                  <span>玩家数量：{playerCount}</span>
+                  <span>你是：{userId}号</span>
+                  <button
+                    className="px-2 py-1 rounded border border-slate-700/30 disabled:bg-slate-500 disabled:active:ring-0 dark:border-slate-300/30 text-slate-100 bg-sky-600 hover:bg-sky-500 active:ring-2"
+                    onClick={leave}
+                  >
+                    <XMarkIcon className="w-6" />
+                  </button>
+                </>
+              )
+              : (
+                <>
+                <span className="grow">未加入房间</span>
                 <button
                   className="px-2 py-1 rounded border border-slate-700/30 disabled:bg-slate-500 disabled:active:ring-0 dark:border-slate-300/30 text-slate-100 bg-sky-600 hover:bg-sky-500 active:ring-2"
-                  onClick={leave}
+                  onClick={showDialog}
                 >
-                  <XMarkIcon className="w-6" />
+                  加入
                 </button>
-              </>
-            )}
+                </>
+              )}
           </div>
 
           <Messages messages={messages} />
@@ -147,6 +161,9 @@ export default function Chat() {
             onChange={(e) => {
               setMessage(e.target.value);
             }}
+            onKeyUp={(e) => {
+              if (e.key === "Enter") send();
+            }}
           />
           <button
             className="absolute right-3 bottom-3 hover:text-slate-800 dark:hover:text-white hover:scale-110 transition-transform"
@@ -156,10 +173,13 @@ export default function Chat() {
           </button>
         </div>
       </div>
-      <Modal isOpen={isJoinDialogOpen}>
+      <Modal isOpen={isJoinDialogOpen} setIsOpen={setIsJoinDialogOpen}>
         <JoinDialog onJoin={onJoin} onCreate={onCreate} hasError={hasError} />
       </Modal>
-      <Modal isOpen={isReconnectDialogOpen}>
+      <Modal
+        isOpen={isReconnectDialogOpen}
+        setIsOpen={setIsReconnectDialogOpen}
+      >
         <ReconnectDialog onConnect={reconnect} onCancel={cancel} />
       </Modal>
     </Layout>

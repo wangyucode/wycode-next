@@ -4,7 +4,7 @@ export interface Message {
   type: MessageType;
   content?: any;
   time?: Date;
-  sender?: string;
+  sender?: string | number;
   isSelf?: boolean;
 }
 
@@ -13,6 +13,7 @@ export enum MessageType {
   PING = "ping",
   PONG = "pong",
   JOIN = "join",
+  RECONNECT = "reconnect",
   LEAVE = "leave",
   ERROR = "error",
   CREATED = "created",

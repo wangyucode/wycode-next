@@ -43,6 +43,7 @@ export default function JoinDialog(
           onChange={(e) => {
             setKey(e.target.value);
           }}
+          onKeyUp={(e) => {if (e.key === "Enter") onClickJoin()}}
         />
         <button
           className="px-2 py-1 rounded border border-slate-700/30 disabled:bg-slate-500 disabled:active:ring-0 dark:border-slate-300/30 text-slate-100 bg-sky-600 hover:bg-sky-500 active:ring-2"

@@ -42,7 +42,7 @@ export default function Navbar() {
         {SITE_NAME}
       </Link>
       <div className="flex text-slate-900 dark:text-slate-50">
-        <nav className="hidden md:flex mr-4 pr-2 border-r m-auto border-slate-700/30 dark:border-slate-300/30">
+        <nav className="hidden md:flex mr-4 pr-2 border-r m-auto border-slate-400/30">
           <ul className="flex space-x-1 items-center">
             <li>
               <NavItemBlog href={MenuLinks.HOME} title="博客" />

@@ -58,7 +58,7 @@ export default function Comment(
   }
 
   return (
-    <div className="py-2 border-b border-slate-700/30 dark:border-slate-300/30">
+    <div className="py-2 border-b border-slate-400/30">
       <div className="flex text-sm">
         <UserCircleIcon className="w-10 " />
         <div className="flex flex-col ml-2 flex-1 text-slate-500">

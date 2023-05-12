@@ -12,7 +12,7 @@ export default function MobileNavItemLab() {
     <Disclosure
       defaultOpen={true}
       as="div"
-      className="mb-1 rounded-md border border-slate-900/10 dark:border-slate-300/10"
+      className="p-1 mb-1 rounded-md border border-slate-400/30"
     >
       {({ open }) => (
         <>

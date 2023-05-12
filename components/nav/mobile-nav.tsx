@@ -29,7 +29,7 @@ export default function MobileNav() {
             leaveFrom="transform opacity-100 scale-100"
             leaveTo="transform opacity-0 scale-95"
           >
-            <nav className="absolute w-48 p-4 right-0 mt-2 bg-white rounded-lg border shadow-lg border-slate-900/10 dark:border-slate-300/10 dark:bg-slate-800 transition-colors">
+            <nav className="absolute w-48 p-4 right-0 mt-2 bg-white rounded-lg shadow-lg dark:bg-slate-800 transition-colors">
               <Menu.Items as="ul">
                 <Menu.Item as="li" className="mb-1">
                   <NavItemBlog href={MenuLinks.HOME} title="博客" />
@@ -44,7 +44,7 @@ export default function MobileNav() {
                 <Menu.Item as="li" className="mb-1">
                   <NavItemSkills href={MenuLinks.SKILLS} title="技能树" />
                 </Menu.Item>
-                <div className="flex justify-between px-2 pt-2 border-t border-slate-700/30 dark:border-slate-300/30">
+                <div className="flex justify-between px-2 pt-2 border-t border-slate-400/30">
                   <span>
                     <SunIcon
                       className="mr-1 inline"

@@ -99,7 +99,7 @@ export default function Comments() {
   }
 
   return (
-    <div className="flex flex-col border-t w-full border-slate-700/30 dark:border-slate-300/30 mt-4 pt-4">
+    <div className="flex flex-col border-t w-full border-slate-400/30 mt-4 pt-4">
       {comments.length
         ? comments.map((comment: any) => (
           <Comment key={comment._id} setReplying={setReplying} {...comment} />
@@ -122,7 +122,7 @@ export default function Comments() {
         rows={3}
         onChange={onChangeContent}
         value={content}
-        className="mt-2 py-2 px-4 border bg-slate-500/5 rounded border-slate-700/30 dark:border-slate-300/30"
+        className="mt-2 py-2 px-4 border bg-slate-500/5 rounded border-slate-400/30"
       >
       </textarea>
       <div className="flex mt-2">
@@ -130,12 +130,12 @@ export default function Comments() {
           placeholder="邮箱（不会被公开）"
           value={email}
           onChange={onChangeEmail}
-          className="grow min-w-0 px-4 py-2 bg-slate-500/5 border rounded-l focus-visible:outline-0 focus-visible:ring-2 border-slate-700/30 dark:border-slate-300/30"
+          className="grow min-w-0 px-4 py-2 bg-slate-500/5 border rounded-l focus-visible:outline-0 focus-visible:ring-2 border-slate-400/30"
         />
         <button
           onClick={handleReply}
           disabled={loading}
-          className="flex items-center min-w-max px-4 py-2 bg-sky-600 disabled:bg-slate-500 hover:bg-sky-500 rounded-r text-slate-100 active:ring-2 disabled:active:ring-0 border-slate-700/30 dark:border-slate-300/30"
+          className="flex items-center min-w-max px-4 py-2 bg-sky-600 disabled:bg-slate-500 hover:bg-sky-500 rounded-r text-slate-100 active:ring-2 disabled:active:ring-0 border-slate-400/30"
         >
           <PaperAirplaneIcon className="w-4 inline mr-1" />回复
         </button>

@@ -26,8 +26,8 @@ export default function Hot({ postTitles }: { postTitles: any[] }) {
   }, []);
 
   return (
-    <div className="my-4 p-2 border rounded border-slate-700/30 dark:border-slate-300/30">
-      <h2 className="pb-1 mb-1 text-lg font-semibold border-b border-slate-700/30 dark:border-slate-300/30">
+    <div className="my-4 p-2 border rounded border-slate-400/30">
+      <h2 className="pb-1 mb-1 text-lg font-semibold border-b border-slate-400/30">
         <FireIcon className="inline h-5" /> 热门文章TOP10 (weekly)
       </h2>
       <ul>

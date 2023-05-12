@@ -95,7 +95,7 @@ export default function Clipboard() {
           ? (
             <div className="w-full sm:w-96 md:w-[32rem] lg:w-[56rem]">
               <textarea
-                className="block h-96 w-full py-2 px-4 border bg-slate-500/5 rounded border-slate-700/30 dark:border-slate-300/30"
+                className="block h-96 w-full py-2 px-4 border bg-slate-500/5 rounded border-slate-400/30"
                 disabled={loading}
                 value={content}
                 onChange={changeContent}
@@ -106,14 +106,14 @@ export default function Clipboard() {
               <button
                 onClick={save}
                 disabled={loading}
-                className="px-4 py-2 w-full block mt-2 rounded border border-slate-700/30 disabled:bg-slate-500 disabled:active:ring-0 dark:border-slate-300/30 text-slate-100 bg-green-600 hover:bg-green-500 active:ring-2"
+                className="px-4 py-2 w-full block mt-2 rounded border border-slate-400/30 disabled:bg-slate-500 disabled:active:ring-0 text-slate-100 bg-sky-600 hover:bg-sky-500 active:ring-2"
               >
                 <CheckIcon className="w-4 inline mr-1" />保存
               </button>
               <button
                 disabled={loading}
                 onClick={onClickReturn}
-                className="px-4 py-2 w-full mt-2 rounded border border-slate-700/30 disabled:bg-slate-500 disabled:active:ring-0 dark:border-slate-300/30 text-slate-100 bg-sky-600 hover:bg-sky-500 active:ring-2"
+                className="px-4 py-2 w-full mt-2 rounded border border-slate-400/30 disabled:bg-slate-500 disabled:active:ring-0 text-slate-100 bg-slate-500/5 hover:bg-slate-500/20 active:ring-2"
               >
                 <ArrowLeftIcon className="w-4 inline mr-1" />返回
               </button>
@@ -134,7 +134,7 @@ export default function Clipboard() {
                 autoFocus
                 maxLength={5}
                 disabled={loading}
-                className="px-4 py-2 bg-slate-500/5 rounded border border-slate-700/30 dark:border-slate-300/30 focus-visible:outline-0 focus-visible:ring-2"
+                className="px-4 py-2 bg-slate-500/5 rounded border border-slate-400/30 focus-visible:outline-0 focus-visible:ring-2"
                 onChange={changeKey}
                 onKeyUp={onKeyUpQuery}
                 value={key}
@@ -144,7 +144,7 @@ export default function Clipboard() {
               <button
                 onClick={query}
                 disabled={loading}
-                className="px-4 py-2 mt-2 rounded border border-slate-700/30 disabled:bg-slate-500 disabled:active:ring-0 dark:border-slate-300/30 text-slate-100 bg-sky-600 hover:bg-sky-500 active:ring-2"
+                className="px-4 py-2 mt-2 rounded border border-slate-400/30 disabled:bg-slate-500 disabled:active:ring-0 text-slate-100 bg-sky-600 hover:bg-sky-500 active:ring-2"
               >
                 <MagnifyingGlassIcon className="w-4 inline mr-1" />查询
               </button>

@@ -52,9 +52,9 @@ export default function Search() {
                                     placeholder="搜索博客"
                                     resetIconComponent={()=><></>}
                                     classNames={{
-                                        root: 'pb-4 border-b border-slate-700/30 dark:border-slate-300/30',
+                                        root: 'pb-4 border-b border-slate-400/30',
                                         form: 'relative mr-12',
-                                        input: 'w-full p-2 pl-8 rounded border outline-offset-0 border-slate-700/30 dark:border-slate-300/30',
+                                        input: 'w-full p-2 pl-8 rounded border outline-offset-0 border-slate-400/30',
                                         submit: 'absolute left-2 top-3',
                                         submitIcon: 'w-4 h-4 dark:fill-slate-50 dark:stroke-slate-50',
                                         loadingIndicator: 'absolute right-8 top-3 dark:stroke-slate-50'

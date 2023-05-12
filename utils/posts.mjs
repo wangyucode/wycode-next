@@ -47,12 +47,12 @@ export async function getSortedPosts() {
                 'a': 'text-sky-500 hover:text-sky-400',
                 'blockquote': 'px-4 border-l-4 border-slate-500 text-slate-500',
                 'blockquote > p': 'indent-0',
-                'h2': 'text-xl font-bold pb-4 border-b border-slate-700/30 dark:border-slate-300/30',
+                'h2': 'text-xl font-bold pb-4 border-b border-slate-400/30',
                 'h3': 'text-lg font-bold',
                 'code': 'px-1 py-0.5 mx-1 bg-slate-200 text-slate-800 dark:text-slate-200 dark:bg-slate-700 rounded-md text-sm font-mono',
                 'pre': 'p-4 bg-slate-200 dark:bg-slate-700 rounded-md overflow-auto max-w-full',
                 'pre > code': '!p-0 !m-0',
-                'td,th': 'px-2 border border-slate-700/30 dark:border-slate-300/30',
+                'td,th': 'px-2 border border-slate-400/30',
                 'thead': 'bg-sky-200 dark:bg-sky-900',
                 'tbody > tr': 'odd:bg-slate-200 odd:dark:bg-slate-800 even:bg-slate-300 even:dark:bg-slate-700'
             });

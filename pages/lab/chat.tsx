@@ -152,7 +152,7 @@ export default function Chat() {
   return (
     <Layout>
       <div className="flex flex-col p-4 mx-auto w-full max-w-3xl h-content gap-2">
-        <div className="flex gap-2 justify-between border-b pb-2 border-slate-700/30 dark:border-slate-300/30">
+        <div className="flex gap-2 justify-between border-b pb-2 border-slate-400/30">
           {roomId
             ? (
               <>
@@ -160,7 +160,7 @@ export default function Chat() {
                 <span>玩家数量：{playerCount}</span>
                 <span>你是：{userId}号</span>
                 <button
-                  className="px-2 py-1 rounded border border-slate-700/30 disabled:bg-slate-500 disabled:active:ring-0 dark:border-slate-300/30 text-slate-100 bg-sky-600 hover:bg-sky-500 active:ring-2"
+                  className="px-2 py-1 rounded border border-slate-400/30 text-slate-100 bg-sky-600 hover:bg-sky-500 active:ring-2"
                   onClick={leave}
                 >
                   <XMarkIcon className="w-6" />
@@ -171,7 +171,7 @@ export default function Chat() {
               <>
                 <span className="grow">未加入房间</span>
                 <button
-                  className="px-2 py-1 rounded border border-slate-700/30 disabled:bg-slate-500 disabled:active:ring-0 dark:border-slate-300/30 text-slate-100 bg-sky-600 hover:bg-sky-500 active:ring-2"
+                  className="px-2 py-1 rounded border border-slate-400/30 text-slate-100 bg-sky-600 hover:bg-sky-500 active:ring-2"
                   onClick={showDialog}
                 >
                   加入
@@ -184,7 +184,7 @@ export default function Chat() {
         </div>
         <div className="relative w-full">
           <input
-            className="block w-full h-12 pl-3 pr-12 border bg-slate-500/5 rounded border-slate-700/30 dark:border-slate-300/30"
+            className="block w-full h-12 pl-3 pr-12 border bg-slate-500/5 rounded border-slate-400/30"
             value={message}
             onChange={(e) => {
               setMessage(e.target.value);

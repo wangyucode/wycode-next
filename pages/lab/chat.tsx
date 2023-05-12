@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Layout from "../../components/layout";
 import { PaperAirplaneIcon } from "@heroicons/react/24/solid";
 import Messages, { Message, MessageType } from "../../components/chat/messages";
@@ -6,6 +6,7 @@ import { XMarkIcon } from "@heroicons/react/24/outline";
 import Modal from "../../components/modal";
 import JoinDialog from "../../components/chat/join-dialog";
 import ReconnectDialog from "../../components/chat/reconnect-dialog";
+import { de } from "date-fns/locale";
 
 const SERVER = "wss://wycode.cn";
 // const SERVER = "ws://localhost:8083";
@@ -21,6 +22,7 @@ export default function Chat() {
   const [userId, setUserId] = useState(0);
   const [playerCount, setPlayerCount] = useState(0);
   const [hasError, setHasError] = useState(false);
+  const messagesRef = useRef(null);
 
   useEffect(() => {
     showDialog();
@@ -49,32 +51,38 @@ export default function Chat() {
     ws.onmessage = (e) => {
       const msg: Message = JSON.parse(e.data);
       console.log(msg);
-      if (msg.type === MessageType.PONG) {
-      } else if (msg.type === MessageType.CREATED) {
-        setRoomId(msg.content);
-        localStorage.setItem("chat-rid", msg.content);
-      } else if (msg.type === MessageType.JOIN) {
-        msg.content = `${msg.content}号玩家 加入了房间`;
-        setPlayerCount((pc) => pc + 1);
-        setMessages((m) => [...m, msg]);
-      } else if (msg.type === MessageType.RECONNECT) {
-        msg.content = `${msg.content}号玩家 重新加入了房间`;
-        setMessages((m) => [...m, msg]);
-      } else if (msg.type === MessageType.LEAVE) {
-        msg.content = `${msg.content}号玩家 离开了房间`;
-        setPlayerCount((pc) => pc - 1);
-        setMessages((m) => [...m, msg]);
-      } else if (msg.type === MessageType.OFFLINE) {
-        msg.content = `${msg.content}号玩家掉线被踢出房间`;
-        setPlayerCount((pc) => pc - 1);
-        setMessages((m) => [...m, msg]);
-      } else if (msg.type === MessageType.WELCOME) {
-        setUserId(msg.content);
-        localStorage.setItem("chat-uid", msg.content);
-      } else {
-        if (msg.sender == localStorage.getItem("chat-uid")) msg.isSelf = true;
-        setMessages((m) => [...m, msg]);
+      switch (msg.type) {
+        case MessageType.PONG:
+          return;
+        case MessageType.CREATED:
+          setRoomId(msg.content);
+          localStorage.setItem("chat-rid", msg.content);
+          return;
+        case MessageType.WELCOME:
+          setUserId(msg.content);
+          localStorage.setItem("chat-uid", msg.content);
+          return;
+        case MessageType.JOIN:
+          msg.content = `${msg.content}号玩家 加入了房间`;
+          setPlayerCount((pc) => pc + 1);
+          break;
+        case MessageType.RECONNECT:
+          msg.content = `${msg.content}号玩家 重新加入了房间`;
+          break;
+        case MessageType.LEAVE:
+          msg.content = `${msg.content}号玩家 离开了房间`;
+          setPlayerCount((pc) => pc - 1);
+          break;
+        case MessageType.OFFLINE:
+          msg.content = `${msg.content}号玩家掉线被踢出房间`;
+          setPlayerCount((pc) => pc - 1);
+          break;
+        default:
+          if (msg.sender == localStorage.getItem("chat-uid")) msg.isSelf = true;
+          break;
       }
+      setMessages((m) => [...m, msg]);
+      scrollToBottom();
     };
     ws.onclose = () => {
       console.log("disconnected");
@@ -86,6 +94,19 @@ export default function Chat() {
       setMessages([]);
       showDialog();
     };
+  };
+
+  const scrollToBottom = () => {
+    const messagesContainer = messagesRef.current;
+    if (
+      messagesContainer &&
+      messagesContainer.scrollHeight - messagesContainer.scrollTop ===
+        messagesContainer.clientHeight
+    ) {
+      setTimeout(() => {
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+      }, 0);
+    }
   };
 
   const onJoin = (key) => {
@@ -158,7 +179,7 @@ export default function Chat() {
               </>
             )}
         </div>
-        <div className="grow overflow-y-auto">
+        <div className="grow overflow-y-auto" ref={messagesRef}>
           <Messages messages={messages} />
         </div>
         <div className="relative w-full">

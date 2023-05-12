@@ -18,7 +18,7 @@ export default function Modal({ isOpen, setIsOpen, children}) {
           leaveFrom="scale-100"
           leaveTo="scale-50"
         >
-          <Dialog.Panel className="w-full max-w-md p-4 overflow-hidden bg-white rounded-lg border shadow-lg border-slate-900/10 dark:border-slate-300/10 dark:bg-slate-800">
+          <Dialog.Panel className="w-full max-w-md p-4 overflow-hidden bg-white rounded-lg shadow-lg dark:bg-slate-800">
             {children}
           </Dialog.Panel>
         </Transition.Child>

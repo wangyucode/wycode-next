@@ -65,7 +65,7 @@ function Message(
               </span>
             )}
         </div>
-        <p className="px-2 py-1 break-all bg-white rounded-lg border border-slate-900/10 dark:border-slate-300/10 dark:bg-slate-800">
+        <p className="px-2 py-1 break-all rounded-lg border border-slate-400/30">
           {message.content}
         </p>
         <div className="w-8 shrink-0"></div>

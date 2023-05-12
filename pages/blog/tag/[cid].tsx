@@ -15,7 +15,7 @@ export default function TagPage({ posts, cid }: { posts: Post[], cid: string}) {
                 <meta name="keywords" content={tag} />
             </Head>
             <div className="p-4 max-w-7xl mx-auto">
-                <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100 pb-2 mb-2 border-b border-slate-700/30 dark:border-slate-300/30">
+                <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100 pb-2 mb-2 border-b border-slate-400/30">
                     <TagIcon className="inline mr-1 h-8 mb-1" />
                     {tag}
                 </h1>

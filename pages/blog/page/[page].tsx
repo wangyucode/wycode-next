@@ -12,7 +12,7 @@ export default function Page({ posts, page, total }: { posts: Post[], page: numb
             <div className="px-4 flex flex-col max-w-4xl mx-auto">
                 <ul className="min-w-0">
                     {posts.map(post => (
-                        <li className="border-b last:border-0 border-slate-700/30 dark:border-slate-300/30 py-4 max-w-full"
+                        <li className="border-b last:border-0 border-slate-400/30 py-4 max-w-full"
                             key={post.id}>
                             <ArticleItem post={post} withExcerpt />
                         </li>

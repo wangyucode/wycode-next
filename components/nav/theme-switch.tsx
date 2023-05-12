@@ -41,7 +41,7 @@ export default function ThemeSwitch({classes}: any) {
 
     return (
         <button
-            className={`my-auto border border-slate-500 hover:border-sky-500 rounded-xl w-9 p-px bg-slate-300/50 dark:bg-slate-600/50 duration-200 ${classes}`}
+            className={`my-auto border border-slate-400/30 hover:border-sky-500 rounded-xl w-9 p-px bg-slate-500/20 duration-200 ${classes}`}
             onClick={handleClick}>
             <span className='block w-min dark:translate-x-4 transition-transform duration-200'>
                 {theme === Theme.light ?

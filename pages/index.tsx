@@ -38,7 +38,7 @@ export default function Home({ posts, pageCount, postTitles, categories, tags }:
       <div className="px-4 flex flex-col lg:flex-row max-w-6xl mx-auto">
         <ul className="min-w-0">
           {posts.map((post: Post) => (
-            <li className="border-b last:border-0 border-slate-700/30 dark:border-slate-300/30 py-4 max-w-full" key={post.id}>
+            <li className="border-b last:border-0 border-slate-400/30 py-4 max-w-full" key={post.id}>
               <ArticleItem post={post} withExcerpt />
             </li>
           ))}

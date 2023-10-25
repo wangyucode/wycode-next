@@ -1,13 +1,15 @@
 import { Dialog, Transition } from "@headlessui/react";
 
-export default function Modal({ isOpen, setIsOpen, children}) {
+export default function Modal({ isOpen, setIsOpen, children, canClose = true }) {
+
+
   return (
     <Transition
       appear
       show={isOpen}
     >
       <Dialog
-        onClose={() => setIsOpen(false)}
+        onClose={() => { if (canClose) setIsOpen(false) }}
         className="fixed inset-0 bg-black/30 flex min-h-full items-center justify-center p-4 text-center"
       >
         <Transition.Child

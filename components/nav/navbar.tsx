@@ -8,6 +8,7 @@ import {
   PresentationChartLineIcon,
   PuzzlePieceIcon,
   Squares2X2Icon,
+  BuildingStorefrontIcon
 } from "@heroicons/react/24/outline";
 
 import NavItem from "./nav-item";
@@ -24,6 +25,7 @@ export const NavItemLabChat = NavItem(ChatBubbleLeftRightIcon);
 export const NavItemLabAccess = NavItem(PresentationChartLineIcon);
 export const NavItemLabSwagger = NavItem(SwaggerIcon);
 export const NavItemLabMongo = NavItem(MongoDBIcon);
+export const NavItemLabVending = NavItem(BuildingStorefrontIcon);
 export const NavItemClipboard = NavItem(ClipboardDocumentIcon);
 export const NavItemApps = NavItem(Squares2X2Icon);
 export const NavItemSkills = NavItem(PuzzlePieceIcon);

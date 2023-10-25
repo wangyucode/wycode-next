@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 
-import Layout from "../components/layout";
-import PageProgress from "../components/page-progress";
-import { AppStateContext } from "../components/app-context";
-import { Theme } from "../components/types";
+import Layout from "../../components/layout";
+import PageProgress from "../../components/page-progress";
+import { AppStateContext } from "../../components/app-context";
+import { Theme } from "../../components/types";
 
-export default function Lab() {
+export default function Dashboard() {
   const [url, setUrl] = useState(null);
   const [progress, setProgress] = useState(1);
   const [progressCallback, setProgressCallback] = useState(1);

@@ -47,7 +47,7 @@ export default function NavItemLab() {
             <NavItemLabMongo href={MenuLinks.MONGO} title="MongoDB" />
           </Menu.Item>
           <Menu.Item>
-            <NavItemLabVending href={MenuLinks.VENDING} title="Vending" />
+            <NavItemLabVending href={MenuLinks.VENDING} title="Vending" prefetch={false}/>
           </Menu.Item>
         </Menu.Items>
       </Transition>

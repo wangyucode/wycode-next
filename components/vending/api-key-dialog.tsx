@@ -1,51 +1,24 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Modal from "../modal";
 
-export default function ApiKeyDialog({setTracks}) {
-    const [apiKeyModalOpen, setApiKeyModalOpen] = useState(true);
-    const [hasErrorRing, setHasErrorRing] = useState(false);
-    const [apiKey, setApiKey] = useState('');
+export default function ApiKeyDialog({ apiKeyModalOpen, setApiKeyModalOpen, setApiKey, wrongApiKey, toggleWrong }) {
 
-    useEffect(() => {
-        const cachedKey = localStorage.getItem("vending-api-key");
-        if (cachedKey) fetchGoods(cachedKey);
-    }, []);
+    const inputRef = useRef(null);
 
     function onClickSet() {
-        if (apiKey) {
-            fetchGoods(apiKey);
-        } else {
-            setHasErrorRing(true);
-        }
-    }
-
-    async function fetchGoods(key: string) {
-        const res = await fetch("https://wycode.cn/api/v1/vending/goods", { headers: { "X-API-Key": key } });
-        if (res.status == 200) {
-            const data = await res.json();
-            if (data.success) {
-                setApiKeyModalOpen(false);
-                setTracks(data.payload);
-                localStorage.setItem("vending-api-key", key);
-            }
-        } else {
-            setHasErrorRing(true);
-        }
+        const key = inputRef.current.value;
+        key ? setApiKey(key) : toggleWrong(true);
     }
 
     return (
 
         <Modal isOpen={apiKeyModalOpen} setIsOpen={setApiKeyModalOpen} canClose={false}>
             <input
-                className={`${hasErrorRing ? "ring-red-500 ring-2 " : ""
-                    }w-full px-2 py-1 rounded border border-slate-400/30 focus-visible:outline-0 focus-visible:ring-2`}
+                ref={inputRef}
+                className={`${wrongApiKey ? "ring-red-500 ring-2 " : ""}w-full px-2 py-1 rounded border border-slate-400/30 focus-visible:outline-0 focus-visible:ring-2`}
                 placeholder="API key"
                 maxLength={10}
-                value={apiKey}
-                onChange={(e) => {
-                    setHasErrorRing(false);
-                    setApiKey(e.target.value);
-                }}
+                style={{ animation: `${wrongApiKey ? 'horizontal-shaking 0.5s' : 'none'}` }}
                 onKeyUp={(e) => { if (e.key === "Enter") onClickSet() }}
             />
             <button

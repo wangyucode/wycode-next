@@ -53,7 +53,7 @@ export default function MobileNavItemLab() {
                 <NavItemLabMongo href={MenuLinks.MONGO} title="MongoDB" />
               </Menu.Item>
               <Menu.Item as="li">
-                <NavItemLabVending href={MenuLinks.VENDING} title="Vending" />
+                <NavItemLabVending href={MenuLinks.VENDING} title="Vending" prefetch={false}/>
               </Menu.Item>
             </Disclosure.Panel>
           </Transition>

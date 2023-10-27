@@ -25,10 +25,10 @@ export default function GoodsDialog({apiKey, goodsDialogOpen, setGoodsDialogOpen
     async function onSubmit() {
         if(!track) return;
         setLoading(true);
-        await fetch(`https://wycode.cn/api/v1/vending/goods/${track}`, {
+        await fetch(`https://wycode.cn/api/v1/vending/goods`, {
             headers: { "X-API-Key": apiKey },
             method: "PUT",
-            body: JSON.stringify({name, price, stock, capacity, originalPrice, imageCount})
+            body: JSON.stringify({track, name, price, stock, capacity, originalPrice, imageCount})
         });
         setGoodsDialogOpen(false);
         setLoading(false);

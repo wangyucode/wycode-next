@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 
 import Layout from "../../components/layout";
-import { Tab } from "@headlessui/react";
 import Goods from "../../components/vending/goods";
-import { Menu, Tabs, TabsProps } from "antd";
+import { Tabs, TabsProps } from "antd";
+import Codes from "../../components/vending/codes";
 
 export default function Vending() {
 
@@ -23,7 +23,7 @@ export default function Vending() {
         {
             key: '2',
             label: '取货码',
-            children: 'Content of Tab Pane 2',
+            children:  <Codes apiKey={apiKey} />,
         },
         {
             key: '3',

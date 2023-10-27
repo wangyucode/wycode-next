@@ -27,15 +27,13 @@ export default function Dashboard() {
 
   const setThemeForUrl = (urlString: string) => {
     const url = new URL(urlString);
-    const destination = new URL(url.searchParams.get("Destination"));
     if (appState.theme === Theme.light) {
-      destination.searchParams.delete("theme");
-      destination.searchParams.delete("sls_iframe");
+      url.searchParams.delete("theme");
+      url.searchParams.delete("sls_iframe");
     } else {
-      destination.searchParams.set("theme", "dark");
-      destination.searchParams.set("sls_iframe", "true");
+      url.searchParams.set("theme", "dark");
+      url.searchParams.set("sls_iframe", "true");
     }
-    url.searchParams.set("Destination", destination.toString());
     return url.toString();
   };
 

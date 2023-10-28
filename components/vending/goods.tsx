@@ -56,7 +56,7 @@ export default function Goods({apiKey, setApiKey, tracks, setTracks}) {
                         <div className="flex flex-col text-sm px-2 items-start">
                             <p>{t.name}</p>
                             <p><span className="rounded bg-sky-500 text-white font-bold px-1 mr-2">{t.type}</span>详情图：{t.images.length}张</p>
-                            <p><span className="rounded bg-green-500 text-white font-bold px-1 mr-2">{t.track}</span><span className="text-red-500 font-bold mr-2">{(t.price / 100).toFixed(2)}</span><span className="line-through mr-2">{(t.originalPrice / 100).toFixed(2)}</span><span className="mr-2">剩{t.stock}件</span>{t.capacity || 0 - t.stock}空位</p>
+                            <p><span className="rounded bg-green-500 text-white font-bold px-1 mr-2">{t.track}</span><span className="text-red-500 font-bold mr-2">{(t.price / 100).toFixed(2)}</span><span className="line-through mr-2">{(t.originalPrice / 100).toFixed(2)}</span><span className="mr-2">剩{t.stock}件</span>{t.capacity - t.stock || 0 }空位</p>
                         </div>
                     </div>
                 )
@@ -64,7 +64,7 @@ export default function Goods({apiKey, setApiKey, tracks, setTracks}) {
             </div>
 
             <ApiKeyDialog {...{ setApiKey, apiKeyModalOpen, setApiKeyModalOpen, wrongApiKey, toggleWrong }} />
-            <GoodsDialog {...{ apiKey, goodsDialogOpen, setGoodsDialogOpen, editingGoods }} />
+            <GoodsDialog {...{ apiKey, goodsDialogOpen, setGoodsDialogOpen, editingGoods, fetchGoods }} />
         </>
     );
 }

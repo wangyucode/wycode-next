@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 import ApiKeyDialog from "./api-key-dialog";
 import GoodsDialog from "./goods-dialog";
 
-export default function Goods({apiKey, setApiKey}) {
-    const [tracks, setTracks] = useState([]);
+export default function Goods({apiKey, setApiKey, tracks, setTracks}) {
     const [goodsDialogOpen, setGoodsDialogOpen] = useState(false);
     const [apiKeyModalOpen, setApiKeyModalOpen] = useState(true);
     const [editingGoods, setEditingGoods] = useState(null);

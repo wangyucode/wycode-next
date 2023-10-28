@@ -2,7 +2,7 @@ import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { BeakerIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
 import { useRouter } from "next/router";
 import { MenuLinks } from "../types";
-import { NavItemLabAccess, NavItemLabChat, NavItemLabMongo, NavItemLabSwagger } from "./navbar";
+import { NavItemLabAccess, NavItemLabChat, NavItemLabMongo, NavItemLabSwagger, NavItemLabVending } from "./navbar";
 
 export default function MobileNavItemLab() {
   const path = useRouter().asPath;
@@ -44,13 +44,16 @@ export default function MobileNavItemLab() {
                 <NavItemLabChat href={MenuLinks.CHAT} title="Websocket" />
               </Menu.Item>
               <Menu.Item as="li" className="mb-1">
-                <NavItemLabAccess href={MenuLinks.LAB} title="Dashboard" />
+                <NavItemLabAccess href={MenuLinks.DASHBOARD} title="Dashboard" />
               </Menu.Item>
               <Menu.Item as="li">
                 <NavItemLabSwagger href={MenuLinks.SWAGGER} title="SwaggerUI" />
               </Menu.Item>
               <Menu.Item as="li">
                 <NavItemLabMongo href={MenuLinks.MONGO} title="MongoDB" />
+              </Menu.Item>
+              <Menu.Item as="li">
+                <NavItemLabVending href={MenuLinks.VENDING} title="Vending" prefetch={false}/>
               </Menu.Item>
             </Disclosure.Panel>
           </Transition>

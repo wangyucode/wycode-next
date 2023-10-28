@@ -7,6 +7,7 @@ import {
   NavItemLabChat,
   NavItemLabMongo,
   NavItemLabSwagger,
+  NavItemLabVending,
 } from "./navbar";
 
 export default function NavItemLab() {
@@ -37,13 +38,16 @@ export default function NavItemLab() {
             <NavItemLabChat href={MenuLinks.CHAT} title="Websocket" />
           </Menu.Item>
           <Menu.Item>
-            <NavItemLabAccess href={MenuLinks.LAB} title="Dashboard" />
+            <NavItemLabAccess href={MenuLinks.DASHBOARD} title="Dashboard" />
           </Menu.Item>
           <Menu.Item>
             <NavItemLabSwagger href={MenuLinks.SWAGGER} title="SwaggerUI" />
           </Menu.Item>
           <Menu.Item>
             <NavItemLabMongo href={MenuLinks.MONGO} title="MongoDB" />
+          </Menu.Item>
+          <Menu.Item>
+            <NavItemLabVending href={MenuLinks.VENDING} title="Vending" prefetch={false}/>
           </Menu.Item>
         </Menu.Items>
       </Transition>

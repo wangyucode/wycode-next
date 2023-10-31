@@ -26,7 +26,7 @@ export default function Orders({ apiKey }) {
                     <div className="border-b flex items-center" key={o._id}>
                         <div className="flex text-sm p-2 gap-2 flex-wrap">
                             <strong>id: {o._id}</strong>
-                            <div>总价： {o.amount.total/100}</div>
+                            {o.amount && <div>总价： {o.amount.total/100}</div>}
                             <div>状态： {o.trade_state_desc}</div>
                             <div>创建时间： {new Date(o.createDate).toLocaleString()}</div>
                             <div>支付时间：{new Date(o.success_time).toLocaleString()}</div>

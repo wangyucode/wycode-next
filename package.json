@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.7.17",
-    "@heroicons/react": "^2.0.18",
+    "@heroicons/react": "^2.1.4",
     "antd": "^5.10.3",
     "date-fns": "^2.30.0",
     "echarts": "^5.4.3",

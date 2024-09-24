@@ -40,8 +40,8 @@ export enum MenuLinks {
     CLIPBOARD = '/clipboard',
     DASHBOARD = '/lab/dashboard',
     CHAT = '/lab/chat',
-    SWAGGER = '/lab/swagger-ui',
-    MONGO = '/lab/mongo',
+    SWAGGER = '/lab/swagger-ui/',
+    MONGO = '/lab/mongo/',
     SKILLS = '/skills',
     VENDING = '/lab/vending',
 }

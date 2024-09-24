@@ -7,12 +7,14 @@ tags:
 category: Frontend
 ---
 
-![Vite](https://img-blog.csdnimg.cn/4f6dc7e43c154029b9c703517c7167df.png)
+![Vite](https://vitejs.cn/vite3-cn/logo-with-shadow.png)
 
 
 # 使用 Vite 构建 React 项目
 
 在前端开发领域，构建工具一直是不可或缺的一部分。Vite 是一个快速、简单的构建工具，它可以帮助我们快速搭建 React 项目并提供出色的开发体验。本文将介绍如何使用 Vite 构建 React 项目，包括 Vite 的简介、项目搭建步骤以及适配老版本浏览器的方法。
+
+<!--more-->
 
 ## 什么是 Vite
 

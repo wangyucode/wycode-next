@@ -48,7 +48,7 @@ jobs:
           localDir: 'out'
           dryRun: false
           compress: true
-          remoteDir: '/root/data/nginx/www/wycode/'
+          remoteDir: '/root/data/www/wycode/'
           removeExtraFilesOnServer: true
 
       - name: Deploy to Github pages
@@ -62,10 +62,10 @@ jobs:
 
       - name: Send Email
         run: |
-          curl -i -X POST \
+          curl -m 10 -i -X POST \
             -H "Content-Type:application/json" \
             -d \
             '{"key": "${{ secrets.MAIL_TOKEN }}","subject":"Frontend Build","content":"frontend deployed","to": "wangyu@wycode.cn"}' \
             'https://wycode.cn/api/v1/email'
       - name: Notify Google
-        run: curl http://www.google.com/webmasters/sitemaps/ping?sitemap=https://wycode.cn/sitemap.xml
+        run: curl -m 10 http://www.google.com/webmasters/sitemaps/ping?sitemap=https://wycode.cn/sitemap.xml

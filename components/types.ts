@@ -38,11 +38,12 @@ export enum MenuLinks {
     HOME = '/',
     APP = '/apps',
     CLIPBOARD = '/clipboard',
-    LAB = '/lab',
+    DASHBOARD = '/lab/dashboard',
     CHAT = '/lab/chat',
     SWAGGER = '/lab/swagger-ui',
     MONGO = '/lab/mongo',
     SKILLS = '/skills',
+    VENDING = '/lab/vending',
 }
 
 

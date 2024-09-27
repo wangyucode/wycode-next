@@ -13,7 +13,7 @@ category: Android
 > 本文介绍版本控制中，Android Studio工程应该忽略的文件，以及如何使用`.gitignore`文件快速配置自动忽略，教程同时适用于Git和SVN。
 
 <!--more-->
-废话不多说直接上：
+
 ## 应该忽略的文件：
 ```
 *.iml
@@ -37,3 +37,8 @@ category: Android
 ### 自己设置忽略
 
 右键点击相应文件，选择相应VCS操作即可。
+
+### `gitignore`的官方模板仓库
+
+此外github官方提供了一个仓库，里面包含了绝大多数平台，语言的gitignore模板
+https://github.com/github/gitignore

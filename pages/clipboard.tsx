@@ -113,7 +113,7 @@ export default function Clipboard() {
               <button
                 disabled={loading}
                 onClick={onClickReturn}
-                className="px-4 py-2 w-full mt-2 rounded border border-slate-400/30 disabled:bg-slate-500 disabled:active:ring-0 text-slate-100 bg-slate-500/5 hover:bg-slate-500/20 active:ring-2"
+                className="px-4 py-2 w-full mt-2 rounded border border-slate-400/30 disabled:bg-slate-500 disabled:active:ring-0 bg-slate-500/5 hover:bg-slate-500/20 active:ring-2"
               >
                 <ArrowLeftIcon className="w-4 inline mr-1" />返回
               </button>

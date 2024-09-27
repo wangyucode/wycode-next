@@ -8,7 +8,7 @@ tags:
 category: Backend
 ---
 
-![chat](/lab/chat2.png)
+![chat](/apps/chat2.png)
 
 有时候就想和其他人安全地聊个天，它需要有这些特征：
 
@@ -20,7 +20,7 @@ category: Backend
 - 用户上下线和邀请码刷新时有系统提示。
 - Web连接必然是不稳定的，所以断线必须能够重连。
 
-线上Demo演示请直接访问: <https://wycode.cn/chat/>
+线上Demo演示请直接访问: <https://wycode.cn/lab/chat>
 
 技术方面：
 
@@ -156,7 +156,7 @@ fun removeOutdatedMessage() {
 
 至此，后端核心技术要点已介绍完毕，最后放上github仓库，完整代码：<https://github.com/wangyucode/chatroom-spring-websocket-stomp>
 
-线上完整项目演示请直接访问: <https://wycode.cn/chat/>
+线上完整项目演示请直接访问: <https://wycode.cn/lab/chat>
 
 基于Angular的前端项目将在下篇博客介绍。
 

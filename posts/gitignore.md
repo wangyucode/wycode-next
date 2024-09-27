@@ -8,6 +8,8 @@ tags:
 category: Android
 ---
 
+![gitignore](https://res.cloudinary.com/practicaldev/image/fetch/s--DoWbGaGG--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/i/gqvc4folezic8qvkjbca.png)
+
 > 本文介绍版本控制中，Android Studio工程应该忽略的文件，以及如何使用`.gitignore`文件快速配置自动忽略，教程同时适用于Git和SVN。
 
 <!--more-->

@@ -7,6 +7,8 @@ tags:
 category: Languages
 ---
 
+![ReactiveX](https://cdn-ssl-devio-img.classmethod.jp/wp-content/uploads/2021/08/ReactoveX.png)
+
 > RxJava是`ReactiveX`的Java分支，除了Java版，`ReactiveX`还支持包括JavaScript、C#、C++、Swift、Python、Android、Unity、Kotlin、Go、PHP在内的众多平台和语言。
 
 

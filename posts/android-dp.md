@@ -7,6 +7,8 @@ tags:
 category: Android
 ---
 
+![Android](https://ts1.cn.mm.bing.net/th/id/R-C.7cb65108f9538f876d1e6e6409983bd1?rik=LMm7A%2fLgPkQDLA&riu=http%3a%2f%2flogoju.cn%2fwp-content%2fuploads%2f2019%2f08%2fAndroid1.png&ehk=ON%2fcvarPr2AWztVNbv7o6Y92N%2fiAIMjQtIIBEIGAhtE%3d&risl=&pid=ImgRaw&r=0)
+
 > 有关dpi、dp、px、sp、设计规范等等。
 
 <!--more-->

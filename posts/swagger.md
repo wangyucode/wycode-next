@@ -9,6 +9,8 @@ tags:
 category: Backend
 ---
 
+![Swagger](https://tse4-mm.cn.bing.net/th/id/OIP-C.7iaXjYojG6kWxLTZaW1x4QHaCn?pid=ImgDet&rs=1)
+
 > 本文介绍如何使用swaggerUI为Spring Boot项目创建动态的、从代码生成的REST API文档
 
 <!--more-->
@@ -20,6 +22,7 @@ dependencies {
     compile "io.springfox:springfox-swagger2:2.7.0"
 }
 ```
+
 - 添加`SwaggerConfig`类
 
 ```java

@@ -7,6 +7,8 @@ tags:
 category: Unity
 ---
 
+![Unity](https://tse1-mm.cn.bing.net/th/id/OIP-C.TPnSpv0PowWa1j_0SdXeWQHaEM?pid=ImgDet&rs=1)
+
 > 在某些情况下，我们需要使用原生代码来做一些事，比如集成一些第三方原生SDK，
 以下这种方式介绍了如何将Unity导出成Android Studio工程，从而添加Android代码。
 之后的教程中我还将介绍如何将Android写好的代码导回到Unity工程中。

@@ -9,6 +9,8 @@ tags:
 category: Backend
 ---
 
+![jwt](https://ts1.cn.mm.bing.net/th/id/R-C.db4d0c221a205b33b6296fe6412bfe91?rik=%2fIH2gS%2fgcubddQ&riu=http%3a%2f%2fordina-jworks.github.io%2fimg%2fJWT%2fjwt-logo.png&ehk=jeV7Iwj5nNSP9Pl927GxkmOei90QHBPvQtKMY5A0KrM%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1)
+
 为使用前后端分离的后端管理框架做准备，使用JWT目前看来是最佳选择。
 
 ## 知其然

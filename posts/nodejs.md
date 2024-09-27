@@ -9,6 +9,8 @@ tags:
 category: Frontend
 ---
 
+![nodejs](https://www.metachris.com/images/posts/nodejs-logo-wide.png)
+
 ## Linux平台
 
 使用cURL:

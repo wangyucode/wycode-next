@@ -7,16 +7,19 @@ export default function Apps() {
         <Layout>
             <div
                 className="p-4 flex flex-col sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 grid-flow-row-dense max-w-7xl mx-auto">
+                <App title="Crane"
+                    img1="/apps/crane.jpg"
+                    github="https://github.com/wangyucode/crane"
+                    detail="Crane 是一个使用 Rust 编写的简单、快速且安全的工具，用于下载和部署您的 .tar.gz 归档文件，无需服务器密码或密钥。" />   
                 <App title="3D滚蛋吧" img1="/apps/roll.jpg" detail="微信扫一扫，一起来玩滚蛋吧，看谁滚的远...😂" />
                 <App title="跨平台剪切板" img1="/apps/clipboard.jpg" link="/clipboard"
                     detail="跨平台跨网络发送文字，保存信息？最简单的方式：使用 跨平台剪切板 即可：" />
-                
                 <App title="暗黑破坏神不朽小助手" img1="/apps/diablo.jpg" detail="玩暗黑，查询职业、技能、物品、怪物、宝石、套装、传奇装备。" />
+                <App title="Websocket聊天室" large img1="/apps/chat1.png" img2="/apps/chat2.png" link="/lab/chat"
+                    detail="基于Websocket的网页聊天室，无需注册，完全匿名，清理记录，掉线重连：" />
                 <App title="谁是卧底发牌员" large img1="/apps/dealer1.png" img2="/apps/dealer2.png"
                     deprecated="暂停维护"
                     github="https://github.com/wangyucode/dealer" detail="线下聚会必备，只需要一个网页链接就能一起玩..." />
-                <App title="Websocket聊天室" large img1="/apps/chat1.png" img2="/apps/chat2.png" link="/lab/chat"
-                    detail="基于Websocket的网页聊天室，无需注册，完全匿名，清理记录，掉线重连：" />
                 <App title="西安公共自行车" large img1="/apps/bike1.png" img2="/apps/bike2.png" link="/apps/bike.apk"
                     github="https://github.com/wangyucode/XiAnBike"
                     detail="开源、纯净、无广告；省电、安全、不推送；适配安卓2.3至安卓7.1的纯净版西安自行车网点查询来了，还你一个简单纯净的出行APP，立即下载：" />

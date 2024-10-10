@@ -42,6 +42,13 @@ export default function Skills() {
           show: true,
           fontSize: 16,
         },
+        color:[
+          "#fb923c",
+          "#a3e635",
+          "#34d399",
+          "#2dd4bf",
+          "#f87171"
+        ],
         draggable: true,
         force: {
           edgeLength: 100,
@@ -52,11 +59,10 @@ export default function Skills() {
           { name: "默认" },
           { name: "在用" },
           { name: "用过" },
-          { name: "用过很久了" },
-          { name: "准备学" },
+          { name: "用过很久了" }
         ],
         data: [
-          { name: "平台", symbolSize: 60, x: 0, y: 0 },
+          { name: "平台", symbolSize: 60, x: 0, y: 0},
           { name: "工具", symbolSize: 60, x: 100, y: 0 },
           { name: "语言", symbolSize: 60, x: 100, y: 100 },
           { name: "框架", symbolSize: 60, x: 0, y: 100 },
@@ -72,7 +78,7 @@ export default function Skills() {
           { name: "Javascript", symbolSize: 50, category: "在用" },
           { name: "Typescript", symbolSize: 50, category: "在用" },
           { name: "C#", symbolSize: 30, category: "用过" },
-          { name: "Rust", symbolSize: 20, category: "准备学" },
+          { name: "Rust", symbolSize: 40, category: "在用" },
           { name: "Swift", symbolSize: 20, category: "用过很久了" },
           { name: "Objective-C", symbolSize: 20, category: "用过很久了" },
           { name: "Angular", symbolSize: 40, category: "在用" },
@@ -134,8 +140,9 @@ export default function Skills() {
           { source: "Android", target: "Java" },
           { source: "Browser", target: "Javascript" },
           { source: "React", target: "Javascript" },
-          { source: "React", target: "Typescript" },
+          { source: "React", target: "Javascript" },
           { source: "React", target: "Next.js" },
+          { source: "VUE", target: "Next.js" },
           { source: "Spring", target: "Java" },
           { source: "Spring", target: "Kotlin" },
           { source: "Browser", target: "Typescript" },

@@ -46,9 +46,12 @@ jobs:
       
       - name: Release
         id: create_release
-        uses: softprops/action-gh-release@v2
+        uses: marvinpinto/action-automatic-releases@latest
         with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          automatic_release_tag: "${{ steps.get_version.outputs.VERSION }}"
           files: wycode-${{ steps.get_version.outputs.VERSION }}.tar.gz
+
       
       - name: Call Crane to Deploy
         run: echo ${{steps.create_release.outputs}}

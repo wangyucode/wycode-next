@@ -37,8 +37,9 @@ jobs:
       #   run: npm run export
       
       - name: Get the version from package.json
-        id: get_version
-        run: echo "::set-output name=VERSION::$(jq -r .version package.json)"
+        run: |
+          echo "VERSION=$(jq -r .version package.json)" >> $GITHUB_ENV
+          echo "VERSION=$VERSION"
 
       # - name: Tar files in out directory
       #   run: tar -czvf wycode-${{ steps.get_version.outputs.VERSION }}.tar.gz -C out/ .
@@ -52,7 +53,7 @@ jobs:
           cos_bucket: ${{ secrets.TENCENT_COS_BUCKET }}
           cos_region: ap-beijing
           local_path: package.json
-          remote_path: /
+          remote_path: package.json
           clean: true
 
       

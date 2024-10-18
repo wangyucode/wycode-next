@@ -49,7 +49,7 @@ jobs:
       - name: upload to tencent COS
         uses: zkqiang/tencent-cos-action@v0.1.0
         with:
-          args: delete -r -f release/ && upload -r wycode-${{ env.VERSION }}.tar.gz release/
+          args: delete -r -f / && upload -r wycode-${{ env.VERSION }}.tar.gz /
           secret_id: ${{ secrets.TENCENT_CLOUD_SECRET_ID }}
           secret_key: ${{ secrets.TENCENT_CLOUD_SECRET_KEY }}
           bucket: ${{ secrets.TENCENT_COS_BUCKET }}

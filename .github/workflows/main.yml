@@ -54,7 +54,7 @@ jobs:
 
       
       - name: Call Crane to Deploy
-        run: echo ${{steps.create_release.outputs}}
+        run: echo ${{steps.create_release.outputs.upload_url}}
 
       # - name: Send posts to algolia
       #   run: npm run algolia ${{ secrets.ALGOLIA_KEY }}

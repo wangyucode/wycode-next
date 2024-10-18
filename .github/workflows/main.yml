@@ -38,18 +38,18 @@ jobs:
       
       - name: Get the version from package.json
         run: |
-          echo "VERSION=$(jq -r .version package.json)" >> $GITHUB_ENV
-          echo "VERSION=$VERSION"
+          echo "VERSION=$(jq -r .version package.json)" >> "$GITHUB_ENV"
+          echo "VERSION=${{ env.VERSION }}"
 
       - name: Tar files in out directory
         run: |
-          echo "VERSION=$VERSION"
-          tar -czvf wycode-$VERSION.tar.gz -C out/ .
+          echo "VERSION=${{ env.VERSION }}"
+          tar -czvf wycode-${{ env.VERSION }}.tar.gz -C out/ .
       
       - name: upload to tencent COS
         uses: zkqiang/tencent-cos-action@v0.1.0
         with:
-          args: delete -r -f release/ && upload -r wycode-$VERSION.tar.gz release/
+          args: delete -r -f release/ && upload -r wycode-${{ env.VERSION }}.tar.gz release/
           secret_id: ${{ secrets.TENCENT_CLOUD_SECRET_ID }}
           secret_key: ${{ secrets.TENCENT_CLOUD_SECRET_KEY }}
           bucket: ${{ secrets.TENCENT_COS_BUCKET }}

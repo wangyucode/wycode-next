@@ -45,16 +45,13 @@ jobs:
       #   run: tar -czvf wycode-${{ steps.get_version.outputs.VERSION }}.tar.gz -C out/ .
       
       - name: upload to tencent COS
-        id: create_release
-        uses: TencentCloud/cos-action@v1
+        uses: zkqiang/tencent-cos-action@v0.1.0
         with:
+          args: delete -r -f release && upload -r package.json release/
           secret_id: ${{ secrets.TENCENT_CLOUD_SECRET_ID }}
           secret_key: ${{ secrets.TENCENT_CLOUD_SECRET_KEY }}
-          cos_bucket: ${{ secrets.TENCENT_COS_BUCKET }}
-          cos_region: ap-beijing
-          local_path: package.json
-          remote_path: package.json
-          clean: true
+          bucket: ${{ secrets.TENCENT_COS_BUCKET }}
+          region: ap-beijing
 
       
       # - name: Call Crane to Deploy

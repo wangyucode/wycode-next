@@ -8,6 +8,8 @@ tags:
 category: Frontend
 ---
 
+![Hexo](https://ts1.cn.mm.bing.net/th/id/R-C.15156de8ecdaca0e208f755572b5217b?rik=SCL92Je0wYHVXg&riu=http%3a%2f%2fheibanbai.com.cn%2fimg%2fhexo.png&ehk=VywdH%2f1oS1u8iXWWEm11T%2bm0ntJ9pczrqS%2bktzxU3Mo%3d&risl=&pid=ImgRaw&r=0)
+
 > 刚刚完成了Hexo博客主题的自定义，现在总结如下，让我们一起来看看如何打造一款属于自己的Hexo主题。
 
 如何创建一个新主题以及如何切换主题在官网的[doc](https://hexo.io/zh-cn/docs/themes.html "doc")中有说明，这里我们只讨论如何打造一个新的属于自己的模版。

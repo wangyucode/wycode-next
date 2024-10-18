@@ -8,6 +8,8 @@ tags:
 category: Frontend
 ---
 
+![Angular](https://www.brunobrito.net.br/content/images/2018/07/angular-logo-1.png)
+
 > Angular框架的整体思路，很像Spring这样的后台框架。一层层的分解、解耦，天下框架莫不如此。
 
 Angular有3个重要概念：

@@ -6,36 +6,12 @@ import { AppStateContext } from "../../components/app-context";
 import { Theme } from "../../components/types";
 
 export default function Dashboard() {
-  const [url, setUrl] = useState(null);
   const [progress, setProgress] = useState(1);
   const [progressCallback, setProgressCallback] = useState(1);
 
   const appState = useContext(AppStateContext);
 
-  useEffect(() => {
-    fetch("https://wycode.cn/api/v1/analysis/dashboard")
-      .then((res) => res.json())
-      .then((res) => {
-        console.log("dashboard->", res);
-        if (res.success) {
-          setProgress(60);
-          const url = setThemeForUrl(res.payload);
-          setUrl(url);
-        }
-      });
-  }, [appState]);
-
-  const setThemeForUrl = (urlString: string) => {
-    const url = new URL(urlString);
-    if (appState.theme === Theme.light) {
-      url.searchParams.delete("theme");
-      url.searchParams.delete("sls_iframe");
-    } else {
-      url.searchParams.set("theme", "dark");
-      url.searchParams.set("sls_iframe", "true");
-    }
-    return url.toString();
-  };
+  const url = `https://sls.console.aliyun.com/lognext/share/project/wycode/dashboard/dashboard-1727265711687-159284?hideTopbar=true&theme=${appState.theme === Theme.light ? 'light' : 'dark'}&sls_ticket=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbkV4cCI6LTEsInR5cGUiOiJzaGFyZS1kYXNoYm9hcmQiLCJleHAiOjQxMDI0MTU5OTksIm5vbmNlIjoxNzI3MjgzNTA5NDM5LCJpYXQiOjE3MjcyODM1MDksInRpY2tldElkIjoiNmM4NTRhOTQtZWY2OS00NjcxLTkwZGYtNjgxNTZlMjM0N2NkIn0.sNcmhAafy53NpnhHQaSupdouj1zMtys4Y2l0X_ZTVqc`
 
   const onLoad = () => {
     setProgress(90);
@@ -47,15 +23,12 @@ export default function Dashboard() {
         initialProgress={progress}
         onProgress={setProgressCallback}
       />
-      {url && (
-        <iframe
-          className={`h-content w-full ${
-            progressCallback < 100 ? "hidden" : ""
+      <iframe
+        className={`h-content w-full ${progressCallback < 100 ? "hidden" : ""
           }`}
-          src={url}
-          onLoad={onLoad}
-        />
-      )}
+        src={url}
+        onLoad={onLoad}
+      />
     </Layout>
   );
 }

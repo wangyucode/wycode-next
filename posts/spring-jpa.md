@@ -8,6 +8,8 @@ tags:
 category: Backend
 ---
 
+![Spring JPA](https://tse3-mm.cn.bing.net/th/id/OIP-C.BJ09SzSPlUf5QzF_EryfdwAAAA?pid=ImgDet&rs=1)
+
 > Spring JPA框架提供了非常强大的数据库持久化方案，仅仅通过定义接口就能实现很多查询功能，甚至不用写具体实现代码。通过接口定义的抽象方法Spring JPA就知道该做什么了。
 
 下面将基本的使用总结如下：

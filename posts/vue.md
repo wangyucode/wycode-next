@@ -5,7 +5,10 @@ tags:
 - Vue
 category: Frontend
 ---
->选择往往比努力更加重要。
+
+![vue](https://tse4-mm.cn.bing.net/th/id/OIP-C.CPDIH8BWrGipHRJ6o6E2VwHaEc?pid=ImgDet&rs=1)
+
+> 选择往往比努力更加重要。
 
 准备做一个前后端分离的Web管理系统。
 

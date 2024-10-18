@@ -3,7 +3,7 @@ import Modal from "../modal";
 import { Button, Cascader, Form, Input, Space } from "antd";
 import { MinusCircleIcon, PlusCircleIcon } from "@heroicons/react/24/outline";
 
-export default function CodeDialog({apiKey, codeDialogOpen, setCodeDialogOpen, tracks, fetchCodes }) {
+export default function CodeDialog({ apiKey, codeDialogOpen, setCodeDialogOpen, tracks, fetchCodes }) {
     const [form] = Form.useForm();
     const [code, setCode] = useState('');
     const [loading, setLoading] = useState(false);
@@ -11,7 +11,7 @@ export default function CodeDialog({apiKey, codeDialogOpen, setCodeDialogOpen, t
     async function onSubmit(data) {
         console.log('onSubmit:', data);
         setLoading(true);
-        const goods = data.goods.map(g => ({track: g.a[0], count: g.a[1]}));
+        const goods = data.goods.map(g => ({ track: g.a[0], count: g.a[1] }));
         data.goods = goods;
         console.log('onSubmit-1:', data);
         await fetch(`https://wycode.cn/api/v1/vending/code`, {
@@ -32,7 +32,13 @@ export default function CodeDialog({apiKey, codeDialogOpen, setCodeDialogOpen, t
         return children;
     }
 
-    const options = tracks.map(t => ({ value: t.track, label: `${t.track}: ${t.name}`, disabled: t.stock < 1, children: getCountOptions(t.stock) }));
+
+    const options = tracks.map(t => ({
+        value: t.track, 
+        label: `${t.track}: ${t.name.length > 4 ? t.name.substring(0, 6) + '...' : t.name}`, 
+        disabled: t.stock < 1, 
+        children: getCountOptions(t.stock)
+    }));
 
     return (
         <Modal isOpen={codeDialogOpen} setIsOpen={setCodeDialogOpen}>

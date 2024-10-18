@@ -45,10 +45,10 @@ export default function Home({ posts, pageCount, postTitles, categories, tags }:
           <Pager page={1} total={pageCount} />
         </ul>
         <aside className="lg:basis-72 lg:shrink-0 lg:ml-16">
-          <Hot postTitles={postTitles} />
+          {/* <Hot postTitles={postTitles} /> */}
+          <About />
           <CategoryComponent categories={categories}/>
           <Tags tags={tags} />
-          <About />
           <Ad />
         </aside>
       </div>

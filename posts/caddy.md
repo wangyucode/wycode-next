@@ -7,7 +7,7 @@ tags:
 category: Linux
 ---
 
-![Caddy](https://caddyserver.com/resources/images/logo-dark.svg)
+![Caddy](https://caddyserver.com/old/resources/images/caddy-logo.svg)
 
 > 之前一直使用Nginx作为反向代理和静态网站服务，Caddy作为替代，有诸多好处，比如：配置简单，支持API，Caddyfile, JSON多种配置方式；支持自动HTTPS，自动更新TLS证书；内置支持HTTP1, HTTP2, HTTP3, Websocket。
 

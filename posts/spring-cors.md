@@ -8,6 +8,8 @@ tags:
 category: Backend
 ---
 
+![Spring](https://tse3-mm.cn.bing.net/th/id/OIP-C.X0Up2Pdq1ZDskAe51Uac4gHaE8?pid=ImgDet&rs=1)
+
 > JavaScript在跨域请求时会碰到`No 'Access-Control-Allow-Origin' header is present on the requested resource.`。是因为服务器不支持`Cross-origin resource sharing (CORS)`这篇教程教你如何为Java Spring后台配置`CORS`
 
 <!--more-->

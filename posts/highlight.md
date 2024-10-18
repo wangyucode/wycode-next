@@ -8,10 +8,14 @@ tags:
 category: Frontend
 ---
 
+![highlight.js](https://avatars.githubusercontent.com/u/9039821?s=280&v=4)
+
 > Hexo 默认对于代码高亮的处理过于粗暴，改变了其原有的`<pre><code>`标签形式，而且并没有达到良好的效果，所以尝试自己添加语法高亮功能。此文档也适用于其它HTML文档中代码的语法高亮显示。
 
 **我这里使用highlight.js进行添加语法高亮**
+
 <!--more-->
+
 ### highlight.js优势：
 
 - 176 languages and 79 styles
@@ -21,7 +25,8 @@ category: Frontend
 - works with any markup
 - compatible with any js framework
 
-## 下面开始集成
+## 下面开始集
+
 添加引用：
 ```html
 <link rel="stylesheet" href="/path/to/styles/monokai-sublime.css">
@@ -37,6 +42,7 @@ category: Frontend
 当然你也可以使用一些静态CDN库进行加速。
 
 我的博客就是使用了这个库，以下是一段Java代码示例：
+
 ```java
 /******************************************************************************
  *  Compilation:  javac HelloWorld.java

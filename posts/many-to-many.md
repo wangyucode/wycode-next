@@ -8,9 +8,9 @@ tags:
 category: Backend
 ---
 
-> JPA是Java Persistence API的简称是Java的ORM规范，实现这个规范的有著名的Hibernate等ORM框架。JDK 5.0注解或XML描述对象－关系表的映射关系，并将运行期的实体对象持久化到数据库中。
+![Spring JPA](https://tse3-mm.cn.bing.net/th/id/OIP-C.BJ09SzSPlUf5QzF_EryfdwAAAA?pid=ImgDet&rs=1)
 
-![Spring](/images/20180419_spring_framework.svg)
+> JPA是Java Persistence API的简称是Java的ORM规范，实现这个规范的有著名的Hibernate等ORM框架。JDK 5.0注解或XML描述对象－关系表的映射关系，并将运行期的实体对象持久化到数据库中。
 
 多对多关系是关联关系中最复杂的。本文使用Spring JPA框架总结多对多关系及`@ManyToMany`注解的详细使用。明白了`@ManyToMany`,其它
 `@OneToMany` 和`@OneToOne`就简单很多了。

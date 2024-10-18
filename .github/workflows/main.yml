@@ -36,36 +36,41 @@ jobs:
       
       - name: export
         run: npm run export
-
-      - name: Send posts to algolia
-        run: npm run algolia ${{ secrets.ALGOLIA_KEY }}
       
-      - name: Upload to server
-        uses: wangyucode/sftp-upload-action@v2.0.2
-        with:
-          host: 'wycode.cn'
-          privateKey: ${{ secrets.SERVER_KEY }}
-          localDir: 'out'
-          dryRun: false
-          compress: true
-          remoteDir: '/root/data/www/wycode/'
-          removeExtraFilesOnServer: true
+      - name: Get the version from package.json
+        id: get_version
+        run: echo "::set-output name=VERSION::$(jq -r .version package.json)"
 
-      - name: Deploy to Github pages
-        uses: crazy-max/ghaction-github-pages@v2.1.3
+      - name: Tar files in out directory
+        run: tar -czvf wycode-${{ steps.get_version.outputs.VERSION }}.tar.gz -C out/ .
+      
+      - name: Release
+        id: create_release
+        uses: softprops/action-gh-release@v2
         with:
-          repo: wangyucode/wangyucode.github.io
-          target_branch: master
-          build_dir: out
-        env:
-          GITHUB_TOKEN: ${{ secrets.REPO_PUSH_TOKEN }}
+          files: wycode-${{ steps.get_version.outputs.VERSION }}.tar.gz
+      
+      - name: Call Crane to Deploy
+        run: echo ${{steps.create_release.outputs}}
 
-      - name: Send Email
-        run: |
-          curl -m 10 -i -X POST \
-            -H "Content-Type:application/json" \
-            -d \
-            '{"key": "${{ secrets.MAIL_TOKEN }}","subject":"Frontend Build","content":"frontend deployed","to": "wangyu@wycode.cn"}' \
-            'https://wycode.cn/api/v1/email'
-      - name: Notify Google
-        run: curl -m 10 http://www.google.com/webmasters/sitemaps/ping?sitemap=https://wycode.cn/sitemap.xml
+      # - name: Send posts to algolia
+      #   run: npm run algolia ${{ secrets.ALGOLIA_KEY }}
+
+      # - name: Deploy to Github pages
+      #   uses: crazy-max/ghaction-github-pages@v2.1.3
+      #   with:
+      #     repo: wangyucode/wangyucode.github.io
+      #     target_branch: master
+      #     build_dir: out
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.REPO_PUSH_TOKEN }}
+
+      # - name: Send Email
+      #   run: |
+      #     curl -m 10 -i -X POST \
+      #       -H "Content-Type:application/json" \
+      #       -d \
+      #       '{"key": "${{ secrets.MAIL_TOKEN }}","subject":"Frontend Build","content":"frontend deployed","to": "wangyu@wycode.cn"}' \
+      #       'https://wycode.cn/api/v1/email'
+      # - name: Notify Google
+      #   run: curl -m 10 http://www.google.com/webmasters/sitemaps/ping?sitemap=https://wycode.cn/sitemap.xml

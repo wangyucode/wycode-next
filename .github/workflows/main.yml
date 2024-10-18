@@ -49,7 +49,7 @@ jobs:
       - name: upload to tencent COS
         uses: zkqiang/tencent-cos-action@v0.1.0
         with:
-          args: upload -r wycode-${{ env.VERSION }}.tar.gz /
+          args: upload wycode-${{ env.VERSION }}.tar.gz /
           secret_id: ${{ secrets.TENCENT_CLOUD_SECRET_ID }}
           secret_key: ${{ secrets.TENCENT_CLOUD_SECRET_KEY }}
           bucket: ${{ secrets.TENCENT_COS_BUCKET }}
@@ -79,5 +79,3 @@ jobs:
             -d \
             '{"key": "${{ secrets.MAIL_TOKEN }}","subject":"Frontend Build","content":"frontend deployed","to": "wangyu@wycode.cn"}' \
             'https://wycode.cn/api/v1/email'
-      - name: Notify Google
-        run: curl -m 10 http://www.google.com/webmasters/sitemaps/ping?sitemap=https://wycode.cn/sitemap.xml

@@ -19,10 +19,12 @@ import { MenuLinks, SITE_NAME } from "../types";
 import NavItemLab from "./nav-item-lab";
 import MongoDBIcon from "../svg/mongodb";
 import SwaggerIcon from "../svg/swagger";
+import DockerIcon from "../svg/docker";
 
 export const NavItemBlog = NavItem(PencilIcon);
 export const NavItemLabChat = NavItem(ChatBubbleLeftRightIcon);
 export const NavItemLabAccess = NavItem(PresentationChartLineIcon);
+export const NavItemLabDogger = NavItem(DockerIcon);
 export const NavItemLabSwagger = NavItem(SwaggerIcon);
 export const NavItemLabMongo = NavItem(MongoDBIcon);
 export const NavItemLabVending = NavItem(BuildingStorefrontIcon);

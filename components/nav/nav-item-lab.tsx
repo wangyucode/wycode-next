@@ -3,11 +3,11 @@ import { BeakerIcon, ChevronDownIcon } from "@heroicons/react/24/outline";
 import { useRouter } from "next/router";
 import { MenuLinks } from "../types";
 import {
-  NavItemLabAccess,
   NavItemLabChat,
   NavItemLabMongo,
   NavItemLabSwagger,
   NavItemLabVending,
+  NavItemLabDogger,
 } from "./navbar";
 
 export default function NavItemLab() {
@@ -37,8 +37,11 @@ export default function NavItemLab() {
           <Menu.Item>
             <NavItemLabChat href={MenuLinks.CHAT} title="Websocket" />
           </Menu.Item>
-          <Menu.Item>
+          {/* <Menu.Item>
             <NavItemLabAccess href={MenuLinks.DASHBOARD} title="Dashboard" />
+          </Menu.Item> */}
+           <Menu.Item>
+            <NavItemLabDogger href={MenuLinks.DOGGER} title="Docker UI" />
           </Menu.Item>
           <Menu.Item>
             <NavItemLabSwagger href={MenuLinks.SWAGGER} title="SwaggerUI" />

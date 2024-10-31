@@ -34,7 +34,7 @@ jobs:
           localDir: 'out'
           dryRun: false
           compress: true
-          remoteDir: '/root/data/www/wycode/'
+          remoteDir: '/home/ubuntu/docker/www/wycode/'
           removeExtraFilesOnServer: true
 
       - name: Deploy to Github pages

@@ -1,8 +1,6 @@
-name: Frontend
+name: SFTP Deploy
 
 on:
-  push:
-    branches: [ main ]
   workflow_dispatch:
 
 jobs:
@@ -27,21 +25,16 @@ jobs:
       - name: export
         run: npm run export
 
-      - name: Tar files in out directory
-        run: tar -czvf wycode.tar.gz -C out/ .
-      
-      - name: upload to tencent COS
-        uses: zkqiang/tencent-cos-action@v0.1.0
+      - name: Upload to server
+        uses: wangyucode/sftp-upload-action@v2.0.3
         with:
-          args: upload wycode.tar.gz /
-          secret_id: ${{ secrets.TENCENT_CLOUD_SECRET_ID }}
-          secret_key: ${{ secrets.TENCENT_CLOUD_SECRET_KEY }}
-          bucket: ${{ secrets.TENCENT_COS_BUCKET }}
-          region: ap-beijing
-
-      - name: Call Crane to Deploy
-        run: |
-          curl -H "X-Api-Key: ${{secrets.CRANE_API_KEY}}" https://wycode.cn/crane/deploy?url=https://${{ secrets.TENCENT_COS_BUCKET }}.cos.ap-beijing.myqcloud.com/wycode.tar.gz
+          host: 'wycode.cn'
+          privateKey: ${{ secrets.SERVER_KEY }}
+          localDir: 'out'
+          dryRun: false
+          compress: true
+          remoteDir: '/root/data/www/wycode/'
+          removeExtraFilesOnServer: true
 
       - name: Deploy to Github pages
         uses: crazy-max/ghaction-github-pages@v2.1.3

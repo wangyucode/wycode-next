@@ -29,6 +29,7 @@ jobs:
         uses: wangyucode/sftp-upload-action@v2.0.3
         with:
           host: 'wycode.cn'
+          username: ${{ secrets.SERVER_USERNAME }}
           privateKey: ${{ secrets.SERVER_KEY }}
           localDir: 'out'
           dryRun: false

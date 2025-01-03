@@ -17,7 +17,7 @@
     "date-fns": "^2.30.0",
     "echarts": "^5.5.1",
     "echarts-for-react": "^3.0.2",
-    "next": "^13.5.7",
+    "next": "^13.5.8",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-instantsearch-hooks-web": "^6.47.3"

@@ -30,18 +30,37 @@ jobs:
       - name: Tar files in out directory
         run: tar -czvf wycode.tar.gz -C out/ .
 
-      - name: upload to tencent COS
-        uses: zkqiang/tencent-cos-action@v0.1.0
+      - name: Extract version from package.json
+        id: extract_version
+        run: |
+          version=$(jq -r '.version' app/package.json)
+          echo "Version: $version"
+          echo "::set-output name=version::$version"
+
+      - name: Create GitHub Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          args: delete -r -f / && upload wycode.tar.gz /
-          secret_id: ${{ secrets.TENCENT_CLOUD_SECRET_ID }}
-          secret_key: ${{ secrets.TENCENT_CLOUD_SECRET_KEY }}
-          bucket: ${{ secrets.TENCENT_COS_BUCKET }}
-          region: ap-beijing
+          tag_name: v${{ steps.extract_version.outputs.version }}
+          release_name: Release v${{ steps.extract_version.outputs.version }}
+          draft: false
+          prerelease: false
+
+      - name: Upload Release Asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./wycode.tar.gz
+          asset_name: wycode.tar.gz
+          asset_content_type: application/gzip
 
       - name: Call Crane to Deploy
         run: |
-          curl -H "X-Api-Key: ${{secrets.CRANE_API_KEY}}" https://wycode.cn/crane/deploy?url=https://${{ secrets.TENCENT_COS_BUCKET }}.cos.ap-beijing.myqcloud.com/wycode.tar.gz
+          curl -H "X-Api-Key: ${{secrets.CRANE_API_KEY}}" "https://wycode.cn/crane/deploy?url=https://github.com/${{ github.repository_owner }}/${{ github.event.repository.name }}/releases/download/v${{ steps.extract_version.outputs.version }}/wycode.tar.gz"
 
       - name: Deploy to Github pages
         uses: crazy-max/ghaction-github-pages@v2.1.3

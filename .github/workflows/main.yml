@@ -27,21 +27,17 @@ jobs:
       - name: export
         run: npm run export
 
-      - name: create deploy directory
-        run: mkdir deploy
-
       - name: Tar files in out directory
-        run: tar -czvf deploy/wycode.tar.gz -C out/ .
+        run: tar -czvf wycode.tar.gz -C out/ .
 
       - name: upload to tencent COS
-        uses: TencentCloud/cos-action@v1
+        uses: zkqiang/tencent-cos-action@v0.1.0
         with:
+          args: delete -r -f / && upload wycode.tar.gz /
           secret_id: ${{ secrets.TENCENT_CLOUD_SECRET_ID }}
           secret_key: ${{ secrets.TENCENT_CLOUD_SECRET_KEY }}
-          cos_bucket: ${{ secrets.TENCENT_COS_BUCKET }}
-          cos_region: ap-beijing
-          local_path: deploy
-          remote_path: /
+          bucket: ${{ secrets.TENCENT_COS_BUCKET }}
+          region: ap-beijing
 
       - name: Call Crane to Deploy
         run: |

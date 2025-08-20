@@ -28,7 +28,7 @@ jobs:
         run: npm run export
 
       - name: Tar files in out directory
-        run: tar -czvf wycode.tar.gz -C out/ .
+        run: cd out && tar -czf ../wycode.tar.gz * && cd ..
 
       - name: Extract version from package.json
         id: extract_version

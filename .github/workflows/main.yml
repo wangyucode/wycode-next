@@ -39,28 +39,14 @@ jobs:
 
       - name: Create GitHub Release
         id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: softprops/action-gh-release@v2
         with:
-          tag_name: v${{ steps.extract_version.outputs.version }}
-          release_name: Release v${{ steps.extract_version.outputs.version }}
-          draft: false
-          prerelease: false
-
-      - name: Upload Release Asset
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./wycode.tar.gz
-          asset_name: wycode.tar.gz
-          asset_content_type: application/gzip
+          name: Release v${{ steps.extract_version.outputs.version }}
+          files: wycode.tar.gz
 
       - name: Call Crane to Deploy
         run: |
-          curl -H "X-Api-Key: ${{secrets.CRANE_API_KEY}}" "https://wycode.cn/crane/deploy?url=https://github.com/${{ github.repository_owner }}/${{ github.event.repository.name }}/releases/download/v${{ steps.extract_version.outputs.version }}/wycode.tar.gz"
+          curl -H "X-Api-Key: ${{secrets.CRANE_API_KEY}}" "https://wycode.cn/crane/deploy?url=${{ fromJSON(steps.create_release.outputs.assets)[0].browser_download_url }}"
 
       - name: Deploy to Github pages
         uses: crazy-max/ghaction-github-pages@v2.1.3

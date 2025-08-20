@@ -1,7 +1,7 @@
 import { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { MagnifyingGlassIcon, XMarkIcon } from "@heroicons/react/24/outline";
-import { Hits, SearchBox } from "react-instantsearch-hooks-web";
+import { Hits, SearchBox } from "react-instantsearch";
 import Hit from "./hit";
 import { useRouter } from "next/router";
 
@@ -50,7 +50,7 @@ export default function Search() {
                             <Dialog.Panel className="relative mx-auto mt-16 max-w-xl p-4 rounded-xl bg-white dark:bg-slate-900">
                                 <SearchBox
                                     placeholder="搜索博客"
-                                    resetIconComponent={()=><></>}
+                                    resetIconComponent={() => <></>}
                                     classNames={{
                                         root: 'pb-4 border-b border-slate-400/30',
                                         form: 'relative mr-12',
@@ -59,10 +59,10 @@ export default function Search() {
                                         submitIcon: 'w-4 h-4 dark:fill-slate-50 dark:stroke-slate-50',
                                         loadingIndicator: 'absolute right-8 top-3 dark:stroke-slate-50'
                                     }} />
-                                <Hits hitComponent={Hit}/>
+                                <Hits hitComponent={Hit} />
                                 <button className='absolute right-4 top-4 p-2 rounded-md dark:hover:bg-white/5 hover:bg-black/5' onClick={closeModal}><XMarkIcon height={24} width={24} /></button>
                             </Dialog.Panel>
-                        </Transition.Child> 
+                        </Transition.Child>
                     </div>
                 </Dialog>
             </Transition>

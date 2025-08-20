@@ -2,7 +2,7 @@ name: Deploy with Crane
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   workflow_dispatch:
 
 jobs:
@@ -13,31 +13,32 @@ jobs:
 
       - name: Setup Node.js environment
         uses: actions/setup-node@v4.1.0
-        with: 
-          node-version: '20'
-          cache: 'npm'
-          cache-dependency-path: 'package-lock.json'
+        with:
+          node-version: "20"
+          cache: "npm"
+          cache-dependency-path: "package-lock.json"
 
       - name: install
         run: npm ci
 
       - name: build
         run: npm run build
-      
+
       - name: export
         run: npm run export
 
       - name: Tar files in out directory
         run: tar -czvf wycode.tar.gz -C out/ .
-      
+
       - name: upload to tencent COS
-        uses: zkqiang/tencent-cos-action@v0.1.0
+        uses: TencentCloud/cos-action@v1
         with:
-          args: upload wycode.tar.gz /
           secret_id: ${{ secrets.TENCENT_CLOUD_SECRET_ID }}
           secret_key: ${{ secrets.TENCENT_CLOUD_SECRET_KEY }}
-          bucket: ${{ secrets.TENCENT_COS_BUCKET }}
-          region: ap-beijing
+          cos_bucket: ${{ secrets.TENCENT_COS_BUCKET }}
+          cos_region: ap-beijing
+          local_path: wycode.tar.gz
+          remote_path: /
 
       - name: Call Crane to Deploy
         run: |

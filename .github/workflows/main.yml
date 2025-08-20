@@ -33,7 +33,7 @@ jobs:
       - name: Extract version from package.json
         id: extract_version
         run: |
-          version=$(jq -r '.version' app/package.json)
+          version=$(jq -r '.version' package.json)
           echo "Version: $version"
           echo "::set-output name=version::$version"
 

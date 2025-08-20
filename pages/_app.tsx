@@ -2,7 +2,7 @@ import { useReducer } from 'react';
 import type { AppProps } from 'next/app'
 import Head from "next/head";
 import algoliasearch from 'algoliasearch/lite';
-import { InstantSearch } from 'react-instantsearch-hooks-web';
+import { InstantSearch } from 'react-instantsearch';
 
 import '../styles/global.css';
 import { AppDispatcherContext, AppStateContext, INITIAL_APP_STATE, reducer } from '../components/app-context';

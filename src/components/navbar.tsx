@@ -7,7 +7,7 @@ import ThemeToggle from "./theme-toggle";
 export default function Navbar() {
 
     return (
-        <div className="navbar bg-base-100 shadow-sm">
+        <div className="navbar shadow-sm bg-base-200/60 backdrop-blur fixed">
             <div className="navbar-start">
                 <Link href="/" className="text-xl font-bold hover:text-sky-600 flex gap-1 items-center px-2">
                     <Image src={icon} alt="王郁的小站" width={32} height={32} />
@@ -15,7 +15,7 @@ export default function Navbar() {
                 </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1">
+                <ul className="menu menu-horizontal p-1">
                     <li><a>Item 1</a></li>
                     <li>
                         <details>

@@ -14,10 +14,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="zh-CN">
-      <body className="transition-colors duration-500">
+    <html lang="zh-CN" className="transition-colors duration-1000">
+      <body className="bg-[url('/img/bg.svg')] bg-cover">
         <Navbar />
-        {children}
+        <div className="container mx-auto px-4 pt-16 min-h-dvh">
+          {children}
+        </div>
       </body>
     </html>
   );

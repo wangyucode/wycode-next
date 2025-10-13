@@ -12,14 +12,14 @@ export default function ThemeToggle() {
     }, []);
 
     function handleThemeChange() {
-        setTheme(theme === "cupcake" ? "business" : "cupcake");
+        setTheme(theme === "cupcake" ? "luxury" : "cupcake");
     }
 
     return (
         <button
-            className={`swap swap-rotate btn btn-circle btn-ghost ${theme === "business" ? "swap-active" : ""}`}
+            className={`swap swap-rotate btn btn-circle btn-ghost ${theme === "luxury" ? "swap-active" : ""}`}
             title="切换主题"
-            data-toggle-theme="cupcake,business"
+            data-toggle-theme="cupcake,luxury"
             onClick={handleThemeChange}>
             {/* sun icon */}
             <svg className="swap-off size-5 text-orange-400"

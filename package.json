@@ -22,8 +22,12 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "daisyui": "^5.2.0",
+    "date-fns": "^4.1.0",
     "eslint": "^9",
     "eslint-config-next": "15.5.4",
+    "gray-matter": "^4.0.3",
+    "react-markdown": "^10.1.0",
+    "remark-gfm": "^4.0.1",
     "tailwindcss": "^4",
     "typescript": "^5"
   },

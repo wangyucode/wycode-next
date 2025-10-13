@@ -16,9 +16,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="zh-CN" data-theme="cupcake" className="transition-colors duration-1000">
-      <body className="bg-[url('/img/bg.svg')] bg-cover">
+      <body className="bg-[url('/img/bg.svg')] bg-cover bg-fixed flex flex-col items-center min-h-dvh">
         <Navbar />
-        <main className="container mx-auto px-4 pt-20 pb-12 min-h-dvh">
+        <main className="container px-4 pt-20 pb-12 flex flex-col lg:flex-row gap-4 w-full overflow-auto">
           {children}
         </main>
         <Footer />

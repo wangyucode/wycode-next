@@ -7,7 +7,7 @@ import ThemeToggle from "./theme-toggle";
 export default function Navbar() {
 
     return (
-        <header className="navbar shadow-sm bg-base-200/60 backdrop-blur fixed">
+        <header className="navbar shadow-sm bg-base-200/60 backdrop-blur fixed z-10">
             <div className="navbar-start">
                 <Link href="/" className="text-xl font-bold hover:text-sky-600 flex gap-1 items-center px-2">
                     <Image src={icon} alt="王郁的小站" width={32} height={32} />

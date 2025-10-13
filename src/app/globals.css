@@ -1,5 +1,5 @@
 @import "tailwindcss";
 @plugin "daisyui"{
-  themes: cupcake --default, business --prefersdark;
+  themes: cupcake --default, luxury --prefersdark;
 }
-@custom-variant dark (&:where([data-theme=business], [data-theme=business] *));
+@custom-variant dark (&:where([data-theme=luxury], [data-theme=luxury] *));

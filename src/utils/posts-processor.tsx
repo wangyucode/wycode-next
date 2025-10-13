@@ -196,7 +196,7 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ source, clas
       <a href={href || ''} className="text-sky-500 hover:text-sky-400">{children}</a>
     ),
     blockquote: ({ children }) => (
-      <blockquote className="px-4 py-1 border-l-4 border-slate-500 text-slate-500 bg-slate-200 dark:bg-slate-700">
+      <blockquote className="px-4 py-1 border-l-4 border-slate-500 text-slate-700 dark:text-slate-300 bg-slate-300 dark:bg-slate-700 transition-colors">
         {children}
       </blockquote>
     ),

@@ -7,6 +7,10 @@ import Footer from "@/components/footer";
 export const metadata: Metadata = {
   title: "王郁的小站",
   description: "欢迎光临王郁的小站",
+  generator: "Next.js",
+  keywords: ["王郁", "缺氧", "AI", "JS", "Java"],
+  creator: "王郁",
+  viewport: "width=device-width, initial-scale=1.0",
 };
 
 export default function RootLayout({

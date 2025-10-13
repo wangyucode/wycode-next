@@ -7,14 +7,14 @@ import ThemeToggle from "./theme-toggle";
 export default function Navbar() {
 
     return (
-        <div className="navbar shadow-sm bg-base-200/60 backdrop-blur fixed">
+        <header className="navbar shadow-sm bg-base-200/60 backdrop-blur fixed">
             <div className="navbar-start">
                 <Link href="/" className="text-xl font-bold hover:text-sky-600 flex gap-1 items-center px-2">
                     <Image src={icon} alt="王郁的小站" width={32} height={32} />
                     <span className="bg-gradient-to-br dark:bg-gradient-to-tr from-sky-600 to-pink-600 dark:from-pink-400 dark:to-sky-400 bg-clip-text text-transparent">王郁的小站</span>
                 </Link>
             </div>
-            <div className="navbar-center hidden lg:flex">
+            <nav className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-1">
                     <li><a>Item 1</a></li>
                     <li>
@@ -28,7 +28,7 @@ export default function Navbar() {
                     </li>
                     <li><a>Item 3</a></li>
                 </ul>
-            </div>
+            </nav>
             <div className="navbar-end gap-1">
                 {/* search button */}
                 <button className="btn btn-ghost btn-circle" title="搜索">
@@ -50,7 +50,7 @@ export default function Navbar() {
                         <path d="M64,384H448V341.33H64Zm0-106.67H448V234.67H64ZM64,128v42.67H448V128Z" />
                     </svg>
                     {/* close icon */}
-                    <div className="swap-on dropdown dropdown-end dropdown-open">
+                    <nav className="swap-on dropdown dropdown-end dropdown-open">
                         <svg
                             className="fill-current h-5 w-5"
                             xmlns="http://www.w3.org/2000/svg"
@@ -71,14 +71,9 @@ export default function Navbar() {
                             </li>
                             <li><a>Item 3</a></li>
                         </ul>
-                    </div>
-
-
-
-
+                    </nav>
                 </label>
-
             </div>
-        </div >
+        </header >
     )
 }

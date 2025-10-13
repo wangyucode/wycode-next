@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import Navbar from "@/components/navbar";
 import "./globals.css";
+import Footer from "@/components/footer";
 
 export const metadata: Metadata = {
   title: "王郁的小站",
@@ -17,9 +18,10 @@ export default function RootLayout({
     <html lang="zh-CN" data-theme="cupcake" className="transition-colors duration-1000">
       <body className="bg-[url('/img/bg.svg')] bg-cover">
         <Navbar />
-        <div className="container mx-auto px-4 pt-16 min-h-dvh">
+        <main className="container mx-auto px-4 pt-20 pb-12 min-h-dvh">
           {children}
-        </div>
+        </main>
+        <Footer />
       </body>
     </html>
   );

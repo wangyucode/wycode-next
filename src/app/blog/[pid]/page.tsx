@@ -16,8 +16,8 @@ export default async function PostDetail({ params }: { params: { pid: string } }
     const cid = category.replaceAll(" ", "-").toLowerCase();
 
     return (
-        <div className="p-4 max-w-7xl mx-auto w-full">
-            <article className="prose prose-slate dark:prose-invert max-w-none">
+        <div className="container mx-auto w-full">
+            <article className="card shadow bg-base-100 p-4">
                 <h1 className="text-2xl text-slate-800 dark:text-slate-200 font-extrabold text-center">{title}</h1>
                 <div className="flex justify-between text-sm text-slate-600 dark:text-slate-400 mb-4">
                     <span className="flex items-center">

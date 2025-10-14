@@ -16,17 +16,16 @@ export default function Navbar() {
             </div>
             <nav className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-1">
-                    <li><a>Item 1</a></li>
+                    <li><Link href="/">博客</Link></li>
                     <li>
                         <details>
-                            <summary>Parent</summary>
+                            <summary>更多</summary>
                             <ul className="p-2">
-                                <li><a>Submenu 1</a></li>
-                                <li><a>Submenu 2</a></li>
+                                <li><a>项目</a></li>
+                                <li><a>关于</a></li>
                             </ul>
                         </details>
                     </li>
-                    <li><a>Item 3</a></li>
                 </ul>
             </nav>
             <div className="navbar-end gap-1">
@@ -61,15 +60,14 @@ export default function Navbar() {
                         <ul
                             tabIndex={0}
                             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-4 w-52 p-2 shadow">
-                            <li><a>Item 1</a></li>
+                            <li><Link href="/">博客</Link></li>
                             <li>
-                                <a>Parent</a>
+                                <a>更多</a>
                                 <ul className="p-2">
-                                    <li><a>Submenu 1</a></li>
-                                    <li><a>Submenu 2</a></li>
+                                    <li><a>项目</a></li>
+                                    <li><a>关于</a></li>
                                 </ul>
                             </li>
-                            <li><a>Item 3</a></li>
                         </ul>
                     </nav>
                 </label>

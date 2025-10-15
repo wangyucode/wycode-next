@@ -4,6 +4,7 @@ import { CalendarIcon, ArchiveBoxIcon, TagIcon } from "@heroicons/react/24/outli
 
 import { getPost, getAllPostIds } from '@/utils/posts-processor';
 import { MarkdownRenderer } from '@/utils/posts-processor';
+import Comments from '@/components/comments';
 
 export default async function PostDetail({ params }: { params: Promise<{ pid: string }> }) {
     const { pid } = await params
@@ -40,7 +41,7 @@ export default async function PostDetail({ params }: { params: Promise<{ pid: st
                     <MarkdownRenderer source={content} className="prose max-w-full" />
                 </div>
             </article>
-            {/* 评论组件暂时省略，后续可以添加 */}
+            <Comments />
         </div>
     );
 }

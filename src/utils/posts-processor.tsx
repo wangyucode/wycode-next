@@ -2,10 +2,11 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import { format } from 'date-fns';
-import React from 'react';
+import React, { ReactElement } from 'react';
 import ReactMarkdown, { Components } from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-
+import rehypeUnwrapImages from 'rehype-unwrap-images';
+import { bundledLanguages, bundledThemes, createHighlighter } from 'shiki';
 
 export interface Post {
   id: string;
@@ -17,6 +18,11 @@ export interface Post {
 
 const postsDirectory = path.join(process.cwd(), 'posts');
 let cachedPosts: Post[] | null = null;
+
+const highlighter = await createHighlighter({
+  themes: Object.keys(bundledThemes),
+  langs: Object.keys(bundledLanguages),
+})
 
 // 获取所有排序后的文章
 export async function getSortedPosts(): Promise<Post[]> {
@@ -180,43 +186,46 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ source, clas
 
   // 自定义组件配置
   const components: Components = {
-    img: ({ src, alt, title }) => (
-      <img src={src} alt={alt} title={title} className="mx-auto max-h-64 my-2 max-w-72" />
+    img: (attr) => (
+      <figure className="flex flex-col items-center">
+        <img {...attr} className="mx-auto max-h-64 max-w-72" />
+        {attr.alt && <figcaption className="text-sm text-gray-500 dark:text-gray-400 mt-1">{attr.alt}</figcaption>}
+      </figure>
     ),
-    h2: ({ children }) => (
-      <h2 className="text-xl font-bold py-2 border-b border-slate-400/30 mb-2">{children}</h2>
-    ),
-    h3: ({ children }) => (
-      <h3 className="text-lg font-bold mb-4">{children}</h3>
-    ),
-    p: ({ children }) => (
-      <p>{children}</p>
-    ),
-    a: ({ href = '', children }) => (
-      <a href={href || ''} className="text-sky-500 hover:text-sky-400">{children}</a>
-    ),
-    blockquote: ({ children }) => (
-      <blockquote className="px-4 py-1 border-l-4 border-slate-500 text-slate-700 dark:text-slate-300 bg-slate-300 dark:bg-slate-700 transition-colors">
-        {children}
-      </blockquote>
-    ),
-    code: ({ children }) => (
-      <code className="px-1 py-0.5 mx-1 bg-slate-200 text-slate-800 dark:text-slate-200 dark:bg-slate-700 rounded-md text-sm font-mono">
-        {children}
-      </code>
-    ),
-    pre: ({ children }) => (
-      <pre className="p-4 bg-slate-200 dark:bg-slate-700 rounded-md overflow-auto max-w-full mb-4">
-        {children}
-      </pre>
-    ),
+    // h2: ({ children }) => (
+    //   <h2 className="text-xl font-bold py-2 border-b border-slate-400/30 mb-2">{children}</h2>
+    // ),
+    // h3: ({ children }) => (
+    //   <h3 className="text-lg font-bold mb-4">{children}</h3>
+    // ),
+    // p: ({ children }) => (
+    //   <p>{children}</p>
+    // ),
+    // a: ({ href = '', children }) => (
+    //   <a href={href || ''} className="text-sky-500 hover:text-sky-400">{children}</a>
+    // ),
+    // blockquote: ({ children }) => (
+    //   <blockquote className="px-4 py-1 border-l-4 border-slate-500 text-slate-700 dark:text-slate-300 bg-slate-300 dark:bg-slate-700 transition-colors">
+    //     {children}
+    //   </blockquote>
+    // ),
+    pre: ({ children }) => {
+      console.log(children);
+      // 提取语言类名，格式通常是 language-javascript
+      const lang = (children as ReactElement<{ className?: string }>).props?.className?.match(/language-([a-z]+)/)?.[1];
+      const code = React.Children.toArray(children).map(child =>
+        typeof child === 'string' ? child : React.isValidElement(child) ? (child.props as { children: string }).children : ''
+      ).join('');
+      return lang ? <div dangerouslySetInnerHTML={{ __html: highlighter.codeToHtml(code, { lang, themes: { light: 'vitesse-light', dark: 'vitesse-dark' }, defaultColor: 'light-dark()' }) }}></div> : <pre>{children}</pre>
+    },
   };
 
   return (
-    <div className={className}>
+    <div className="prose max-w-full">
       <ReactMarkdown
         components={components}
         remarkPlugins={[remarkGfm]}
+        rehypePlugins={[rehypeUnwrapImages]}
       >
         {source}
       </ReactMarkdown>

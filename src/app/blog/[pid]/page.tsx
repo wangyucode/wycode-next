@@ -5,8 +5,9 @@ import { CalendarIcon, ArchiveBoxIcon, TagIcon } from "@heroicons/react/24/outli
 import { getPost, getAllPostIds } from '@/utils/posts-processor';
 import { MarkdownRenderer } from '@/utils/posts-processor';
 
-export default async function PostDetail({ params }: { params: { pid: string } }) {
-    const post = await getPost(params.pid);
+export default async function PostDetail({ params }: { params: Promise<{ pid: string }> }) {
+    const { pid } = await params
+    const post = await getPost(pid);
 
     if (!post) {
         return <div>文章未找到</div>;
@@ -36,7 +37,7 @@ export default async function PostDetail({ params }: { params: { pid: string } }
                     </div>
                 )}
                 <div className="mt-8">
-                    <MarkdownRenderer source={content} className="flex flex-col gap-2" />
+                    <MarkdownRenderer source={content} className="prose max-w-full" />
                 </div>
             </article>
             {/* 评论组件暂时省略，后续可以添加 */}

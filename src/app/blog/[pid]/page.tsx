@@ -52,8 +52,9 @@ export async function generateStaticParams() {
     }));
 }
 
-export async function generateMetadata({ params }: { params: { pid: string } }): Promise<Metadata> {
-    const post = await getPost(params.pid);
+export async function generateMetadata({ params }: { params: Promise<{ pid: string }> }): Promise<Metadata> {
+    const { pid } = await params
+    const post = await getPost(pid);
 
     if (!post) {
         return {

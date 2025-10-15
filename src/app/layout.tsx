@@ -9,8 +9,7 @@ export const metadata: Metadata = {
   description: "欢迎光临王郁的小站",
   generator: "Next.js",
   keywords: ["王郁", "缺氧", "AI", "JS", "Java"],
-  creator: "王郁",
-  viewport: "width=device-width, initial-scale=1.0",
+  creator: "王郁"
 };
 
 export default function RootLayout({
@@ -20,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="zh-CN" data-theme="cupcake" className="transition-colors duration-1000">
-      <body className="bg-[url('/img/bg.svg')] bg-cover bg-fixed flex flex-col items-center min-h-dvh">
+      <body className="bg-[url('/bg.svg')] bg-cover bg-fixed flex flex-col items-center min-h-dvh">
         <Navbar />
         <main className="container px-4 pt-20 pb-12 flex flex-col lg:flex-row gap-4 w-full overflow-auto">
           {children}

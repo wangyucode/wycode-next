@@ -9,11 +9,6 @@ export default function Articles({ articles, withExcerpt }: { articles: Post[], 
         <section className="flex flex-col gap-4 lg:flex-2">
             {articles.map(({ id, data: { title, date, cid, category, tags }, excerpt, content }) => (
                 <article className="card bg-base-100 shadow-sm" key={id}>
-                    {/* <figure>
-                        <img
-                            src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                            alt="Shoes" />
-                    </figure> */}
                     <div className="card-body">
                         <h2 className="card-title dark:text-neutral-content hover:text-info cursor-pointer"><Link href={`/blog/${id}`}>{title}</Link></h2>
                         <div className="flex justify-between">

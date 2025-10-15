@@ -210,7 +210,6 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ source, clas
     //   </blockquote>
     // ),
     pre: ({ children }) => {
-      console.log(children);
       // 提取语言类名，格式通常是 language-javascript
       const lang = (children as ReactElement<{ className?: string }>).props?.className?.match(/language-([a-z]+)/)?.[1];
       const code = React.Children.toArray(children).map(child =>

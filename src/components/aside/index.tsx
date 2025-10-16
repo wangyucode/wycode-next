@@ -10,7 +10,7 @@ interface AsideProps {
 
 export default function Aside({ recentArticles }: AsideProps) {
     return (
-        <aside className="lg:flex-1">
+        <aside className="flex flex-col gap-4 lg:flex-1">
             <PopularPostsAside recentArticles={recentArticles} />
             <Categories />
             <Tags />

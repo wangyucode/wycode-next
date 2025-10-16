@@ -93,13 +93,13 @@ export default function PopularPosts({ days = 7, limit = 10, recentArticles = []
     }
 
     return (
-        <div className="card bg-base-100 shadow-sm mb-4">
+        <div className="card bg-base-100 shadow-sm">
             <div className="card-body">
                 <h3 className="card-title flex items-center">
                     <ArrowTrendingUpIcon className="mr-2 h-5 w-5" />
                     {useFallback ? '最新文章' : '热门文章'}
                 </h3>
-                <ul className="mt-4 space-y-3 ml-4">
+                <ul className="space-y-3 ml-4">
                     {popularPosts.map((post, index) => (
                         <li key={post.postId} className="flex items-start justify-between gap-2">
                             <Link
@@ -123,7 +123,7 @@ export default function PopularPosts({ days = 7, limit = 10, recentArticles = []
                     className="btn btn-sm btn-ghost text-sm hover:text-info justify-start"
                 >
                     <FolderOpenIcon className="mr-2 h-5 w-5" />
-                    查看更多
+                    所有文章
                 </a>
             </div>
         </div>

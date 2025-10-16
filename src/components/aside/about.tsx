@@ -3,14 +3,14 @@ import WechatIcon from "@/components/svg/wechat";
 
 export default function About() {
     return (
-        <div className="card bg-base-100 shadow-sm mb-4">
+        <div className="card bg-base-100 shadow-sm">
             <div className="card-body">
                 <h3 className="card-title flex items-center">
-                    <UserPlusIcon className="mr-2 h-5 w-5 text-sky-500" /> 联系我
+                    <UserPlusIcon className="mr-2 h-5 w-5" /> 联系我
                 </h3>
-                <div className="mt-4 space-y-4">
+                <div className="space-y-4">
                     <div className="flex items-start">
-                        <EnvelopeIcon className="h-5 mr-3 mt-0.5 flex-shrink-0 text-sky-500" />
+                        <EnvelopeIcon className="h-5 mr-3 mt-0.5 flex-shrink-0" />
                         <p>
                             合作邮件：
                             <a

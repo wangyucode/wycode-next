@@ -1,11 +1,26 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { CalendarIcon, ArchiveBoxIcon } from "@heroicons/react/24/outline";
-import { getSortedPosts } from "@/utils/posts-processor";
+import { ArchiveBoxIcon, CalendarIcon } from "@heroicons/react/24/outline";
+
+import { getPostsByCategory, getCategories } from "@/utils/posts-processor";
 import Aside from "@/components/aside";
 
-export default async function BlogListPage() {
-    const posts = await getSortedPosts();
+export default async function CategoryPage({ params }: { params: Promise<{ cid: string }> }) {
+    const { cid } = await params;
+    const posts = await getPostsByCategory(cid);
+
+    // 如果没有找到该分类的文章，返回错误信息
+    if (!posts || posts.length === 0) {
+        return (
+            <div className="container mx-auto px-4 py-10 text-center">
+                <h1 className="text-2xl font-bold text-slate-800 dark:text-slate-200 mb-4">分类不存在</h1>
+                <p className="text-slate-600 dark:text-slate-400">未找到该分类下的文章</p>
+            </div>
+        );
+    }
+
+    // 获取分类名称（从第一篇文章中获取）
+    const categoryName = posts[0].data.category;
 
     return (
         <div className="container mx-auto px-4">
@@ -15,7 +30,7 @@ export default async function BlogListPage() {
                         <div className="card-body">
                             <h1 className="text-2xl font-bold text-slate-800 dark:text-slate-200 flex items-center mb-4">
                                 <ArchiveBoxIcon className="mr-2 h-6 w-6" />
-                                所有文章
+                                {categoryName}
                                 <span className="ml-2 text-sm font-normal text-slate-500 dark:text-slate-400">
                                     ({posts.length} 篇文章)
                                 </span>
@@ -46,11 +61,31 @@ export default async function BlogListPage() {
     );
 }
 
-export const metadata: Metadata = {
-    title: '博客文章 | 王郁的小站',
-    description: '分享技术心得与学习笔记',
-    pagination: {
-        previous: '/',
-        next: '/blog/2',
-    },
-};
+// 生成静态参数
+export async function generateStaticParams() {
+    const categories = await getCategories();
+    return categories.map((category) => ({
+        cid: category.params.cid,
+    }));
+}
+
+// 生成元数据
+export async function generateMetadata({ params }: { params: Promise<{ cid: string }> }): Promise<Metadata> {
+    const { cid } = await params;
+    const posts = await getPostsByCategory(cid);
+
+    if (!posts || posts.length === 0) {
+        return {
+            title: '分类不存在 | 王郁的小站',
+            description: '未找到该分类下的文章',
+        };
+    }
+
+    const categoryName = posts[0].data.category;
+
+    return {
+        title: `${categoryName} | 王郁的小站`,
+        description: `查看所有关于 ${categoryName} 的文章，共 ${posts.length} 篇`,
+        keywords: [categoryName, '王郁的小站', '博客'],
+    };
+}

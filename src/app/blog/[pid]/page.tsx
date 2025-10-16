@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { CalendarIcon, ArchiveBoxIcon, TagIcon } from "@heroicons/react/24/outline";
+import { getRandomColorById } from '@/utils/style-utils';
 
 import { getPost, getAllPostIds } from '@/utils/posts-processor';
 import { MarkdownRenderer } from '@/utils/posts-processor';
@@ -22,20 +23,31 @@ export default async function PostDetail({ params }: { params: Promise<{ pid: st
         <div className="container mx-auto w-full">
             <article className="card shadow bg-base-100 p-4">
                 <h1 className="text-2xl text-slate-800 dark:text-slate-200 font-extrabold text-center">{title}</h1>
-                <div className="flex justify-between text-sm text-slate-600 dark:text-slate-400 mb-4">
+                <div className="flex justify-between text-sm mb-4 flex-wrap gap-2">
                     <span className="flex items-center">
-                        <CalendarIcon className="inline mr-1" height={20} width={20} />
-                        {date}
+                        <CalendarIcon className="inline mr-1 h-5" />{date}
                     </span>
-                    <Link href={`/blog/category/${cid}`} className="hover:text-sky-400 flex items-center">
-                        <ArchiveBoxIcon className="inline mr-1 h-5 mb-0.5" />
-                        {category}
+                    <Link
+                        href={`/blog/category/${cid}`}
+                        className={`flex items-center px-3 py-1 ${getRandomColorById(cid)} text-sm rounded-full`}
+                    >
+                        <ArchiveBoxIcon className="inline mr-1 h-4 mb-0.5" />{category}
                     </Link>
                 </div>
-                {tags && (
-                    <div className="flex items-center text-sm text-slate-600 dark:text-slate-400 mb-4">
-                        <TagIcon className="inline mr-1" height={20} width={20} />
-                        {tags}
+                {tags && Array.isArray(tags) && tags.length > 0 && (
+                    <div className="flex items-center gap-2 mb-4">
+                        <TagIcon className="inline h-5" />
+                        <div className="flex flex-wrap gap-1">
+                            {tags.map((tag) => (
+                                <Link
+                                    key={tag}
+                                    href={`/blog/tag/${tag.replaceAll(" ", "-").toLowerCase()}`}
+                                    className={`px-2 ${getRandomColorById(tag)} text-sm rounded-full`}
+                                >
+                                    {tag}
+                                </Link>
+                            ))}
+                        </div>
                     </div>
                 )}
                 <div className="mt-8">

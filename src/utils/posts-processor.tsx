@@ -171,7 +171,8 @@ export async function getPostsByTag(cid: string): Promise<Post[]> {
   const allPosts = await getSortedPosts();
   return allPosts.filter(post =>
     post.data.tags &&
-    post.data.tags.includes(cid)
+    Array.isArray(post.data.tags) &&
+    post.data.tags.some(tag => tag.replaceAll(" ", "-").toLowerCase() === cid)
   );
 }
 

@@ -1,5 +1,6 @@
 import { UserPlusIcon, EnvelopeIcon, FolderOpenIcon } from "@heroicons/react/24/outline";
 import WechatIcon from "@/components/svg/wechat";
+import GithubIcon from "../svg/github";
 
 export default function About() {
     return (
@@ -19,6 +20,19 @@ export default function About() {
                                 className="ml-1 font-semibold text-sky-500 hover:text-sky-400 dark:hover:text-sky-300 transition-colors"
                             >
                                 wangyu@wycode.cn
+                            </a>
+                        </p>
+                    </div>
+                    <div className="flex items-start">
+                        <GithubIcon className="h-5 mr-3 mt-0.5 flex-shrink-0" />
+                        <p>
+                            GitHub：
+                            <a
+                                href="https://github.com/wangyu-wycode"
+                                title="github"
+                                className="ml-1 font-semibold text-sky-500 hover:text-sky-400 dark:hover:text-sky-300 transition-colors"
+                            >
+                                https://github.com/wangyu-wycode
                             </a>
                         </p>
                     </div>

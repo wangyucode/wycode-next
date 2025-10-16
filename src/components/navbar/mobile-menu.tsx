@@ -2,11 +2,14 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { ClipboardIcon, PencilIcon, UserCircleIcon } from "@heroicons/react/24/outline";
+import { MenuLinks } from "./navbar";
 
 export default function MobileMenu() {
     const [isOpen, setIsOpen] = useState(false);
     const pathname = usePathname();
     const isBlogPage = pathname === "/" || pathname.startsWith("/blog");
+    const isClipboardPage = pathname === MenuLinks.CLIPBOARD;
 
     const handleToggle = (event: React.SyntheticEvent<HTMLDetailsElement>) => {
         setIsOpen(event.currentTarget.open);
@@ -39,15 +42,17 @@ export default function MobileMenu() {
             </summary>
             <ul
                 tabIndex={0}
-                className="menu menu-sm md:menu-md dropdown-content bg-base-100 rounded-box z-1 w-48 mt-1 p-2 shadow">
-                <li><Link href="/" className={isBlogPage ? "menu-active" : ""}>博客</Link></li>
-                <li>
+                className="menu menu-sm md:menu-md dropdown-content bg-base-100 rounded-box z-1 w-48 mt-1 p-2 shadow gap-1">
+                <li><Link href={MenuLinks.HOME} className={`font-bold ${isBlogPage ? "menu-active" : ""}`}><PencilIcon className="w-4" />博客</Link></li>
+                <li><Link href={MenuLinks.CLIPBOARD} className={`font-bold ${isClipboardPage ? "menu-active" : ""}`}><ClipboardIcon className="w-4" />剪切板</Link></li>
+                <li ><Link href={MenuLinks.ABOUT} className={`font-bold ${pathname === MenuLinks.ABOUT ? "menu-active" : ""}`}><UserCircleIcon className="w-4" />关于我</Link></li>
+                {/* <li>
                     <a>更多</a>
                     <ul className="p-2">
                         <li><a>项目</a></li>
                         <li><a>关于</a></li>
                     </ul>
-                </li>
+                </li> */}
             </ul>
         </details>
     )

@@ -16,7 +16,7 @@ export enum MenuLinks {
     CHAT = '/lab/chat',
     SWAGGER = '/lab/swagger-ui',
     MONGO = '/lab/mongo',
-    SKILLS = '/skills',
+    ABOUT = '/about',
     VENDING = '/lab/vending',
 }
 

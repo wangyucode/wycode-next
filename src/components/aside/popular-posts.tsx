@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { ArrowTrendingUpIcon } from '@heroicons/react/24/outline';
+import { ArrowTrendingUpIcon, FolderOpenIcon } from '@heroicons/react/24/outline';
 
 interface PostView {
     postId: string;
@@ -9,7 +9,7 @@ interface PostView {
     viewCount: number;
 }
 
-interface RecentArticle {
+export interface RecentArticle {
     id: string;
     data: {
         title?: string;
@@ -99,12 +99,12 @@ export default function PopularPosts({ days = 7, limit = 10, recentArticles = []
                     <ArrowTrendingUpIcon className="mr-2 h-5 w-5" />
                     {useFallback ? '最新文章' : '热门文章'}
                 </h3>
-                <ul className="mt-4 space-y-3">
+                <ul className="mt-4 space-y-3 ml-4">
                     {popularPosts.map((post, index) => (
                         <li key={post.postId} className="flex items-start justify-between gap-2">
                             <Link
                                 href={`/blog/${post.postId}`}
-                                className="text-sm hover:text-sky-500 dark:hover:text-sky-400 transition-colors line-clamp-1"
+                                className="text-sm hover:text-sky-500 dark:hover:text-sky-400 transition-colors line-clamp-1 hover:underline"
                             >
                                 <span className="text-sm font-bold mr-2">
                                     {index + 1}.
@@ -118,6 +118,13 @@ export default function PopularPosts({ days = 7, limit = 10, recentArticles = []
                         </li>
                     ))}
                 </ul>
+                <a
+                    href="/blog"
+                    className="btn btn-sm btn-ghost text-sm hover:text-info justify-start"
+                >
+                    <FolderOpenIcon className="mr-2 h-5 w-5" />
+                    查看更多
+                </a>
             </div>
         </div>
     );

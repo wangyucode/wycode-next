@@ -8,7 +8,7 @@ export default function Excerpt({ excerpt, content, id }: Partial<Post>) {
         excerpt ? (
             <>
                 <MarkdownRenderer source={excerpt} className="flex flex-col gap-2" />
-                <Link href={`/blog/${id}`} className="btn btn-ghost font-bold text-info/80 hover:text-info justify-start">
+                <Link href={`/blog/${id}`} className="btn hover:text-info justify-start">
                     <ArrowsPointingOutIcon className="inline h-5" />
                     查看全文...
                 </Link>

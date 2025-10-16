@@ -1,11 +1,11 @@
 "use client";
 import { useEffect } from 'react';
 
-interface PageViewCounterProps {
+interface BlogViewCounterProps {
     postId: string;
 }
 
-export default function PageViewCounter({ postId }: PageViewCounterProps) {
+export default function BlogViewCounter({ postId }: BlogViewCounterProps) {
     useEffect(() => {
         if (window.location.hostname === 'localhost') return;
         fetch(`https://wycode.cn/api/v1/blog-view?id=${postId}`);

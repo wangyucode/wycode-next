@@ -1,7 +1,7 @@
 import Articles from "@/components/articles";
 import Pagination from "@/components/pagination";
 import { getPagedPosts, getPageCount } from "@/utils/posts-processor";
-import PopularPosts from '@/components/popular-posts';
+import Aside from '@/components/aside';
 
 const PAGE_SIZE = 5;
 
@@ -17,19 +17,7 @@ export default async function Home() {
           <Articles articles={articles} withExcerpt />
           <Pagination currentPage={1} totalPages={totalPages} />
         </div>
-        <aside className="lg:flex-1">
-          <PopularPosts recentArticles={articles} />
-
-          <div className="card bg-base-100 shadow-sm">
-            <div className="card-body">
-              <h2 className="card-title">相关资源</h2>
-              <ul className="menu menu-sm">
-                <li><a href="#">相关资源1</a></li>
-                <li><a href="#">相关资源2</a></li>
-              </ul>
-            </div>
-          </div>
-        </aside>
+        <Aside recentArticles={articles} />
       </div>
     </div>
   );

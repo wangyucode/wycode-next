@@ -5,6 +5,7 @@ import { CalendarIcon, ArchiveBoxIcon, TagIcon } from "@heroicons/react/24/outli
 import { getPost, getAllPostIds } from '@/utils/posts-processor';
 import { MarkdownRenderer } from '@/utils/posts-processor';
 import Comments from '@/components/comments';
+import PageViewCounter from '@/components/page-view-counter';
 
 export default async function PostDetail({ params }: { params: Promise<{ pid: string }> }) {
     const { pid } = await params
@@ -42,6 +43,7 @@ export default async function PostDetail({ params }: { params: Promise<{ pid: st
                 </div>
             </article>
             <Comments />
+            <PageViewCounter postId={pid} />
         </div>
     );
 }

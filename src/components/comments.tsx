@@ -14,10 +14,16 @@ function BannerMsg({ type, msg }: any) {
 }
 
 export default function Comments() {
-    // 获取当前页面的topic
-    if (typeof window !== 'undefined') {
-        var topic = window.location.pathname.match(/.*\/([\w-]+)$/)?.[1];
-    }
+    // 使用useState管理topic状态
+    const [topic, setTopic] = useState<string | undefined>(undefined);
+
+    // 使用useEffect在组件挂载后获取topic
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            const pathTopic = window.location.pathname.match(/.*\/([\w-]+)$/)?.[1];
+            setTopic(pathTopic);
+        }
+    }, []);
 
     const [replying, setReplying] = useState<any>(null);
     const [comments, setComments] = useState<any[]>([]);

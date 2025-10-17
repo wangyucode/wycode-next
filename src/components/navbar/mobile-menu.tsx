@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ClipboardIcon, PencilIcon, UserCircleIcon } from "@heroicons/react/24/outline";
+import { Bars3Icon, BeakerIcon, ClipboardIcon, PencilIcon, UserCircleIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { MenuLinks } from "./navbar";
 
 export default function MobileMenu() {
@@ -10,6 +10,7 @@ export default function MobileMenu() {
     const pathname = usePathname();
     const isBlogPage = pathname === "/" || pathname.startsWith("/blog");
     const isClipboardPage = pathname === MenuLinks.CLIPBOARD;
+    const isAppsPage = pathname === MenuLinks.APP;
 
     const handleToggle = (event: React.SyntheticEvent<HTMLDetailsElement>) => {
         setIsOpen(event.currentTarget.open);
@@ -24,35 +25,16 @@ export default function MobileMenu() {
                 className={`btn btn-ghost btn-circle swap swap-rotate ${isOpen ? 'swap-active' : ''}`}
                 title="菜单"
             >
-                {/* hamburger icon */}
-                <svg
-                    className="swap-off fill-current h-5 w-5"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 512 512">
-                    <path d="M64,384H448V341.33H64Zm0-106.67H448V234.67H64ZM64,128v42.67H448V128Z" />
-                </svg>
-                {/* close icon */}
-                <svg
-                    className="swap-on fill-current h-5 w-5"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 512 512">
-                    <polygon
-                        points="400 145.49 366.51 112 256 222.51 145.49 112 112 145.49 222.51 256 112 366.51 145.49 400 256 289.49 366.51 400 400 366.51 289.49 256 400 145.49" />
-                </svg>
+                <Bars3Icon className="swap-off h-5 w-5" />
+                <XMarkIcon className="swap-on h-5 w-5" />
             </summary>
             <ul
                 tabIndex={0}
                 className="menu menu-sm md:menu-md dropdown-content bg-base-100 rounded-box z-1 w-48 mt-1 p-2 shadow gap-1">
                 <li><Link href={MenuLinks.HOME} className={`font-bold ${isBlogPage ? "menu-active" : ""}`}><PencilIcon className="w-4" />博客</Link></li>
                 <li><Link href={MenuLinks.CLIPBOARD} className={`font-bold ${isClipboardPage ? "menu-active" : ""}`}><ClipboardIcon className="w-4" />剪切板</Link></li>
-                <li ><Link href={MenuLinks.ABOUT} className={`font-bold ${pathname === MenuLinks.ABOUT ? "menu-active" : ""}`}><UserCircleIcon className="w-4" />关于我</Link></li>
-                {/* <li>
-                    <a>更多</a>
-                    <ul className="p-2">
-                        <li><a>项目</a></li>
-                        <li><a>关于</a></li>
-                    </ul>
-                </li> */}
+                <li><Link href={MenuLinks.APP} className={`font-bold ${isAppsPage ? "menu-active" : ""}`}><BeakerIcon className="w-4" />项目</Link></li>
+                <li><Link href={MenuLinks.ABOUT} className={`font-bold ${pathname === MenuLinks.ABOUT ? "menu-active" : ""}`}><UserCircleIcon className="w-4" />关于我</Link></li>
             </ul>
         </details>
     )

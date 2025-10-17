@@ -20,7 +20,7 @@ export default async function PostDetail({ params }: { params: Promise<{ pid: st
     const cid = category.replaceAll(" ", "-").toLowerCase();
 
     return (
-        <div className="container mx-auto w-full">
+        <div className="container mx-auto w-full p-4">
             <article className="card shadow bg-base-100 p-4">
                 <h1 className="text-2xl text-slate-800 dark:text-slate-200 font-extrabold text-center">{title}</h1>
                 <div className="flex justify-between text-sm mb-4 flex-wrap gap-2">
@@ -50,7 +50,7 @@ export default async function PostDetail({ params }: { params: Promise<{ pid: st
                         </div>
                     </div>
                 )}
-                <div className="mt-8">
+                <div className="mt-4">
                     <MarkdownRenderer source={content} className="prose max-w-full" />
                 </div>
             </article>

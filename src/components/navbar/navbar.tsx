@@ -11,13 +11,10 @@ export enum MenuLinks {
     HOME = '/',
     APP = '/apps',
     CLIPBOARD = '/clipboard',
-    DASHBOARD = '/lab/dashboard',
-    DOGGER = '/lab/dogger',
-    CHAT = '/lab/chat',
-    SWAGGER = '/lab/swagger-ui',
-    MONGO = '/lab/mongo',
-    ABOUT = '/about',
-    VENDING = '/lab/vending',
+    DOGGER = '/manage/dogger',
+    SWAGGER = '/manage/swagger',
+    MONGO = '/manage/mongo',
+    ABOUT = '/about'
 }
 
 export default function Navbar() {

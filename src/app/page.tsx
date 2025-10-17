@@ -11,8 +11,8 @@ export default async function Home() {
   const totalPages = await getPageCount(PAGE_SIZE);
 
   return (
-    <div className="container mx-auto px-4">
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+    <div className="container mx-auto p-4">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         <div className="lg:col-span-2">
           <Articles articles={articles} withExcerpt />
           <Pagination currentPage={1} totalPages={totalPages} />

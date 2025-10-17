@@ -129,9 +129,9 @@ export default function AppsPage() {
   ];
 
   return (
-    <div className="container mx-auto px-4">
+    <div className="container mx-auto p-4">
       {/* 页面标题卡片 */}
-      <div className="card bg-base-100 shadow-lg mb-6">
+      <div className="card bg-base-100 shadow-lg mb-4">
         <div className="card-body">
           <h1 className="text-lg font-bold text-center">{PAGE_TITLE}</h1>
 

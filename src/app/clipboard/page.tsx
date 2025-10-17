@@ -84,7 +84,7 @@ export default function ClipboardPage() {
     }
 
     return (
-        <div className="container max-w-5xl mx-auto px-4 py-8">
+        <div className="container max-w-5xl mx-auto p-4">
             <div className="card bg-base-100 shadow-lg">
                 <div className="card-body">
                     <h1 className="text-2xl font-bold mb-4 text-center">跨平台剪切板</h1>

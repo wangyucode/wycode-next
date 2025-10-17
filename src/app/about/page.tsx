@@ -10,15 +10,15 @@ import Comments from '@/components/comments';
 export default function AboutPage() {
     const skills = Array.isArray(SKILLS_OPTION.series) && SKILLS_OPTION.series[0]?.data?.filter((it: any) => it.category) || [];
     return (
-        <div className="container mx-auto px-4">
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="container mx-auto p-4">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
                 {/* 主要内容区域 */}
                 <div className="lg:col-span-2">
 
                     {/* 个人简介卡片 */}
-                    <div className="card bg-base-100 shadow-lg mb-6">
+                    <div className="card bg-base-100 shadow-lg mb-4">
                         <div className="card-body">
-                            <div className="flex flex-col md:flex-row items-center gap-6">
+                            <div className="flex flex-col md:flex-row items-center gap-4">
                                 <img src="/about/photo.png" alt="照片" className="w-32 h-32 rounded-full" />
                                 <div className="text-center md:text-left">
                                     <h1 className="text-2xl font-bold text-slate-800 dark:text-slate-200">王郁</h1>
@@ -43,7 +43,7 @@ export default function AboutPage() {
                 {/* 侧边栏 - 包含联系信息 */}
                 <div className="lg:col-span-1">
                     {/* 联系卡片 */}
-                    <div className="card bg-base-100 shadow-sm mb-6">
+                    <div className="card bg-base-100 shadow-sm mb-4">
                         <div className="card-body">
                             <h3 className="card-title flex items-center mb-4">
                                 <UserIcon className="mr-2 h-5 w-5" /> 联系我
@@ -93,7 +93,7 @@ export default function AboutPage() {
                     </div>
 
                     {/* 技术栈标签 */}
-                    <div className="card bg-base-100 shadow-sm mb-6">
+                    <div className="card bg-base-100 shadow-sm mb-4">
                         <div className="card-body">
                             <h3 className="card-title flex items-center mb-4">
                                 <GithubIcon className="mr-2 h-5 w-5" /> 技术栈

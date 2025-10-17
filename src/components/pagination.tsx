@@ -59,7 +59,7 @@ export default function Pagination({ currentPage, totalPages, basePath = '/blog/
     };
 
     return (
-        <div className="flex justify-center items-center space-x-2 my-8">
+        <div className="flex justify-center items-center space-x-2 mt-4">
             {/* 上一页按钮 */}
             {prevPage && (
                 <Link

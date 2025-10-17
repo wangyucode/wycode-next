@@ -24,7 +24,7 @@ echarts.use([
 
 const SkillChart: React.FC = () => {
     return (
-        <div className="card bg-base-100 shadow-sm mb-6">
+        <div className="card bg-base-100 shadow-sm mb-4">
             <div className="card-body">
                 <h3 className="card-title flex items-center mb-4">
                     <PuzzlePieceIcon className="mr-2 h-5 w-5" /> 技能图谱

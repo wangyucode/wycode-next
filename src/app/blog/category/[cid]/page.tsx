@@ -23,8 +23,8 @@ export default async function CategoryPage({ params }: { params: Promise<{ cid: 
     const categoryName = posts[0].data.category;
 
     return (
-        <div className="container mx-auto px-4">
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="container mx-auto p-4">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
                 <div className="lg:col-span-2">
                     <div className="card bg-base-100 shadow-sm">
                         <div className="card-body">

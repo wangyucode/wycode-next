@@ -69,7 +69,8 @@ export default function AppsPage() {
       detail: "基于Websocket的网页聊天室，无需注册，完全匿名，清理记录，掉线重连：",
       large: true,
       type: "Web应用",
-      techStacks: ["WebSocket", "React", "Node.js", "Koa"]
+      techStacks: ["WebSocket", "React", "Node.js", "Koa"],
+      deprecated: "暂时下线"
     },
     {
       title: "西安公共自行车",
@@ -104,7 +105,7 @@ export default function AppsPage() {
       img1: "/apps/fish.jpg",
       detail: "造福鱼友：查养鱼攻略，查鱼类品种，问答社区",
       deprecated: "已下架 2020年3月",
-      type: "社区应用",
+      type: "微信小程序",
       techStacks: ["微信小程序", "JavaScript", "Node.js", "Koa", "MongoDB"]
     },
     {
@@ -122,7 +123,8 @@ export default function AppsPage() {
       img1: "/apps/wengine.jpg",
       detail: "Wengine是一款轻量级Android游戏引擎，使用纯Java开发，可以用极少的代码实现一些简单的小游戏，目前有5款demo，打砖块，天天跑酷，FlappyBird，打飞机，蛇蛇大作战",
       type: "游戏引擎",
-      techStacks: ["Java", "Android", "游戏开发"]
+      techStacks: ["Java", "Android", "游戏开发"],
+      deprecated: "已停止维护, 建议使用其它商业/开源游戏引擎"
     }
   ];
 

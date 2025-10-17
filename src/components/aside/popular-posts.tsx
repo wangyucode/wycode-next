@@ -41,7 +41,7 @@ export default function PopularPosts({ days = 7, limit = 10, recentArticles = []
                 } else {
                     // 如果没有热门博客数据，使用最近的博客作为后备
                     if (recentArticles && recentArticles.length > 0) {
-                        const fallbackPosts: PostView[] = recentArticles.slice(0, limit).map((article, index) => ({
+                        const fallbackPosts: PostView[] = recentArticles.slice(0, limit).map((article) => ({
                             postId: article.id,
                             title: article.data.title,
                             viewCount: 0
@@ -54,7 +54,7 @@ export default function PopularPosts({ days = 7, limit = 10, recentArticles = []
                 console.error('Failed to fetch popular posts:', error);
                 // 如果请求失败，也使用最近的博客作为后备
                 if (recentArticles && recentArticles.length > 0) {
-                    const fallbackPosts: PostView[] = recentArticles.slice(0, limit).map((article, index) => ({
+                    const fallbackPosts: PostView[] = recentArticles.slice(0, limit).map((article) => ({
                         postId: article.id,
                         title: article.data.title,
                         viewCount: 0
@@ -118,13 +118,13 @@ export default function PopularPosts({ days = 7, limit = 10, recentArticles = []
                         </li>
                     ))}
                 </ul>
-                <a
+                <link
                     href="/blog"
                     className="btn btn-sm btn-ghost text-sm hover:text-info justify-start"
                 >
                     <FolderOpenIcon className="mr-2 h-5 w-5" />
                     所有文章
-                </a>
+                </link>
             </div>
         </div>
     );

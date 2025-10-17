@@ -5,7 +5,6 @@ import { zhCN } from "date-fns/locale";
 import {
     HandThumbUpIcon,
     PaperAirplaneIcon,
-    UserCircleIcon,
 } from "@heroicons/react/24/outline";
 import { HandThumbUpIcon as ThumbUpSolidIcon } from "@heroicons/react/24/solid";
 import { useState } from "react";
@@ -14,7 +13,7 @@ export const key = "114c03ec4d6f40a4a1490a5638d8141d";
 export const app = "wycode";
 
 export default function Comment(
-    { _id, user, content, to, createTime, like, setReplying }: any,
+    { _id, user, content, to, createTime, like, setReplying, topic }: any,
 ) {
     const createDate = new Date(createTime);
     const dateDistance = new Date().getTime() - createDate.getTime();
@@ -27,11 +26,6 @@ export default function Comment(
 
     const [isLike, setIsLike] = useState(false);
     const [likeCount, setLikeCount] = useState(like);
-
-    // 获取当前页面的topic
-    if (typeof window !== 'undefined') {
-        var topic = window.location.pathname.match(/.*\/([\w-]+)$/)?.[1];
-    }
 
     function handleLike() {
         if (isLike) {

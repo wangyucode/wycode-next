@@ -1,6 +1,5 @@
 import { Metadata } from 'next';
 import { UserIcon } from '@heroicons/react/24/outline';
-import { getRandomColorById } from '@/utils/style-utils';
 import GithubIcon from '@/components/svg/github';
 import WechatIcon from '@/components/svg/wechat';
 import SkillChart from './skill-chart';
@@ -8,7 +7,7 @@ import { SKILLS_OPTION } from './skills';
 import Comments from '@/components/comments';
 
 export default function AboutPage() {
-    const skills = Array.isArray(SKILLS_OPTION.series) && SKILLS_OPTION.series[0]?.data?.filter((it: any) => it.category) || [];
+    const skills = (SKILLS_OPTION as any).series[0]?.data?.filter((it: any) => it?.category) || [];
     return (
         <div className="container mx-auto p-4">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
@@ -103,9 +102,9 @@ export default function AboutPage() {
                                 <div className="space-y-4">
                                     {['在用', '用过', '偶尔用'].map((category) => {
                                         // 获取当前类别的技能并按照symbolSize从大到小排序
-                                        const categorySkills = skills
-                                            .filter((skill): skill is { category: string, symbolSize: number, name: string } => typeof skill === 'object' && skill !== null && 'category' in skill && skill.category === category)
-                                            .sort((a, b) => (b.symbolSize || 0) - (a.symbolSize || 0));
+                                        const categorySkills = (skills as any)
+                                            .filter((skill: any): skill is { category: string, symbolSize: number, name: string } => typeof skill === 'object' && skill !== null && 'category' in skill && skill.category === category)
+                                            .sort((a: any, b: any) => (b.symbolSize || 0) - (a.symbolSize || 0));
                                         if (categorySkills.length === 0) return null;
 
                                         // 根据类别获取颜色类
@@ -130,7 +129,7 @@ export default function AboutPage() {
                                             <div key={category}>
                                                 <h4 className={`font-medium mb-2 ${titleColorClass}`}>{category}:</h4>
                                                 <div className="flex flex-wrap gap-2">
-                                                    {categorySkills.map((skill, index) => (
+                                                    {categorySkills.map((skill: any, index: number) => (
                                                         <span
                                                             key={index}
                                                             className={`px-3 py-1 rounded-full text-sm ${colorClass}`}

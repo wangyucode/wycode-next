@@ -31,7 +31,7 @@ export default function ClipboardPage() {
             } else {
                 setError('查询码不正确！')
             }
-        } catch (err) {
+        } catch (_) {
             setError('查询失败，请重试')
         } finally {
             setLoading(false)
@@ -57,7 +57,7 @@ export default function ClipboardPage() {
             } else {
                 setError('保存失败！')
             }
-        } catch (err) {
+        } catch (_) {
             setError('保存失败，请重试')
         } finally {
             setLoading(false)

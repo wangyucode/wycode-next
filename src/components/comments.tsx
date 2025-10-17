@@ -124,7 +124,7 @@ export default function Comments() {
                     // 从comment对象中解构出key属性，避免通过展开运算符传递
                     const { key, ...commentProps } = comment;
                     return (
-                        <Comment key={comment._id} setReplying={setReplying} {...commentProps} />
+                        <Comment key={comment._id} setReplying={setReplying} {...commentProps} topic={topic} />
                     );
                 })
                 : <p className="text-slate-500 text-center">暂无评论</p>}

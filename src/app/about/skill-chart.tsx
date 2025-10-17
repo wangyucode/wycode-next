@@ -2,13 +2,11 @@
 import React from 'react';
 import ReactECharts from 'echarts-for-react';
 import * as echarts from 'echarts/core';
-import { GraphChart, GraphSeriesOption } from 'echarts/charts';
+import { GraphChart } from 'echarts/charts';
 import { SVGRenderer } from 'echarts/renderers';
 import {
     LegendComponent,
-    LegendComponentOption,
     TooltipComponent,
-    TooltipComponentOption,
 } from 'echarts/components';
 import { PuzzlePieceIcon } from '@heroicons/react/24/outline';
 import { SKILLS_OPTION } from './skills';

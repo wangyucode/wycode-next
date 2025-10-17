@@ -3,21 +3,18 @@ import { UserIcon } from '@heroicons/react/24/outline';
 import { getRandomColorById } from '@/utils/style-utils';
 import GithubIcon from '@/components/svg/github';
 import WechatIcon from '@/components/svg/wechat';
-import SkillChart from '@/components/skill-chart';
-
-const skills = [
-    'Android', 'iOS', 'Unity', 'Flutter', 'Node.js', '小程序',
-    'Java', 'Kotlin', 'Javascript', 'Typescript', 'C#', 'Rust', 'Swift', 'Angular', 'React', 'Next.js', 'VUE', 'Vite',
-    'Linux', 'Github Actions', 'Docker', 'Docker Compose', 'Spring',
-    'MongoDB', 'Git'
-];
+import SkillChart from './skill-chart';
+import { SKILLS_OPTION } from './skills';
+import Comments from '@/components/comments';
 
 export default function AboutPage() {
+    const skills = Array.isArray(SKILLS_OPTION.series) && SKILLS_OPTION.series[0]?.data?.filter((it: any) => it.category) || [];
     return (
         <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 {/* 主要内容区域 */}
                 <div className="lg:col-span-2">
+
                     {/* 个人简介卡片 */}
                     <div className="card bg-base-100 shadow-lg mb-6">
                         <div className="card-body">
@@ -25,13 +22,13 @@ export default function AboutPage() {
                                 <img src="/about/photo.png" alt="照片" className="w-32 h-32 rounded-full" />
                                 <div className="text-center md:text-left">
                                     <h1 className="text-2xl font-bold text-slate-800 dark:text-slate-200">王郁</h1>
-                                    <p className="text-lg mt-2 text-slate-600 dark:text-slate-400">JavaScript生态和Java生态以及Unity3D的全栈程序员</p>
+                                    <p className="text-lg mt-2 text-slate-600 dark:text-slate-400">熟悉JavaScript生态和Java生态以及Unity3D开发</p>
                                 </div>
                             </div>
 
                             <div className="mt-6 space-y-4">
                                 <p className="text-slate-700 dark:text-slate-300 leading-relaxed">
-                                    独立完成从Linux服务器、容器、数据库、后端服务到全平台前端页面的开发。同时正在积极拥抱AI
+                                    独立完成从Linux服务器、容器、数据库、后端服务到全平台前端页面的开发。同时正在积极拥抱AI。
                                 </p>
                             </div>
                         </div>
@@ -40,10 +37,7 @@ export default function AboutPage() {
                     {/* 技能卡片 - graph chart */}
                     <SkillChart />
 
-                    {/* 技能卡片 - 列表 */}
-                    <div className="card bg-base-100 shadow-sm mb-6">
-
-                    </div>
+                    <Comments />
                 </div>
 
                 {/* 侧边栏 - 包含联系信息 */}
@@ -105,14 +99,50 @@ export default function AboutPage() {
                                 <GithubIcon className="mr-2 h-5 w-5" /> 技术栈
                             </h3>
                             <div className="flex flex-wrap gap-2">
-                                {skills.map((skill, index) => (
-                                    <span
-                                        key={index}
-                                        className={`px-3 py-1 rounded-full text-sm ${getRandomColorById(skill)}`}
-                                    >
-                                        {skill}
-                                    </span>
-                                ))}
+                                {/* 按category分类显示技能 */}
+                                <div className="space-y-4">
+                                    {['在用', '用过', '偶尔用'].map((category) => {
+                                        // 获取当前类别的技能并按照symbolSize从大到小排序
+                                        const categorySkills = skills
+                                            .filter((skill): skill is { category: string, symbolSize: number, name: string } => typeof skill === 'object' && skill !== null && 'category' in skill && skill.category === category)
+                                            .sort((a, b) => (b.symbolSize || 0) - (a.symbolSize || 0));
+                                        if (categorySkills.length === 0) return null;
+
+                                        // 根据类别获取颜色类
+                                        let colorClass = '';
+                                        let titleColorClass = '';
+                                        switch (category) {
+                                            case '在用':
+                                                colorClass = 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-100';
+                                                titleColorClass = 'font-semibold text-green-600 dark:text-green-400';
+                                                break;
+                                            case '用过':
+                                                colorClass = 'bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-100';
+                                                titleColorClass = 'font-semibold text-orange-600 dark:text-orange-400';
+                                                break;
+                                            case '偶尔用':
+                                                colorClass = 'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-100';
+                                                titleColorClass = 'font-semibold text-purple-600 dark:text-purple-400';
+                                                break;
+                                        }
+
+                                        return (
+                                            <div key={category}>
+                                                <h4 className={`font-medium mb-2 ${titleColorClass}`}>{category}:</h4>
+                                                <div className="flex flex-wrap gap-2">
+                                                    {categorySkills.map((skill, index) => (
+                                                        <span
+                                                            key={index}
+                                                            className={`px-3 py-1 rounded-full text-sm ${colorClass}`}
+                                                        >
+                                                            {skill.name}
+                                                        </span>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        );
+                                    })}
+                                </div>
                             </div>
                         </div>
                     </div>

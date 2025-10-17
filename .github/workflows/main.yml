@@ -49,7 +49,7 @@ jobs:
           curl -H "X-Api-Key: ${{secrets.CRANE_API_KEY}}" "https://wycode.cn/crane/deploy?url=${{ fromJSON(steps.create_release.outputs.assets)[0].browser_download_url }}"
 
       - name: Deploy to Github pages
-        uses: crazy-max/ghaction-github-pages@v2.1.3
+        uses: crazy-max/ghaction-github-pages@v4
         with:
           repo: wangyucode/wangyucode.github.io
           target_branch: master

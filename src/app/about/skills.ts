@@ -11,7 +11,7 @@ export const SKILLS_OPTION: echarts.ComposeOption<
   tooltip: {},
   legend: [
     {
-      data: ["在用", "用过", "偶尔用", "准备学"],
+      data: ["在用", "用过", "偶尔用"],
     },
   ],
   series: [

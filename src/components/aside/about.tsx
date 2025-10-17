@@ -47,7 +47,7 @@ export default function About() {
                             className="w-full max-w-48 mx-auto p-2 border rounded border-slate-300 dark:border-slate-700"
                         />
                         <a
-                            href="/blog"
+                            href="/about"
                             className="btn btn-sm btn-ghost text-sm hover:text-info justify-start"
                         >
                             <FolderOpenIcon className="mr-2 h-5 w-5" />

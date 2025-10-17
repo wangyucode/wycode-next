@@ -1,0 +1,4 @@
+User-Agent: *
+Allow: /
+Disallow: /manage/*
+Sitemap: /sitemap.xml

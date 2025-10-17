@@ -2,13 +2,12 @@
 title: 使用Vite构建React项目
 date: 2023-11-11 18:23:00
 tags:
-- React
-- JavaScript
+  - React
+  - JavaScript
 category: Frontend
 ---
 
 ![Vite](https://vitejs.cn/vite3-cn/logo-with-shadow.png)
-
 
 # 使用 Vite 构建 React 项目
 
@@ -37,13 +36,12 @@ category: Frontend
 
 ## 配置静态资源公共基础路径
 
-为了让build可以在任何目录下部署，这里将资源路径改为相对路径
+为了让 build 可以在任何目录下部署，这里将资源路径改为相对路径
 
 ```js
 export default defineConfig({
-    base: "./",
+  base: "./",
 });
-
 ```
 
 ## 适配老版本浏览器
@@ -60,7 +58,7 @@ export default defineConfig({
 1. **安装插件**: `npm i -D @vitejs/plugin-legacy`
 2. **配置插件**:
 
-这里假设需要支持chrome52
+这里假设需要支持 chrome52
 
 ```js
 import { defineConfig } from "vite";
@@ -75,14 +73,10 @@ export default defineConfig({
     legacy({
       targets: ["chrome 52"],
     }),
-  ]
+  ],
 });
 ```
 
 现在，你的 Vite React 项目应该可以在老版本浏览器中正常运行了。
 
 使用 Vite 构建 React 项目是一种快速而愉快的开发体验，同时还能够通过简单的配置适配老版本浏览器。希望这篇博客对你有所帮助，让你更轻松地开始构建 React 应用程序。
-
-
-
-

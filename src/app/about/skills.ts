@@ -34,9 +34,9 @@ export const SKILLS_OPTION: echarts.ComposeOption<
         repulsion: 400, // 斥力
         gravity: 0.3, // 重力
         layoutAnimation: true, // 布局动画，使布局更稳定
-        friction: 0.6, // 摩擦系数，减缓节点运动
+        friction: 0.2, // 摩擦系数，减缓节点运动
       },
-      roam: true, // 允许缩放和平移，方便查看
+      roam: "scale", // 允许缩放
       scaleLimit: {
         min: 0.5,
         max: 2,

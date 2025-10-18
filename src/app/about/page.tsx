@@ -8,6 +8,9 @@ import Comments from '@/components/comments';
 
 export default function AboutPage() {
     const skills = (SKILLS_OPTION as any).series[0]?.data?.filter((it: any) => it?.category) || [];
+    if (process.env.NODE_ENV === 'development') {
+        console.log(skills.sort((a: any, b: any) => (b.symbolSize || 0) - (a.symbolSize || 0)).map((skill: any) => `${skill.name}`).join(','));
+    }
     return (
         <div className="container mx-auto p-4">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
@@ -27,7 +30,7 @@ export default function AboutPage() {
 
                             <div className="mt-6 space-y-4">
                                 <p className="text-slate-700 dark:text-slate-300 leading-relaxed">
-                                    独立完成从Linux服务器、容器、数据库、后端服务到全平台前端页面的开发。同时正在积极拥抱AI。
+                                    独立完成从Linux服务器、容器、数据库、后端服务、全平台应用、游戏开发。同时正在积极探索AI相关技术和应用的开发。
                                 </p>
                             </div>
                         </div>

@@ -34,7 +34,7 @@ export default function RootLayout({
     <html lang="zh-CN" data-theme="cupcake" className={`transition-colors duration-1000 ${oppoSans.className}`}>
       <body className="bg-[url('/bg.svg')] bg-cover bg-fixed flex flex-col items-center min-h-dvh">
         <Navbar />
-        <main className="flex-1 pt-16 pb-10 flex flex-col lg:flex-row gap-4 w-full overflow-auto relative">
+        <main className="flex-1 pt-16 flex flex-col lg:flex-row gap-4 w-full overflow-auto">
           {children}
         </main>
         <Footer />

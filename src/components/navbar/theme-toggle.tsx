@@ -17,7 +17,7 @@ export default function ThemeToggle() {
 
     return (
         <button
-            className={`swap swap-rotate btn btn-circle btn-ghost ${theme === "luxury" ? "swap-active" : ""}`}
+            className={`swap swap-rotate btn btn-circle ${theme === "luxury" ? "swap-active" : ""}`}
             title="切换主题"
             data-toggle-theme="cupcake,luxury"
             onClick={handleThemeChange}>

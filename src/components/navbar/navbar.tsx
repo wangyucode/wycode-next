@@ -5,7 +5,7 @@ import icon from "@/app/icon.svg";
 import ThemeToggle from "./theme-toggle";
 import MobileMenu from "./mobile-menu";
 import DesktopMenu from "./desktop-menu";
-import SearchButton from "./search-button";
+import AiButton from "./ai/ai-button";
 
 export enum MenuLinks {
     HOME = '/',
@@ -30,8 +30,8 @@ export default function Navbar() {
             <nav className="navbar-center hidden lg:flex">
                 <DesktopMenu />
             </nav>
-            <div className="navbar-end gap-1">
-                <SearchButton />
+            <div className="navbar-end gap-2">
+                <AiButton />
                 <ThemeToggle />
                 <MobileMenu />
             </div>

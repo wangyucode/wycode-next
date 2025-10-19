@@ -26,7 +26,7 @@ export default function MobileMenu() {
             onToggle={handleToggle}
         >
             <summary
-                className={`btn btn-ghost btn-circle swap swap-rotate ${isOpen ? 'swap-active' : ''}`}
+                className={`btn btn-circle swap swap-rotate ${isOpen ? 'swap-active' : ''}`}
                 title="菜单"
             >
                 <Bars3Icon className="swap-off h-5 w-5" />

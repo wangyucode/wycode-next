@@ -9,20 +9,22 @@ interface PostView {
     viewCount: number;
 }
 
-export interface RecentArticle {
+interface RecentArticle {
     id: string;
     data: {
         title?: string;
     };
 }
 
-interface PopularPostsProps {
-    days?: number; // 最近多少天
-    limit?: number; // 显示的最大数量
-    recentArticles?: RecentArticle[]; // 最近的博客作为后备数据
+export interface PopularPostsProps {
+    recentArticles: RecentArticle[]; // 最近的博客作为后备数据
+    idTitleMap: Record<string, string>; // 文章ID到标题的映射
 }
 
-export default function PopularPosts({ days = 7, limit = 10, recentArticles = [] }: PopularPostsProps) {
+const DAYS = 7;
+const LIMIT = 5;
+
+export default function PopularPosts({ recentArticles = [], idTitleMap = {} }: PopularPostsProps) {
     const [popularPosts, setPopularPosts] = useState<PostView[]>([]);
     const [loading, setLoading] = useState(true);
     const [useFallback, setUseFallback] = useState(false);
@@ -32,16 +34,16 @@ export default function PopularPosts({ days = 7, limit = 10, recentArticles = []
             try {
                 setLoading(true);
                 const response = await fetch(
-                    `https://wycode.cn/api/v1/popular-posts?days=${days}&limit=${limit}`
+                    `https://wycode.cn/api/v1/popular-posts?days=${DAYS}&limit=${LIMIT}`
                 );
                 const data = await response.json();
-                if (data.success && data.payload && data.payload.length > 0) {
-                    setPopularPosts(data.payload);
+                if (data.success && data.payload && data.payload.posts && data.payload.posts.length > 0) {
+                    setPopularPosts(data.payload.posts);
                     setUseFallback(false);
                 } else {
                     // 如果没有热门博客数据，使用最近的博客作为后备
                     if (recentArticles && recentArticles.length > 0) {
-                        const fallbackPosts: PostView[] = recentArticles.slice(0, limit).map((article) => ({
+                        const fallbackPosts: PostView[] = recentArticles.slice(0, LIMIT).map((article) => ({
                             postId: article.id,
                             title: article.data.title,
                             viewCount: 0
@@ -54,7 +56,7 @@ export default function PopularPosts({ days = 7, limit = 10, recentArticles = []
                 console.error('Failed to fetch popular posts:', error);
                 // 如果请求失败，也使用最近的博客作为后备
                 if (recentArticles && recentArticles.length > 0) {
-                    const fallbackPosts: PostView[] = recentArticles.slice(0, limit).map((article) => ({
+                    const fallbackPosts: PostView[] = recentArticles.slice(0, LIMIT).map((article) => ({
                         postId: article.id,
                         title: article.data.title,
                         viewCount: 0
@@ -68,7 +70,7 @@ export default function PopularPosts({ days = 7, limit = 10, recentArticles = []
         };
 
         fetchPopularPosts();
-    }, [days, limit, recentArticles]);
+    }, [recentArticles]);
 
     if (loading) {
         return (
@@ -79,7 +81,7 @@ export default function PopularPosts({ days = 7, limit = 10, recentArticles = []
                         热门文章
                     </h3>
                     <div className="animate-pulse space-y-2">
-                        {Array(limit).fill(0).map((_, index) => (
+                        {Array(LIMIT).fill(0).map((_, index) => (
                             <div key={index} className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-3/4"></div>
                         ))}
                     </div>
@@ -108,7 +110,7 @@ export default function PopularPosts({ days = 7, limit = 10, recentArticles = []
                             >
                                 <span className="text-sm font-bold mr-2">
                                     {index + 1}.
-                                </span>{post.title || post.postId}
+                                </span>{post.title || idTitleMap[post.postId] || post.postId}
                             </Link>
                             {!useFallback && (
                                 <span className="self-end flex-shrink-0 text-xs text-gray-500 dark:text-gray-400">

@@ -106,6 +106,16 @@ export async function getPostTitles(): Promise<[string, string][]> {
   return allPosts.map(post => [post.id, post.data.title]);
 }
 
+// 获取文章ID到标题的映射
+export async function getIdTitleMap(): Promise<Record<string, string>> {
+  const allPosts = await getSortedPosts();
+  const idTitleMap: Record<string, string> = {};
+  allPosts.forEach(post => {
+    idTitleMap[post.id] = post.data.title;
+  });
+  return idTitleMap;
+}
+
 // 获取所有分类
 export async function getCategories(): Promise<{ params: { name: string; count: number; cid: string } }[]> {
   const allPosts = await getSortedPosts();

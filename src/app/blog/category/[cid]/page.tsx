@@ -2,12 +2,13 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { ArchiveBoxIcon, CalendarIcon } from "@heroicons/react/24/outline";
 
-import { getPostsByCategory, getCategories } from "@/utils/posts-processor";
+import { getPostsByCategory, getCategories, getIdTitleMap } from "@/utils/posts-processor";
 import Aside from "@/components/aside";
 
 export default async function CategoryPage({ params }: { params: Promise<{ cid: string }> }) {
     const { cid } = await params;
     const posts = await getPostsByCategory(cid);
+    const idTitleMap = await getIdTitleMap();
 
     // 如果没有找到该分类的文章，返回错误信息
     if (!posts || posts.length === 0) {
@@ -55,7 +56,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ cid: 
                 </div>
 
                 {/* 右侧边栏，使用现有的Aside组件 */}
-                <Aside recentArticles={posts.slice(0, 5)} />
+                <Aside recentArticles={posts.slice(0, 5)} idTitleMap={idTitleMap} />
             </div>
         </div>
     );

@@ -1,11 +1,12 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { CalendarIcon, ArchiveBoxIcon } from "@heroicons/react/24/outline";
-import { getSortedPosts } from "@/utils/posts-processor";
+import { getSortedPosts, getIdTitleMap } from "@/utils/posts-processor";
 import Aside from "@/components/aside";
 
 export default async function BlogListPage() {
     const posts = await getSortedPosts();
+    const idTitleMap = await getIdTitleMap();
 
     if (process.env.NODE_ENV === 'development') {
         posts.forEach(post => {
@@ -46,7 +47,7 @@ export default async function BlogListPage() {
                 </div>
 
                 {/* 右侧边栏，使用现有的Aside组件 */}
-                <Aside recentArticles={posts.slice(0, 5)} />
+                <Aside recentArticles={posts.slice(0, 5)} idTitleMap={idTitleMap} />
             </div>
         </div>
     );

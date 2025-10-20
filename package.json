@@ -1,6 +1,6 @@
 {
   "name": "wycode",
-  "version": "3.0.1",
+  "version": "3.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
@@ -11,10 +11,10 @@
   "dependencies": {
     "@heroicons/react": "^2.2.0",
     "lodash-es": "^4.17.21",
-    "next": "15.5.4",
+    "next": "15.5.6",
     "ogl": "^1.0.11",
-    "react": "19.1.0",
-    "react-dom": "19.1.0",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
     "theme-change": "^2.5.0"
   },
   "devDependencies": {
@@ -22,15 +22,15 @@
     "@tailwindcss/postcss": "^4",
     "@tailwindcss/typography": "^0.5.19",
     "@types/lodash-es": "^4.17.12",
-    "@types/node": "^20",
+    "@types/node": "^24",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "daisyui": "^5.2.0",
+    "daisyui": "^5.3.7",
     "date-fns": "^4.1.0",
     "echarts": "^5.6.0",
     "echarts-for-react": "^3.0.2",
     "eslint": "^9",
-    "eslint-config-next": "15.5.4",
+    "eslint-config-next": "15.5.6",
     "gray-matter": "^4.0.3",
     "react-markdown": "^10.1.0",
     "rehype-unwrap-images": "^1.0.0",

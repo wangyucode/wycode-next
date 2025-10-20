@@ -189,10 +189,9 @@ export async function getPostsByTag(cid: string): Promise<Post[]> {
 // 创建 ReactMarkdown 组件包装器，用于在前端渲染 markdown
 interface MarkdownRendererProps {
   source?: string;
-  className?: string;
 }
 
-export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ source, className }: MarkdownRendererProps) => {
+export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ source }: MarkdownRendererProps) => {
   if (!source) return null;
 
   // 自定义组件配置

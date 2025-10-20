@@ -51,7 +51,7 @@ export default async function PostDetail({ params }: { params: Promise<{ pid: st
                     </div>
                 )}
                 <div className="mt-4">
-                    <MarkdownRenderer source={content} className="prose max-w-full" />
+                    <MarkdownRenderer source={content} />
                 </div>
             </article>
             <Comments />

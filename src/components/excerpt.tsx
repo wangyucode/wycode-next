@@ -7,12 +7,12 @@ export default function Excerpt({ excerpt, content, id }: Partial<Post>) {
     return (
         excerpt ? (
             <>
-                <MarkdownRenderer source={excerpt} className="flex flex-col gap-2" />
+                <MarkdownRenderer source={excerpt} />
                 <Link href={`/blog/${id}`} className="btn btn-ghost hover:text-info justify-start">
                     <ArrowsPointingOutIcon className="inline h-5" />
                     查看全文...
                 </Link>
             </>
-        ) : <MarkdownRenderer source={content} className="flex flex-col gap-2" />
+        ) : <MarkdownRenderer source={content} />
     );
 }

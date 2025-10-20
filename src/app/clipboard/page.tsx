@@ -2,6 +2,7 @@
 import { useState, useRef, useEffect } from 'react'
 import { ArrowUturnLeftIcon, CloudArrowUpIcon, ExclamationCircleIcon, InformationCircleIcon, MagnifyingGlassIcon } from '@heroicons/react/24/outline'
 import Comments from '@/components/comments'
+import { AdSenseCard, AdSenseContent } from '@/components/aside/adsence'
 
 export default function ClipboardPage() {
     const queryRef = useRef<HTMLInputElement>(null)
@@ -85,7 +86,7 @@ export default function ClipboardPage() {
 
     return (
         <div className="container max-w-5xl mx-auto p-4">
-            <div className="card bg-base-100 shadow-lg">
+            <div className="card bg-base-100 shadow-lg mb-4">
                 <div className="card-body">
                     <h1 className="text-2xl font-bold mb-4 text-center">跨平台剪切板</h1>
 
@@ -177,6 +178,7 @@ export default function ClipboardPage() {
                     )}
                 </div>
             </div>
+            <AdSenseCard />
             <Comments />
         </div >
     )

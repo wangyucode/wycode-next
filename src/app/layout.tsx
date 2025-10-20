@@ -5,6 +5,7 @@ import Navbar from "@/components/navbar/navbar";
 import "./globals.css";
 import Footer from "@/components/footer";
 import Background from "@/components/background";
+import Analytics from "@/components/analytics";
 
 const notoSansSC = Noto_Sans_SC({
   subsets: ['latin']
@@ -32,6 +33,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <Analytics />
       </body>
     </html>
   );

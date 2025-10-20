@@ -3,6 +3,8 @@ import Categories from './categories';
 import Tags from './tags';
 import About from './about';
 import { PopularPostsProps } from './popular-posts';
+import Ad from './ad';
+import { AdSenseCard } from './adsence';
 
 export default function Aside({ recentArticles, idTitleMap }: PopularPostsProps) {
     return (
@@ -11,6 +13,8 @@ export default function Aside({ recentArticles, idTitleMap }: PopularPostsProps)
             <Categories />
             <Tags />
             <About />
+            <Ad />
+            <AdSenseCard />
         </aside>
     );
 }

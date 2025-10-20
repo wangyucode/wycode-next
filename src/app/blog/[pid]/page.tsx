@@ -7,6 +7,7 @@ import { getPost, getAllPostIds } from '@/utils/posts-processor';
 import { MarkdownRenderer } from '@/utils/posts-processor';
 import Comments from '@/components/comments';
 import BlogViewCounter from '@/components/aside/blog-view-counter';
+import { AdSenseCard } from '@/components/aside/adsence';
 
 export default async function PostDetail({ params }: { params: Promise<{ pid: string }> }) {
     const { pid } = await params
@@ -21,7 +22,7 @@ export default async function PostDetail({ params }: { params: Promise<{ pid: st
 
     return (
         <div className="container mx-auto w-full p-4">
-            <article className="card shadow bg-base-100 p-4">
+            <article className="card shadow bg-base-100 p-4 mb-4">
                 <h1 className="text-2xl text-slate-800 dark:text-slate-200 font-extrabold text-center">{title}</h1>
                 <div className="flex justify-between text-sm mb-4 flex-wrap gap-2">
                     <span className="flex items-center">
@@ -54,6 +55,7 @@ export default async function PostDetail({ params }: { params: Promise<{ pid: st
                     <MarkdownRenderer source={content} />
                 </div>
             </article>
+            <AdSenseCard />
             <Comments />
             <BlogViewCounter postId={pid} />
         </div>

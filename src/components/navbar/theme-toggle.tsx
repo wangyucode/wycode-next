@@ -7,8 +7,20 @@ export default function ThemeToggle() {
     const [theme, setTheme] = useState("cupcake");
 
     useEffect(() => {
+        // 优先使用 localStorage 中保存的主题
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme) {
+            setTheme(savedTheme);
+        } else {
+            // 检测用户浏览器的主题偏好
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            // 根据偏好设置默认主题：暗色模式使用 luxury，亮色模式使用 cupcake
+            const defaultTheme = prefersDark ? "luxury" : "cupcake";
+            setTheme(defaultTheme);
+            // 保存到 localStorage
+            localStorage.setItem("theme", defaultTheme);
+        }
         themeChange(false);
-        setTheme(localStorage.getItem("theme") || "cupcake");
     }, []);
 
     function handleThemeChange() {

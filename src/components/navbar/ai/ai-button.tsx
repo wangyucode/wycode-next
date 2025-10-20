@@ -61,7 +61,7 @@ export default function AiButton() {
                 </button>
             </div>
             <dialog className="modal modal-bottom sm:modal-middle" ref={dialogRef} onClose={() => setIsDialogOpen(false)}>
-                <div className="modal-box min-h-3/4 flex flex-col relative items-center justify-center" style={{ transition: "translate .3s ease-out, scale .3s ease-out, box-shadow .3s ease-out;" }}>
+                <div className="modal-box min-h-3/4 flex flex-col relative items-center justify-center" style={{ transition: "translate .3s ease-out, scale .3s ease-out, box-shadow .3s ease-out" }}>
                     <div className="loading loading-infinity w-16 h-16" title="加载中..."></div>
                     <div id="coze-app" className="absolute top-0 left-0 right-0 bottom-0"></div>
                     <form method="dialog" className="modal-backdrop z-10">

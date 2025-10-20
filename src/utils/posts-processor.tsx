@@ -94,6 +94,11 @@ export async function getAllPostIds(): Promise<{ params: { pid: string } }[]> {
   });
 }
 
+// 将标题或文本转换为URL安全的ID格式
+export function titleToId(title: string): string {
+  return title.replaceAll(" ", "-").toLowerCase();
+}
+
 // 根据 ID 获取单个文章
 export async function getPost(id: string): Promise<Post | undefined> {
   const allPosts = await getSortedPosts();
@@ -130,7 +135,7 @@ export async function getCategories(): Promise<{ params: { name: string; count: 
         params: {
           name: post.data.category,
           count: 1,
-          cid: post.data.category.replaceAll(" ", "-").toLowerCase()
+          cid: titleToId(post.data.category)
         }
       });
     }
@@ -144,7 +149,7 @@ export async function getCategories(): Promise<{ params: { name: string; count: 
 // 根据分类 ID 获取文章
 export async function getPostsByCategory(cid: string): Promise<Post[]> {
   const allPosts = await getSortedPosts();
-  return allPosts.filter(post => post.data.category.replaceAll(" ", "-").toLowerCase() === cid);
+  return allPosts.filter(post => titleToId(post.data.category) === cid);
 }
 
 // 获取所有标签
@@ -163,7 +168,7 @@ export async function getTags(): Promise<{ params: { name: string; count: number
             params: {
               name: postTag,
               count: 1,
-              cid: postTag.replaceAll(" ", "-").toLowerCase()
+              cid: titleToId(postTag)
             }
           });
         }
@@ -182,7 +187,7 @@ export async function getPostsByTag(cid: string): Promise<Post[]> {
   return allPosts.filter(post =>
     post.data.tags &&
     Array.isArray(post.data.tags) &&
-    post.data.tags.some(tag => tag.replaceAll(" ", "-").toLowerCase() === cid)
+    post.data.tags.some(tag => titleToId(tag) === cid)
   );
 }
 

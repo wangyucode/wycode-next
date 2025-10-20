@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { CalendarIcon, ArchiveBoxIcon, TagIcon } from "@heroicons/react/24/outline";
 import { getRandomColorById } from '@/utils/style-utils';
 
-import { getPost, getAllPostIds } from '@/utils/posts-processor';
+import { getPost, getAllPostIds, titleToId } from '@/utils/posts-processor';
 import { MarkdownRenderer } from '@/utils/posts-processor';
 import Comments from '@/components/comments';
 import BlogViewCounter from '@/components/aside/blog-view-counter';
@@ -18,7 +18,6 @@ export default async function PostDetail({ params }: { params: Promise<{ pid: st
     }
 
     const { data: { date, title, category, tags }, content } = post;
-    const cid = category.replaceAll(" ", "-").toLowerCase();
 
     return (
         <div className="container mx-auto w-full p-4">
@@ -29,8 +28,8 @@ export default async function PostDetail({ params }: { params: Promise<{ pid: st
                         <CalendarIcon className="inline mr-1 h-5" />{date}
                     </span>
                     <Link
-                        href={`/blog/category/${cid}`}
-                        className={`flex items-center px-3 py-1 ${getRandomColorById(cid)} text-sm rounded-full`}
+                        href={`/blog/category/${titleToId(category)}`}
+                        className={`flex items-center px-3 py-1 ${getRandomColorById(category)} text-sm rounded-full`}
                     >
                         <ArchiveBoxIcon className="inline mr-1 h-4 mb-0.5" />{category}
                     </Link>
@@ -42,7 +41,7 @@ export default async function PostDetail({ params }: { params: Promise<{ pid: st
                             {tags.map((tag) => (
                                 <Link
                                     key={tag}
-                                    href={`/blog/tag/${tag.replaceAll(" ", "-").toLowerCase()}`}
+                                    href={`/blog/tag/${titleToId(tag)}`}
                                     className={`px-2 ${getRandomColorById(tag)} text-sm rounded-full`}
                                 >
                                     {tag}

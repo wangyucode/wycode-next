@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import Articles from '@/components/articles';
 import Pagination from '@/components/pagination';
 import Aside from '@/components/aside';
-import { getPagedPosts, getPageCount } from '@/utils/posts-processor';
+import { getPagedPosts, getPageCount, getIdTitleMap } from '@/utils/posts-processor';
 
 const PAGE_SIZE = 5;
 
@@ -17,6 +17,7 @@ export default async function BlogPage({ params }: BlogPageProps) {
   const currentPage = parseInt(page, 10);
   const articles = await getPagedPosts(currentPage, PAGE_SIZE);
   const totalPages = await getPageCount(PAGE_SIZE);
+  const idTitleMap = await getIdTitleMap();
 
   return (
     <div className="container mx-auto p-4">
@@ -25,7 +26,7 @@ export default async function BlogPage({ params }: BlogPageProps) {
           <Articles articles={articles} withExcerpt />
           <Pagination currentPage={currentPage} totalPages={totalPages} />
         </div>
-        <Aside recentArticles={articles} />
+        <Aside recentArticles={articles} idTitleMap={idTitleMap} />
       </div>
     </div>
   );

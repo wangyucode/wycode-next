@@ -2,16 +2,12 @@ import PopularPostsAside from './popular-posts';
 import Categories from './categories';
 import Tags from './tags';
 import About from './about';
-import { RecentArticle } from './popular-posts';
+import { PopularPostsProps } from './popular-posts';
 
-interface AsideProps {
-    recentArticles: RecentArticle[];
-}
-
-export default function Aside({ recentArticles }: AsideProps) {
+export default function Aside({ recentArticles, idTitleMap }: PopularPostsProps) {
     return (
         <aside className="flex flex-col gap-4 lg:flex-1">
-            <PopularPostsAside recentArticles={recentArticles} />
+            <PopularPostsAside recentArticles={recentArticles} idTitleMap={idTitleMap} />
             <Categories />
             <Tags />
             <About />

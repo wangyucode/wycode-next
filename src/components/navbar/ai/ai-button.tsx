@@ -4,8 +4,6 @@ import { XMarkIcon } from "@heroicons/react/24/outline";
 import { useEffect, useRef, useState } from "react";
 import Script from "next/script";
 
-
-
 export default function AiButton() {
     const dialogRef = useRef<HTMLDialogElement>(null);
     const [isSdkScriptReady, setIsSdkScriptReady] = useState(false);

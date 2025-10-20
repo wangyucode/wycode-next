@@ -1,21 +1,13 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { Noto_Sans_SC } from "next/font/google";
 
 import Navbar from "@/components/navbar/navbar";
 import "./globals.css";
 import Footer from "@/components/footer";
 import Background from "@/components/background";
 
-// 加载OPPO Sans中文字体
-const oppoSans = localFont({
-  src: [
-    {
-      path: './OPPO Sans 4.0.ttf',
-      weight: '400',
-      style: 'normal',
-    },
-  ],
-  display: 'swap',
+const notoSansSC = Noto_Sans_SC({
+  subsets: ['latin']
 });
 
 export const metadata: Metadata = {
@@ -32,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="zh-CN" className={`transition-colors duration-1000 ${oppoSans.className}`}>
+    <html lang="zh-CN" className={`transition-colors duration-1000 ${notoSansSC.className}`}>
       <body className="flex flex-col items-center min-h-dvh">
         <Background className="fixed top-0 left-0 right-0 bottom-0 -z-10" />
         <Navbar />

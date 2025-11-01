@@ -35,7 +35,7 @@
     "react-markdown": "^10.1.0",
     "rehype-unwrap-images": "^1.0.0",
     "remark-gfm": "^4.0.1",
-    "shiki": "^3.13.0",
+    "shiki": "^3.14.0",
     "tailwindcss": "^4",
     "typescript": "^5"
   },

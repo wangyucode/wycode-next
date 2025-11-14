@@ -27,7 +27,7 @@
     "@types/react-dom": "^19",
     "daisyui": "^5.3.7",
     "date-fns": "^4.1.0",
-    "echarts": "^5.6.0",
+    "echarts": "^6.0.0",
     "echarts-for-react": "^3.0.2",
     "eslint": "^9",
     "eslint-config-next": "15.5.6",

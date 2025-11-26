@@ -10,6 +10,7 @@ import AiButton from "./ai/ai-button";
 export enum MenuLinks {
     HOME = '/',
     APP = '/apps',
+    QINGJIN = 'https://ai.wycode.cn',
     CLIPBOARD = '/clipboard',
     DOGGER = '/manage/dogger',
     SWAGGER = '/manage/swagger',

@@ -33,7 +33,7 @@ export default async function Tags() {
             <div className="card-body">
                 <h3 className="card-title flex items-center">
                     <TagIcon className="mr-2 h-5 w-5" />
-                    热门标签
+                    标签分类
                 </h3>
                 <div className="flex flex-wrap gap-2">
                     {tags.map((tag) => (

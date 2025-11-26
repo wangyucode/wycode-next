@@ -28,11 +28,11 @@ export default function About() {
                         <p>
                             GitHub：
                             <a
-                                href="https://github.com/wangyu-wycode"
+                                href="https://github.com/wangyucode"
                                 title="github"
                                 className="ml-1 font-semibold text-sky-500 hover:text-sky-400 dark:hover:text-sky-300 transition-colors"
                             >
-                                https://github.com/wangyu-wycode
+                                https://github.com/wangyucode
                             </a>
                         </p>
                     </div>

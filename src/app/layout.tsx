@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Noto_Sans_SC } from "next/font/google";
 
 import Navbar from "@/components/navbar/navbar";
 import "./globals.css";
@@ -7,9 +6,6 @@ import Footer from "@/components/footer";
 import Background from "@/components/background";
 import Analytics from "@/components/analytics";
 
-const notoSansSC = Noto_Sans_SC({
-  subsets: ['latin']
-});
 
 export const metadata: Metadata = {
   title: "王郁的小站",
@@ -25,7 +21,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="zh-CN" className={`transition-colors duration-1000 ${notoSansSC.className}`}>
+    <html lang="zh-CN" className="transition-colors duration-1000 font">
       <body className="flex flex-col items-center min-h-dvh">
         <Background className="fixed top-0 left-0 right-0 bottom-0 -z-10" />
         <Navbar />

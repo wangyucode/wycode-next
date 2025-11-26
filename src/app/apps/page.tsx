@@ -23,6 +23,13 @@ const PAGE_TITLE = "我的一些个人实验项目，涵盖不同技术栈和应
 export default function AppsPage() {
   const apps: AppItem[] = [
     {
+      title: "青衿AI",
+      img1: "/apps/qingjin.png",
+      detail: "《青衿AI》有记忆，有生活，会做梦，会玩手机，真正活着的AI伴侣",
+      type: "AI应用",
+      techStacks: ["NextJS", "React", "TypeScript", "SQLite"]
+    },
+    {
       title: "ONI产物计算器",
       img1: "/apps/oni.jpg",
       detail: "计算《缺氧》游戏中的建筑、动物、植物、相变产物平衡的小工具",

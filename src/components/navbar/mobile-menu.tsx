@@ -36,6 +36,7 @@ export default function MobileMenu() {
                 tabIndex={0}
                 className="menu menu-sm md:menu-md dropdown-content bg-base-100 rounded-box z-1 w-48 mt-1 p-2 shadow gap-1">
                 <li><Link href={MenuLinks.HOME} className={`font-bold ${isBlogPage ? "menu-active" : ""}`}><PencilIcon className="w-4" />博客</Link></li>
+                <li><Link href={MenuLinks.QINGJIN} className="font-bold" target="_blank"><img src="/apps/qingjin.png" alt="AI伴侣" className="w-4" />青衿AI</Link></li>
                 <li><Link href={MenuLinks.CLIPBOARD} className={`font-bold ${isClipboardPage ? "menu-active" : ""}`}><ClipboardIcon className="w-4" />剪切板</Link></li>
                 <li><Link href={MenuLinks.APP} className={`font-bold ${isAppsPage ? "menu-active" : ""}`}><BeakerIcon className="w-4" />项目</Link></li>
 

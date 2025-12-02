@@ -20,8 +20,3 @@ To learn more about Next.js, take a look at the following resources:
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-## Dependencies status
-
-[![Depfu](https://badges.depfu.com/badges/bbc6fe1c2e50cbfb2f841cc3b67809ba/overview.svg)](https://depfu.com/github/wangyucode/wycode-next?project_id=37918)
-[![Depfu](https://badges.depfu.com/badges/bbc6fe1c2e50cbfb2f841cc3b67809ba/count.svg)](https://depfu.com/github/wangyucode/wycode-next?project_id=37918)

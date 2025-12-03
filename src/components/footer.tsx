@@ -1,4 +1,5 @@
 import GithubIcon from "./svg/github";
+import packageJson from '../../package.json';
 
 export default function Footer() {
     return (
@@ -6,7 +7,7 @@ export default function Footer() {
             <a href="https://beian.miit.gov.cn" target="_blank" className='md:mr-2 md:pr-2 md:border-r border-base-content hover:text-info transition-colors'>陕ICP备15011477号</a>
             <div className="flex items-center">
                 <p>{`2015-${new Date().getFullYear()} ©wycode.cn All Right Reserved`}</p>
-                <a href="https://github.com/wangyucode/wycode-next" target="_blank" className='ml-2 pl-2 border-l border-base-content hover:text-info transition-colors'><GithubIcon className="mr-2 h-4 w-4" /></a>
+                <a href="https://github.com/wangyucode/wycode-next" target="_blank" className='ml-2 pl-2 border-l border-base-content hover:text-info transition-colors flex items-center'><GithubIcon className="mr-1 h-4 w-4 inline" />v{packageJson.version}</a>
             </div>
         </footer>
     )

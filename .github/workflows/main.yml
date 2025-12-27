@@ -1,66 +1,59 @@
-name: Deploy with Crane
+name: Build and Push Docker Image
 
 on:
   push:
-    branches: [main]
+    branches:
+      - master
   workflow_dispatch:
 
 jobs:
-  build:
+  build-and-push:
     runs-on: ubuntu-latest
+    environment: wycode.cn
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - uses: pnpm/action-setup@v2
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v5
+      - name: Login to DockerHub
+        uses: docker/login-action@v3
         with:
-          node-version: "22"
-          cache: "pnpm"
+          username: wangyucode
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
 
-      - name: build
-        run: pnpm run build
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
 
-      - name: Tar files in out directory
-        run: cd out && tar -czf ../wycode.tar.gz * && cd ..
-
-      - name: Extract version from package.json
-        id: extract_version
+      - name: Read package.json version
+        id: read-version
         run: |
-          version=$(jq -r '.version' package.json)
-          echo "Version: $version"
-          echo "::set-output name=version::$version"
+          echo "VERSION=$(jq -r .version package.json)" >> $GITHUB_OUTPUT
+        shell: bash
 
-      - name: Create GitHub Release
-        id: create_release
-        uses: softprops/action-gh-release@v2
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v6
         with:
-          name: Release v${{ steps.extract_version.outputs.version }}
-          tag_name: v${{ steps.extract_version.outputs.version }}
-          files: wycode.tar.gz
+          context: .
+          file: ./Dockerfile
+          push: true
+          tags: |
+            wangyucode/wycode-next:latest
+            wangyucode/wycode-next:${{ steps.read-version.outputs.VERSION }}
 
-      - name: Call Crane to Deploy
-        run: |
-          curl -H "X-Api-Key: ${{secrets.CRANE_API_KEY}}" "https://wycode.cn/crane/deploy?url=https://gh.llkk.cc/https://github.com/wangyucode/wycode-next/releases/download/v${{ steps.extract_version.outputs.version }}/wycode.tar.gz"
-
-      - name: Deploy to Github pages
-        uses: crazy-max/ghaction-github-pages@v4
+      - name: Deploy to server
+        uses: appleboy/ssh-action@v1.0.3
         with:
-          repo: wangyucode/wangyucode.github.io
-          target_branch: master
-          build_dir: out
-        env:
-          GITHUB_TOKEN: ${{ secrets.REPO_PUSH_TOKEN }}
-
-      - name: Send Email
-        run: |
-          curl -m 10 -i -X POST \
-            -H "Content-Type:application/json" \
-            -d \
-            '{"key": "${{ secrets.MAIL_TOKEN }}","subject":"Frontend Build","content":"frontend deployed","to": "wangyu@wycode.cn"}' \
-            'https://wycode.cn/api/v1/email'
+          host: "wycode.cn"
+          username: "${{ secrets.SERVER_USER }}"
+          key: ${{ secrets.SERVER_KEY }}
+          script: |
+            cd /root/docker/
+            docker compose ps
+            docker pull wangyucode/wycode-next:latest
+            RUST_BACKEND_VERSION=${{ steps.extract-version.outputs.VERSION }} docker compose up -d --force-recreate --pull always next
+            sleep 10
+            docker compose ps
+            docker image prune -f

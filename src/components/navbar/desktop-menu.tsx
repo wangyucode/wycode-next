@@ -6,8 +6,8 @@ import { usePathname } from "next/navigation";
 import { MenuLinks } from "./navbar";
 import DockerIcon from "../svg/docker";
 import SwaggerIcon from "../svg/swagger";
-import MongoDBIcon from "../svg/mongodb";
 import { useState } from "react";
+import { CircleStackIcon } from "@heroicons/react/24/solid";
 
 export default function DesktopMenu() {
     const pathname = usePathname();
@@ -62,8 +62,8 @@ export default function DesktopMenu() {
                             </Link>
                         </li>
                         <li>
-                            <Link href={MenuLinks.MONGO} className={`font-medium ${pathname === MenuLinks.MONGO ? "menu-active" : ""}`}>
-                                <MongoDBIcon className="w-4 mr-1" />MongoDB
+                            <Link href={MenuLinks.SQLITE} className={`font-medium ${pathname === MenuLinks.SQLITE ? "menu-active" : ""}`}>
+                                <CircleStackIcon className="w-4 mr-1 text-orange-700" />SQLite
                             </Link>
                         </li>
                     </ul>

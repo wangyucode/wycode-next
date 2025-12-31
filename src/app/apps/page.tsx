@@ -25,6 +25,7 @@ export default function AppsPage() {
     {
       title: "青衿AI",
       img1: "/apps/qingjin.png",
+      link: "https://ai.wycode.cn",
       detail: "《青衿AI》有记忆，有生活，会做梦，会玩手机，真正活着的AI伴侣",
       type: "AI应用",
       techStacks: ["NextJS", "React", "TypeScript", "SQLite"]
@@ -32,17 +33,11 @@ export default function AppsPage() {
     {
       title: "ONI产物计算器",
       img1: "/apps/oni.jpg",
+      link: "/oni",
+      github: "https://github.com/wangyucode/oni",
       detail: "计算《缺氧》游戏中的建筑、动物、植物、相变产物平衡的小工具",
-      type: "Web工具+小程序",
+      type: "Web+小程序",
       techStacks: ["微信小程序", "Taro", "React", "TypeScript", "MongoDB"]
-    },
-    {
-      title: "Crane",
-      img1: "/apps/crane.jpg",
-      github: "https://github.com/wangyucode/crane",
-      detail: "Crane 是一个使用 Rust 编写的简单、快速且安全的工具，用于下载和部署您的 .tar.gz 归档文件，无需服务器密码或密钥。",
-      type: "工具",
-      techStacks: ["Rust", "Linux", "Docker"]
     },
     {
       title: "3D滚蛋吧",
@@ -62,11 +57,38 @@ export default function AppsPage() {
     {
       title: "Dogger",
       img1: "/apps/dogger.png",
+      link: "/manage/dogger",
       github: "https://github.com/wangyucode/dogger",
       detail: "Dogger 是一个使用Rust和React编写的简单、快速Docker Web UI，旨在通过一个Web UI查看，管理你的Containers 和 Images。",
       large: true,
-      type: "Docker工具",
+      type: "开源工具项目",
       techStacks: ["Rust", "React", "Vite", "Docker"]
+    },
+    {
+      title: "SQLite WebUI",
+      img1: "/apps/sqlite.png",
+      large: true,
+      link: "/manage/sqlite",
+      github: "https://github.com/wangyucode/rust-sqlite-webui",
+      detail: "基于 Rust (Axum) 和 Solid.js 的 极致轻量 SQLite Web 管理工具。",
+      type: "开源工具项目",
+      techStacks: ["Rust", "Solid", "SQLite"]
+    },
+    {
+      title: "Crane",
+      img1: "/apps/crane.jpg",
+      github: "https://github.com/wangyucode/crane",
+      detail: "Crane 是一个使用 Rust 编写的简单、快速且安全的工具，用于下载和部署您的 .tar.gz 归档文件，无需服务器密码或密钥。",
+      type: "工具",
+      techStacks: ["Rust", "Linux", "Docker"]
+    },
+    {
+      title: "sftp-upload-action",
+      img1: "/apps/sftp.jpeg",
+      github: "https://github.com/wangyucode/sftp-upload-action",
+      detail: "这是一个 GitHub Actions，用于将文件通过SFTP协议部署到服务器。",
+      type: "开源工具项目",
+      techStacks: ["Linux", "Docker"]
     },
     {
       title: "Websocket聊天室",
@@ -171,7 +193,7 @@ export default function AppsPage() {
               <div className="flex justify-between">
                 <h3 className="text-xl font-bold flex items-center flex-1">
                   {app.title}
-                  <span className="ml-2 text-xs px-2 py-0.5 bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300 rounded">
+                  <span className="ml-1 text-xs px-2 py-0.5 bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300 rounded">
                     {app.type}
                   </span>
                 </h3>
@@ -181,7 +203,7 @@ export default function AppsPage() {
                       href={app.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="btn btn-sm btn-ghost hover:bg-slate-100 dark:hover:bg-slate-800"
+                      className="btn btn-sm btn-ghost btn-circle hover:bg-slate-100 dark:hover:bg-slate-800"
                       title="查看源码"
                     >
                       <GithubIcon className="h-4 w-4" />
@@ -192,7 +214,7 @@ export default function AppsPage() {
                       href={app.link}
                       target={app.link.startsWith('http') ? '_blank' : '_self'}
                       rel="noopener noreferrer"
-                      className="btn btn-sm btn-ghost hover:bg-slate-100 dark:hover:bg-slate-800"
+                      className="btn btn-sm btn-ghost btn-circle hover:bg-slate-100 dark:hover:bg-slate-800"
                       title="直接访问"
                     >
                       <ExternalLinkIcon className="h-4 w-4" />

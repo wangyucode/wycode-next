@@ -15,7 +15,7 @@ export enum MenuLinks {
     CLIPBOARD = '/clipboard',
     DOGGER = '/manage/dogger',
     SWAGGER = '/manage/swagger',
-    MONGO = '/manage/mongo',
+    SQLITE = '/manage/sqlite',
     ABOUT = '/about'
 }
 

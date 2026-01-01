@@ -34,7 +34,7 @@ jobs:
           username: ${{ secrets.SERVER_USERNAME }}
           privateKey: ${{ secrets.SERVER_KEY }}
           localDir: "out"
-          compress: true
+          dryRun: false
           remoteDir: "/root/docker/www/wycode/"
           removeExtraFilesOnServer: true
           concurrency: 8

@@ -8,7 +8,7 @@ tags:
 category: CI CD
 ---
 
-![Github Action](https://img2018.cnblogs.com/blog/1191638/202002/1191638-20200218165327798-180252718.png)
+![Github Action](https://blog-cdn.everhour.com/blog/wp-content/uploads/2023/02/h2jfrvzrbyh1yff2n3wfu2hkqqps6x_uvqo.jpg)
 
 > `Github Actions`是由 Github 发布的持续集成(CI)/持续交付(CD)服务，对于公开的仓库是免费使用的。之前我们使用`TravisCI`，现在用`Github Actions`更方便了。
 

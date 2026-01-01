@@ -37,8 +37,12 @@ export default function PopularPosts({ recentArticles = [], idTitleMap = {} }: P
                     `https://wycode.cn/api/v1/popular-posts?days=${DAYS}&limit=${LIMIT}`
                 );
                 const data = await response.json();
-                if (data.success && data.payload && data.payload.posts && data.payload.posts.length > 0) {
-                    setPopularPosts(data.payload.posts);
+                if (data.success && Array.isArray(data.payload) && data.payload.length > 0) {
+                    const posts: PostView[] = data.payload.map((item: { id: string; view_count: number }) => ({
+                        postId: item.id,
+                        viewCount: item.view_count,
+                    }));
+                    setPopularPosts(posts);
                     setUseFallback(false);
                 } else {
                     // 如果没有热门博客数据，使用最近的博客作为后备

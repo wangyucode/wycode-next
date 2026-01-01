@@ -34,10 +34,10 @@ jobs:
           username: ${{ secrets.SERVER_USERNAME }}
           privateKey: ${{ secrets.SERVER_KEY }}
           localDir: "out"
-          dryRun: false
           compress: true
           remoteDir: "/root/docker/www/wycode/"
           removeExtraFilesOnServer: true
+          concurrency: 16
 
       - name: Deploy to Github pages
         uses: crazy-max/ghaction-github-pages@v2.1.3

@@ -46,7 +46,7 @@ jobs:
           target_branch: master
           build_dir: out
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.REPO_PUSH_TOKEN }}
 
       - name: Send Email
         run: |

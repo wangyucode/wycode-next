@@ -66,6 +66,11 @@ export default function DesktopMenu() {
                                 <CircleStackIcon className="w-4 mr-1 text-orange-700" />SQLite
                             </Link>
                         </li>
+                        <li>
+                            <Link href={MenuLinks.DOZZLE} className={`font-medium ${pathname === MenuLinks.DOZZLE ? "menu-active" : ""}`}>
+                                <img src="https://dozzle.dev/logo.svg" alt="Dozzle" className="w-4 mr-1" />Dozzle
+                            </Link>
+                        </li>
                     </ul>
                 </details>
             </li>

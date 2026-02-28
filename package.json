@@ -30,7 +30,7 @@
     "daisyui": "^5.5.19",
     "date-fns": "^4.1.0",
     "echarts": "^5.6.0",
-    "echarts-for-react": "^3.0.2",
+    "echarts-for-react": "^3.0.6",
     "eslint": "^9",
     "eslint-config-next": "16.1.1",
     "gray-matter": "^4.0.3",

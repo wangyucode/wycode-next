@@ -1,3 +1,7 @@
 export default function DoggerPage() {
-    return <iframe className="flex-1 card container shadow mx-auto md:my-4" src="https://wycode.cn/oni/" />;
+    return (
+        <div className="mockup-phone mx-auto my-4">
+            <iframe className="mockup-phone-display" src="https://wycode.cn/oni/" />
+        </div>
+    )
 }

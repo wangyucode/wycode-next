@@ -6,7 +6,7 @@ import { Bars3Icon, BeakerIcon, ClipboardIcon, PencilIcon, UserCircleIcon, XMark
 import { MenuLinks } from "./navbar";
 import DockerIcon from "../svg/docker";
 import SwaggerIcon from "../svg/swagger";
-import { CircleStackIcon } from "@heroicons/react/24/solid";
+import { CircleStackIcon, PresentationChartBarIcon } from "@heroicons/react/24/solid";
 
 export default function MobileMenu() {
     const [isOpen, setIsOpen] = useState(false);
@@ -64,8 +64,8 @@ export default function MobileMenu() {
                                 </Link>
                             </li>
                             <li>
-                                <Link href={MenuLinks.DOZZLE} className={`font-medium ${pathname === MenuLinks.DOZZLE ? "menu-active" : ""}`}>
-                                    <img src="https://dozzle.dev/logo.svg" alt="Dozzle" className="w-4 mr-1" />Dozzle
+                                <Link href={MenuLinks.DASHBOARD} className={`font-medium ${pathname === MenuLinks.DASHBOARD ? "menu-active" : ""}`}>
+                                    <PresentationChartBarIcon className="w-4 mr-1 text-fuchsia-700" />Dashboard
                                 </Link>
                             </li>
                         </ul>

@@ -14,7 +14,7 @@ export enum MenuLinks {
     ONI = '/oni',
     CLIPBOARD = '/clipboard',
     DOGGER = '/manage/dogger',
-    DOZZLE = '/manage/dozzle',
+    DASHBOARD = '/manage/dashboard',
     SWAGGER = '/manage/swagger',
     SQLITE = '/manage/sqlite',
     ABOUT = '/about'

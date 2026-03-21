@@ -127,3 +127,5 @@ services:
 本站已部署并正在使用此项目：[https://wycode.cn/manage/sqlite/](https://wycode.cn/manage/sqlite/)
 
 项目地址：[https://github.com/wangyucode/rust-sqlite-webui](https://github.com/wangyucode/rust-sqlite-webui)
+
+本文原始发表于 <https://wycode.cn/blog/openclaw-docker>，转载请注明出处

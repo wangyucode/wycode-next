@@ -29,13 +29,6 @@ git clone https://github.com/wangyucode/openclaw-docker-compose.git
 cd openclaw-docker-compose
 ```
 
-复制并编辑 `.env` 文件，填入你的 API 密钥和其他配置：
-
-```bash
-cp .env.example .env
-vi .env
-```
-
 ### 2. 执行初始化 (Onboarding)
 
 在启动网关之前，需要运行一次初始化命令来生成必要的配置文件：

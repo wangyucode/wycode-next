@@ -1,12 +1,12 @@
 ---
-title: AI-Powered Data Visualizer - AI 驱动的数据库可视化面板
+title: AI 驱动的数据库可视化面板
 date: 2026-03-21 12:00:00
 tags:
   - Next.js
   - AI
   - SQLite
   - Data Visualization
-category: Fullstack
+category: AI
 ---
 
 ![AI-Powered Data Visualizer](/images/20260321_dashboard.jpg)
@@ -103,4 +103,4 @@ docker run -d \
 
 项目地址：https://github.com/wangyucode/ai-generated-dashboard
 
-本文原始发表于 <https://wycode.cn/blog/openclaw-docker>，转载请注明出处
+本文原始发表于 <https://wycode.cn/blog/ai-generated-dashboard>，转载请注明出处

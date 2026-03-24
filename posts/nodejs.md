@@ -5,7 +5,6 @@ tags:
 - NodeJS
 - JavaScript
 - Linux
-- Ubuntu
 category: Frontend
 ---
 

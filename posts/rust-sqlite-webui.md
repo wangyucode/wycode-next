@@ -5,7 +5,6 @@ tags:
   - Rust
   - Solid.js
   - SQLite
-  - WebUI
 category: Backend
 ---
 

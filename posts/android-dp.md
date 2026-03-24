@@ -3,7 +3,7 @@ title: Android度量设计规范
 date: 2017-9-4 16:46:17
 tags:
   - Android
-  - Material Design
+  - Design
 category: Mobile
 ---
 

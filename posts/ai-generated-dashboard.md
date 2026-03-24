@@ -5,7 +5,6 @@ tags:
   - Next.js
   - AI
   - SQLite
-  - Data Visualization
 category: AI
 ---
 

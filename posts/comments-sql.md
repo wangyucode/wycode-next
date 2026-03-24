@@ -6,7 +6,6 @@ tags:
 - SQL
 - Spring
 - JPA
-- Hibernate
 category: Backend
 ---
 

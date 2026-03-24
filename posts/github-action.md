@@ -4,7 +4,6 @@ date: 2020-10-28 20:04:26
 tags:
   - Github
   - NodeJS
-  - SFTP
 category: DevOps
 ---
 

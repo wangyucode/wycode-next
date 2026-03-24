@@ -4,7 +4,6 @@ date: 2017-6-16 14:46:22
 tags:
   - Android
   - Git
-  - SVN
 category: Mobile
 ---
 

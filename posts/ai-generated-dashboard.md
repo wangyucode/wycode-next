@@ -102,5 +102,3 @@ docker run -d \
 如果你正在寻找一个能帮你快速从数据库中"挖掘"价值，且无需编写代码的可视化工具，**AI-Powered Data Visualizer** 绝对值得一试。
 
 项目地址：https://github.com/wangyucode/ai-generated-dashboard
-
-本文原始发表于 <https://wycode.cn/blog/ai-generated-dashboard>，转载请注明出处

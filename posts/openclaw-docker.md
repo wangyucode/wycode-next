@@ -95,5 +95,3 @@ docker compose run --rm openclaw-cli dashboard --no-open
 ## 总结
 
 通过 Docker 部署 OpenClaw 不仅简化了环境配置，更重要的是通过容器化技术提供了良好的安全隔离。遵循“最小权限原则”，我们可以更放心地让 AI 助手为我们工作。
-
-本文原始发表于 <https://wycode.cn/blog/openclaw-docker>，转载请注明出处

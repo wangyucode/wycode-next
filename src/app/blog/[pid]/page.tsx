@@ -52,6 +52,10 @@ export default async function PostDetail({ params }: { params: Promise<{ pid: st
                 )}
                 <div className="mt-4">
                     <MarkdownRenderer source={content} />
+
+                    <div className="mt-8 pt-4 border-t border-base-content/10 text-sm text-base-content italic">
+                        本文原始发表于 <Link href={`https://wycode.cn/blog/${pid}`} className="dark:text-neutral-content hover:text-info">https://wycode.cn/blog/{pid}</Link> 并采用 <Link href="https://creativecommons.org/licenses/by/4.0/deed.zh-hans" target="_blank" rel="noopener noreferrer" className="dark:text-neutral-content hover:text-info">CC-BY 国际许可协议</Link> 进行许可。
+                    </div>
                 </div>
             </article>
             <AdSenseCard />

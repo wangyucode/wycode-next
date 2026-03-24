@@ -5,7 +5,7 @@ tags:
 - Watchtower
 - Docker
 - NodeJS
-category: CI CD
+category: DevOps
 ---
 
 ![flow](/images/20200512_auto_deploy.png)

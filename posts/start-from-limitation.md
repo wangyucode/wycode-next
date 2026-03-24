@@ -2,7 +2,7 @@
 title: 《始于极限》标注
 date: 2025-08-20 21:26:05
 tags:
-category: Story
+category: Life
 ---
 
 ![始于极限](https://pic.arkread.com/cover/ebook/f/407667944.1663903605.jpg!cover_default.jpg)

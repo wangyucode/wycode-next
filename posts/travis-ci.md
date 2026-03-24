@@ -6,7 +6,7 @@ tags:
 - Hexo
 - NodeJS
 - Linux
-category: CI CD
+category: DevOps
 ---
 
 ![TravisCI](https://www.smartfile.com/blog/wp-content/uploads/2015/05/logo-travisci-wide1.jpg)

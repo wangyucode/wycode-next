@@ -3,7 +3,7 @@ title: 这一波AI浪潮是否是泡沫？
 date: 2024-10-30 20:24:53
 tags:
 - AI
-category: Story
+category: Life
 ---
 
 ![chatgpt](https://assets.datamation.com/uploads/2023/05/dm-how-to-use-chatgpt-696x464.png)

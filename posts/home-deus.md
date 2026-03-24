@@ -2,7 +2,7 @@
 title: 《未来简史》读书笔记
 date: 2018-1-29 15:08:00
 tags: 
-category: Story
+category: Life
 ---
 
 ![未来简史](/images/20180129_homo_deus.jpg)

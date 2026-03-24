@@ -4,7 +4,7 @@ date: 2024-09-24 08:00:00
 tags:
 - Linux
 - Docker
-category: Linux
+category: DevOps
 ---
 
 ![Caddy](https://caddyserver.com/old/resources/images/caddy-logo.svg)

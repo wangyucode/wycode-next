@@ -4,7 +4,7 @@ date: 2017-6-21 16:24:38
 tags: 
 - Linux
 - vi
-category: Linux
+category: DevOps
 ---
 
 ![vim](https://tse1-mm.cn.bing.net/th/id/OIP-C.S7PWetAEkXIKI3Fgncz96wHaFF?pid=ImgDet&rs=1)

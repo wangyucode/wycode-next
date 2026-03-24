@@ -5,7 +5,7 @@ tags:
   - Github
   - NodeJS
   - SFTP
-category: CI CD
+category: DevOps
 ---
 
 ![Github Action](https://blog-cdn.everhour.com/blog/wp-content/uploads/2023/02/h2jfrvzrbyh1yff2n3wfu2hkqqps6x_uvqo.jpg)

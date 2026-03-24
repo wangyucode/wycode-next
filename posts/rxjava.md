@@ -4,7 +4,7 @@ date: 2018-1-20 15:31:15
 tags:
 - RxJava
 - Java
-category: Languages
+category: Mobile
 ---
 
 ![ReactiveX](https://cdn-ssl-devio-img.classmethod.jp/wp-content/uploads/2021/08/ReactoveX.png)

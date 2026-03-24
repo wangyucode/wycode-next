@@ -4,7 +4,7 @@ date: 2019-5-17 10:34:11
 tags:
 - Linux
 - NGINX
-category: Linux
+category: DevOps
 ---
 
 ![NGINX](https://nginx.org/nginx.png)

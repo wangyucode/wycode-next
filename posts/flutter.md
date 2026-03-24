@@ -6,7 +6,7 @@ tags:
 - Dart
 - Android
 - iOS
-category: Android
+category: Mobile
 ---
 
 ![Flutter](https://blog.scottlogic.com/bquinn/assets/Flutter_logo_text.png)

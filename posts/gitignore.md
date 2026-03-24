@@ -4,8 +4,7 @@ date: 2017-6-16 14:46:22
 tags:
   - Android
   - Git
-  - SVN
-category: Android
+category: Mobile
 ---
 
 ![gitignore](https://git-scm.com/images/logo@2x.png)

@@ -3,7 +3,7 @@ title: 使用WebSocket和STOMP协议开发一个匿名聊天室
 date: 2020-3-9 21:09:14
 tags:
 - WebSocket
-- Spring Boot
+- Spring
 - Kotlin
 category: Backend
 ---

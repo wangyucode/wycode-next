@@ -4,7 +4,7 @@ date: 2023-09-11 23:19:47
 tags:
   - Linux
   - Git
-category: Linux
+category: DevOps
 ---
 
 ![git](https://git-scm.com/images/logo@2x.png)

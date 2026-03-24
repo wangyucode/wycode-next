@@ -2,7 +2,7 @@
 title: 《始于极限》标注
 date: 2025-08-20 21:26:05
 tags:
-category: Story
+category: Life
 ---
 
 ![始于极限](https://pic.arkread.com/cover/ebook/f/407667944.1663903605.jpg!cover_default.jpg)
@@ -58,5 +58,3 @@ category: Story
 不想被贴上“女权”的标签，又想发表女性主义言论。
 
 为了照顾女性而设立的全国的“女性服务中心”，又因为不想被特殊对待，改成“男女共同参与中心”。改完又觉得男性被纳入瓜分了她们的预算。啊？那我们全国各地的妇联岂不是有歧视女性之嫌？但愿我们不会有那一天。
-
-本文原始发表于 <https://wycode.cn/blog/caddy>，转载请注明出处

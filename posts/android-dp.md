@@ -3,8 +3,8 @@ title: Android度量设计规范
 date: 2017-9-4 16:46:17
 tags:
   - Android
-  - Material Design
-category: Android
+  - Design
+category: Mobile
 ---
 
 ![Android](https://img-blog.csdnimg.cn/c5c68cae3bf640eaa2a3ec03fc518b1c.png)

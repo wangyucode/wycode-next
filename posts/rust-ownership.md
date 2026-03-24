@@ -3,7 +3,7 @@ title: 理解Rust语言的所有权以及借用、引用、切片。
 date: 2021-1-23 12:05:02
 tags:
 - Rust
-category: Languages
+category: Backend
 ---
 
 ![Rust](https://www.rust-lang.org/static/images/rust-logo-blk.svg)

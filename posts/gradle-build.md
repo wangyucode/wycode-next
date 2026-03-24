@@ -4,7 +4,7 @@ date: 2017-9-4 15:53:38
 tags:
 - Gradle
 - Android
-category: Android
+category: Mobile
 ---
 
 ![Gradle](https://ts1.cn.mm.bing.net/th/id/R-C.da7d3edf2afaf378bff91a21e6385091?rik=kWTVUo%2be2O8bbg&riu=http%3a%2f%2ftheeye.pe.kr%2fwp-content%2fuploads%2f2014%2f02%2fgradle.png&ehk=5NJHqrr5W7rLhp4CEUQIadjJ83TfKvlokTsc%2bzFFiLo%3d&risl=&pid=ImgRaw&r=0)

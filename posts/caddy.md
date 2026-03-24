@@ -4,7 +4,7 @@ date: 2024-09-24 08:00:00
 tags:
 - Linux
 - Docker
-category: Linux
+category: DevOps
 ---
 
 ![Caddy](https://caddyserver.com/old/resources/images/caddy-logo.svg)
@@ -77,5 +77,3 @@ wycode.cn {
 - **Deno API：**`handle /api/v1/*` 配置反向代理，`reverse_proxy "http://deno:8083"` 表示将 `/api/v1` 映射到 `http://deno:8083` 服务
 - **MongoDB WebUI：**`handle /mongo/*` 配置反向代理，`reverse_proxy "http://mongo-express:8081"` 表示将 `/mongo` 映射到 `http://mongo-express:8081` 服务
 - **NextJs主站：**`handle` 配置静态文件服务，`root * /srv/wycode` 表示将 `/` 目录映射到 `/srv/wycode` 目录，`try_files {path} /{path}.html {path}/ /404.html` 表示如果请求的路径不存在，则尝试查找 `/` 目录下的文件，如果文件不存在，则返回 404 错误。
-
-本文原始发表于 <https://wycode.cn/blog/caddy>，转载请注明出处

@@ -3,7 +3,7 @@ title:  数据结构与算法学习笔记02
 date: 2018-3-16 20:41:04
 tags:
 - C
-category: Computer Science
+category: Life
 ---
 
 ![浙江大学](https://www.smpg888.com/resource/images/19b3b5c5671f44a4b9f4320dd8fcc734_34.jpg)

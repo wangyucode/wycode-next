@@ -3,7 +3,7 @@ title: Blender建模入门
 date: 2017-7-18 17:53:34
 tags:
   - Blender
-category: 3D
+category: Life
 ---
 
 ![Blender](/images/20170717_blender_logo.png)

@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Bars3Icon, BeakerIcon, ClipboardIcon, PencilIcon, UserCircleIcon, XMarkIcon, Cog6ToothIcon } from "@heroicons/react/24/outline";
+import { Bars3Icon, BeakerIcon, ClipboardIcon, PencilIcon, UserCircleIcon, XMarkIcon, Cog6ToothIcon, TrophyIcon } from "@heroicons/react/24/outline";
 import { MenuLinks } from "./navbar";
 import DockerIcon from "../svg/docker";
 import SwaggerIcon from "../svg/swagger";
@@ -14,6 +14,7 @@ export default function MobileMenu() {
     const isBlogPage = pathname === "/" || pathname.startsWith("/blog");
     const isClipboardPage = pathname === MenuLinks.CLIPBOARD;
     const isAppsPage = pathname === MenuLinks.APP;
+    const isGaokaoPage = pathname === MenuLinks.GAOKAO;
     const isManagePage = pathname.startsWith("/manage");
 
     const handleToggle = (event: React.SyntheticEvent<HTMLDetailsElement>) => {
@@ -38,6 +39,7 @@ export default function MobileMenu() {
                 <li><Link href={MenuLinks.HOME} className={`font-bold ${isBlogPage ? "menu-active" : ""}`}><PencilIcon className="w-4" />博客</Link></li>
                 <li><Link href={MenuLinks.QINGJIN} className="font-bold" target="_blank"><img src="/apps/qingjin.png" alt="AI伴侣" className="w-4" />青衿AI</Link></li>
                 <li><Link href={MenuLinks.ONI} className={`font-bold ${pathname === MenuLinks.ONI ? "menu-active" : ""}`}><img src="/apps/oni-icon.png" alt="缺氧计算器" className="w-4" />缺氧计算器</Link></li>
+                <li><Link href={MenuLinks.GAOKAO} className={`font-bold ${isGaokaoPage ? "menu-active" : ""}`}><TrophyIcon className="w-4" />AI高考成绩榜</Link></li>
                 <li><Link href={MenuLinks.CLIPBOARD} className={`font-bold ${isClipboardPage ? "menu-active" : ""}`}><ClipboardIcon className="w-4" />剪切板</Link></li>
                 <li><Link href={MenuLinks.APP} className={`font-bold ${isAppsPage ? "menu-active" : ""}`}><BeakerIcon className="w-4" />项目</Link></li>
 

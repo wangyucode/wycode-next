@@ -1,5 +1,5 @@
 'use client'
-import { ClipboardIcon, PencilIcon, UserCircleIcon, BeakerIcon, Cog6ToothIcon } from "@heroicons/react/24/outline";
+import { ClipboardIcon, PencilIcon, UserCircleIcon, BeakerIcon, Cog6ToothIcon, TrophyIcon } from "@heroicons/react/24/outline";
 import { debounce } from "lodash-es";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -7,7 +7,7 @@ import { MenuLinks } from "./navbar";
 import DockerIcon from "../svg/docker";
 import SwaggerIcon from "../svg/swagger";
 import { useState } from "react";
-import { CircleStackIcon,PresentationChartBarIcon } from "@heroicons/react/24/solid";
+import { CircleStackIcon, PresentationChartBarIcon } from "@heroicons/react/24/solid";
 
 export default function DesktopMenu() {
     const pathname = usePathname();
@@ -33,6 +33,7 @@ export default function DesktopMenu() {
             <li ><Link href={MenuLinks.HOME} className={`font-bold ${isBlogPage ? "menu-active" : ""}`}><PencilIcon className="w-4" />博客</Link></li>
             <li ><Link href={MenuLinks.QINGJIN} className="font-bold" target="_blank"><img src="/apps/qingjin.png" alt="AI伴侣" className="w-4" />青衿AI</Link></li>
             <li ><Link href={MenuLinks.ONI} className={`font-bold ${pathname === MenuLinks.ONI ? "menu-active" : ""}`}><img src="/apps/oni-icon.png" alt="缺氧计算器" className="w-4" />缺氧计算器</Link></li>
+            <li ><Link href={MenuLinks.GAOKAO} className={`font-bold ${pathname === MenuLinks.GAOKAO ? "menu-active" : ""}`}><TrophyIcon className="w-4" />AI高考成绩榜</Link></li>
             <li ><Link href={MenuLinks.CLIPBOARD} className={`font-bold ${pathname === MenuLinks.CLIPBOARD ? "menu-active" : ""}`}><ClipboardIcon className="w-4" />剪切板</Link></li>
             <li ><Link href={MenuLinks.APP} className={`font-bold ${pathname === MenuLinks.APP ? "menu-active" : ""}`}><BeakerIcon className="w-4" />项目</Link></li>
 

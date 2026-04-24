@@ -12,6 +12,7 @@ export enum MenuLinks {
     APP = '/apps',
     QINGJIN = 'https://ai.wycode.cn',
     ONI = '/oni',
+    GAOKAO = '/gaokao',
     CLIPBOARD = '/clipboard',
     DOGGER = '/manage/dogger',
     DASHBOARD = '/manage/dashboard',

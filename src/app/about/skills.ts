@@ -1,10 +1,11 @@
 import {
+  ComposeOption,
   GraphSeriesOption,
   LegendComponentOption,
   TooltipComponentOption,
 } from "echarts";
 
-export const SKILLS_OPTION: echarts.ComposeOption<
+export const SKILLS_OPTION: ComposeOption<
   TooltipComponentOption | GraphSeriesOption | LegendComponentOption
 > = {
   backgroundColor: "transparent",

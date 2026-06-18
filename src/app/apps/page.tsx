@@ -33,7 +33,6 @@ export default function AppsPage() {
     {
       title: "ONI产物计算器",
       img1: "/apps/oni.jpg",
-      link: "/oni",
       github: "https://github.com/wangyucode/oni",
       detail: "计算《缺氧》游戏中的建筑、动物、植物、相变产物平衡的小工具",
       type: "Web+小程序",

@@ -35,7 +35,7 @@ export default function Navbar() {
                 <DesktopMenu />
             </nav>
             <div className="navbar-end gap-2">
-                <AiButton />
+                {/* <AiButton /> */}
                 <ThemeToggle />
                 <MobileMenu />
             </div>

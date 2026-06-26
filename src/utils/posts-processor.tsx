@@ -202,9 +202,7 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ source }: Ma
 
   // 自定义组件配置
   const components: Components = {
-    img: ({ node, ...imageAttr }) => {
-      void node;
-
+    img: ({ node: _node, ...imageAttr }) => {
       return (
         <figure className="flex flex-col items-center">
           <MarkdownImagePreview {...imageAttr} className="mx-auto max-h-64 max-w-72" />

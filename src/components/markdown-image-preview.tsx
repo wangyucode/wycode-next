@@ -1,7 +1,8 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { createPortal } from 'react-dom';
+import { XMarkIcon } from '@heroicons/react/24/outline';
 
 type MarkdownImagePreviewProps = React.ImgHTMLAttributes<HTMLImageElement>;
 
@@ -13,6 +14,8 @@ export default function MarkdownImagePreview({
 }: MarkdownImagePreviewProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
+  const triggerRef = useRef<HTMLImageElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     setIsMounted(true);
@@ -37,6 +40,9 @@ export default function MarkdownImagePreview({
       document.body.style.paddingRight = `${scrollbarWidth}px`;
     }
 
+    // 自动聚焦关闭按钮
+    closeButtonRef.current?.focus();
+
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
         setIsOpen(false);
@@ -53,6 +59,8 @@ export default function MarkdownImagePreview({
       document.body.style.width = previousBodyWidth;
       window.removeEventListener('keydown', handleKeyDown);
       window.scrollTo(0, scrollY);
+      // 恢复焦点到触发图片
+      triggerRef.current?.focus();
     };
   }, [isOpen]);
 
@@ -64,31 +72,35 @@ export default function MarkdownImagePreview({
     setIsOpen(true);
   };
 
-  const image = (
-    <img
-      {...props}
-      alt={alt}
-      src={src}
-      className={`${className ?? ''} cursor-zoom-in rounded-md transition hover:opacity-90`}
-      role="button"
-      tabIndex={0}
-      aria-label={alt ? `查看大图：${alt}` : '查看大图'}
-      onClick={openPreview}
-      onKeyDown={(event) => {
-        if (event.key === 'Enter' || event.key === ' ') {
-          openPreview(event);
-        }
-      }}
-    />
-  );
-
   if (!src) {
-    return image;
+    return (
+      <img
+        {...props}
+        alt={alt}
+        src={src}
+        className={`${className ?? ''} rounded-md`}
+      />
+    );
   }
 
   return (
     <>
-      {image}
+      <img
+        {...props}
+        ref={triggerRef}
+        alt={alt}
+        src={src}
+        className={`${className ?? ''} cursor-zoom-in rounded-md transition hover:opacity-90`}
+        role="button"
+        tabIndex={0}
+        aria-label={alt ? `查看大图：${alt}` : '查看大图'}
+        onClick={openPreview}
+        onKeyDown={(event) => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            openPreview(event);
+          }
+        }}
+      />
       {isMounted && isOpen && createPortal(
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm sm:p-6"
@@ -98,12 +110,13 @@ export default function MarkdownImagePreview({
           onClick={() => setIsOpen(false)}
         >
           <button
+            ref={closeButtonRef}
             type="button"
             className="btn btn-circle btn-sm absolute right-3 top-3 bg-base-100/90 text-base-content shadow-md sm:right-5 sm:top-5"
             aria-label="关闭图片预览"
             onClick={() => setIsOpen(false)}
           >
-            x
+            <XMarkIcon className="h-5 w-5" />
           </button>
           <img
             src={src}

@@ -7,6 +7,7 @@ import ReactMarkdown, { Components } from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeUnwrapImages from 'rehype-unwrap-images';
 import { bundledLanguages, bundledThemes, createHighlighter } from 'shiki';
+import MarkdownImagePreview from '@/components/markdown-image-preview';
 
 export interface Post {
   id: string;
@@ -201,12 +202,14 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ source }: Ma
 
   // 自定义组件配置
   const components: Components = {
-    img: (attr) => (
-      <figure className="flex flex-col items-center">
-        <img {...attr} className="mx-auto max-h-64 max-w-72" />
-        {attr.alt && <figcaption className="text-sm text-gray-500 dark:text-gray-400 mt-1">{attr.alt}</figcaption>}
-      </figure>
-    ),
+    img: ({ node: _node, ...imageAttr }) => {
+      return (
+        <figure className="flex flex-col items-center">
+          <MarkdownImagePreview {...imageAttr} className="mx-auto max-h-64 max-w-72" />
+          {imageAttr.alt && <figcaption className="text-sm text-gray-500 dark:text-gray-400 mt-1">{imageAttr.alt}</figcaption>}
+        </figure>
+      );
+    },
     // h2: ({ children }) => (
     //   <h2 className="text-xl font-bold py-2 border-b border-slate-400/30 mb-2">{children}</h2>
     // ),

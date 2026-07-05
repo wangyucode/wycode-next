@@ -34,7 +34,7 @@ export default function PopularPosts({ recentArticles = [], idTitleMap = {} }: P
             try {
                 setLoading(true);
                 const response = await fetch(
-                    `https://wycode.cn/api/v1/popular-posts?days=${DAYS}&limit=${LIMIT}`
+                    `/api/v1/popular-posts?days=${DAYS}&limit=${LIMIT}`
                 );
                 const data = await response.json();
                 if (data.success && Array.isArray(data.payload) && data.payload.length > 0) {
@@ -57,7 +57,7 @@ export default function PopularPosts({ recentArticles = [], idTitleMap = {} }: P
                     }
                 }
             } catch (error) {
-                console.error('Failed to fetch popular posts:', error);
+                console.warn('Failed to fetch popular posts:', error);
                 // 如果请求失败，也使用最近的博客作为后备
                 if (recentArticles && recentArticles.length > 0) {
                     const fallbackPosts: PostView[] = recentArticles.slice(0, LIMIT).map((article) => ({

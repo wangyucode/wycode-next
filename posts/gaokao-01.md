@@ -3,7 +3,7 @@ title: 大模型高考测评第一期：DeepSeek V4 vs 豆包 2.0，谁才是国
 date: 2026-04-29 10:00:00
 tags:
   - AI
-category: 大模型高考成绩榜
+category: AI
 ---
 
 ![大模型高考成绩榜](/images/20260429_gaokao.png)

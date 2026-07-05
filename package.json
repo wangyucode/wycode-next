@@ -1,6 +1,6 @@
 {
   "name": "wycode",
-  "version": "3.6.2",
+  "version": "3.6.3",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
@@ -9,7 +9,9 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@ai-sdk/react": "^4.0.10",
     "@heroicons/react": "^2.2.0",
+    "ai": "^7.0.9",
     "lodash-es": "^4.17.23",
     "next": "^16.2.2",
     "ogl": "^1.0.11",
@@ -41,5 +43,5 @@
     "tailwindcss": "^4",
     "typescript": "^5"
   },
-  "packageManager": "pnpm@11.7.0"
+  "packageManager": "pnpm@11.10.0"
 }

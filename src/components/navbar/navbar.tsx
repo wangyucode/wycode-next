@@ -5,7 +5,7 @@ import icon from "@/app/icon.svg";
 import ThemeToggle from "./theme-toggle";
 import MobileMenu from "./mobile-menu";
 import DesktopMenu from "./desktop-menu";
-import AiButton from "./ai/ai-button";
+import AiChat from "./ai/ai-chat";
 
 export enum MenuLinks {
     HOME = '/',
@@ -35,7 +35,7 @@ export default function Navbar() {
                 <DesktopMenu />
             </nav>
             <div className="navbar-end gap-2">
-                {/* <AiButton /> */}
+                <AiChat />
                 <ThemeToggle />
                 <MobileMenu />
             </div>

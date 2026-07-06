@@ -2,11 +2,9 @@
 
 import { format, formatDistanceToNow } from "date-fns";
 import { zhCN } from "date-fns/locale";
-import {
-    HandThumbUpIcon,
-    PaperAirplaneIcon,
-} from "@heroicons/react/24/outline";
-import { HandThumbUpIcon as ThumbUpSolidIcon } from "@heroicons/react/24/solid";
+import HandThumbUpIcon from "@heroicons/react/24/outline/HandThumbUpIcon";
+import PaperAirplaneIcon from "@heroicons/react/24/outline/PaperAirplaneIcon";
+import ThumbUpSolidIcon from "@heroicons/react/24/solid/HandThumbUpIcon";
 import { useState } from "react";
 
 export const key = "114c03ec4d6f40a4a1490a5638d8141d";

@@ -1,6 +1,10 @@
 'use client'
 import { useState, useRef, useEffect } from 'react'
-import { ArrowUturnLeftIcon, CloudArrowUpIcon, ExclamationCircleIcon, InformationCircleIcon, MagnifyingGlassIcon } from '@heroicons/react/24/outline'
+import ArrowUturnLeftIcon from '@heroicons/react/24/outline/ArrowUturnLeftIcon'
+import CloudArrowUpIcon from '@heroicons/react/24/outline/CloudArrowUpIcon'
+import ExclamationCircleIcon from '@heroicons/react/24/outline/ExclamationCircleIcon'
+import InformationCircleIcon from '@heroicons/react/24/outline/InformationCircleIcon'
+import MagnifyingGlassIcon from '@heroicons/react/24/outline/MagnifyingGlassIcon'
 import Comments from '@/components/comments'
 import { AdSenseCard, AdSenseContent } from '@/components/aside/adsence'
 

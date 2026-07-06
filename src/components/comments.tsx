@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { PaperAirplaneIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import PaperAirplaneIcon from "@heroicons/react/24/outline/PaperAirplaneIcon";
+import XMarkIcon from "@heroicons/react/24/outline/XMarkIcon";
 import Comment from "./comment";
 import { key, app } from "./comment";
 

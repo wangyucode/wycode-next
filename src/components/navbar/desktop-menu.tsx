@@ -1,5 +1,12 @@
 'use client'
-import { ClipboardIcon, PencilIcon, UserCircleIcon, BeakerIcon, Cog6ToothIcon, TrophyIcon } from "@heroicons/react/24/outline";
+import ClipboardIcon from "@heroicons/react/24/outline/ClipboardIcon";
+import PencilIcon from "@heroicons/react/24/outline/PencilIcon";
+import UserCircleIcon from "@heroicons/react/24/outline/UserCircleIcon";
+import BeakerIcon from "@heroicons/react/24/outline/BeakerIcon";
+import Cog6ToothIcon from "@heroicons/react/24/outline/Cog6ToothIcon";
+import TrophyIcon from "@heroicons/react/24/outline/TrophyIcon";
+import CircleStackIcon from "@heroicons/react/24/solid/CircleStackIcon";
+import PresentationChartBarIcon from "@heroicons/react/24/solid/PresentationChartBarIcon";
 import { debounce } from "lodash-es";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -7,7 +14,6 @@ import { MenuLinks } from "./navbar";
 import DockerIcon from "../svg/docker";
 import SwaggerIcon from "../svg/swagger";
 import { useState } from "react";
-import { CircleStackIcon, PresentationChartBarIcon } from "@heroicons/react/24/solid";
 
 export default function DesktopMenu() {
     const pathname = usePathname();

@@ -25,8 +25,9 @@ export default function AppsPage() {
     {
       title: "青衿AI",
       img1: "/apps/qingjin.png",
+      link: "https://wycode.cn/upload/ai-offline.html",
       detail: "《青衿AI》有记忆，有生活，会做梦，会玩手机，真正活着的AI伴侣",
-      deprecated: "已下线",
+      deprecated: "《青衿AI》已于7月1日停服下线。",
       type: "AI应用",
       techStacks: ["NextJS", "React", "TypeScript", "SQLite"]
     },

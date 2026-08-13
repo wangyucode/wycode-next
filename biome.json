@@ -1,0 +1,72 @@
+{
+	"$schema": "https://biomejs.dev/schemas/2.5.8/schema.json",
+	"vcs": {
+		"enabled": true,
+		"clientKind": "git",
+		"useIgnoreFile": true
+	},
+	"files": {
+		"includes": [
+			"src/**/*.ts",
+			"src/**/*.tsx",
+			"src/**/*.js",
+			"src/**/*.mjs",
+			"*.ts",
+			"*.mjs",
+			"!next-env.d.ts"
+		]
+	},
+	"formatter": {
+		"enabled": false
+	},
+	"assist": {
+		"enabled": false
+	},
+	"javascript": {
+		"formatter": {
+			"quoteStyle": "double"
+		}
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"preset": "recommended",
+			"a11y": {
+				"preset": "none"
+			},
+			"style": {
+				"preset": "none",
+				"useConst": "warn"
+			},
+			"complexity": {
+				"noForEach": "off",
+				"useLiteralKeys": "off",
+				"noUselessFragments": "off"
+			},
+			"correctness": {
+				"useExhaustiveDependencies": "off",
+				"noUnusedVariables": "warn",
+				"noUnusedImports": "warn",
+				"noUnusedFunctionParameters": "off"
+			},
+			"security": {
+				"noBlankTarget": "warn",
+				"noDangerouslySetInnerHtml": "warn"
+			},
+			"suspicious": {
+				"noVar": "error",
+				"noExplicitAny": "off",
+				"noArrayIndexKey": "off",
+				"noConsole": "off",
+				"noAssignInExpressions": "off"
+			},
+			"performance": {
+				"noImgElement": "off",
+				"noAccumulatingSpread": "off"
+			},
+			"nursery": {
+				"preset": "none"
+			}
+		}
+	}
+}

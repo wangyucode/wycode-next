@@ -10,7 +10,6 @@ import AiChat from "./ai/ai-chat";
 export enum MenuLinks {
     HOME = '/',
     APP = '/apps',
-    QINGJIN = 'https://ai.wycode.cn',
     ONI = '/oni',
     GAOKAO = '/gaokao',
     CLIPBOARD = '/clipboard',

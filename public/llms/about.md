@@ -12,6 +12,8 @@
 
 - 邮件：wangyu@wycode.cn
 - GitHub：https://github.com/wangyucode
+- B站：[王郁的小站](https://space.bilibili.com/412255218)
+- 微信视频号：王郁的小站
 - 微信：见页面二维码（https://wycode.cn/about）
 
 ## 相关链接

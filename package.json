@@ -10,9 +10,9 @@
     "lint:fix": "biome check --write"
   },
   "dependencies": {
-    "@ai-sdk/react": "^4.0.10",
+    "@ai-sdk/react": "^4.0.102",
     "@heroicons/react": "^2.2.0",
-    "ai": "^7.0.84",
+    "ai": "^7.0.99",
     "lodash-es": "^4.18.1",
     "next": "~16.3.1",
     "ogl": "^1.0.11",

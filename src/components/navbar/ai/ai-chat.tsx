@@ -17,6 +17,14 @@ export default function AiChat() {
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const [userId, setUserId] = useState<string>("");
 
+  // 路径展示精简：去掉 /www/wycode/ 前缀，高考榜单路径转中文
+  const prettyPath = (p: string) => {
+    if (p.startsWith("/www/wycode/")) return p.slice("/www/wycode/".length);
+    if (p.startsWith("/www/gaokao-app/"))
+      return "高考榜单/" + p.slice("/www/gaokao-app/".length);
+    return p.replace(/^\/www\//, "");
+  };
+
   useEffect(() => {
     setMounted(true);
     let id = localStorage.getItem("ai_chat_user_id");
@@ -44,6 +52,34 @@ export default function AiChat() {
   });
 
   const isLoading = status === "streaming" || status === "submitted";
+
+  // 工具执行状态：最后一条 assistant 消息里有 reading 无对应 done 的 read_file part
+  const toolActive = (() => {
+    for (let i = messages.length - 1; i >= 0; i--) {
+      const msg = messages[i];
+      if (msg.role !== "assistant") continue;
+      const parts = (msg.parts ?? []) as unknown as Array<{
+        type: string;
+        id?: string;
+        data?: { path?: string; status?: string };
+      }>;
+      const doneIds = new Set(
+        parts
+          .filter(
+            (p) => p.type === "data-read_file" && p.data?.status === "done"
+          )
+          .map((p) => p.id)
+      );
+      const reading = parts.filter(
+        (p) =>
+          p.type === "data-read_file" &&
+          p.data?.status === "reading" &&
+          !doneIds.has(p.id)
+      );
+      return reading.length > 0;
+    }
+    return false;
+  })();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInput(e.target.value);
@@ -89,10 +125,17 @@ export default function AiChat() {
                 </div>
                 <div>
                   <h3 className="font-bold text-lg leading-none">秘书Agent</h3>
-                  <span className="text-xs text-success flex items-center gap-1 mt-1">
-                    <span className="w-2 h-2 rounded-full bg-success"></span>
-                    随时待命
-                  </span>
+                  {toolActive ? (
+                    <span className="text-xs text-warning flex items-center gap-1 mt-1">
+                      <span className="loading loading-spinner loading-xs"></span>
+                      正在翻阅博客…
+                    </span>
+                  ) : (
+                    <span className="text-xs text-success flex items-center gap-1 mt-1">
+                      <span className="w-2 h-2 rounded-full bg-success"></span>
+                      随时待命
+                    </span>
+                  )}
                 </div>
               </div>
               <button
@@ -109,6 +152,7 @@ export default function AiChat() {
                 <div className="text-center text-base-content py-10">
                   <p className="text-lg font-medium mb-2">你好呀 👋 我是王郁的秘书Agent</p>
                   <p className="text-sm">关于他的博客、项目或技术栈，都可以问我哦！</p>
+                  <p className="text-sm mt-1">我能实时翻阅博客文章和高考榜单数据~</p>
                   <p className="text-sm mt-1">有悄悄话，我也可以帮你转达~</p>
                 </div>
               )}
@@ -143,6 +187,26 @@ export default function AiChat() {
                           </div>
                         ) : (
                           <div key={index} className="whitespace-pre-wrap">{part.text}</div>
+                        );
+                      }
+                      // 工具状态：后端 data-read_file 事件（reading → done）
+                      if (part.type === "data-read_file") {
+                        const data = (part as unknown as {
+                          data?: { path?: string; status?: string };
+                        }).data;
+                        const label = prettyPath(data?.path ?? "");
+                        if (data?.status === "reading") {
+                          return (
+                            <div key={index} className="flex items-center gap-1.5 text-xs opacity-70 mb-1">
+                              <span className="loading loading-spinner loading-xs shrink-0"></span>
+                              <span className="truncate">📖 正在读取{label}…</span>
+                            </div>
+                          );
+                        }
+                        return (
+                          <div key={index} className="text-xs opacity-50 mb-1 truncate">
+                            ✅ 已读取 {label}
+                          </div>
                         );
                       }
                       return null;

@@ -30,9 +30,9 @@ export const MAIN_PAGES: MainPageInfo[] = [
     description: "在线工具与应用集合",
   },
   {
-    name: "高考",
+    name: "AI高考成绩榜",
     doc: `${BASE_URL}/llms/gaokao.md`,
-    description: "高考相关数据与分析",
+    description: "大模型高考成绩榜",
   },
   {
     name: "缺氧",

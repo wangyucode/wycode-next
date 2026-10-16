@@ -43,6 +43,8 @@ export async function getSortedPosts(): Promise<Post[]> {
     const matterResult = matter(fileContents, { excerpt_separator: '<!--more-->' });
 
     matterResult.excerpt = matterResult.excerpt || '';
+    // 摘要分隔符只在列表页用于截取摘要，正文里不应再渲染出来
+    matterResult.content = matterResult.content.replace(/<!--more-->/g, '');
 
     // 格式化日期
     matterResult.data.date = format(new Date(matterResult.data.date), 'yyyy-MM-dd');

@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { UserIcon } from '@heroicons/react/24/outline';
+import { TvIcon, UserIcon, VideoCameraIcon } from '@heroicons/react/24/outline';
 import GithubIcon from '@/components/svg/github';
 import WechatIcon from '@/components/svg/wechat';
 import SkillChart from './skill-chart';
@@ -77,6 +77,28 @@ export default function AboutPage() {
                                         >
                                             https://github.com/wangyucode
                                         </a>
+                                    </p>
+                                </div>
+                                <div className="flex items-start">
+                                    <TvIcon className="h-5 w-5 mr-3 mt-0.5 flex-shrink-0 text-pink-500" />
+                                    <p>
+                                        B站：
+                                        <a
+                                            href="https://space.bilibili.com/412255218"
+                                            title="B站主页"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="ml-1 font-semibold text-sky-500 hover:text-sky-400 dark:hover:text-sky-300 transition-colors"
+                                        >
+                                            王郁的小站
+                                        </a>
+                                    </p>
+                                </div>
+                                <div className="flex items-start">
+                                    <VideoCameraIcon className="h-5 w-5 mr-3 mt-0.5 flex-shrink-0 text-red-500" />
+                                    <p>
+                                        微信视频号：
+                                        <span className="ml-1 font-semibold">搜「王郁的小站」</span>
                                     </p>
                                 </div>
                                 <div className="flex flex-col gap-2">
